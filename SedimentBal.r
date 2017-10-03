@@ -5,7 +5,7 @@
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/run65')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/run63')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -334,44 +334,44 @@ res_media8<- (POM_res8_m_day *fPOM$ws8) + (silt_res8_m_day*fsilt$ws8) #1/day
 res_media9<- (POM_res9_m_day *fPOM$ws9) + (silt_res9_m_day*fsilt$ws9) #1/day
 res_media10<-(POM_res10_m_day*fPOM$ws10)+ (silt_res10_m_day*fsilt$ws10) #1/day
 
-res1_g_m3_d<-res_media1 * solids_sed1      #m/day * g/m3 --> gm2d
-res1_g_y <-(res1_g_m3_d*a1)*365
+res1_g_m2_d<-res_media1 * solids_sed1      #m/day * g/m3 --> gm2d
+res1_g_y <-(res1_g_m2_d*a1)*365
 res1_kg_y <-res1_g_y/1000
 
-res2_g_m3_d<-res_media2 * solids_sed2      #1/day * g/m3
-res2_g_y <-(res2_g_m3_d*a2)*365
+res2_g_m2_d<-res_media2 * solids_sed2      #1/day * g/m3
+res2_g_y <-(res2_g_m2_d*a2)*365
 res2_kg_y <-res2_g_y/1000
 
-res3_g_m3_d<-res_media3 * solids_sed3      #1/day * g/m3
-res3_g_y <-(res3_g_m3_d*a3)*365
+res3_g_m2_d<-res_media3 * solids_sed3      #1/day * g/m3
+res3_g_y <-(res3_g_m2_d*a3)*365
 res3_kg_y <-res3_g_y/1000
 
-res4_g_m3_d<-res_media4 * solids_sed4     #1/day * g/m3
-res4_g_y <-(res4_g_m3_d*a4)*365
+res4_g_m2_d<-res_media4 * solids_sed4     #1/day * g/m3
+res4_g_y <-(res4_g_m2_d*a4)*365
 res4_kg_y <-res4_g_y/1000
 
-res5_g_m3_d<-res_media5 * solids_sed5      #1/day * g/m3
-res5_g_y <-(res5_g_m3_d*a5)*365
+res5_g_m2_d<-res_media5 * solids_sed5      #1/day * g/m3
+res5_g_y <-(res5_g_m2_d*a5)*365
 res5_kg_y <-res5_g_y/1000
 
-res6_g_m3_d<-res_media6 * solids_sed6     #1/day * g/m3
-res6_g_y <-(res6_g_m3_d*a6)*365
+res6_g_m2_d<-res_media6 * solids_sed6     #1/day * g/m3
+res6_g_y <-(res6_g_m2_d*a6)*365
 res6_kg_y <-res6_g_y/1000
 
-res7_g_m3_d<-res_media7 * solids_sed7      #1/day * g/m3
-res7_g_y <-(res7_g_m3_d*a7)*365
+res7_g_m2_d<-res_media7 * solids_sed7      #1/day * g/m3
+res7_g_y <-(res7_g_m2_d*a7)*365
 res7_kg_y <-res7_g_y/1000
 
-res8_g_m3_d<-res_media8 * solids_sed8      #1/day * g/m3
-res8_g_y <-(res8_g_m3_d*a8)*365
+res8_g_m2_d<-res_media8 * solids_sed8      #1/day * g/m3
+res8_g_y <-(res8_g_m2_d*a8)*365
 res8_kg_y <-res8_g_y/1000
 
-res9_g_m3_d<-res_media9 * solids_sed9      #1/day * g/m3
-res9_g_y <-(res9_g_m3_d*a9)*365
+res9_g_m2_d<-res_media9 * solids_sed9      #1/day * g/m3
+res9_g_y <-(res9_g_m2_d*a9)*365
 res9_kg_y <-res9_g_y/1000
 
-res10_g_m3_d<-res_media10 * solids_sed10      #1/day * g/m3
-res10_g_y <-(res10_g_m3_d*a10)*365
+res10_g_m2_d<-res_media10 * solids_sed10      #1/day * g/m3
+res10_g_y <-(res10_g_m2_d*a10)*365
 res10_kg_y <-res10_g_y/1000
 ##92.4% of re-suspension (1.13 10^12 g year?1) 
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
@@ -401,3 +401,18 @@ summary(res1_kg_y[1200:1334]+res2_kg_y[1200:1334]+res3_kg_y[1200:1334]+
   res4_kg_y[1200:1334]+res5_kg_y[1200:1334]+res6_kg_y[1200:1334])
 
 summary(res6_kg_y[1200:1334])
+
+res_tot*1000
+depo_tot*1000
+
+(depo1_g_m3_d/d1)*365 
+(depo2_g_m3_d/d2)*365 
+(depo3_g_m3_d/d3)*365 
+(depo4_g_m3_d/d4)*365 
+(depo5_g_m3_d/d5)*365 
+(depo6_g_m3_d/d6)*365 
+(depo7_g_m3_d/d7)*365 
+(depo8_g_m3_d/d8)*365 
+(depo9_g_m3_d/d9)*365 
+(depo10_g_m3_d/d10)*365 
+
