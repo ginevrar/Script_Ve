@@ -5,7 +5,7 @@
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/run63')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/run65')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -373,6 +373,7 @@ res9_kg_y <-res9_g_y/1000
 res10_g_m2_d<-res_media10 * solids_sed10      #1/day * g/m3
 res10_g_y <-(res10_g_m2_d*a10)*365
 res10_kg_y <-res10_g_y/1000
+
 ##92.4% of re-suspension (1.13 10^12 g year?1) 
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
@@ -405,14 +406,14 @@ summary(res6_kg_y[1200:1334])
 res_tot*1000
 depo_tot*1000
 
-(depo1_g_m3_d/d1)*365 
-(depo2_g_m3_d/d2)*365 
-(depo3_g_m3_d/d3)*365 
-(depo4_g_m3_d/d4)*365 
-(depo5_g_m3_d/d5)*365 
-(depo6_g_m3_d/d6)*365 
-(depo7_g_m3_d/d7)*365 
-(depo8_g_m3_d/d8)*365 
-(depo9_g_m3_d/d9)*365 
-(depo10_g_m3_d/d10)*365 
+((depo1_g_m3_d/d1)*365)/1000    # .054          12
+((depo2_g_m3_d/d2)*365)/1000    #           40 
+((depo3_g_m3_d/d3)*365)/1000    #           4
+((depo4_g_m3_d/d4)*365)/1000    #           33
+((depo5_g_m3_d/d5)*365)/1000    #           27
+((depo6_g_m3_d/d6)*365)/1000    #           29
+((depo7_g_m3_d/d7)*365)/1000    #            29
+((depo8_g_m3_d/d8)*365)/1000    #            7
+((depo9_g_m3_d/d9)*365)/1000    #           10
+((depo10_g_m3_d/d10)*365)/1000  #           24
 
