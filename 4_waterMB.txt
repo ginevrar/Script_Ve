@@ -1,0 +1,8 @@
+
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice')
+
+input_hg1<-...
+
+
+
+diss_hg<-hg+DOChg+DOCmehg+mehg+hg0; str(diss_hg)

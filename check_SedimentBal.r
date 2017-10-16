@@ -5,7 +5,7 @@
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/95/102')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/104')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -81,40 +81,6 @@ fsilt <-silts/TOTs
 Diffusion_coeff<-10^-9             #m2/s
 DF<-Diffusion_coeff*60*60*24       #m2/day  
   
-  #SEDhg*solid_sed -> ng/g*g/m3
-SEDhg_sed1   <-SEDhg$sn1; SEDhg_dsed1   <-SEDhg$dsn1 
-SEDhg_sed2   <-SEDhg$sn2; SEDhg_dsed2   <-SEDhg$dsn2 
-SEDhg_sed3   <-SEDhg$sn3; SEDhg_dsed3   <-SEDhg$dsn3   
-SEDhg_sed4   <-SEDhg$sn4; SEDhg_dsed4   <-SEDhg$dsn4 
-SEDhg_sed5   <-SEDhg$sn5; SEDhg_dsed5   <-SEDhg$dsn5 
-SEDhg_sed6   <-SEDhg$sc6; SEDhg_dsed6   <-SEDhg$dsc6
-SEDhg_sed7   <-SEDhg$sc7; SEDhg_dsed7   <-SEDhg$dsc7
-SEDhg_sed8   <-SEDhg$ss8; SEDhg_dsed8   <-SEDhg$dss8
-SEDhg_sed9   <-SEDhg$ss9; SEDhg_dsed9   <-SEDhg$dss9
-SEDhg_sed10   <-SEDhg$ss10; SEDhg_dsed10   <-SEDhg$dss10
-
-HgT_sed1_ngm3 <- solids_sed1   *SEDhg_sed1  #  ng/g*g/m3 -> ng/m3
-HgT_sed2_ngm3 <- solids_sed2   *SEDhg_sed2  #  ng/g*g/m3 -> ng/m3
-HgT_sed3_ngm3 <- solids_sed3   *SEDhg_sed3  #  ng/g*g/m3 -> ng/m3
-HgT_sed4_ngm3 <- solids_sed4   *SEDhg_sed4  #  ng/g*g/m3 -> ng/m3
-HgT_sed5_ngm3 <- solids_sed5   *SEDhg_sed5  #  ng/g*g/m3 -> ng/m3
-HgT_sed6_ngm3 <- solids_sed6   *SEDhg_sed6  #  ng/g*g/m3 -> ng/m3
-HgT_sed7_ngm3 <- solids_sed7   *SEDhg_sed7  #  ng/g*g/m3 -> ng/m3
-HgT_sed8_ngm3 <- solids_sed8   *SEDhg_sed8  #  ng/g*g/m3 -> ng/m3
-HgT_sed9_ngm3 <- solids_sed9   *SEDhg_sed9  #  ng/g*g/m3 -> ng/m3
-HgT_sed10_ngm3 <- solids_sed10 *SEDhg_sed10  #  ng/g*g/m3 -> ng/m3
-
-HgT_dsed1_ngm3 <- solids_dsed1   *SEDhg_dsed1  #  ng/g*g/m3 -> ng/m3
-HgT_dsed2_ngm3 <- solids_dsed2   *SEDhg_dsed2  #  ng/g*g/m3 -> ng/m3
-HgT_dsed3_ngm3 <- solids_dsed3   *SEDhg_dsed3  #  ng/g*g/m3 -> ng/m3
-HgT_dsed4_ngm3 <- solids_dsed4   *SEDhg_dsed4  #  ng/g*g/m3 -> ng/m3
-HgT_dsed5_ngm3 <- solids_dsed5   *SEDhg_dsed5  #  ng/g*g/m3 -> ng/m3
-HgT_dsed6_ngm3 <- solids_dsed6   *SEDhg_dsed6  #  ng/g*g/m3 -> ng/m3
-HgT_dsed7_ngm3 <- solids_dsed7   *SEDhg_dsed7  #  ng/g*g/m3 -> ng/m3
-HgT_dsed8_ngm3 <- solids_dsed8   *SEDhg_dsed8  #  ng/g*g/m3 -> ng/m3
-HgT_dsed9_ngm3 <- solids_dsed9   *SEDhg_dsed9  #  ng/g*g/m3 -> ng/m3
-HgT_dsed10_ngm3 <- solids_dsed10 *SEDhg_dsed10  #  ng/g*g/m3 -> ng/m3
-
 netdepo_sed1 <-burial$sn1;    burial_sed1 <-burial$dsn1  #cm/y
 netdepo_sed2 <-burial$sn2;    burial_sed2 <-burial$dsn2  #cm/y
 netdepo_sed3 <-burial$sn3;    burial_sed3 <-burial$dsn3  #cm/y
@@ -146,17 +112,6 @@ a7<-1.15E+08
 a8<-3.17E+07
 a9<-2.95E+07
 a10<-4.06E+07
-
-HgT_burial_sed1_g_y<-HgT_dsed1_ngm3/10^9 *burial_sed1/10^2 *a1
-HgT_burial_sed2_g_y<-HgT_dsed2_ngm3/10^9*burial_sed2/10^2  *a2
-HgT_burial_sed3_g_y<-HgT_dsed3_ngm3/10^9*burial_sed3/10^2  *a3
-HgT_burial_sed4_g_y<-HgT_dsed4_ngm3/10^9*burial_sed4/10^2  *a4
-HgT_burial_sed5_g_y<-HgT_dsed5_ngm3/10^9*burial_sed5/10^2  *a5 
-HgT_burial_sed6_g_y<-HgT_dsed6_ngm3/10^9*burial_sed6/10^2  *a6
-HgT_burial_sed7_g_y<-HgT_dsed7_ngm3/10^9*burial_sed7/10^2  *a7
-HgT_burial_sed8_g_y<-HgT_dsed8_ngm3/10^9*burial_sed8/10^2  *a8
-HgT_burial_sed9_g_y<-HgT_dsed9_ngm3/10^9*burial_sed9/10^2  *a9
-HgT_burial_sed10_g_y<-HgT_dsed10_ngm3/10^9*burial_sed10/10^2 *a10
 
 TOT_buried<-HgT_burial_sed1_g_y+HgT_burial_sed2_g_y+HgT_burial_sed3_g_y+HgT_burial_sed4_g_y+HgT_burial_sed5_g_y
 			HgT_burial_sed6_g_y+HgT_burial_sed7_g_y+HgT_burial_sed8_g_y+HgT_burial_sed9_g_y+HgT_burial_sed10_g_y
@@ -406,7 +361,7 @@ b5_depo_2014 <-b5_depo_2014_gm2d*365/1000   #kg DW m2y
 b6_depo_2014_gm2d<-c(667,147,1584)   #kg DW m2y
 b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
 
-png('DEPO_kgm2y__.png',width = 950, height = 530, units = "px")
+png('DEPO_kgm2y.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
 plot(depo1_kg_y/a1, type='l')     # 1989 - 1990: 113 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
 plot(depo2_kg_y/a2, type='l') 
@@ -447,47 +402,48 @@ sar_b9<-c(-0.3125, 0.3125)
 sar_b10<-c(-1.5625,-0.3125)
 
 
-png('DEPO_vs_Sarretta__.png',width = 950, height = 530, units = "px")
+png('DEPO_vs_Sarretta.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
-plot(netdepo_sed1, type='l',ylim=c(-1.6,1.6))
+plot(netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
 par(new=T)
-boxplot(sar_b1,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
+boxplot(sar_b1,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#31369555')
 
-plot(netdepo_sed2, ylim=c(-1.6,1.6),type='l')
+plot(netdepo_sed2, ylim=c(-1.6,1.6),type='l', col='#4575b4', lwd=2)
 par(new=T)
-boxplot(sar_b2,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
+boxplot(sar_b2,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#4575b455')
 
-plot(netdepo_sed3,ylim=c(-1.6,1.6), type='l')
+plot(netdepo_sed4,ylim=c(-1.6,1.6),  type='l', col='#abd9e9', lwd=2)
 par(new=T)
-boxplot(sar_b3,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
+boxplot(sar_b4,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#abd9e955')
 
-plot(netdepo_sed4,ylim=c(-1.6,1.6),  type='l')
-par(new=T)
-boxplot(sar_b4,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
 
-plot(netdepo_sed5, ylim=c(-1.6,1.6), type='l')
+plot(netdepo_sed3,ylim=c(-1.6,1.6), type='l', col='#DDF26B', lwd=2)
 par(new=T)
-boxplot(sar_b5,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
+boxplot(sar_b3,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2),col='#DDF26B55')
 
-plot(netdepo_sed6, type='l', ylim=c(-1.6,1.6))
+plot(netdepo_sed5, ylim=c(-1.6,1.6), type='l', col='#e5e572', lwd=2)
 par(new=T)
-boxplot(sar_b6,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
+boxplot(sar_b5,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#e5e57255')
 
-plot(netdepo_sed7, ylim=c(-1.6,1.6),type='l')
+plot(netdepo_sed6, type='l', ylim=c(-1.6,1.6), col='#fed976', lwd=2)
 par(new=T)
-boxplot(sar_b7,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
+boxplot(sar_b6,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#fed97655')
 
-plot(netdepo_sed8,ylim=c(-1.6,1.6), type='l')
+plot(netdepo_sed7, ylim=c(-1.6,1.6),type='l', col='#f79220', lwd=2)
 par(new=T)
-boxplot(sar_b8,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
+boxplot(sar_b7,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f7922055')
 
-plot(netdepo_sed9, ylim=c(-1.6,1.6),type='l')
+plot(netdepo_sed8,ylim=c(-1.6,1.6), type='l', col='#f46d43', lwd=2)
 par(new=T)
-boxplot(sar_b9,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
+boxplot(sar_b8,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f46d4355')
 
-plot(netdepo_sed10,ylim=c(-1.6,1.6), type='l')
+plot(netdepo_sed9, ylim=c(-1.6,1.6),type='l', col='#d73027', lwd=2)
 par(new=T)
-boxplot(sar_b10,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2))
+boxplot(sar_b9,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#d7302755')
+
+plot(netdepo_sed10,ylim=c(-1.6,1.6), type='l', col='#a50028', lwd=2)
+par(new=T)
+boxplot(sar_b10,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#a5002855')
 dev.off()
   
 
