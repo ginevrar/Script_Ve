@@ -1,4 +1,4 @@
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/95/105')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
