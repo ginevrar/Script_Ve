@@ -66,11 +66,6 @@ fPOM  <-POMs/TOTs
 fsilt <-silts/TOTs
 
 
-POM_depo1_m_day<-7.5
-silt_depo1_m_day<-15
-
-depo_media1<- (POM_depo1_m_day *fPOM$wn1) + (silt_depo1_m_day*fsilt$wn1) #1/day
-depo_media1
 
 summary(fsilt*100)
   
