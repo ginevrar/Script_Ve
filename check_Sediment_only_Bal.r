@@ -1,11 +1,10 @@
 # total output from run 1900-2100 ---> 1:2427
-# runs 63d/63e 
 # 1997        [1167:1178]
 # 2010        [1323:1334]
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/111')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g11')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -102,6 +101,7 @@ BURIAL_cmy<-data.frame(burial_sed1,burial_sed2,burial_sed3,burial_sed4, burial_s
  
 tail(BURIAL_cmy)
 
+plot(netdepo_sed3, type='l')
 summary(BURIAL_cmy)
 str(NET_DEPO_cmy)
 			
@@ -437,3 +437,7 @@ TOT_buried<-HgT_burial_sed1_g_y+HgT_burial_sed2_g_y+HgT_burial_sed3_g_y+HgT_buri
 #DIFFUSION 
 Diffusion_coeff<-10^-9             #m2/s
 DF<-Diffusion_coeff*60*60*24       #m2/day  
+
+
+plot(netdepo_sed6, type='l', col='#f79220', lwd=2)
+plot(netdepo_sed7, type='l', col='#f79220', lwd=2)

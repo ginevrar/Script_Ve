@@ -1,4 +1,4 @@
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g6')
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -45,8 +45,8 @@ plot(volat_g_y[3:2124]/1000)    # circa 20 kg/y = 100 mol/y
                                 #MGL circa 14 mol/y
 mean(volat_g_y[3:2124]/1000)
 
-17.8/200.59*1000
-88/area
+9.2/200.59*1000
+46/area
 14/area_MGL
 
 volat1_mol_y<-volat_g_y/(200.59); plot(volat1_mol_y, type="l")
