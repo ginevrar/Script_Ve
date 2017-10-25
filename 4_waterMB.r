@@ -2,8 +2,8 @@ setwd('C:/Users/Ginevra/Dropbox/2017_Venice')
 input<-read.csv('input103_1900.csv', header=TRUE, sep=';')
 str(input)
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
-sed_bal<-read.table("sed_bal.txt", header=TRUE)
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g921')
+sed_bal<-read.table("sed_bal2.txt", header=TRUE)
 sed_bal<-sed_bal[13:2428,]
 str(sed_bal)
 volat<-read.table('volat.txt', header=T); str(volat)
@@ -34,9 +34,7 @@ TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1901-01-01")
 TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 rdate
-
 diss_hg<-hgD+DOChg+hg0; str(diss_hg);
-
 
 2416/151
 151*16
@@ -103,9 +101,9 @@ river_hg<-input$Fiumi
 atm_hg<-input$Atmo
 veCity<-input$city
 
+str(veCity)
 Input_terms<-(river_hg+atm_hg+hg_inflow_kg_y_media+Marghera+
-                diffusion_kg_y_media+veCity); str(Input_terms); 
-
+              +veCity); str(Input_terms); 
 
 diffe<-as.numeric(Input_terms-Output_terms); str(diffe)
 diff_media   <-tapply(diffe,rep(1:(length(diffe)/12),each = 12), mean); 
@@ -180,80 +178,79 @@ str(atm_hg_kmol_y)
 str(inou)
 
 par(mfrow=c(1,1), mar=c(5,5,4,1), bty='n') 
-
-plot(ax2, atm_hg, col="cyan3", type="l", ylim=c(-2000,400000), 
+plot(ax2, atm_hg, col="cyan3", type="l", ylim=c(-1000,1000), 
      main=expression(paste('Hg'[T]*' fluxes to the Black Sea')), ylab= " ", 
      xlab= " ",  lwd=1, cex.axis=2, cex.lab=2,cex.main=2.3)
 par(new=T)
 plot(ax2,empty_v, type='p', xlab= " ", ylab= " ",
-     pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-2000,400000), bg='cyan4',col='black')
+     pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-1000,1000), bg='cyan4',col='black')
 #axis(1,at=c(1850,1900,1950,2000,2050),labels=T, cex.axis=2.5)
 #abline(v=2013, lty=2, col='gray60', lwd=2)
 #text(2025,38,'2013',col='gray60', cex=1.9)
 par(new=TRUE)
 plot(ax2,river_hg, col="chartreuse3", type="l", 
-     xaxt='n',yaxt='n', ylim=c(-2000,400000), 
+     xaxt='n',yaxt='n', ylim=c(-1000,1000), 
      ylab= " ",xlab= " ",  lwd=1)
 par(new=TRUE)
 plot(ax2,empty_v2, bg='chartreuse4' ,col='black',type='p', xlab= " ", ylab= " ", 
-     pch=23, cex=2.8, xaxt='n',yaxt='n',ylim=c(-2000,400000))
+     pch=23, cex=2.8, xaxt='n',yaxt='n',ylim=c(-1000,1000))
 par(new=TRUE)
 plot(ax2,hg_inflow_kg_y_media, col="darkblue", type="l", 
      xaxt='n',yaxt='n',
-     ylim=c(-2000,400000), ylab= " ", xlab= " ",  lwd=2)
+     ylim=c(-1000,1000), ylab= " ", xlab= " ",  lwd=2)
 par(new=TRUE)
 plot(ax2,empty_v3, bg='darkblue' ,col='black',type='p',
-     xlab= " ", ylab= " ", pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-2000,400000))
+     xlab= " ", ylab= " ", pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-1000,1000))
 par(new=TRUE)
 plot(ax2,diffusion_kg_y_media, col="darkgoldenrod1", type="l", 
      xaxt='n',yaxt='n',
-    ylim=c(-2000,400000), ylab= " ", xlab= " ",  lwd=2)
+    ylim=c(-1000,1000), ylab= " ", xlab= " ",  lwd=2)
 par(new=TRUE)
 plot(ax2,empty_v4, bg='darkgoldenrod' ,col='black',type='p', xlab= " ", ylab= " ",
-     pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-2000,400000))
+     pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-1000,1000))
 par(new=TRUE)
-plot(ax2, Input_terms, col="black", type="l", lty=2, 
-     xaxt='n',yaxt='n',
-     ylim=c(-2000,400000), ylab= " ", xlab= " ",  lwd=1)
-par(new=TRUE)
-plot(ax2,empty_v5, bg='grey90' ,col='darkgrey',type='p', xlab= " ", 
-     ylab= " ", pch=23, cex=4, xaxt='n',yaxt='n', ylim=c(-2000,400000))
+#plot(ax2, Input_terms, col="black", type="l", lty=2, 
+#     xaxt='n',yaxt='n',
+#     ylim=c(-1000,1000), ylab= " ", xlab= " ",  lwd=1)
+#par(new=TRUE)
+#plot(ax2,empty_v5, bg='grey90' ,col='darkgrey',type='p', xlab= " ", 
+   #  ylab= " ", pch=23, cex=4, xaxt='n',yaxt='n', ylim=c(-1000,1000))
 par(new=TRUE)
 plot(ax2,Marghera, bg='grey90' ,col='gray50',type='l', xlab= " ", ylab= " ", 
-     pch=23, cex=4, xaxt='n',yaxt='n',ylim=c(-2000,400000))
+     pch=23, cex=4, xaxt='n',yaxt='n',ylim=c(-1000,1000))
 par(new=TRUE)
 plot(ax2,-evasione_kg_y_media, col="cyan4", type="l", xlab= " ", 
-   ylim=c(-2000,400000), xaxt='n',yaxt='n',
+   ylim=c(-1000,1000), xaxt='n',yaxt='n',
      main=" ", ylab= " ",  lwd=1)
 par(new=TRUE)
 plot(ax2,empty_v6, bg='cyan4' ,col='black',type='p',
-     xlab= " ", ylab= " ", pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-2000,400000))
+     xlab= " ", ylab= " ", pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-1000,1000))
 par(new=TRUE)
 
 plot(ax2,res_Phg_kg_y_media, col="orange", type="l", xlab= " ", 
-     ylim=c(-2000,400000), xaxt='n',yaxt='n',
+     ylim=c(-1000,1000), xaxt='n',yaxt='n',
      ylab= " ",  lwd=1)
 par(new=TRUE)
 plot(ax2,-depo_Phg_kg_y_media, col="orange", type="l", xlab= " ", 
-     ylim=c(-2000,400000), xaxt='n',yaxt='n',
+     ylim=c(-1000,1000), xaxt='n',yaxt='n',
      ylab= " ",  lwd=1)
 par(new=TRUE)
 plot(ax2,empty_v7, bg='darkorange' ,col='black',type='p', xlab= " ", ylab= " ", 
-     pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-2000,400000))
+     pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-1000,1000))
 par(new=TRUE)
 plot(ax2, -hg_outflow_kg_y_media, col="darkblue", type="l", 
-     ylim=c(-2000,400000),xlab= " ",xaxt='n',yaxt='n',
+     ylim=c(-1000,1000),xlab= " ",xaxt='n',yaxt='n',
      ylab= " ",  lwd=2)
 par(new=TRUE)
 plot(ax2,empty_v8, bg=' darkblue' ,col='black',type='p', xlab= " ", ylab= " ", 
-     pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-2000,400000))
+     pch=23, cex=2.8, xaxt='n',yaxt='n', ylim=c(-1000,1000))
 par(new=TRUE)
 plot(ax2,-Output_terms, col="black", type="l", lty=2, 
-     ylim=c(-2000,400000), xaxt='n',yaxt='n',
+     ylim=c(-1000,1000), xaxt='n',yaxt='n',
      xlab= " ", ylab= "",  lwd=1)
 par(new=TRUE)
 plot(ax2,empty_v9, bg='grey90' ,col='darkgrey',
      type='p', xlab= " ", ylab= " ", pch=23, cex=4, xaxt='n',yaxt='n',
-     ylim=c(-2000,400000))
+     ylim=c(-1000,1000))
 
 mtext(expression(paste('kmol y'^-1)), 2, at= 0, line=2.6, cex=2)

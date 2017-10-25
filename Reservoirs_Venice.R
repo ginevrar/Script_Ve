@@ -4,7 +4,7 @@
 #Venice water and sediment reservoirs
 # 
 # 50 t in sediments (Critto et al?)
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/93')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g920')
 
 #Leggi model output
 hg<-read.csv("Dissolved_Divalent_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
@@ -96,6 +96,18 @@ burial<-burial[2:1214]
 burial$dsn4
 hgII<-(hg+DOChg0+DOChg)
 mehgdiss<-(mehgD+DOCmehg)
+
+
+kg_hg_b1<-(hgT$wn1*a1*d1/10^9)   
+
+### or ug 
+
+kg_phg_b1<-(Phgs$wn1*a1*d1/10^9)         ### or ug 
+kg_phg_b1*(vd/a1)
+
+
+plot(kg_hg_b1)
+
 
 a1<- 4.32E+07
 a2<- 3.53E+07

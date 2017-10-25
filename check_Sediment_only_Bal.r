@@ -3,8 +3,9 @@
 # 2010        [1323:1334]
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
+#fine 1990 = [1094]
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g11')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g922')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -14,7 +15,9 @@ TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
-			 
+TOTs[1094,12:21]
+
+
 SEDhg<-read.csv("Total_Sorbed_Divalent_Hg_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(SEDhg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -250,6 +253,11 @@ res9_kg_y <-res9_g_y/1000
 res10_g_m2_d<-res_media10 * solids_sed10      #1/day * g/m3
 res10_g_y <-(res10_g_m2_d*a10)*365
 res10_kg_y <-res10_g_y/1000
+
+res1_g_y[1215:1250]+res2_g_y[1215:1250]+res3_g_y[1215:1250]+
+  res4_g_y[1215:1250]+res5_g_y[1215:1250]
+
++res3_g_y[1215:1250]
 
 ##92.4% of re-suspension (1.13 10^12 g year ) 
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year).

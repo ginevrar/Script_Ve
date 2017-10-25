@@ -1,4 +1,4 @@
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g6')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/noRES')
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -45,8 +45,8 @@ plot(volat_g_y[3:2124]/1000)    # circa 20 kg/y = 100 mol/y
                                 #MGL circa 14 mol/y
 mean(volat_g_y[3:2124]/1000)
 
-9.2/200.59*1000
-46/area
+8.2/200.59*1000
+40/area
 14/area_MGL
 
 volat1_mol_y<-volat_g_y/(200.59); plot(volat1_mol_y, type="l")
@@ -68,17 +68,19 @@ plot(vvol_kg_y)
 #VOLATILIZZAZIONE3
 vvol2_gm3_day<-kvol_1_day
 vvol2_g_day<-vvol2_gm3_day*tot_vol_m3
-vvol2_g_y<-rowSums(vvol2_g_day*365)
+vvol2_kg_y<-rowSums(vvol2_g_day*365)/1000
 
 mean(volat_g_y[1000:2414]/1000); #kg y 
 mean(vvol_kg_y[1000:2414]);  #kg y 
 mean(vvol2_g_y[1000:2414]/1000) #kg y 
 
-VV<-data.frame(volat_g_y/1000,vvol_kg_y,vvol2_g_y/1000)
+VV<-data.frame(volat_g_y/1000,vvol_kg_y,vvol2_kg_y)
 names(VV)<-c('v1','v2','v3')
 write.table(VV,'volat.txt')
 
-
+head(VV$v1)
+head(VV$v2)
+head(VV$v3)
 
 kvol1_1_day<-evasion$wn1  # kvol ogni sim
 kvol2_1_day<-evasion$wn2  # kvol ogni sim
