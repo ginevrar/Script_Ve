@@ -6,7 +6,7 @@
 # 2001 - 2003 [1215:1250]
 
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/REs__')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/REs2')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
