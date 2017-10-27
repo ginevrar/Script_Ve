@@ -5,7 +5,7 @@
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/REs2')
+setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/REs2e')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -129,6 +129,7 @@ burial1_cmy<-data.frame(burial1_sed1,burial1_sed2,burial1_sed3,burial1_sed4,buri
 Burial_deep_cmy<-data.frame(burial_deepsed1,burial_deepsed2,burial_deepsed3,burial_deepsed4, burial_deepsed5,
 						burial_deepsed6, burial_deepsed7,burial_deepsed8,burial_deepsed9, burial_deepsed10)  
  
+
 summary(Burial_deep_cmy)
 str(burial1_cmy)
 			
@@ -445,18 +446,21 @@ Hg_res_tot2<-(Hg_res1_kg_y+Hg_res2_kg_y+Hg_res3_kg_y+Hg_res4_kg_y+Hg_res5_kg_y+
 
 sed_bal<-data.frame(Hg_res_tot,Hg_res_tot2, kg_Phg_depoTOT, Hg_depo_tot,Hg_depo_tot2)
 
-write.table(sed_bal,'sed_bal2.txt')
+s_bal<-data.frame(Hg_res_tot,kg_Phg_depoTOT, burial1_cmy)
+write.table(s_bal,'sed_bal2.txt')
 
 head(kg_Phg_depoTOT)
 
 tail(kg_Phg_depoTOT)
 
 png('depores_iniz_kgy.png')
-plot(Hg_res_tot[2:600], type='l',lty=2)
-plot(kg_Phg_depoTOT[2:600], type='l',lty=2)
+par(mfrow=c(2,1))
+plot(Hg_res_tot[2:600], type='l',lty=2, main='Res')
+plot(kg_Phg_depoTOT[2:600], type='l',lty=2,  main='Depo')
 dev.off()
 
 png('depores_fine_kgy.png')
-plot(Hg_res_tot[600:2000], type='l',lty=2)
-plot(kg_Phg_depoTOT[600:2000], type='l',lty=2)
+par(mfrow=c(2,1))
+plot(Hg_res_tot[600:2000], type='l',lty=2, main='Res')
+plot(kg_Phg_depoTOT[600:2000], type='l',lty=2, main='Depo')
 dev.off()

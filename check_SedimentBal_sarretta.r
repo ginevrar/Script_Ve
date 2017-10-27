@@ -1,12 +1,10 @@
 # total output from run 1900-2100 ---> 1:2427
 # runs 63d/63e 
-# 1997        [1167:1178]
-# 2010        [1323:1334]
-# 2050        [1804:1815]
-# 2001 - 2003 [1215:1250]
+# 1997        [1167:1178] # 2010        [1323:1334]
+# 2050        [1804:1815] # 2001 - 2003 [1215:1250]
 
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/REs2')
+setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/REs2e')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
