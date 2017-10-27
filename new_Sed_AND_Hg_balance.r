@@ -5,10 +5,8 @@
 # 2010        [1323:1334]
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
-
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/115')
-
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/115')
+setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/curr')
 
 hgT<-read.csv('Total_Hg.csv', skip=1)
 names(hgT)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -89,6 +87,9 @@ v7<-a7*d7; v8<-a8*d8; v9<-a9*d9; v10<-a10*d10;
 
 # depo POM m/day depo silt m/day   
 POM_depo_m_day<-POM_depos; silt_depo_m_day<-silt_depos # 
+head(POM_depo_m_day)
+head(silt_depo_m_day)
+
 
 fPOM<-POMs/TOTs; fsilt<-silts/TOTs
 depo_media<- (POM_depo_m_day *fPOM) + (silt_depo_m_day*fsilt) #m/day
@@ -167,14 +168,7 @@ Hg_depo_ng_m2_d<-depo_media * SEDhg * TOTs   #m/day * g/m3 * ng/g #ng m2 d
 Hg_depo1_ng_y<- (Hg_depo_ng_m2_d$wn1*a1)*365   #ng y
 Hg_depo1_kg_y <-Hg_depo1_ng_y/10^12
 
-head(Box1_Hg_kg_y)
-head(rdate)
-head(depo_kg_y_Hg1)
-head(depo1_Phg_kg_y)
-plot(Hg_depo1_kg_y)
-
-head(depo2_Phg_kg_y)
-
+head(Box1_Hg_kg_y); head(depo_kg_y_Hg1);head(Hg_depo1_kg_y)
 
 
 time.steps <- hg[,1]

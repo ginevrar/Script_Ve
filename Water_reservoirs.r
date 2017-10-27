@@ -1,5 +1,7 @@
 
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/115')
+setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/curr')
+
 
 hgT<-read.csv("Total_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(hgT)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
