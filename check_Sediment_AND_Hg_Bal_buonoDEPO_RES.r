@@ -5,7 +5,7 @@
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g921')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/REs2')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -446,3 +446,17 @@ Hg_res_tot2<-(Hg_res1_kg_y+Hg_res2_kg_y+Hg_res3_kg_y+Hg_res4_kg_y+Hg_res5_kg_y+
 sed_bal<-data.frame(Hg_res_tot,Hg_res_tot2, kg_Phg_depoTOT, Hg_depo_tot,Hg_depo_tot2)
 
 write.table(sed_bal,'sed_bal2.txt')
+
+head(kg_Phg_depoTOT)
+
+tail(kg_Phg_depoTOT)
+
+png('depores_iniz_kgy.png')
+plot(Hg_res_tot[2:600], type='l',lty=2)
+plot(kg_Phg_depoTOT[2:600], type='l',lty=2)
+dev.off()
+
+png('depores_fine_kgy.png')
+plot(Hg_res_tot[600:2000], type='l',lty=2)
+plot(kg_Phg_depoTOT[600:2000], type='l',lty=2)
+dev.off()
