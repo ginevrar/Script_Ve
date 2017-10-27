@@ -6,6 +6,8 @@
 # 2001 - 2003 [1215:1250]
 
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/REs__')
+
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -478,3 +480,26 @@ plot(depo9_kg_y-res9_kg_y, type='l')
 plot(depo10_kg_y-res10_kg_y, type='l')
 dev.off()
 
+
+png('DEPO_vs_Sarretta2.png',width = 950, height = 530, units = "px")
+par(mfrow=c(2,5))
+plot(netdepo_sed1, type='l', col='#313695', lwd=2)
+
+plot(netdepo_sed2, type='l', col='#4575b4', lwd=2)
+
+plot(netdepo_sed4,  type='l', col='#abd9e9', lwd=2)
+
+plot(netdepo_sed3, type='l', col='#DDF26B', lwd=2)
+
+plot(netdepo_sed5,  type='l', col='#e5e572', lwd=2)
+
+plot(netdepo_sed6, type='l', col='#fed976', lwd=2)
+
+plot(netdepo_sed7, type='l', col='#f79220', lwd=2)
+
+plot(netdepo_sed8, type='l', col='#f46d43', lwd=2)
+
+plot(netdepo_sed9, type='l', col='#d73027', lwd=2)
+
+plot(netdepo_sed10,type='l', col='#a50028', lwd=2)
+dev.off()

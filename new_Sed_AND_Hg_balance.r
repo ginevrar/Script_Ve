@@ -1,14 +1,11 @@
-
-# total output from run 1900-2100 ---> 1:2427
-# runs 63d/63e 
+# total output from run 1900-2100 ---> 1:2427 # runs 63d/63e 
 # 1997        [1167:1178]
 # 2010        [1323:1334]
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
-
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/115')
-
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/115')
+#setwd('C:/Users/Ginevra/Dropbox/2017_Venice/115')
+#setwd('C:/Users/Ginevra/Dropbox/2017_Venice/Buona/TAUcd')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/Vel2')
 
 hgT<-read.csv('Total_Hg.csv', skip=1)
 names(hgT)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -70,6 +67,7 @@ hgDOC<-read.csv('DOC_Sorbed_Divalent_Hg.csv', header=FALSE, skip = 1,sep = ",", 
   names(hgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+
 hgD<-read.csv('Dissolved_Divalent_Hg.csv', header=FALSE, skip = 1,sep = ",", dec=".")
 names(hgD)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -118,7 +116,6 @@ hgPOM1_kg<-hgPOM_gm3$wn1/1000*v1
 kg_d<-(hgPOM1_kg)*(POM_depo_m_day$wn1/d1)
 head(kg_d)*365
 
-1.304627e-07
 ## prova 2
 depoHg_ugm2_d<-depo_media*Phgs   # m/d* ug m3  -> ugm2d
 
@@ -133,7 +130,6 @@ depo_kg_y_Hg8<-(depoHg_ugm2_d$ws8*a8*365)/10^9
 depo_kg_y_Hg9<-(depoHg_ugm2_d$ws9*a9*365)/10^9
 depo_kg_y_Hg10<-(depoHg_ugm2_d$ws10*a10*365)/10^9
 
-
 Phg1_ug<-Phgs$wn1*v1 ## 
 Phg1_g<-Phg1_ug/10^6
 Phg1_kg<-Phg1_g/1000
@@ -145,10 +141,6 @@ head(d1_kg_y)
 d1_kg_y<-(d1_kg_d*365)
 d1_kg_d<-Phg1_kg[2:12]*(depo_media$wn1[2:12]/d1) #g/d
 
-
-
-13/365
-
 ## prova 3
 depoSed_g_m2_d <-depo_media     * TOTs  #m/day * g/m3 -> g/m2d
 depoSed_g_m2_y    <-depoSed_g_m2_d*365  #m/day * g/m3 -> g/m2d
@@ -156,7 +148,6 @@ depoHg_ng_m2_d <-depoSed_g_m2_d * SEDhg #gm2d*ng/g-> ng/m2d
 
 depo1_Phg_g_d<-(depoHg_ng_m2_d$wn1 *a1)/10^9
 depo1_Phg_kg_y<-(depo1_Phg_g_d*365)/10^3
-
 
 depo2_Phg_g_d<-(depoHg_ng_m2_d$wn2 *a2)/10^9
 depo2_Phg_kg_y<-(depo2_Phg_g_d*365)/10^3
