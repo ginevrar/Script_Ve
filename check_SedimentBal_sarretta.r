@@ -6,7 +6,7 @@
 # 2001 - 2003 [1215:1250]
 
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/REs2')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/menores_menvb')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -245,7 +245,7 @@ depo10_g_y <-(depo10_g_m3_d*a10*d10)*365
 depo10_kg_y <-depo10_g_y/1000
 
 POM_res1_m_day<-POM_res$sn1      #
-silt_res1_m_day<-silt_res$sn1 #...Ã ... 
+silt_res1_m_day<-silt_res$sn1 #...Ã.. 
 POM_res2_m_day<-POM_res$sn2  
 silt_res2_m_day<-silt_res$sn2 # 
 POM_res3_m_day<-POM_res$sn3  #res m/day * depth(m) --> 1/day (0.003 /d)
