@@ -5,11 +5,22 @@
 # 2050        [1804:1815]
 # 2001 - 2003 [1215:1250]
 
-setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/REs2e')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/buona')
+
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+
+hgD<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
+names(hgD)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+
+hgDOC<-read.csv('DOC_Sorbed_Divalent_Hg.csv', skip=1)
+names(hgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -66,6 +77,7 @@ a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07;a4<-8.90E+06; a5<-2.22E+07;
 a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
 
 area<-cbind(0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
+
 d1<-1.26; d2<-0.78; d3<-3.35; d4<-0.64; d5<-1.03; 
 d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71		
 	
@@ -81,15 +93,17 @@ d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71
   solids_sed9  <-TOTs$ss9;   solids_dsed9  <-TOTs$dss9;    
   solids_sed10  <-TOTs$ss10; solids_dsed10  <-TOTs$dss10;     
   
+  fPOM<-POMs/TOTs; fsilt<-silts/TOTs
+  
   kd_POM<-10^6
   kd_silt<-10^5
   
-  POMs_kgL<-POMs/10^6   #mgL/10^6 -> kgL
-  silts_kgL<-silts/10^6 
-  hgCl_gm3<-hgD/10^6   #ngL/10^6 ->mgL 
+  POMs_kgL<-POMs[2:2428,]/10^6   #mgL/10^6 -> kgL
+  silts_kgL<-silts[2:2428,]/10^6 
+  hgCl_gm3<-hgD[2:2428,]/10^6   #ngL/10^6 ->mgL 
   
-  hgPOM_gm3<-hgCl_gm3*POMs_kgL[2:2428,]*kd_POM
-  hgsilt_gm3<-hgCl_gm3*silts_kgL[2:2428,]*kd_silt
+  hgPOM_gm3<-hgCl_gm3*POMs_kgL*kd_POM   #2427 
+  hgsilt_gm3<-hgCl_gm3*silts_kgL*kd_silt
   
   hgPOM_ngL<-  hgPOM_gm3*10^6
   hgsilt_ngL<-  hgsilt_gm3*10^6
@@ -101,8 +115,8 @@ str(Phgs)
 hgPOM_ngL$wn1[2:10]+hgsilt_ngL$wn1[2:10]
 Phgs$wn1[2:10]
 
-Box1_Hg_g_m3_d<-(hgPOM_gm3$wn1*POM_depo1_1_day[2:2428,])+
-  (hgsilt_gm3$wn1*silt_depo1_1_day[2:2428,])
+Box1_Hg_g_m3_d<-(hgPOM_gm3$wn1*POM_depo1_1_day[2:2428])+(hgsilt_gm3$wn1*silt_depo1_1_day[2:2428])
+
 Box1_Hg_g_d<-Box1_Hg_g_m3_d*a1*d1  #g/d
 
 plot(Box1_Hg_g_m3_d)
@@ -172,26 +186,28 @@ depo_ugm2_d<-vd*Phgs   # m/d* ug m3  -> ugm3d
 depo_ug_y<-depo_ugm2_d*area*365
 depo_kg_y<-depo_ug_y/10^9
 
-
 depo_kg_y_Hg1<-depo_ugm2_d$wn1*a1*365/10^9
 depo_kg_y_Hg2<-depo_ugm2_d$wn2*a2*365/10^9
-depo_kg_y_Hg3<-depo_ugm2_d$wn1*a1*365/10^9
-depo_kg_y_Hg4<-depo_ugm2_d$wn1*a1*365/10^9
-depo_kg_y_Hg5<-depo_ugm2_d$wn1*a1*365/10^9
-depo_kg_y_Hg6<-depo_ugm2_d$wn1*a1*365/10^9
+depo_kg_y_Hg3<-depo_ugm2_d$wn3*a3*365/10^9
+depo_kg_y_Hg4<-depo_ugm2_d$wn4*a4*365/10^9
+depo_kg_y_Hg5<-depo_ugm2_d$wn5*a5*365/10^9
+depo_kg_y_Hg6<-depo_ugm2_d$wc6*a6*365/10^9
+depo_kg_y_Hg7<-depo_ugm2_d$wc7*a7*365/10^9
+depo_kg_y_Hg8<-depo_ugm2_d$ws8*a8*365/10^9
+depo_kg_y_Hg9<-depo_ugm2_d$ws9*a9*365/10^9
+depo_kg_y_Hg10<-depo_ugm2_d$ws10*a10*365/10^9
 
-head(depo_ug_y[2:11])
-head(depo_kg_y[2:11])
-depo_ug_y
 
-head(Phgs$wn1)
-     head(hg$wn1)
+head(depo_kg_y_Hg1)
+
 
 depo1_g_m3_d<-depo_media1 * TOTs$wn1        #1/day * g/m3
 depo1_g_y <-(depo1_g_m3_d*a1*d1)*365
 depo1_kg_y <-depo1_g_y/1000
 depo1_Phg_ug_y<-depo1_kg_y* SEDhg$wn1 
 depo1_Phg_kg_y<-depo1_Phg_ug_y/10^9
+
+head(depo1_Phg_kg_y)
 
 kg_Phg_b1<-(Phgs$wn1*a1*d1/10^9)             ### or ug 
 depo1b_Phg_kg_y<-kg_Phg_b1*(depo_media1*365)
@@ -224,9 +240,11 @@ kg_Phg_b10<-(Phgs$ws10*a10*d10/10^9)             ### or ug
 depo10b_Phg_kg_y<-kg_Phg_b10*(depo_media10*365)
 
 
-kg_Phg_depoTOT<-(kg_Phg_b1+kg_Phg_b2+kg_Phg_b3+kg_Phg_b4+kg_Phg_b5+
+Phg_TOT_pool_kg<-(kg_Phg_b1+kg_Phg_b2+kg_Phg_b3+kg_Phg_b4+kg_Phg_b5+
                    kg_Phg_b6+kg_Phg_b7+kg_Phg_b8+kg_Phg_b9+kg_Phg_b10)
 
+kg_Phg_depoTOT<-(depo1b_Phg_kg_y+depo2b_Phg_kg_y+depo3b_Phg_kg_y+depo4b_Phg_kg_y+depo5b_Phg_kg_y+
+                   depo6b_Phg_kg_y+depo7b_Phg_kg_y+depo8b_Phg_kg_y+depo9b_Phg_kg_y+depo10b_Phg_kg_y)
 
 Hg_depo1_g_m3_d<-depo_media1 * SEDhg$wn1 * TOTs$wn1    #ng m3 d
 Hg_depo1_ng_y<- (Hg_depo1_g_m3_d*a1*d1)*365   #ng y
@@ -426,13 +444,11 @@ Hg_res10_g_m2_d<-res_media10 * SEDhg$ss10 * solids_sed10  #ng m2 d
 Hg_res10_ng_y<- (Hg_res10_g_m2_d*a10)*365   #ng y
 Hg_res10_kg_y <-Hg_res10_ng_y/10^12
 
-
 Hg_depo_tot<-(depo1_Phg_kg_y+depo2_Phg_kg_y+depo3_Phg_kg_y+depo4_Phg_kg_y+depo5_Phg_kg_y+
                  depo6_Phg_kg_y+depo7_Phg_kg_y+depo8_Phg_kg_y+depo9_Phg_kg_y+depo10_Phg_kg_y)
               	  
 Hg_depo_tot2<-(Hg_depo1_kg_y +Hg_depo2_kg_y+Hg_depo3_kg_y+Hg_depo4_kg_y+Hg_depo5_kg_y+
 			  Hg_depo6_kg_y+Hg_depo7_kg_y+Hg_depo8_kg_y+Hg_depo9_kg_y+Hg_depo10_kg_y)
-			  
 			  
 head(depo1_Phg_kg_y)
 head(depo2_Phg_kg_y)
@@ -449,7 +465,8 @@ sed_bal<-data.frame(Hg_res_tot,Hg_res_tot2, kg_Phg_depoTOT, Hg_depo_tot,Hg_depo_
 s_bal<-data.frame(Hg_res_tot,kg_Phg_depoTOT, burial1_cmy)
 write.table(s_bal,'sed_bal2.txt')
 
-head(kg_Phg_depoTOT)
+head(Hg_res4_kg_y)
+
 
 tail(kg_Phg_depoTOT)
 
