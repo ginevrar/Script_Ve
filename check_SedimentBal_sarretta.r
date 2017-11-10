@@ -6,7 +6,7 @@
 # 2001 - 2003 [1215:1250]
 
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/menores_menvb')
+setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuove_forzanti/f')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -379,7 +379,7 @@ b5_depo_2014 <-b5_depo_2014_gm2d*365/1000   #kg DW m2y
 b6_depo_2014_gm2d<-c(667,147,1584)   #kg DW m2y
 b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
 
-png('DEPO_kgm2y.png',width = 950, height = 530, units = "px")
+png('DEPO_kgm2ynff2.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
 plot(depo1_kg_y/a1, type='l')     # 1989 - 1990: 113 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
 plot(depo2_kg_y/a2, type='l') 
@@ -420,7 +420,7 @@ sar_b9<-c(-0.3125, 0.3125)
 sar_b10<-c(-1.5625,-0.3125)
 
 
-png('DEPO_vs_Sarretta.png',width = 950, height = 530, units = "px")
+png('DEPO_vs_Sarrettanff2.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
 plot(netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
 par(new=T)
@@ -464,42 +464,37 @@ boxplot(sar_b10,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#a5002855')
 dev.off()
   
 
-NET_DEPO_cmy
-
-png('Net_DEPO_Res.png',width = 30, height = 20, res=300,units = "cm")
-par(mfrow=c(2,5))
-plot(depo1_kg_y-res1_kg_y, type='l')
-plot(depo2_kg_y-res2_kg_y, type='l')
-plot(depo3_kg_y-res3_kg_y, type='l')
-plot(depo4_kg_y-res4_kg_y, type='l')
-plot(depo5_kg_y-res5_kg_y, type='l')
-plot(depo6_kg_y-res6_kg_y, type='l')
-plot(depo7_kg_y-res7_kg_y, type='l')
-plot(depo8_kg_y-res8_kg_y, type='l')
-plot(depo9_kg_y-res9_kg_y, type='l')
-plot(depo10_kg_y-res10_kg_y, type='l')
-dev.off()
+#NET_DEPO_cmy
 
 
-png('DEPO_vs_Sarretta2.png',width = 950, height = 530, units = "px")
+png('DEPO_nff2.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
 plot(netdepo_sed1, type='l', col='#313695', lwd=2)
+abline(h=0, lty=3)
+plot(netdepo_sed2, ylim=c(-1.6,1.6),type='l', col='#4575b4', lwd=2)
+abline(h=0, lty=3)
+plot(netdepo_sed4,ylim=c(-1.6,1.6),  type='l', col='#abd9e9', lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed2, type='l', col='#4575b4', lwd=2)
+plot(netdepo_sed3,ylim=c(-1.6,1.6), type='l', col='#DDF26B', lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed4,  type='l', col='#abd9e9', lwd=2)
+plot(netdepo_sed5, ylim=c(-1.6,1.6), type='l', col='#e5e572', lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed3, type='l', col='#DDF26B', lwd=2)
+plot(netdepo_sed6, type='l', ylim=c(-1.6,1.6), col='#fed976', lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed5,  type='l', col='#e5e572', lwd=2)
+plot(netdepo_sed7, ylim=c(-1.6,1.6),type='l', col='#f79220', lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed6, type='l', col='#fed976', lwd=2)
+plot(netdepo_sed8,ylim=c(-1.6,1.6), type='l', col='#f46d43', lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed7, type='l', col='#f79220', lwd=2)
+plot(netdepo_sed9, ylim=c(-1.6,1.6),type='l', col='#d73027', lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed8, type='l', col='#f46d43', lwd=2)
-
-plot(netdepo_sed9, type='l', col='#d73027', lwd=2)
-
-plot(netdepo_sed10,type='l', col='#a50028', lwd=2)
+plot(netdepo_sed10,ylim=c(-1.6,1.6), type='l', col='#a50028', lwd=2)
+abline(h=0, lty=3)
 dev.off()
+
