@@ -5,81 +5,99 @@
 # 
 # 50 t in sediments (Critto et al?)
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g920')
+setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 
 #Leggi model output
 hg<-read.csv("Dissolved_Divalent_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
 hg<-hg[2:1214]
 
 hgT<-read.csv("Total_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(hgT)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 hgT<-hgT[2:1214]
+
 solids<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solids)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 solids<-solids[2:1214]
 
 Phg<-read.csv("Total_Sorbed_Divalent_Hg_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(Phg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 Phg<-Phg[2:1214]
 Pmehg<-read.csv("Total_Sorbed_Methyl_Hg_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(Pmehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
 Pmehg<-Pmehg[2:1214]
 
 DOChg<-read.csv("DOC_Sorbed_Divalent_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DOChg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
-DOChg<-DOChg[2:1214]
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+ DOChg<-DOChg[2:1214]
 
 mehgD<-read.csv("Dissolved_Methyl_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(mehgD)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+                
 mehgD<-mehgD[2:1214]
 
 DOCmehg<-read.csv("DOC_Sorbed_Methyl_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DOCmehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                   'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 DOCmehg<-DOCmehg[2:1214]
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+        'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+        'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+        'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 hg0<-hg0[2:1214]
 dhg0<-read.csv("Dissolved_Elemental_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(dhg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+      'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+      'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+      'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 dhg0<-dhg0[2:1214]
 
 DOChg0<-read.csv("DOC_Sorbed_Elemental_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DOChg0)<-cc('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                   'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 DOChg0<-DOChg0[2:1214]
 
 mehgT<-read.csv("Methyl_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(mehgT)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 mehgT<-mehgT[2:1214]
 
 solids<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solids)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 solids<-solids[2:1214]
 
 Temp<-read.csv("Segment_Temperature.csv", header=FALSE, skip = 1,sep = ",", dec=".")
@@ -91,7 +109,8 @@ names(Temp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws1
 burial<-read.csv('Sediment_Burial_Velocity.csv', skip=1)
 names(burial)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 burial<-burial[2:1214]
 burial$dsn4
 hgII<-(hg+DOChg0+DOChg)
@@ -131,17 +150,26 @@ vs8<-3.17E+07*0.03
 vs9<-2.95E+07*0.03
 vs10<-4.06E+07*0.03
 
-vds1<-4.32E+07*0.07
-vds2<-3.53E+07*0.07
-vds3<-3.13E+07*0.07
-vds4<-8.90E+06*0.07
-vds5<-2.22E+07*0.07
-vds6<-5.43E+07*0.07
-vds7<-1.15E+08*0.07
-vds8<-3.17E+07*0.07
-vds9<-2.95E+07*0.07
-vds10<-4.06E+07*0.07
-
+vds1<-4.32E+07*0.05
+vds2<-3.53E+07*0.05
+vds3<-3.13E+07*0.05
+vds4<-8.90E+06*0.05
+vds5<-2.22E+07*0.05
+vds6<-5.43E+07*0.05
+vds7<-1.15E+08*0.05
+vds8<-3.17E+07*0.05
+vds9<-2.95E+07*0.05
+vds10<-4.06E+07*0.05
+vos1<-4.32E+07*0.08
+vos2<-3.53E+07*0.08
+vos3<-3.13E+07*0.08
+vos4<-8.90E+06*0.08
+vos5<-2.22E+07*0.08
+vos6<-5.43E+07*0.08
+vos7<-1.15E+08*0.08
+vos8<-3.17E+07*0.08
+vos9<-2.95E+07*0.08
+vos10<-4.06E+07*0.08
 # Hg SED ng g
 hgSED_box1<-hgT$sn1
 hgSED_box2<-hgT$sn2
@@ -154,16 +182,16 @@ hgSED_box8<-hgT$ss8
 hgSED_box9<-hgT$ss9
 hgSED_box10<-hgT$ss1
 
-hgSED_SD_box1<-sd(hgT$sn1[591:602])
-hgSED_SD_box2<-sd(hgT$sn2[591:602])
-hgSED_SD_box3<-sd(hgT$sn3[591:602])
-hgSED_SD_box4<-sd(hgT$sn4[591:602])
-hgSED_SD_box5<-sd(hgT$sn5[591:602])
-hgSED_SD_box6<-sd(hgT$sc6[591:602])
-hgSED_SD_box7<-sd(hgT$sc7[591:602])
-hgSED_SD_box8<-sd(hgT$ss8[591:602])
-hgSED_SD_box9<-sd(hgT$ss9[591:602])
-hgSED_SD_box10<-sd(hgT$ss1[591:602])			 
+hgSED_SD_box1<-sd(hgT$sn1[1167: 1179])
+hgSED_SD_box2<-sd(hgT$sn2[1167: 1179])
+hgSED_SD_box3<-sd(hgT$sn3[1167: 1179])
+hgSED_SD_box4<-sd(hgT$sn4[1167: 1179])
+hgSED_SD_box5<-sd(hgT$sn5[1167: 1179])
+hgSED_SD_box6<-sd(hgT$sc6[1167: 1179])
+hgSED_SD_box7<-sd(hgT$sc7[1167: 1179])
+hgSED_SD_box8<-sd(hgT$ss8[1167: 1179])
+hgSED_SD_box9<-sd(hgT$ss9[1167: 1179])
+hgSED_SD_box10<-sd(hgT$ss1[1167: 1179])			 
 
 # solidi g m3		
 solids_sed_box1<-solids$sn1
@@ -200,12 +228,6 @@ hgSED_g_box9 <-hgSED_ngm3_box9 *vs9/10^9
 hgSED_g_box10 <-hgSED_ngm3_box10*vs10/10^9		
 
 
-TOT_Hg_Sed_g <-(mean(hgSED_g_box1[591:602])+mean(hgSED_g_box2[591:602])+mean(hgSED_g_box3[591:602])+mean(hgSED_g_box4[591:602])+mean(hgSED_g_box5[591:602])+
-                mean(hgSED_g_box6[591:602])+mean(hgSED_g_box7[591:602])+mean(hgSED_g_box8[591:602])+mean(hgSED_g_box9[591:602])+mean(hgSED_g_box10[591:602]))
-
-TOT_Hg_Sed_ton<-TOT_Hg_Sed_g/10^6
-
-TOT_Hg_Sed_ton
 
 hgSED_deep_box1<-hgT$dsn1
 hgSED_deep_box2<-hgT$dsn2
@@ -254,30 +276,82 @@ hgSED_deep_g_box8 <-hgSED_deep_ngm3_box8 *vds8/10^9
 hgSED_deep_g_box9 <-hgSED_deep_ngm3_box9 *vds9/10^9		
 hgSED_deep_g_box10 <-hgSED_deep_ngm3_box10*vds10/10^9		
 
-str(hgSED_deep_ngm3_box10)
 
-TOT_Hg_Sed_deep_g <-(mean(hgSED_deep_g_box1[591:602])+mean(hgSED_deep_g_box2[591:602])+mean(hgSED_deep_g_box3[591:602])+mean(hgSED_deep_g_box4[591:602])+mean(hgSED_deep_g_box5[591:602])+
-                  mean(hgSED_deep_g_box6[591:602])+mean(hgSED_deep_g_box7[591:602])+mean(hgSED_deep_g_box8[591:602])+mean(hgSED_deep_g_box9[591:602])+mean(hgSED_deep_g_box10[591:602]))
+hgSED_old_box1<-hgT$osn1
+hgSED_old_box2<-hgT$osn2
+hgSED_old_box3<-hgT$osn3
+hgSED_old_box4<-hgT$osn4
+hgSED_old_box5<-hgT$osn5
+hgSED_old_box6<-hgT$dsc6
+hgSED_old_box7<-hgT$dsc7
+hgSED_old_box8<-hgT$dss8
+hgSED_old_box9<-hgT$dss9
+hgSED_old_box10<-hgT$dss10			 
 
+# solidi g m3		
+solids_old_sed_box1<-solids$osn1
+solids_old_sed_box2<-solids$osn2 
+solids_old_sed_box3<-solids$osn3 
+solids_old_sed_box4<-solids$osn4 
+solids_old_sed_box5<-solids$osn5 
+solids_old_sed_box6<-solids$dsc6 
+solids_old_sed_box7<-solids$dsc7 
+solids_old_sed_box8<-solids$dss8 
+solids_old_sed_box9<-solids$dss9 
+solids_old_sed_box10<-solids$dss10 
+
+hgSED_old_ngm3_box1<-hgSED_old_box1*solids_old_sed_box1
+hgSED_old_ngm3_box2<-hgSED_old_box2*solids_old_sed_box2
+hgSED_old_ngm3_box3<-hgSED_old_box3*solids_old_sed_box3
+hgSED_old_ngm3_box4<-hgSED_old_box4*solids_old_sed_box4
+hgSED_old_ngm3_box5<-hgSED_old_box5*solids_old_sed_box5
+hgSED_old_ngm3_box6<-hgSED_old_box6*solids_old_sed_box6
+hgSED_old_ngm3_box7<-hgSED_old_box7*solids_old_sed_box7
+hgSED_old_ngm3_box8<-hgSED_old_box8*solids_old_sed_box8
+hgSED_old_ngm3_box9<-hgSED_old_box9*solids_old_sed_box9
+hgSED_old_ngm3_box10<-hgSED_old_box10*solids_old_sed_box10
+
+hgSED_old_g_box1 <-hgSED_old_ngm3_box1 *vos1/10^9		
+hgSED_old_g_box2 <-hgSED_old_ngm3_box2 *vos2/10^9		
+hgSED_old_g_box3 <-hgSED_old_ngm3_box3 *vos3/10^9		
+hgSED_old_g_box4 <-hgSED_old_ngm3_box4 *vos4/10^9		
+hgSED_old_g_box5 <-hgSED_old_ngm3_box5 *vos5/10^9		
+hgSED_old_g_box6 <-hgSED_old_ngm3_box6 *vos6/10^9		
+hgSED_old_g_box7 <-hgSED_old_ngm3_box7 *vos7/10^9		
+hgSED_old_g_box8 <-hgSED_old_ngm3_box8 *vos8/10^9		
+hgSED_old_g_box9 <-hgSED_old_ngm3_box9 *vos9/10^9		
+hgSED_old_g_box10 <-hgSED_old_ngm3_box10*vos10/10^9		
+
+
+#2001 - 2010 hg$wn1[1215:1335]
+#2001 - 2010 hg$wn1[1215:1335]
+1215-(12*4)
+TOT_Hg_Sed_g <-(mean(hgSED_g_box1[1167:1179])+mean(hgSED_g_box2[1167: 1179])+mean(hgSED_g_box3[1167: 1179])+mean(hgSED_g_box4[1167: 1179])+mean(hgSED_g_box5[1167: 1179])+
+                  mean(hgSED_g_box6[1167:1179])+mean(hgSED_g_box7[1167: 1179])+mean(hgSED_g_box8[1167: 1179])+mean(hgSED_g_box9[1167: 1179])+mean(hgSED_g_box10[1167: 1179]))
+
+TOT_Hg_Sed_deep_g <-(mean(hgSED_deep_g_box1[1167:1179])+mean(hgSED_deep_g_box2[1167: 1179])+mean(hgSED_deep_g_box3[1167: 1179])+mean(hgSED_deep_g_box4[1167: 1179])+mean(hgSED_deep_g_box5[1167: 1179])+
+                       mean(hgSED_deep_g_box6[1167: 1179])+mean(hgSED_deep_g_box7[1167: 1179])+mean(hgSED_deep_g_box8[1167: 1179])+mean(hgSED_deep_g_box9[1167: 1179])+mean(hgSED_deep_g_box10[1167: 1179]))
+
+TOT_Hg_Sed_old_g <-(mean(hgSED_old_g_box1[1167:1179])+mean(hgSED_old_g_box2[1167: 1179])+mean(hgSED_old_g_box3[1167: 1179])+mean(hgSED_old_g_box4[1167: 1179])+mean(hgSED_old_g_box5[1167: 1179])+
+                      mean(hgSED_old_g_box6[1167:1179])+mean(hgSED_old_g_box7[1167: 1179])+mean(hgSED_old_g_box8[1167: 1179])+mean(hgSED_old_g_box9[1167: 1179])+mean(hgSED_old_g_box10[1167: 1179]))
+
+TOT_Hg_Sed_ton<-TOT_Hg_Sed_g/10^6
 TOT_Hg_Sed_deep_ton<-TOT_Hg_Sed_deep_g/10^6
+TOT_Hg_Sed_old_ton<-TOT_Hg_Sed_old_g/10^6
 
 TOT_Hg_Sed_deep_ton
-TOT_Hg_Sed_deep_ton + TOT_Hg_Sed_ton
+TOT_Hg_Sed_deep_ton + TOT_Hg_Sed_ton +TOT_Hg_Sed_old_ton
 
-buried_g_m2_y_box1<-(burial$dsn1/100 * hgSED_deep_ngm3_box1)/10^9 #m y-1 * ng m-3
-buried_g_m2_y_box2<-(burial$dsn2/100 * hgSED_deep_ngm3_box2)/10^9  #m y-1 * ng m-3
-buried_g_m2_y_box3<-(burial$dsn3/100 * hgSED_deep_ngm3_box3)/10^9  #m y-1 * ng m-3
-buried_g_m2_y_box4<-(burial$dsn4/100 * hgSED_deep_ngm3_box4)/10^9  #m y-1 * ng m-3
-buried_g_m2_y_box5<-(burial$dsn5/100 * hgSED_deep_ngm3_box5)/10^9  #m y-1 * ng m-3
-buried_g_m2_y_box6<-(burial$dsc6/100 * hgSED_deep_ngm3_box6)/10^9  #m y-1 * ng m-3
-buried_g_m2_y_box7<-(burial$dsc7/100 * hgSED_deep_ngm3_box7)/10^9  #m y-1 * ng m-3
-buried_g_m2_y_box8<-(burial$dss8/100 * hgSED_deep_ngm3_box8)/10^9  #m y-1 * ng m-3
-buried_g_m2_y_box9<-(burial$dss9/100 * hgSED_deep_ngm3_box9)/10^9  #m y-1 * ng m-3
-buried_g_m2_y_box10<-(burial$dss10/100 * hgSED_deep_ngm3_box10)/10^9 #m y-1 * ng m-3
-
-str(hgSED_deep_ngm3_box10)
-str(burial$dsn1)
-
+buried_g_m2_y_box1<-(burial$osn1/100 * hgSED_old_ngm3_box1)/10^9 #m y-1 * ng m-3
+buried_g_m2_y_box2<-(burial$osn2/100 * hgSED_old_ngm3_box2)/10^9  #m y-1 * ng m-3
+buried_g_m2_y_box3<-(burial$osn3/100 * hgSED_old_ngm3_box3)/10^9  #m y-1 * ng m-3
+buried_g_m2_y_box4<-(burial$osn4/100 * hgSED_old_ngm3_box4)/10^9  #m y-1 * ng m-3
+buried_g_m2_y_box5<-(burial$osn5/100 * hgSED_old_ngm3_box5)/10^9  #m y-1 * ng m-3
+buried_g_m2_y_box6<-(burial$osc6/100 * hgSED_old_ngm3_box6)/10^9  #m y-1 * ng m-3
+buried_g_m2_y_box7<-(burial$osc7/100 * hgSED_old_ngm3_box7)/10^9  #m y-1 * ng m-3
+buried_g_m2_y_box8<-(burial$oss8/100 * hgSED_old_ngm3_box8)/10^9  #m y-1 * ng m-3
+buried_g_m2_y_box9<-(burial$oss9/100 * hgSED_old_ngm3_box9)/10^9  #m y-1 * ng m-3
+buried_g_m2_y_box10<-(burial$oss10/100 * hgSED_old_ngm3_box10)/10^9 #m y-1 * ng m-3
 
 buried_TOT_box1<-cumsum(buried_g_m2_y_box1/12*a1)   # g/mese
 buried_TOT_box2<-cumsum(buried_g_m2_y_box2/12*a2)

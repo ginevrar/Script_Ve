@@ -5,7 +5,7 @@
 
 #setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
 #setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/REs2e')
-setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/buonav14/14f/r/ultima')
+setwd('C:/Users/gi/Desktop/finaleRITAMRE/menores2')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -378,7 +378,7 @@ b5_depo_2014 <-b5_depo_2014_gm2d*365/1000   #kg DW m2y
 b6_depo_2014_gm2d<-c(667,147,1584)   #kg DW m2y
 b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
 
-png('DEPO_kgm2y31.png',width = 950, height = 530, units = "px")
+png('DEPO_kgm2y_inp.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
 plot(depo1_kg_y/a1, type='l')     # 1989 - 1990: 113 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
 plot(depo2_kg_y/a2, type='l') 
@@ -418,45 +418,59 @@ sar_b8<-c(-0.3125, 0.3125)
 sar_b9<-c(-0.3125, 0.3125)
 sar_b10<-c(-1.5625,-0.3125)
 
-png('DEPO_vs_Sarretta31.png',width = 950, height = 530, units = "px")
-par(mfrow=c(2,5))
-plot(netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
-par(new=T)
-boxplot(sar_b1,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#31369555')
+png('DEPO_vs_Sarretta_inp.png',
+    width = 30, height = 20, units = "cm", res=300)
+par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
+plot(rdate[241:1467], netdepo_sed1[241:1467], type='l',ylim=c(-0.3,0.6),
+     ylab='', cex.axis=1.6,main='Box 1',
+     col='#313695', lwd=2)
+abline(h=0, lty=3)
+mtext('cm/y', side = 2, line=2.6, cex=1.2)
 
-plot(netdepo_sed2, ylim=c(-1.6,1.6),type='l', col='#4575b4', lwd=2)
-par(new=T)
-boxplot(sar_b2,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#4575b455')
+plot(rdate[241:1467],netdepo_sed2[241:1467], ylim=c(-0.3,0.6),
+     type='l', col='#4575b4', lwd=2,
+     ylab='', cex.axis=1.6,main='Box 2')
+abline(h=0, lty=3)
 
-plot(netdepo_sed4,ylim=c(-1.6,1.6),  type='l', col='#abd9e9', lwd=2)
-par(new=T)
-boxplot(sar_b4,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#abd9e955')
+plot(rdate[241:1467],netdepo_sed4[241:1467],
+     ylim=c(-0.3,0.6),  type='l', 
+     ylab='', cex.axis=1.6,main='Box 4',
+     col='#abd9e9', lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed3,ylim=c(-1.6,1.6), type='l', col='#DDF26B', lwd=2)
-par(new=T)
-boxplot(sar_b3,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2),col='#DDF26B55')
+plot(rdate[241:1467],netdepo_sed3[241:1467],
+     ylab='', cex.axis=1.6,main='Box 3',
+     ylim=c(-0.3,0.6), type='l', col='#DDF26B', lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed5, ylim=c(-1.6,1.6), type='l', col='#e5e572', lwd=2)
-par(new=T)
-boxplot(sar_b5,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#e5e57255')
+plot(rdate[241:1467],netdepo_sed5[241:1467],
+     ylim=c(-0.3,0.6), type='l', col='#e5e572', 
+     ylab='', cex.axis=1.6,main='Box 5',lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed6, type='l', ylim=c(-1.6,1.6), col='#fed976', lwd=2)
-par(new=T)
-boxplot(sar_b6,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#fed97655')
+plot(rdate[241:1467],netdepo_sed6[241:1467], type='l', 
+     ylim=c(-0.3,0.6), col='#fed976', lwd=2,
+     ylab='', cex.axis=1.6,main='Box 6')
+abline(h=0, lty=3)
+mtext('cm/y', side = 2, line=2.6, cex=1.2)
 
-plot(netdepo_sed7, ylim=c(-1.6,1.6),type='l', col='#f79220', lwd=2)
-par(new=T)
-boxplot(sar_b7,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f7922055')
+plot(rdate[241:1467],netdepo_sed7[241:1467],
+     ylim=c(-0.3,0.6),type='l', col='#f79220',
+     ylab='', cex.axis=1.6,main='Box 7',lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed8,ylim=c(-1.6,1.6), type='l', col='#f46d43', lwd=2)
-par(new=T)
-boxplot(sar_b8,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f46d4355')
+plot(rdate[241:1467],netdepo_sed8[241:1467],ylim=c(-0.3,0.6),
+     type='l', col='#f46d43', lwd=2,
+     ylab='', cex.axis=1.6,main='Box 8')
+abline(h=0, lty=3)
 
-plot(netdepo_sed9, ylim=c(-1.6,1.6),type='l', col='#d73027', lwd=2)
-par(new=T)
-boxplot(sar_b9,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#d7302755')
+plot(rdate[241:1467],netdepo_sed9[241:1467],
+     ylim=c(-0.3,0.6),type='l', col='#d73027', 
+     ylab='', cex.axis=1.6,main='Box 9',lwd=2)
+abline(h=0, lty=3)
 
-plot(netdepo_sed10,ylim=c(-1.6,1.6), type='l', col='#a50028', lwd=2)
-par(new=T)
-boxplot(sar_b10,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#a5002855')
+plot(rdate[241:1467],netdepo_sed10[241:1467],
+     ylim=c(-0.3,0.6), type='l', col='#a50028',
+     ylab='', cex.axis=1.6,main='Box 10',lwd=2)
+abline(h=0, lty=3)
 dev.off()
