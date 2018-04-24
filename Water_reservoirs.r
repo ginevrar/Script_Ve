@@ -117,8 +117,6 @@ head(Phg_w_tot_kg)
 hgT_sed1<-hgT[,12:21]; str(hgT_sed1)
 
 
-
-
 plot(hgT_w_kg_b1, type='l', col=1, ylim=c(0,15))
 par(new=T)
 plot(hgT_w_kg_b2, type='l', col=2, ylim=c(0,15))
