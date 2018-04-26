@@ -1,4 +1,5 @@
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/noRES')
+setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -6,14 +7,24 @@ names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
+hg<-read.csv('Total_Hg.csv', skip=1)
+names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')				 
+
 evasion<-read.csv("Volatilization_Loss_Rate.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(evasion)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
-plot(evasion$wn1)
-plot(evasion$wc6)
+a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07; a4<-8.90E+06; a5<-2.22E+07
+a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
+
+d1=1.26;d2=0.78;d3=3.35;d4=0.64;d5=1.03;d6=1.64;d7=1.84; d8=0.89;d9=0.69;d10=1.71
+
+
 #VOLATILIZZAZIONE
 H<-7.1*10^-3     # Henry's Law constant  
 R<-8.206*10^-5   # Universal Gas constant  8.206??0-5 atm/molar-K
@@ -21,33 +32,39 @@ Tk<-288.15       # 15^C
 divisore<-H/(R*Tk)
 
 kvol_1_day<-evasion[,2:11]  # kvol tutti i water box
-hg0_w<-hg0[,2:11]  # kvol tutti i water box
+hg0_w<-hg0[,2:11]           # hg0 ngL water box
 
 pr<-kvol_1_day*hg0_w    #ug m3 d
 str(hg0_w)
-str(pr)
+plot(hg0_w$wn5)
+mean(hg0_w$wn5[1431:1443])#ng/L   0.12 - 0.9 adriatco 
+mean(hg0_w$wc6[1431:1443])         #kotnik
+mean(hg0_w$wc7[1431:1443])
+head(hg0_w$wc7)
+
+plot((hg0_w$wc6[2:2428]/hg$wc6)*100)
+plot((hg0_w$wn1[2:2428]/hg$wn1)*100)
+
+str(hg$wn5)
+str(hg$wn5)
 
 plot(hg0_w$wn1/200.59*1000)
-
+tail(hg0_w$wn1)
 hg0_g_m3<-hg0_w/10^6
-
-atm_hg0<-4E-9
+atm_hg0<-4E-9     #g/m3
 
 skvol<-kvol_1_day*(hg0_g_m3 - (atm_hg0/divisore))   #gm2d
 tot_vol_m3<-6.33E+08
 area<-4.12E+08
 area_MGL<-1.6*10^8
 
+plot(skvol$wn1)
 #g/y
-volat_g_y<-skvol*tot_vol_m3*365;
-volat_g_y<-rowSums(volat_g_y)
-plot(volat_g_y[3:2124]/1000)    # circa 20 kg/y = 100 mol/y
-                                #MGL circa 14 mol/y
-mean(volat_g_y[3:2124]/1000)
+volat_gm3_y<-skvol*365;
+volat_gm3_y<-rowSums(volat_gm3_y)
+plot(volat_gm3_y[3:2124]/1000)
+volat_kg_y<-tot_vol_m3*volat_gm3_y/1000
 
-8.2/200.59*1000
-40/area
-14/area_MGL
 
 volat1_mol_y<-volat_g_y/(200.59); plot(volat1_mol_y, type="l")
 
@@ -63,20 +80,22 @@ vvol_gm3_day<-kvol_1_day*hg0_g_m3
 vvol_g_day<-vvol_gm3_day*tot_vol_m3
 vvol_g_y<-rowSums(vvol_g_day*365)
 vvol_kg_y<-vvol_g_y/1000
-plot(vvol_kg_y)
+plot(volat_g_y)
+0.14/1.26
+0.14/.78
 
+str(kvol_1_day)
 #VOLATILIZZAZIONE3
+
 vvol2_gm3_day<-kvol_1_day
-vvol2_g_day<-vvol2_gm3_day*tot_vol_m3
-vvol2_kg_y<-rowSums(vvol2_g_day*365)/1000
+vvol2_g_day<-vvol2_gm3_day
+vvol2_kg_y<-rowSums(vvol2_g_day*365)*tot_vol_m3/1000
 
 mean(volat_g_y[1000:2414]/1000); #kg y 
 mean(vvol_kg_y[1000:2414]);  #kg y 
 mean(vvol2_g_y[1000:2414]/1000) #kg y 
 
-VV<-data.frame(volat_g_y/1000,vvol_kg_y,vvol2_kg_y)
-names(VV)<-c('v1','v2','v3')
-write.table(VV,'volat.txt')
+
 
 head(VV$v1)
 head(VV$v2)
@@ -110,3 +129,66 @@ hg0_b7<-hg0$wc7    # hg0 ngL
 hg0_b8<-hg0$ws8    # hg0 ngL
 hg0_b9<-hg0$ws9    # hg0 ngL
 hg0_b10<-hg0$ws10    # hg0 ngL
+
+skvol1<-kvol1_1_day*(hg0_g_m3$wn1 - (atm_hg0/divisore))   #gm3d
+skvol2<-kvol2_1_day*(hg0_g_m3$wn2 - (atm_hg0/divisore))   #gm3d
+skvol3<-kvol3_1_day*(hg0_g_m3$wn3 - (atm_hg0/divisore))   #gm3d
+skvol4<-kvol4_1_day*(hg0_g_m3$wn4 - (atm_hg0/divisore))   #gm3d
+skvol5<-kvol5_1_day*(hg0_g_m3$wn5 - (atm_hg0/divisore))   #gm3d
+skvol6<-kvol6_1_day*(hg0_g_m3$wn6 - (atm_hg0/divisore))   #gm3d
+skvol7<-kvol7_1_day*(hg0_g_m3$wn7 - (atm_hg0/divisore))   #gm3d
+skvol8<-kvol8_1_day*(hg0_g_m3$wn8 - (atm_hg0/divisore))   #gm3d
+skvol9<-kvol9_1_day*(hg0_g_m3$wn9 - (atm_hg0/divisore))   #gm3d
+skvol10<-kvol10_1_day*(hg0_g_m3$wn10 - (atm_hg0/divisore))   #gm3d
+
+volat1_g_y<-skvol1*365*a1*d1;
+volat1_kg_y<-volat1_g_y/1000
+plot(volat_gm3_y[3:2124]/1000)
+
+volat2_g_y<-skvol2*365*a2*d2;
+volat2_kg_y<-volat2_g_y/1000
+
+volat3_g_y<-skvol3*365*a3*d3;
+volat3_kg_y<-volat3_g_y/1000
+
+volat4_g_y<-skvol4*365*a4*d4;
+volat4_kg_y<-volat4_g_y/1000
+
+volat5_g_y<-skvol5*365*a5*d5;
+volat5_kg_y<-volat5_g_y/1000
+
+volat6_g_y<-skvol6*365*a6*d6;
+volat6_kg_y<-volat6_g_y/1000
+
+volat7_g_y<-skvol7*365*a7*d7;
+volat7_kg_y<-volat7_g_y/1000
+
+volat8_g_y<-skvol8*365*a8*d8;
+volat8_kg_y<-volat8_g_y/1000
+
+volat9_g_y<-skvol9*365*a9*d9;
+volat9_kg_y<-volat9_g_y/1000
+
+volat10_g_y<-skvol10*365*a10*d10;
+volat10_kg_y<-volat10_g_y/1000
+
+vola_vola<-cbind(volat1_kg_y,volat2_kg_y,volat3_kg_y,volat4_kg_y,
+                 volat5_kg_y,volat6_kg_y,volat7_kg_y,volat8_kg_y,
+                 volat9_kg_y,volat10_kg_y)
+vola<-rowSums(vola_vola)
+
+VV<-data.frame(vola,volat_kg_y)
+str(VV)
+colMeans(VV[1431:1443,])
+VV[1431:1443,]
+write.table(VV$vola,'volat.txt')
+write.table((mean(VV$vola[1431:1443])),'volat_2017_kgy.txt')
+
+# circa 20 kg/y = 100 mol/y
+# MGL circa 14 mol/y
+
+mean(VV$vola[1431:1443])
+8.2/200.59*1000
+50/area
+14/area_MGL
+
