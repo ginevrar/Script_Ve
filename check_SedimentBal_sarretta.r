@@ -3,13 +3,10 @@
 # 1997        [1167:1178] # 2010        [1323:1334]
 # 2050        [1804:1815] # 2001 - 2003 [1215:1250]
 
-
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuove_forzanti/f')
-
 #setwd('C:/Users/Ginevra/Dropbox/2017_Venice/107')
 #setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/REs2e')
-setwd('C:/Users/gi/Desktop/finaleRITAMRE/menores2')
+#setwd('C:/Users/gi/Desktop/finaleRITAMRE/menores2')
+setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')#
 
 
 hg<-read.csv('Total_Hg.csv', skip=1)
@@ -71,10 +68,6 @@ silt_res<-read.csv("Silt_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec="."
 fPOM  <-POMs/TOTs
 fsilt <-silts/TOTs
 
-
-
-summary(fsilt*100)
-  
 solids_sed1  <-TOTs$sn1;   solids_dsed1  <-TOTs$dsn1;    
   solids_sed2  <-TOTs$sn2;   solids_dsed2  <-TOTs$dsn2;    
   solids_sed3  <-TOTs$sn3;   solids_dsed3  <-TOTs$dsn3; 
@@ -385,7 +378,7 @@ b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
 
 
 #png('DEPO_kgm2ynff2.png',width = 950, height = 530, units = "px")
-png('DEPO_kgm2y_inp.png',width = 950, height = 530, units = "px")
+png('DEPO_kgm2y_e9b.png',width = 950, height = 530, units = "px")
 
 par(mfrow=c(2,5))
 plot(depo1_kg_y/a1, type='l')     # 1989 - 1990: 113 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
@@ -426,9 +419,8 @@ sar_b8<-c(-0.3125, 0.3125)
 sar_b9<-c(-0.3125, 0.3125)
 sar_b10<-c(-1.5625,-0.3125)
 
-<<<<<<< HEAD
 
-png('DEPO_vs_Sarrettanff2.png',width = 950, height = 530, units = "px")
+png('DEPO_vs_Sarretta_e9b.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
 plot(netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
 par(new=T)
@@ -473,9 +465,7 @@ dev.off()
   
 
 #NET_DEPO_cmy
-
-
-png('DEPO_nff2.png',width = 950, height = 530, units = "px")
+png('DEPO_e9b.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
 plot(netdepo_sed1, type='l', col='#313695', lwd=2)
 abline(h=0, lty=3)
@@ -503,10 +493,9 @@ plot(netdepo_sed9, ylim=c(-1.6,1.6),type='l', col='#d73027', lwd=2)
 abline(h=0, lty=3)
 
 plot(netdepo_sed10,ylim=c(-1.6,1.6), type='l', col='#a50028', lwd=2)
+dev.off()
 
-
-
-png('DEPO_vs_Sarretta_inp.png',
+png('DEPO_vs_Sarretta_e9b.png',
     width = 30, height = 20, units = "cm", res=300)
 par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
 plot(rdate[241:1467], netdepo_sed1[241:1467], type='l',ylim=c(-0.3,0.6),

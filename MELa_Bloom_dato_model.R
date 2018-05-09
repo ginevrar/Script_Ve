@@ -1,7 +1,7 @@
 setwd('C:/Users/gi/Dropbox/2017_Venice')
+setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
 str(Mel)
-
 #dati Bloom 
 Water_sud_bloom<-c(3.15,2.08,4.2)
 Water_nord_bloom<-c(29.08555,	12.1798248,	45.9912752, 
@@ -12,7 +12,13 @@ Water_central_bloom<-c(14.84366, 8.5531576,
 Marghera_bloom<-c(11.9391168,56,	100.7924632,NA,NA,NA,NA)
 
 setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
-
+setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola16')
+setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_pazzo3')#
+hg<-read.csv('Total_Hg.csv', skip=1)
+names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 Mel$Hg1<-Mel$Hg*1000
 
 Mela<-Mel[(Mel$Staz!='M01' & Mel$Staz!='M02'& Mel$Staz!='B31'&
@@ -98,7 +104,7 @@ centr_n_hg<-c(hg$wc6[1215:1335],
 centr_s_hg<-c(hg$wc7[1215:1335])
 sud_hg<-c(hg$ws8[1215:1335],hg$ws9[1215:1335], hg$ws10[1215:1335])
 
-png('confr_MEla_E_Bloom2___.png',width = 30, 
+png('confr_MEla_E_Bloom___p3.png',width = 30, 
     height = 20, units = "cm",res=300)
 par(mfrow=c(2,2), bty='n',mar=c(4,5,2,0))
 boxplot(nord_hg,Water_nord_bloom, Water_nord,main='Hg acque nord', ylab='ng/L',
@@ -126,7 +132,7 @@ Water_nord_bloom<-c(29.08555,	12.1798248,	45.9912752, NA, NA, NA,NA)
 Water_central_bloom<-c(14.84366, 8.5531576,21.1341624, 2.58219507, 4.713865, 3.627636718 ,NA)
 Marghera_bloom<-c(11.9391168,56,	100.7924632,NA,NA,NA,NA)
 
-png('Mela_time_63_.png', width = 750, height = 800, units = "px")
+png('Mela_time_63_p3.png', width = 750, height = 800, units = "px")
 par(mfrow=c(3,1), mar=c(1,5,1,1))
 #old range 241:1467  - new range 241:1467
 plot(rdate[241:1467],hg$wn1[241:1467], col='#313695', type='l',
