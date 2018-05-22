@@ -2,6 +2,16 @@ setwd('C:/Users/gi/Dropbox/2017_Venice')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
 str(Mel)
+
+summary(Mel$Hg)
+Mel$Hg1<-Mel$Hg*1000
+
+summary(Mel$Hg1)
+
+Melaa<-Mel[(Mel$Hg1<660),]
+summary(Melaa$Hg1)
+
+
 #dati Bloom 
 Water_sud_bloom<-c(3.15,2.08,4.2)
 Water_nord_bloom<-c(29.08555,	12.1798248,	45.9912752, 
@@ -19,7 +29,6 @@ names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10'
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-Mel$Hg1<-Mel$Hg*1000
 
 Mela<-Mel[(Mel$Staz!='M01' & Mel$Staz!='M02'& Mel$Staz!='B31'&
              Mel$Staz!='E' & Mel$Hg1<300 & Mel$Anno>2001),]
@@ -84,6 +93,15 @@ Water_centro_s_df<-Mela1[(Mela1$Zone == 'Centro-Sud'),]
 Water_centro_s<-Water_centro_s_df$Hg1
 Water_sud_df<-Mela1[(Mela1$Zone == 'Sud'),]
 Water_sud<-Water_sud_df$Hg1
+
+summary(Water_nord)
+summary(Water_centro_n)
+summary(Water_centro_s)
+summary(Water_sud)
+
+View(Water_centro_n_df)
+
+
 
 
 time.steps <- mehg[,1]
