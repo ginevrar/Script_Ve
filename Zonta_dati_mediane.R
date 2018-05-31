@@ -22,99 +22,99 @@ box10_A<-filter(box10,sed_layer=='A'); box10_B<-filter(box10,sed_layer=='B');box
 
 y<-c(-2,-7,-15,-25,-40)
 
-box1_A_mean<-mean(box1_A$Hg[1:19]); box1_A_sd<-sd(box1_A$Hg[1:19])
-box1_B_mean<-mean(box1_B$Hg[1:19]); box1_B_sd<-sd(box1_B$Hg[1:19])
-box1_C_mean<-mean(box1_C$Hg[1:19]); box1_C_sd<-sd(box1_C$Hg[1:19])
-box1_D_mean<-mean(box1_D$Hg[1:19]); box1_D_sd<-sd(box1_D$Hg[1:19])
-box1_E_mean<-mean(box1_E$Hg[1:19]); box1_E_sd<-sd(box1_E$Hg[1:19])
+box1_A_median<-median(box1_A$Hg[1:19]); box1_A_sd<-sd(box1_A$Hg[1:19])
+box1_B_median<-median(box1_B$Hg[1:19]); box1_B_sd<-sd(box1_B$Hg[1:19])
+box1_C_median<-median(box1_C$Hg[1:19]); box1_C_sd<-sd(box1_C$Hg[1:19])
+box1_D_median<-median(box1_D$Hg[1:19]); box1_D_sd<-sd(box1_D$Hg[1:19])
+box1_E_median<-median(box1_E$Hg[1:19]); box1_E_sd<-sd(box1_E$Hg[1:19])
 
-box2_A_mean<-mean(box2_A$Hg[1:24]); box2_A_sd<-sd(box2_A$Hg[1:24])
-box2_B_mean<-mean(box2_B$Hg[1:24]); box2_B_sd<-sd(box2_B$Hg[1:24])
-box2_C_mean<-mean(box2_C$Hg[1:24]); box2_C_sd<-sd(box2_C$Hg[1:24])
-box2_D_mean<-mean(box2_D$Hg[1:24]); box2_D_sd<-sd(box2_D$Hg[1:24])
-box2_E_mean<-mean(box2_E$Hg[1:24]); box2_E_sd<-sd(box2_E$Hg[1:24])
+box2_A_median<-median(box2_A$Hg[1:24]); box2_A_sd<-sd(box2_A$Hg[1:24])
+box2_B_median<-median(box2_B$Hg[1:24]); box2_B_sd<-sd(box2_B$Hg[1:24])
+box2_C_median<-median(box2_C$Hg[1:24]); box2_C_sd<-sd(box2_C$Hg[1:24])
+box2_D_median<-median(box2_D$Hg[1:24]); box2_D_sd<-sd(box2_D$Hg[1:24])
+box2_E_median<-median(box2_E$Hg[1:24]); box2_E_sd<-sd(box2_E$Hg[1:24])
 
-box3_A_mean<-mean(box3_A$Hg[1:43]); box3_A_sd<-sd(box3_A$Hg[1:43])
-box3_B_mean<-mean(box3_B$Hg[1:43]); box3_B_sd<-sd(box3_B$Hg[1:43])
-box3_C_mean<-mean(box3_C$Hg[1:43]); box3_C_sd<-sd(box3_C$Hg[1:43])
-box3_D_mean<-mean(box3_D$Hg[1:43]); box3_D_sd<-sd(box3_D$Hg[1:43])
-box3_E_mean<-mean(box3_E$Hg[1:43]); box3_E_sd<-sd(box3_E$Hg[1:19])
+box3_A_median<-median(box3_A$Hg[1:43]); box3_A_sd<-sd(box3_A$Hg[1:43])
+box3_B_median<-median(box3_B$Hg[1:43]); box3_B_sd<-sd(box3_B$Hg[1:43])
+box3_C_median<-median(box3_C$Hg[1:43]); box3_C_sd<-sd(box3_C$Hg[1:43])
+box3_D_median<-median(box3_D$Hg[1:43]); box3_D_sd<-sd(box3_D$Hg[1:43])
+box3_E_median<-median(box3_E$Hg[1:43]); box3_E_sd<-sd(box3_E$Hg[1:19])
 
-box4_A_mean<-mean(box4_A$Hg[1:5]); box4_A_sd<-sd(box4_A$Hg[1:5])
-box4_B_mean<-mean(box4_B$Hg[1:5]); box4_B_sd<-sd(box4_B$Hg[1:5])
-box4_C_mean<-mean(box4_C$Hg[1:5]); box4_C_sd<-sd(box4_C$Hg[1:5])
-box4_D_mean<-mean(box4_D$Hg[1:5]); box4_D_sd<-sd(box4_D$Hg[1:5])
-box4_E_mean<-mean(box4_E$Hg[1:5]); box4_E_sd<-sd(box4_E$Hg[1:5])
+box4_A_median<-median(box4_A$Hg[1:5]); box4_A_sd<-sd(box4_A$Hg[1:5])
+box4_B_median<-median(box4_B$Hg[1:5]); box4_B_sd<-sd(box4_B$Hg[1:5])
+box4_C_median<-median(box4_C$Hg[1:5]); box4_C_sd<-sd(box4_C$Hg[1:5])
+box4_D_median<-median(box4_D$Hg[1:5]); box4_D_sd<-sd(box4_D$Hg[1:5])
+box4_E_median<-median(box4_E$Hg[1:5]); box4_E_sd<-sd(box4_E$Hg[1:5])
 
-box5_A_mean<-mean(box5_A$Hg[1:52]); box5_A_sd<-sd(box5_A$Hg[1:52])
-box5_B_mean<-mean(box5_B$Hg[1:52]); box5_B_sd<-sd(box5_B$Hg[1:52])
-box5_C_mean<-mean(box5_C$Hg[1:52]); box5_C_sd<-sd(box5_C$Hg[1:52])
-box5_D_mean<-mean(box5_D$Hg[1:52]); box5_D_sd<-sd(box5_D$Hg[1:52])
-box5_E_mean<-mean(box5_E$Hg[1:52]); box5_E_sd<-sd(box5_E$Hg[1:52])
+box5_A_median<-median(box5_A$Hg[1:52]); box5_A_sd<-sd(box5_A$Hg[1:52])
+box5_B_median<-median(box5_B$Hg[1:52]); box5_B_sd<-sd(box5_B$Hg[1:52])
+box5_C_median<-median(box5_C$Hg[1:52]); box5_C_sd<-sd(box5_C$Hg[1:52])
+box5_D_median<-median(box5_D$Hg[1:52]); box5_D_sd<-sd(box5_D$Hg[1:52])
+box5_E_median<-median(box5_E$Hg[1:52]); box5_E_sd<-sd(box5_E$Hg[1:52])
 
-box6_A_mean<-mean(box6_A$Hg[1:75]); box6_A_sd<-sd(box6_A$Hg[1:75])
-box6_B_mean<-mean(box6_B$Hg[1:75]); box6_B_sd<-sd(box6_B$Hg[1:75])
-box6_C_mean<-mean(box6_C$Hg[1:75]); box6_C_sd<-sd(box6_C$Hg[1:75])
-box6_D_mean<-mean(box6_D$Hg[1:75]); box6_D_sd<-sd(box6_D$Hg[1:75])
-box6_E_mean<-mean(box6_E$Hg[1:75]); box6_E_sd<-sd(box6_E$Hg[1:75])
+box6_A_median<-median(box6_A$Hg[1:75]); box6_A_sd<-sd(box6_A$Hg[1:75])
+box6_B_median<-median(box6_B$Hg[1:75]); box6_B_sd<-sd(box6_B$Hg[1:75])
+box6_C_median<-median(box6_C$Hg[1:75]); box6_C_sd<-sd(box6_C$Hg[1:75])
+box6_D_median<-median(box6_D$Hg[1:75]); box6_D_sd<-sd(box6_D$Hg[1:75])
+box6_E_median<-median(box6_E$Hg[1:75]); box6_E_sd<-sd(box6_E$Hg[1:75])
 
-box7_A_mean<-mean(box7_A$Hg[1:83]); box7_A_sd<-sd(box7_A$Hg[1:83])
-box7_B_mean<-mean(box7_B$Hg[1:83]); box7_B_sd<-sd(box7_B$Hg[1:83])
-box7_C_mean<-mean(box7_C$Hg[1:83]); box7_C_sd<-sd(box7_C$Hg[1:83])
-box7_D_mean<-mean(box7_D$Hg[1:83]); box7_D_sd<-sd(box7_D$Hg[1:83])
-box7_E_mean<-mean(box7_E$Hg[1:83]); box7_E_sd<-sd(box7_E$Hg[1:83])
+box7_A_median<-median(box7_A$Hg[1:83]); box7_A_sd<-sd(box7_A$Hg[1:83])
+box7_B_median<-median(box7_B$Hg[1:83]); box7_B_sd<-sd(box7_B$Hg[1:83])
+box7_C_median<-median(box7_C$Hg[1:83]); box7_C_sd<-sd(box7_C$Hg[1:83])
+box7_D_median<-median(box7_D$Hg[1:83]); box7_D_sd<-sd(box7_D$Hg[1:83])
+box7_E_median<-median(box7_E$Hg[1:83]); box7_E_sd<-sd(box7_E$Hg[1:83])
 
-box8_A_mean<-mean(box8_A$Hg[1:18]); box8_A_sd<-sd(box8_A$Hg[1:18])
-box8_B_mean<-mean(box8_B$Hg[1:18]); box8_B_sd<-sd(box8_B$Hg[1:18])
-box8_C_mean<-mean(box8_C$Hg[1:18]); box8_C_sd<-sd(box8_C$Hg[1:18])
-box8_D_mean<-mean(box8_D$Hg[1:18]); box8_D_sd<-sd(box8_D$Hg[1:18])
-box8_E_mean<-mean(box8_E$Hg[1:18]); box8_E_sd<-sd(box8_E$Hg[1:18])
+box8_A_median<-median(box8_A$Hg[1:18]); box8_A_sd<-sd(box8_A$Hg[1:18])
+box8_B_median<-median(box8_B$Hg[1:18]); box8_B_sd<-sd(box8_B$Hg[1:18])
+box8_C_median<-median(box8_C$Hg[1:18]); box8_C_sd<-sd(box8_C$Hg[1:18])
+box8_D_median<-median(box8_D$Hg[1:18]); box8_D_sd<-sd(box8_D$Hg[1:18])
+box8_E_median<-median(box8_E$Hg[1:18]); box8_E_sd<-sd(box8_E$Hg[1:18])
 
-box9_A_mean<-mean(box9_A$Hg[1:18]); box9_A_sd<-sd(box9_A$Hg[1:18])
-box9_B_mean<-mean(box9_B$Hg[1:18]); box9_B_sd<-sd(box9_B$Hg[1:18])
-box9_C_mean<-mean(box9_C$Hg[1:18]); box9_C_sd<-sd(box9_C$Hg[1:18])
-box9_D_mean<-mean(box9_D$Hg[1:18]); box9_D_sd<-sd(box9_D$Hg[1:18])
-box9_E_mean<-mean(box9_E$Hg[1:18]); box9_E_sd<-sd(box9_E$Hg[1:18])
+box9_A_median<-median(box9_A$Hg[1:18]); box9_A_sd<-sd(box9_A$Hg[1:18])
+box9_B_median<-median(box9_B$Hg[1:18]); box9_B_sd<-sd(box9_B$Hg[1:18])
+box9_C_median<-median(box9_C$Hg[1:18]); box9_C_sd<-sd(box9_C$Hg[1:18])
+box9_D_median<-median(box9_D$Hg[1:18]); box9_D_sd<-sd(box9_D$Hg[1:18])
+box9_E_median<-median(box9_E$Hg[1:18]); box9_E_sd<-sd(box9_E$Hg[1:18])
 
-box10_A_mean<-mean(box10_A$Hg[1:43]); box10_A_sd<-sd(box10_A$Hg[1:43])
-box10_B_mean<-mean(box10_B$Hg[1:43]); box10_B_sd<-sd(box10_B$Hg[1:43])
-box10_C_mean<-mean(box10_C$Hg[1:43]); box10_C_sd<-sd(box10_C$Hg[1:43])
-box10_D_mean<-mean(box10_D$Hg[1:43]); box10_D_sd<-sd(box10_D$Hg[1:43])
-box10_E_mean<-mean(box10_E$Hg[1:43]); box10_E_sd<-sd(box10_E$Hg[1:43])
+box10_A_median<-median(box10_A$Hg[1:43]); box10_A_sd<-sd(box10_A$Hg[1:43])
+box10_B_median<-median(box10_B$Hg[1:43]); box10_B_sd<-sd(box10_B$Hg[1:43])
+box10_C_median<-median(box10_C$Hg[1:43]); box10_C_sd<-sd(box10_C$Hg[1:43])
+box10_D_median<-median(box10_D$Hg[1:43]); box10_D_sd<-sd(box10_D$Hg[1:43])
+box10_E_median<-median(box10_E$Hg[1:43]); box10_E_sd<-sd(box10_E$Hg[1:43])
 
-b1_profile<-c(box1_A_mean,box1_B_mean,box1_C_mean,box1_D_mean,box1_E_mean)
+b1_profile<-c(box1_A_median,box1_B_median,box1_C_median,box1_D_median,box1_E_median)
 b1_SD<-c(box1_A_sd,box1_B_sd,box1_C_sd,box1_D_sd,box1_E_sd)
 
-b2_profile<-c(box2_A_mean,box2_B_mean,box2_C_mean,box2_D_mean,box2_E_mean)
+b2_profile<-c(box2_A_median,box2_B_median,box2_C_median,box2_D_median,box2_E_median)
 b2_SD<-c(box2_A_sd,box2_B_sd,box2_C_sd,box2_D_sd,box2_E_sd)
 
-b3_profile<-c(box3_A_mean,box3_B_mean,box3_C_mean,box3_D_mean,box3_E_mean)
+b3_profile<-c(box3_A_median,box3_B_median,box3_C_median,box3_D_median,box3_E_median)
 b3_SD<-c(box3_A_sd,box3_B_sd,box3_C_sd,box3_D_sd,box3_E_sd)
 
-b4_profile<-c(box4_A_mean,box4_B_mean,box4_C_mean,box4_D_mean,box4_E_mean)
+b4_profile<-c(box4_A_median,box4_B_median,box4_C_median,box4_D_median,box4_E_median)
 b4_SD<-c(box4_A_sd,box4_B_sd,box4_C_sd,box4_D_sd,box4_E_sd)
 
-b5_profile<-c(box5_A_mean,box5_B_mean,box5_C_mean,box5_D_mean,box5_E_mean)
+b5_profile<-c(box5_A_median,box5_B_median,box5_C_median,box5_D_median,box5_E_median)
 b5_SD<-c(box5_A_sd,box5_B_sd,box5_C_sd,box5_D_sd,box5_E_sd)
 
-b6_profile<-c(box6_A_mean,box6_B_mean,box6_C_mean,box6_D_mean,box6_E_mean)
+b6_profile<-c(box6_A_median,box6_B_median,box6_C_median,box6_D_median,box6_E_median)
 b6_SD<-c(box6_A_sd,box6_B_sd,box6_C_sd,box6_D_sd,box6_E_sd)
 
-b7_profile<-c(box7_A_mean,box7_B_mean,box7_C_mean,box7_D_mean,box7_E_mean)
+b7_profile<-c(box7_A_median,box7_B_median,box7_C_median,box7_D_median,box7_E_median)
 b7_SD<-c(box7_A_sd,box7_B_sd,box7_C_sd,box7_D_sd,box7_E_sd)
 
-b8_profile<-c(box8_A_mean,box8_B_mean,box8_C_mean,box8_D_mean,box8_E_mean)
+b8_profile<-c(box8_A_median,box8_B_median,box8_C_median,box8_D_median,box8_E_median)
 b8_SD<-c(box8_A_sd,box8_B_sd,box8_C_sd,box8_D_sd,box8_E_sd)
 
-b9_profile<-c(box9_A_mean,box9_B_mean,box9_C_mean,box9_D_mean,box9_E_mean)
+b9_profile<-c(box9_A_median,box9_B_median,box9_C_median,box9_D_median,box9_E_median)
 b9_SD<-c(box9_A_sd,box9_B_sd,box9_C_sd,box9_D_sd,box9_E_sd)
 
-b10_profile<-c(box10_A_mean,box10_B_mean,box10_C_mean,box10_D_mean,box10_E_mean)
+b10_profile<-c(box10_A_median,box10_B_median,box10_C_median,box10_D_median,box10_E_median)
 b10_SD<-c(box10_A_sd,box10_B_sd,box10_C_sd,box10_D_sd,box10_E_sd)
 
 epsilon <- .7
 
-png('DAti_ZONTA3.png',width = 1000*1.5, height = 530*1.5,  #provare mult*1.5 dimensioni plot
+png('DAti_ZONTA3b.png',width = 1000*1.5, height = 530*1.5,  #provare mult*1.5 dimensioni plot
     units = "px")
 par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,5.5,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
@@ -170,7 +170,7 @@ segments(b10_profile+b10_SD,y-epsilon,b10_profile+b10_SD,y+epsilon, col='#a50028
 dev.off()
 
 
-png('DAti_ZONTA4.png', width = 1000*1.5, height = 530*1.5,  units = "px") #
+png('DAti_ZONTA4b.png', width = 1000*1.5, height = 530*1.5,  units = "px") #
 par(mfrow=c(1,1),mar=c(3,1,1,1), oma=c(0,5.5,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
 plot(b1_profile,y, xlim=c(0,1),lwd=2, ylim=c(-40,0), col='#313695', type='b', pch=1)
