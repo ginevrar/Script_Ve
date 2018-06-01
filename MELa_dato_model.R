@@ -1,8 +1,15 @@
 setwd('C:/Users/gi/Dropbox/2017_Venice')
+setwd('C:/Users/gi/Downloads')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
 str(Mel)
 setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 
+setwd('C:\\Users\\gi\\Dropbox\\eccola2')
+hg<-read.csv("Total_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+temp<-temp[1:2412,]
 Mel$Hg1<-Mel$Hg*1000
 
 Mela<-Mel[(Mel$Staz!='M01' & Mel$Staz!='M02'& Mel$Staz!='B31'&
@@ -70,16 +77,17 @@ Water_sud_df<-Mela1[(Mela1$Zone == 'Sud'),]
 Water_sud<-Water_sud_df$Hg1
 
 
-time.steps <- mehg[,1]
+time.steps <- hg[,1]
 #time.steps2 <- trunc(time.steps, 0)
 time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
+
 hgTE<- cbind(TEMPO, hg)
 str(hgTE)
-rdate<-as.Date(hgTE$TEMPO, tz= "GMT", format="%Y")
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 plot(hgTE$TEMPO,hgTE$sc6)
-rdate
+head(rdate)
 111*12
 #ACQUE modeled da 2001 a 2010  [1230:735] --> [1215:1250]  [1239:1332]
 nord_hg<-c(hg$wn1[1239:1332],hg$wn2[1239:1332],hg$wn4[1239:1332])
@@ -109,7 +117,8 @@ boxplot(sud_hg ,Water_sud,  main='Southern Boxes', ylab='ng/L',
 dev.off()
 
 png('Mela_time_63c__.png', width = 750, height = 800, units = "px")
-par(mfrow=c(3,1), mar=c(1,5,1,1))
+par(mfrow=c(3,1), mar=c(1,5,1,1), bg='black',fg = 'white',
+    col.axis = "white", col.clab = "white") 
 #old range 2:2427  - new range 2:2427
 plot(rdate[2:2427],hg$wn1[2:2427], col='#313695', type='l',
      ylim=c(0,80), ylab='ng/L',
