@@ -1,8 +1,6 @@
-
-
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuoviin2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')#
-
+setwd('C:/Users/gi/Dropbox/new_sed_layers')
 str(mehg)
 1900-2101
 2426/12
@@ -141,7 +139,7 @@ media10<-rowMeans(l)
 
 str(media1)
 
-png('Time_hg_sediment_e9b.png',width = 1000*1.5, height = 530*1.5,  #provare mult*1.5 dimensioni plot
+png('Time_hg_sediment_e10.png',width = 1000*1.5, height = 530*1.5,  #provare mult*1.5 dimensioni plot
     units = "px")
 par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
 
@@ -163,7 +161,7 @@ plot(rdate[242:1479],hg$osn1[242:1479],ylim=c(0,5000), type='l', col='#313695',
 #text(1020,1200,'1977', cex=1.2)
 #text(9700,1200,'1997', cex=1.2)
 par(new=T)
-boxplot(box1_77,box1,box1_2005,box1_2008,z1,ylim=c(0,5000),
+boxplot(box1_77,box1,box1_2005,box1_2008,box1_A$Hg,ylim=c(0,5000),
         col='#31369588', ylab=' ', range=F,
         boxwex=400, xaxt='n',yaxt='n', xlim=c(rdate[242],rdate[1479]),
         at=c(c1,c2,c3,c4,c5))   #0.23,0.45

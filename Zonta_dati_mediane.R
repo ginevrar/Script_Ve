@@ -1,6 +1,7 @@
 setwd('L:/Il mio Drive/MERCURIO/Venezia/')
-
+setwd('C:/Users/gi/Downloads/')
 dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
+dati<-read.table('QSEV_data.txt', header=T); str(dati)
 
 library(dplyr)
 box1<-filter(dati,box==1);box2<-filter(dati,box ==2)
