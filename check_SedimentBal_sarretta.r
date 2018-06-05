@@ -7,7 +7,7 @@
 #setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/REs2e')
 #setwd('C:/Users/gi/Desktop/finaleRITAMRE/menores2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')#
-
+setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/new_in9')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -101,20 +101,8 @@ NET_DEPO_cmy<-data.frame(netdepo_sed1,netdepo_sed2,netdepo_sed3,netdepo_sed4,net
 BURIAL_cmy<-data.frame(burial_sed1,burial_sed2,burial_sed3,burial_sed4, burial_sed5,
 						burial_sed6, burial_sed7,burial_sed8,burial_sed9, burial_sed10)  
  
-summary(BURIAL_cmy)
-str(NET_DEPO_cmy)
-
-
-a1<-4.32E+07
-a2<-3.53E+07
-a3<-3.13E+07
-a4<-8.90E+06
-a5<-2.22E+07
-a6<-5.43E+07
-a7<-1.15E+08
-a8<-3.17E+07
-a9<-2.95E+07
-a10<-4.06E+07
+a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07
+a9<-2.95E+07;a10<-4.06E+07
 
 TOT_buried<-HgT_burial_sed1_g_y+HgT_burial_sed2_g_y+HgT_burial_sed3_g_y+HgT_burial_sed4_g_y+HgT_burial_sed5_g_y
 			HgT_burial_sed6_g_y+HgT_burial_sed7_g_y+HgT_burial_sed8_g_y+HgT_burial_sed9_g_y+HgT_burial_sed10_g_y

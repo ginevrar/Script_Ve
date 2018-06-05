@@ -21,6 +21,30 @@ box8_A<-filter(box8,sed_layer=='A'); box8_B<-filter(box8,sed_layer=='B');box8_C<
 box9_A<-filter(box9,sed_layer=='A'); box9_B<-filter(box9,sed_layer=='B');box9_C<-filter(box9,sed_layer=='C');box9_D<-filter(box9,sed_layer=='D');box9_E<-filter(box9,sed_layer=='E')
 box10_A<-filter(box10,sed_layer=='A'); box10_B<-filter(box10,sed_layer=='B');box10_C<-filter(box10,sed_layer=='C');box10_D<-filter(box10,sed_layer=='D');box10_E<-filter(box10,sed_layer=='E')
 
+box1_A_hg<-select(box1_A_hg,Hg)*1000; box1_B_hg<-select(box1_B_hg,Hg)*1000;box1_C_hg<-select(box1_C_hg,Hg)*1000;box1_D_hg<-select(box1_D_hg,Hg)*1000;box1_E_hg<-select(box1_E,Hg)*1000
+box2_A_hg<-select(box2_A_hg,Hg)*1000; box2_B_hg<-select(box2_B_hg,Hg)*1000;box2_C_hg<-select(box2_C_hg,Hg)*1000;box2_D_hg<-select(box2_D_hg,Hg)*1000;box2_E_hg<-select(box2_E,Hg)*1000
+box3_A_hg<-select(box3_A_hg,Hg)*1000; box3_B_hg<-select(box3_B_hg,Hg)*1000;   box3_C_hg<-select(box3_C_hg,Hg)*1000;box3_D_hg<-select(box3_D_hg,Hg)*1000;box3_E_hg<-select(box3_E,Hg)*1000
+box4_A_hg<-select(box4_A_hg,Hg)*1000; box4_B_hg<-select(box4_B_hg,Hg)*1000;   box4_C_hg<-select(box4_C_hg,Hg)*1000;box4_D_hg<-select(box4_D_hg,Hg)*1000;box4_E_hg<-select(box4_E,Hg)*1000
+box5_A_hg<-select(box5_A_hg,Hg)*1000; box5_B_hg<-select(box5_B_hg,Hg)*1000;   box5_C_hg<-select(box5_C_hg,Hg)*1000;box5_D_hg<-select(box5_D_hg,Hg)*1000;box5_E_hg<-select(box5_E,Hg)*1000
+box6_A_hg<-select(box6_A_hg,Hg)*1000; box6_B_hg<-select(box6_B_hg,Hg)*1000;   box6_C_hg<-select(box6_C_hg,Hg)*1000;box6_D_hg<-select(box6_D_hg,Hg)*1000;box6_E_hg<-select(box6_E,Hg)*1000
+box7_A_hg<-select(box7_A_hg,Hg)*1000; box7_B_hg<-select(box7_B_hg,Hg)*1000;   box7_C_hg<-select(box7_C_hg,Hg)*1000;box7_D_hg<-select(box7_D_hg,Hg)*1000;box7_E_hg<-select(box7_E,Hg)*1000
+box8_A_hg<-select(box8_A_hg,Hg)*1000; box8_B_hg<-select(box8_B_hg,Hg)*1000;box8_C_hg<-select(box8_C_hg,Hg)*1000;box8_D_hg<-select(box8_D_hg,Hg)*1000;box8_E_hg<-select(box8_E,Hg)*1000
+box9_A_hg<-select(box9_A_hg,Hg)*1000; box9_B_hg<-select(box9_B_hg,Hg)*1000;box9_C_hg<-select(box9_C_hg,Hg)*1000;box9_D_hg<-select(box9_D_hg,Hg)*1000;box9_E_hg<-select(box9_E,Hg)*1000
+box10_A_hg<-select(box10_A_hg,Hg)*1000; box10_B_hg<-select(box10_B_hg,Hg)*1000;box10_C_hg<-select(box10_C_hg,Hg)*1000;box10_D_hg<-select(box10_D_hg,Hg)*1000;box10_E_hg<-select(box10_E,Hg)*1000
+
+layerE<-rbind(box1_E_hg,box2_E_hg,box3_E_hg,box4_E_hg,box5_E_hg,box6_E_hg,box7_E_hg,box8_E_hg,box9_E_hg,box10_E_hg)
+layerE_nord <-rbind(box1_E_hg,box2_E_hg,box4_E_hg)
+layerE_centr<-rbind(box3_E_hg,box5_E_hg,box6_E_hg)
+layerE_sud  <-rbind(box7_E_hg,box8_E_hg,box9_E_hg,box10_E_hg)
+
+summary(layerE_nord)
+summary(layerE_centr)
+summary(layerE_sud)
+
+summary(box10_E_hg)
+
+
+
 y<-c(-2,-7,-15,-25,-40)
 
 box1_A_median<-median(box1_A$Hg[1:19]); box1_A_sd<-sd(box1_A$Hg[1:19])
