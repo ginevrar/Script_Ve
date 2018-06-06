@@ -1,7 +1,15 @@
-setwd('C:/Users/gi/Dropbox/2017_Venice')
+setwd('C:/Users/gi/Downloads/')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
-str(Mel)
+
+setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
+setwd('C:/Users/gi/Dropbox/res_eutr15')
+
+hg<-read.csv('Total_Hg.csv', skip=1)
+names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 summary(Mel$Hg)
 Mel$Hg1<-Mel$Hg*1000
@@ -20,17 +28,6 @@ Water_central_bloom<-c(14.84366, 8.5531576,
                        21.1341624, 2.58219507, 4.713865, 
                        3.627636718 ,NA)
 Marghera_bloom<-c(11.9391168,56,	100.7924632,NA,NA,NA,NA)
-
-setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola16')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_pazzo3')#
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
-
-hg<-read.csv('Total_Hg.csv', skip=1)
-names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 Mela<-Mel[(Mel$Staz!='M01' & Mel$Staz!='M02'& Mel$Staz!='B31'&
              Mel$Staz!='E' & Mel$Hg1<300 & Mel$Anno>2001),]
@@ -96,27 +93,18 @@ Water_centro_s<-Water_centro_s_df$Hg1
 Water_sud_df<-Mela1[(Mela1$Zone == 'Sud'),]
 Water_sud<-Water_sud_df$Hg1
 
-summary(Water_nord)
-summary(Water_centro_n)
-summary(Water_centro_s)
-summary(Water_sud)
+summary(Water_nord);summary(Water_centro_n)
+summary(Water_centro_s);summary(Water_sud)
 
-View(Water_centro_n_df)
-
-
-
-
-time.steps <- mehg[,1]
+time.steps <- hg[,1]
 #time.steps2 <- trunc(time.steps, 0)
 time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
 hgTE<- cbind(TEMPO, hg)
 str(hgTE)
-rdate<-as.Date(hgTE$TEMPO, tz= "GMT", format="%Y")
-plot(hgTE$TEMPO,hgTE$sc6)
-rdate
-111*12
+rdate<-as.Date(hg$TEMPO, tz= "GMT", format="%Y")
+
 #ACQUE modeled da 2001 a 2010  [1230:735] --> [1215:1250]  [1239:1332]
 nord_hg<-c(hg$wn1[1215:1335],hg$wn2[1215:1335],hg$wn4[1215:1335])
 centr_n_hg<-c(hg$wc6[1215:1335],

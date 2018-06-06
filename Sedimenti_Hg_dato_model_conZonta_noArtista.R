@@ -2,8 +2,8 @@ setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuoviin2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')#
 setwd('C:/Users/gi/Dropbox/new_sed_layers')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr6')
+setwd('C:/Users/gi/Dropbox/res_eutr15')
 
-str(mehg)
 1900-2101
 2426/12
 # plot da 1920 a 2020
@@ -97,11 +97,7 @@ i<-data.frame(hg$dss9,hg$ss9,hg$oss9);l<-data.frame(hg$dss10,hg$ss10,hg$oss10)
 media1<-rowMeans(a);media2<-rowMeans(b);media3<-rowMeans(c);media4<-rowMeans(d);media5<-rowMeans(e);
 media6<-rowMeans(f); media7<-rowMeans(g); media8<-rowMeans(h); media9<-rowMeans(i); media10<-rowMeans(l)
 
-text(0.75, 1000, '15', cex=1.6) #15 cm£
-text(0.98, 1000, '12', cex=1.6)
-text(1.03, 1000, '10', cex=1.6)
-
-png('Time_hg_sediment_res_e5c.png',width = 1000*1.5, height = 530*1.5,  #provare mult*1.5 dimensioni plot
+png('Time_hg_sediment_reseutro15.png',width = 1000*1.5, height = 530*1.5,  #provare mult*1.5 dimensioni plot
     units = "px")
 par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
 

@@ -8,6 +8,7 @@
 #setwd('C:/Users/gi/Desktop/finaleRITAMRE/menores2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')#
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr5')
+setwd('C:/Users/gi/Dropbox/res_eutr14')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -27,8 +28,15 @@ names(SEDhg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws
 burial<-read.csv("Sediment_Burial_Velocity.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(burial)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
- 
+             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+sands<-read.csv("Sands.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+names(sands)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
 Phgs<-read.csv("Total_Sorbed_Divalent_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
   names(Phgs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -36,14 +44,16 @@ Phgs<-read.csv("Total_Sorbed_Divalent_Hg.csv", header=FALSE, skip = 1,sep = ",",
 
 silts<-read.csv("Silts_Fines.csv", header=FALSE, skip = 1,sep = ",", dec=".")
   names(silts)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
   
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
   names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')		 
-			 
+                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+  
 POM_depos<-read.csv("POM_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(POM_depos)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -540,3 +550,400 @@ plot(rdate[241:1467],netdepo_sed10[241:1467],
 abline(h=0, lty=3)
 dev.off()
 
+png('Burial_13.png',width = 950, height = 530, units = "px")
+par(mfrow=c(2,5))
+plot(rdate,burial$sn1,col='#313695',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dsn1,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$osn1,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+
+plot(rdate,burial$sn2,col='#4575b4',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dsn2,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$osn2,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+
+plot(rdate,burial$sn4,col='#abd9e9',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dsn4,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$osn4,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+
+plot(rdate,burial$sn3,col='#DDF26B',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dsn3,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$osn3,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+
+plot(rdate,burial$sn5,col='#e5e572',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dsn5,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$osn5,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+
+plot(rdate,burial$sc6,col='grey60',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dsc6,col='#fed976',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$osc6,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+
+plot(rdate,burial$sc7,col='#f79220',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dsc7,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$osc7,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+
+
+plot(rdate,burial$ss8,col='#f46d43',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dss8,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$oss8,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+
+plot(rdate,burial$ss9,col='#d73027',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dss9,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$oss9,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+
+plot(rdate,burial$ss10,col='#a50028',type='l', lwd=2, ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$dss10,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+par(new=T)
+plot(rdate,burial$oss10,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
+dev.off()
+
+
+
+TOTs<-POMs+silts+sands
+POM_perc<-POMs/TOTs*100
+
+png('solids_sed_conc.png',width = 21, height = 29,
+    units = "cm", res=400)
+par(mfrow=c(10,3),mar=c(1,1,1,1),
+    oma=c(2.3,5.3,1.5,0), bty='n')
+plot(rdate,POMs$sn1,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+mtext('layer A',side=3, lty=.6)
+par(new=T)
+plot(rdate,silts$sn1,col='#313695',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+mtext('layer B',side=3, lty=.6)
+par(new=T)
+plot(rdate,sands$sn1,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$sn1,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box1',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dsn1,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+mtext('layer C',side=3, lty=.6)
+par(new=T)
+plot(rdate,silts$dsn1,col='#313695',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dsn1,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dsn1,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$osn1,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+mtext('layer D',side=3, lty=.6)
+par(new=T)
+plot(rdate, silts$osn1,col='#313695',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$osn1,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$osn1,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$sn2,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$sn2,col='#4575b4',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$sn2,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$sn2,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box2',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dsn2,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$dsn2,col='#4575b4',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dsn2,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dsn2,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$osn2,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate, silts$osn2,col='#4575b4',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$osn2,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$osn2,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+
+plot(rdate,POMs$sn4,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$sn4,col='#4575b4',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$sn4,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$sn4,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box4',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dsn4,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$dsn4,col='#4575b4',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dsn4,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dsn4,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$osn4,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate, silts$osn4,col='#4575b4',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$osn4,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$osn4,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$sn3,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$sn3,col='#DDF26B',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$sn3,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$sn3,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box3',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dsn3,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$dsn3,col='#DDF26B',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dsn3,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dsn3,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$osn3,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate, silts$osn3,col='#DDF26B',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$osn3,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$osn3,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$sn5,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$sn5,col='#e5e572',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$sn5,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$sn5,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box5',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dsn5,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$dsn5,col='#e5e572',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dsn5,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dsn5,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$osn5,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate, silts$osn5,col='#e5e572',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$osn5,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$osn5,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+
+plot(rdate,POMs$sc6,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$sc6,col='#fed976',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$sc6,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$sc6,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box6',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dsc6,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$dsc6,col='#fed976',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dsc6,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dsc6,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$osc6,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate, silts$osc6,col='#fed976',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$osc6,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$osc6,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$sc7,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$sc7,col='#f79220',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$sc7,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$sc7,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box7',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dsc7,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$dsc7,col='#f79220',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dsc7,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dsc7,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$osc7,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate, silts$osc7,col='#f79220',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$osc7,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$osc7,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+
+plot(rdate,POMs$ss8,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$ss8,col='#f46d43',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$ss8,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$ss8,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box8',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dss8,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$dss8,col='#f46d43',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dss8,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dss8,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$oss8,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate, silts$oss8,col='#f46d43',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$oss8,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$oss8,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+
+plot(rdate,POMs$ss9,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$ss9,col='#d73027',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$ss9,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$ss9,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box9',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dss9,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$dss9,col='#d73027',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dss9,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dss9,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$oss9,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate, silts$oss9,col='#d73027',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$oss9,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$oss9,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+
+plot(rdate,POMs$ss10,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$ss10,col='#a50028',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$ss10,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$ss10,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+mtext(text='box9',side=2, line=2.7, las=2)
+
+plot(rdate,POMs$dss10,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,silts$dss10,col='#a50028',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$dss10,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$dss10,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+
+plot(rdate,POMs$oss10,col='green',main='box1',type='l', lwd=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate, silts$oss10,col='#a50028',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,sands$oss10,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1000000))
+par(new=T)
+plot(rdate,TOTs$oss10,col='black',type='l', lwd=2, lty=1,ylim=c(0,1000000))
+dev.off()
+
+
+png('POM_perc_13.png',width = 950, height = 530, units = "px")
+par(mfrow=c(2,5))
+plot(rdate,POM_perc$sn1,col='#313695',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dsn1,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$osn1,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+
+plot(rdate,POM_perc$sn2,col='#4575b4',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dsn2,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$osn2,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+
+plot(rdate,POM_perc$sn4,col='#abd9e9',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dsn4,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$osn4,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+
+plot(rdate,POM_perc$sn3,col='#DDF26B',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dsn3,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$osn3,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+
+plot(rdate,POM_perc$sn5,col='#e5e572',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dsn5,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$osn5,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+
+plot(rdate,POM_perc$sc6,col='grey60',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dsc6,col='#fed976',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$osc6,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+
+plot(rdate,POM_perc$sc7,col='#f79220',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dsc7,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$osc7,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+
+
+plot(rdate,POM_perc$ss8,col='#f46d43',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dss8,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$oss8,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+
+plot(rdate,POM_perc$ss9,col='#d73027',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dss9,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$oss9,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+
+plot(rdate,POM_perc$ss10,col='#a50028',type='l', lwd=2, ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$dss10,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,100))
+par(new=T)
+plot(rdate,POM_perc$oss10,col='black',type='l', lwd=2, lty=2,ylim=c(0,100))
+dev.off()

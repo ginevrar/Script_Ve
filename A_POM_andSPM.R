@@ -1,4 +1,5 @@
 setwd('C:/Users/Ginevra/Dropbox/');library(dplyr)
+setwd('C:/Users/gi/Dropbox/')
 box1<-read.table('Box1_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 box2<-read.table('Box2_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 box3<-read.table('Box3_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
@@ -20,17 +21,6 @@ box7_median_SPM <- tapply(box7$TSS, box7$MESE, median);box7_sd_SPM <- tapply(box
 box8_median_SPM <- tapply(box8$TSS, box8$MESE, median);box8_sd_SPM <- tapply(box8$TSS, box8$MESE, sd)
 box9_median_SPM <- tapply(box9$TSS, box9$MESE, median);box9_sd_SPM <- tapply(box9$TSS, box9$MESE, sd)
 box10_median_SPM <- tapply(box10$TSS, box10$MESE, median);box10_sd_SPM <- tapply(box10$TSS, box10$MESE, sd)
-
-box1_min_POM <- tapply(box1$POM, box1$MESE, min); box1_max_POM <- tapply(box1$POM, box1$MESE, max)
-box2_min_POM <- tapply(box2$POM, box2$MESE, min); box2_max_POM <- tapply(box2$POM, box2$MESE, max)
-box3_min_POM <- tapply(box3$POM, box3$MESE, min); box3_max_POM <- tapply(box3$POM, box3$MESE, max)
-box4_min_POM <- tapply(box4$POM, box4$MESE, min); box4_max_POM <- tapply(box4$POM, box4$MESE, max)
-box5_min_POM <- tapply(box5$POM, box5$MESE, min); box5_max_POM <- tapply(box5$POM, box5$MESE, max)
-box6_min_POM <- tapply(box6$POM, box6$MESE, min); box6_max_POM <- tapply(box6$POM, box6$MESE, max)
-box7_min_POM <- tapply(box7$POM, box7$MESE, min); box7_max_POM <- tapply(box7$POM, box7$MESE, max)
-box8_min_POM <- tapply(box8$POM, box8$MESE, min); box8_max_POM <- tapply(box8$POM, box8$MESE, max)
-box9_min_POM <- tapply(box9$POM, box9$MESE, min); box9_max_POM <- tapply(box9$POM, box9$MESE, max)
-box10_min_POM <- tapply(box10$POM, box10$MESE, min); box10_max_POM <- tapply(box10$POM, box10$MESE, max)
 
 box1_min_SPM <- tapply(box1$TSS, box1$MESE, min);box1_max_SPM <- tapply(box1$TSS, box1$MESE, max)
 box2_min_SPM <- tapply(box2$TSS, box2$MESE, min);box2_max_SPM <- tapply(box2$TSS, box2$MESE, max)
@@ -60,16 +50,28 @@ box8_median_POM <- tapply(box8$POM, box8$MESE, median);box8_sd_POM <- tapply(box
 box9_median_POM <- tapply(box9$POM, box9$MESE, median);box9_sd_POM <- tapply(box9$POM, box9$MESE, sd)
 box10_median_POM <- tapply(box10$POM, box10$MESE, median);box10_sd_POM <- tapply(box10$POM, box10$MESE, sd)
 
-POC_box1<-c(0.5,0.4,0.5,0.8,0.6,0.7,0.8,0.9,0.7,0.4,0.6,0.4)
-POC_box1_sd<-c(0.5,0.4,0.5,0.8,0.6,0.7,0.8,0.9,0.7,0.4,0.6,0.4)
+box1_min_POM <- tapply(box1$POM, box1$MESE, min); box1_max_POM <- tapply(box1$POM, box1$MESE, max)
+box2_min_POM <- tapply(box2$POM, box2$MESE, min); box2_max_POM <- tapply(box2$POM, box2$MESE, max)
+box3_min_POM <- tapply(box3$POM, box3$MESE, min); box3_max_POM <- tapply(box3$POM, box3$MESE, max)
+box4_min_POM <- tapply(box4$POM, box4$MESE, min); box4_max_POM <- tapply(box4$POM, box4$MESE, max)
+box5_min_POM <- tapply(box5$POM, box5$MESE, min); box5_max_POM <- tapply(box5$POM, box5$MESE, max)
+box6_min_POM <- tapply(box6$POM, box6$MESE, min); box6_max_POM <- tapply(box6$POM, box6$MESE, max)
+box7_min_POM <- tapply(box7$POM, box7$MESE, min); box7_max_POM <- tapply(box7$POM, box7$MESE, max)
+box8_min_POM <- tapply(box8$POM, box8$MESE, min); box8_max_POM <- tapply(box8$POM, box8$MESE, max)
+box9_min_POM <- tapply(box9$POM, box9$MESE, min); box9_max_POM <- tapply(box9$POM, box9$MESE, max)
+box10_min_POM <- tapply(box10$POM, box10$MESE, min); box10_max_POM <- tapply(box10$POM, box10$MESE, max)
 
-POM_box1<-POC_box1*1.88
-POM_box1_sd<-POC_box1_sd*1.88
+#POC_box1<-c(0.5,0.4,0.5,0.8,0.6,0.7,0.8,0.9,0.7,0.4,0.6,0.4)
+#POC_box1_sd<-c(0.5,0.4,0.5,0.8,0.6,0.7,0.8,0.9,0.7,0.4,0.6,0.4)
+
+#POM_box1<-POC_box1*1.88
+#POM_box1_sd<-POC_box1_sd*1.88
 
 #setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 #setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')
 setwd('C:/Users/Ginevra/Dropbox/new_sed_layers2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
+setwd('C:/Users/gi/Dropbox/res_eutr15')
 
 solid<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solid)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
