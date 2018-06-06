@@ -2,6 +2,7 @@ setwd('C:/Users/gi/Dropbox/2017_Venice/run52')
 setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola8')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_pazzo3')
+setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr6')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

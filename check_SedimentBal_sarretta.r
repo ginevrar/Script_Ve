@@ -7,7 +7,7 @@
 #setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/REs2e')
 #setwd('C:/Users/gi/Desktop/finaleRITAMRE/menores2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')#
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/new_in9')
+setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr5')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
