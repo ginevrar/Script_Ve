@@ -3,7 +3,7 @@ setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
 
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
-setwd('C:/Users/gi/Dropbox/fin2')
+setwd('C:/Users/gi/Dropbox/fin5')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -106,19 +106,37 @@ str(hgTE)
 rdate<-as.Date(hg$TEMPO, tz= "GMT", format="%Y")
 
 #ACQUE modeled da 2001 a 2010  [1230:735] --> [1215:1250]  [1239:1332]
-nord_hg<-c(hg$wn1[1215:1335],hg$wn2[1215:1335],hg$wn4[1215:1335])
-centr_n_hg<-c(hg$wc6[1215:1335],
-            hg$wn3[1215:1335], hg$wn5[1215:1335])
-centr_s_hg<-c(hg$wc7[1215:1335])
-sud_hg<-c(hg$ws8[1215:1335],hg$ws9[1215:1335], hg$ws10[1215:1335])
 
-png('confr_MEla_E_Bloom___fin2_.png',width = 30, 
+rdate1<-rdate[1191:1359]
+nord_hg<-data.frame(hg$wn1[1191:1359],hg$wn2[1191:1359],hg$wn4[1191:1359])
+names(nord_hg)<-c('w1','w2','w4')
+centr_n_hg<-c(hg$wc6[1191:1359],
+            hg$wn3[1191:1359], hg$wn5[1191:1359])
+centr_s_hg<-c(hg$wc7[1191:1359])
+sud_hg<-c(hg$ws8[1191:1359],hg$ws9[1191:1359], hg$ws10[1191:1359])
+
+png('confr_MEla_E_Bloom2__fin5b_.png',width = 30, 
     height = 20, units = "cm",res=300)
 par(mfrow=c(2,2), bty='n',mar=c(4,5,2,0))
-boxplot(nord_hg,Water_nord_bloom, Water_nord,main='Hg acque nord', ylab='ng/L',
-        cex.lab=1.8,cex.axis=1.3,names=c('Modello 2001-2010','Dati 2001-2003','Dati 2002-2008'),
-        col=c('#4575b4','#4575b477','#abd9e999'), 
-        ylim=c(0,50), cex.main=2)
+dev.off()
+plot(rdate1,nord_hg$w1,ylim=c(0,60),type='l',lwd=2,
+     yaxt='n',col='#4575b4')
+par(new=T)
+plot(rdate1,nord_hg$w2,ylim=c(0,60),type='l',lwd=2,
+     yaxt='n',col='#4575b4')
+par(new=T)
+plot(rdate1,nord_hg$w4,ylim=c(0,60),type='l',lwd=2,
+     yaxt='n',col='#4575b4')
+par(new=T)
+
+boxplot(Water_nord_bloom, Water_nord,main='Hg in water - north', 
+        ylab='ng/L',cex.lab=1.8,
+        cex.axis=1.3,xaxt='n',boxwex=0.4,
+        col=c('#4575b477','#abd9e999'), 
+        ylim=c(0,60), range =T, cex.main=2)
+text(1,50,'Dati 2001-2003')
+text(2,50,'Dati 2002-2008')
+
 #par(mar=c(4,2.5,2,2.5))
 boxplot (centr_n_hg, Water_central_bloom, Water_centro_n , main='Hg acque centro-nord', ylab='ng/L', 
          cex.lab=1.8,cex.axis=1.3,names=c('Modello 2001-2010','Dati 2001-2003','Dati 2002-2008'),
@@ -140,7 +158,7 @@ Water_nord_bloom<-c(29.08555,	12.1798248,	45.9912752, NA, NA, NA,NA)
 Water_central_bloom<-c(14.84366, 8.5531576,21.1341624, 2.58219507, 4.713865, 3.627636718 ,NA)
 Marghera_bloom<-c(11.9391168,56,	100.7924632,NA,NA,NA,NA)
 
-png('Mela_time_63_fin2.png', width = 750, height = 800, units = "px")
+png('Mela_time_63_fin5b.png', width = 750, height = 800, units = "px")
 par(mfrow=c(3,1), mar=c(1,5,1,1))
 #old range 241:1467  - new range 241:1467
 plot(rdate[241:1467],hg$wn1[241:1467], col='#313695', type='l',

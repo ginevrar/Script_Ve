@@ -1,4 +1,3 @@
-
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice')
 art<-read.table('ARTISTA.txt', header=T)
 str(art)
@@ -29,6 +28,7 @@ dati_pw7<-c(7.02065,3.00885,2.20649,4.41298)  #Kim et al 2011
 
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuoviin2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr5')
+setwd('C:/Users/gi/Dropbox/res_eutr19')
 
 hgD<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgD)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

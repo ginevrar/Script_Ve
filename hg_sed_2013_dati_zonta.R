@@ -24,6 +24,7 @@ box10_A_hg<-select(box10_A_hg,Hg)*1000; box10_B_hg<-select(box10_B_hg,Hg)*1000;b
 #
 setwd('C:/Users/Ginevra/Dropbox/new_sed_layers')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/new_in9')
+setwd('C:/Users/gi/Dropbox/ns10')
 
 1900-2101;2425/12
 12*201;12*113# plot anno 2013 - 2015 vari layer sed
@@ -84,7 +85,7 @@ rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 tail(rdate)
 #png('Hg_sediment_zonta2.png',width = 550, height = 530*1.2,  #provare mult*1.5 dimensioni plot units = "px")
 
-png('Hg_sediment_zontaaaaaaa_newin9.png',width = 21, height = 29,
+png('Hg_sediment_zontaaaaaaa_ns10.png',width = 21, height = 29,
     units = "cm", res=400)
 par(mfrow=c(10,4),mar=c(1,1,1,1),
     oma=c(2.3,5.3,1.5,0), bty='n')

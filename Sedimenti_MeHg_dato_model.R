@@ -1,8 +1,5 @@
-setwd('C:/Users/gi/Dropbox/2017_Venice/run52')
-setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola8')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_pazzo3')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr6')
+setwd('C:/Users/gi/Dropbox/ns4')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -53,7 +50,7 @@ media8<-rowMeans(h)
 media9<-rowMeans(i)
 media10<-rowMeans(l)
 
-png('All_boxes_MeHgSED_p3.png',
+png('All_boxes_MeHgSED_ns4f.png',
     width = 950, height = 530,
     units = "px")
 par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
