@@ -71,7 +71,7 @@ box10_min_POM <- tapply(box10$POM, box10$MESE, min); box10_max_POM <- tapply(box
 #setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')
 setwd('C:/Users/Ginevra/Dropbox/new_sed_layers2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
-setwd('C:/Users/gi/Dropbox/fin5')
+setwd('C:/Users/Ginevra/Dropbox/fin5/fin5d')
 solid<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solid)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -94,47 +94,48 @@ rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
 xx<-seq(1,12);epsilon <- 0.08
 
-png('All_boxes_SPM_res_fin5b__.png',res=300,
+png('All_boxes_SPM_res_fin5d__.png',res=300,
     width=30, height = 20, units = "cm")
-par(mfrow=c(2,5), mar=c(3,4.5,2,0))
+par(mfrow=c(2,5), mar=c(3,1,1,1), oma=c(0,4,3.3,1), bty='n')
 plot(rdate[1227:1238], solid$wn1[1227:1238], type='l', col='#313695',lwd=2, main='Box1', 
      ylab='SPM (mg/L)',xlab= '', cex.lab=2, 
      cex.main=1.6 , cex.axis=1.3, ylim=c(0,200))
 par(new=T)
-plot(box1_median_SPM, col='#313695',lwd=2.5, cex=2,ylim=c(0,200), xaxt='n',yaxt='n')
+plot(box1_median_SPM, col='#313695',lwd=2.5, ylab='', cex=2,ylim=c(0,200), xaxt='n',yaxt='n')
 segments(xx,box1_min_SPM,xx,+box1_max_SPM, col='#313695', lwd=1.8)
 segments(xx-epsilon,box1_min_SPM,xx+epsilon,box1_min_SPM, col='#313695', lwd=1.8)
 segments(xx-epsilon,box1_max_SPM,xx+epsilon,box1_max_SPM, col='#313695', lwd=1.8)
 
-plot(rdate[1227:1238], solid$wn2[1227:1238], type='l', col='#4575b4',lwd=2,main='Box2',
+plot(rdate[1227:1238], solid$wn2[1227:1238], type='l', col='#4575b4',lwd=2,main='Box2',yaxt='n',
      ylab= '', xlab= '', cex.lab=2 , cex.main=1.6 , cex.axis=1.3,ylim=c(0,200))
 par(new=T)
-plot(box2_median_SPM, col='#4575b4',lwd=2.5, cex=2, ylim=c(0,200), xaxt='n',yaxt='n') 
+plot(box2_median_SPM, col='#4575b4',lwd=2.5, cex=2, ylab='', ylim=c(0,200), xaxt='n',yaxt='n') 
 segments(xx,box2_min_SPM,xx,+box2_max_SPM, col='#4575b4', lwd=1.8)
 segments(xx-epsilon,box2_min_SPM,xx+epsilon,box2_min_SPM, col='#4575b4', lwd=1.8)
 segments(xx-epsilon,box2_max_SPM,xx+epsilon,box2_max_SPM, col='#4575b4', lwd=1.8)
 
-plot(rdate[1227:1238],solid$wn4[1227:1238],   type='l',col='#abd9e9',lwd=2,main='Box4',
+plot(rdate[1227:1238],solid$wn4[1227:1238],  type='l',col='#abd9e9',lwd=2,main='Box4',yaxt='n',
      xlab= '',ylab= '', cex.lab=2 , cex.main=1.6 , ylim=c(0,200),cex.axis=1.3)
 par(new=T)
-plot(box4_median_SPM, col='#abd9e9',cex=2, lwd=2.5,ylim=c(0,200), xaxt='n',yaxt='n') 
+plot(box4_median_SPM, col='#abd9e9',cex=2, ylab='', lwd=2.5,ylim=c(0,200), xaxt='n',yaxt='n') 
 segments(xx,box4_min_SPM,xx,+box4_max_SPM, col='#abd9e9', lwd=1.8)
 segments(xx-epsilon,box4_min_SPM,xx+epsilon,box4_min_SPM, col='#abd9e9', lwd=1.8)
 segments(xx-epsilon,box4_max_SPM,xx+epsilon,box4_max_SPM, col='#abd9e9', lwd=1.8)
 
 #plot(SPM$BOX4, col='#4575b466', ylim=c(0,40), xaxt='n',yaxt='n') 
-plot(rdate[1227:1238],solid$wn3[1227:1238],     type='l',col='#f7df9e',lwd=2,main='Box3',
-     xlab= '',ylab= '', cex.lab=2 , ylim=c(0,200), cex.main=1.6 , cex.axis=1.3)
+plot(rdate[1227:1238],solid$wn3[1227:1238],   ylab='',   type='l',col='#f7df9e',
+     lwd=2,main='Box3',yaxt='n',
+     xlab= '', cex.lab=2 , ylim=c(0,200), cex.main=1.6 , cex.axis=1.3)
 par(new=T)
-plot(box3_median_SPM, col='#f7df9e', cex=2, lwd=2.5,ylim=c(0,200), xaxt='n',yaxt='n') 
+plot(box3_median_SPM, col='#f7df9e', cex=2, ylab='', lwd=2.5,ylim=c(0,200), xaxt='n',yaxt='n') 
 segments(xx,box3_min_SPM,xx,+box3_max_SPM, col='#f7df9e', lwd=1.8)
 segments(xx-epsilon,box3_min_SPM,xx+epsilon,box3_min_SPM, col='#f7df9e', lwd=1.8)
 segments(xx-epsilon,box3_max_SPM,xx+epsilon,box3_max_SPM, col='#f7df9e', lwd=1.8)
 
-plot(rdate[1227:1238] ,solid$wn5[1227:1238], type='l',col='#f7d067',lwd=2, main='Box5',
-     xlab= '',ylab= '', cex.lab=2 , cex.main=1.6 , cex.axis=1.3,ylim=c(0,200))
+plot(rdate[1227:1238] ,solid$wn5[1227:1238],ylab='',  type='l',col='#f7d067',lwd=2,yaxt='n', main='Box5',
+     xlab= '', cex.lab=2 , cex.main=1.6 , cex.axis=1.3,ylim=c(0,200))
 par(new=T)
-plot(box5_median_SPM,col='#f7d067',cex=2,lwd=2.5, ylim=c(0,200), xaxt='n',yaxt='n') 
+plot(box5_median_SPM,col='#f7d067',cex=2,lwd=2.5,ylab='',  ylim=c(0,200), xaxt='n',yaxt='n') 
 segments(xx,box5_min_SPM,xx,+box5_max_SPM, col='#f7d067', lwd=1.8)
 segments(xx-epsilon,box5_min_SPM,xx+epsilon,box5_min_SPM, col='#f7d067', lwd=1.8)
 segments(xx-epsilon,box5_max_SPM,xx+epsilon,box5_max_SPM, col='#f7d067', lwd=1.8)
@@ -142,45 +143,45 @@ segments(xx-epsilon,box5_max_SPM,xx+epsilon,box5_max_SPM, col='#f7d067', lwd=1.8
 plot(rdate[1227:1238] ,solid$wc6[1227:1238], type='l',col='#edba55',lwd=2, main='Box6',
      ylab='SPM (mg/L) ',xlab= '', cex.lab=2, cex.main=1.6 ,ylim=c(0,200), cex.axis=1.3)#
 par(new=T)
-plot(box6_median_SPM,col='#edba55',lwd=2.5, cex=2, ylim=c(0,200), xaxt='n',yaxt='n') 
+plot(box6_median_SPM,col='#edba55',lwd=2.5, ylab='', cex=2, ylim=c(0,200), xaxt='n',yaxt='n') 
 segments(xx,box6_min_SPM,xx,+box6_max_SPM, col='#edba55', lwd=1.8)
 segments(xx-epsilon,box6_min_SPM,xx+epsilon,box6_min_SPM, col='#edba55', lwd=1.8)
 segments(xx-epsilon,box6_max_SPM,xx+epsilon,box6_max_SPM, col='#edba55', lwd=1.8)
 
-plot(rdate[1227:1238] ,solid$wc7[1227:1238] ,     type='l',col='#f79220',lwd=2, main='Box7',
+plot(rdate[1227:1238] ,solid$wc7[1227:1238], type='l',col='#f79220',lwd=2,yaxt='n', main='Box7',
      ylab='',xlab= '', cex.lab=2 , cex.main=1.6 ,ylim=c(0,200), cex.axis=1.3)#
 par(new=T)
-plot(box7_median_SPM,lwd=2.5, cex=2, col='#f79220', ylim=c(0,200), xaxt='n',yaxt='n') 
+plot(box7_median_SPM,lwd=2.5, cex=2, col='#f79220',ylab='',  ylim=c(0,200), xaxt='n',yaxt='n') 
 segments(xx,box7_min_SPM,xx,+box7_max_SPM, col='#f79220', lwd=1.8)
 segments(xx-epsilon,box7_min_SPM,xx+epsilon,box7_min_SPM, col='#f79220', lwd=1.8)
 segments(xx-epsilon,box7_max_SPM,xx+epsilon,box7_max_SPM, col='#f79220', lwd=1.8)
 
-plot(rdate[1227:1238] ,solid$ws8[1227:1238], type='l',ylab= '', col='#f46d43',lwd=2, main='Box8',
+plot(rdate[1227:1238] ,solid$ws8[1227:1238], type='l',ylab= '', col='#f46d43',yaxt='n',lwd=2, main='Box8',
      xlab= '', cex.lab=2 , cex.main=1.6 , ylim=c(0,200), cex.axis=1.3)
 par(new=T)
-plot(box8_median_SPM, lwd=2.5, cex=2,col='#f46d43', ylim=c(0,200), xaxt='n',yaxt='n') 
+plot(box8_median_SPM, lwd=2.5, cex=2,col='#f46d43', ylab='', ylim=c(0,200), xaxt='n',yaxt='n') 
 segments(xx,box8_min_SPM,xx,+box8_max_SPM, col='#f46d43', lwd=1.8)
 segments(xx-epsilon,box8_min_SPM,xx+epsilon,box8_min_SPM, col='#f46d43', lwd=1.8)
 segments(xx-epsilon,box8_max_SPM,xx+epsilon,box8_max_SPM, col='#f46d43', lwd=1.8)
 
-plot(rdate[1227:1238] ,solid$ws9[1227:1238] ,     type='l',col='#d73027',ylab= '',lwd=2, main='Box9',
+plot(rdate[1227:1238] ,solid$ws9[1227:1238], type='l',col='#d73027',ylab= '',yaxt='n',lwd=2, main='Box9',
      xlab= '', cex.lab=2 , cex.main=1.6 , ylim=c(0,200), cex.axis=1.3)
 par(new=T)
-plot(box9_median_SPM,col='#d73027', lwd=2.5, cex=2, ylim=c(0,200), xaxt='n',yaxt='n') 
+plot(box9_median_SPM,col='#d73027', lwd=2.5, cex=2, ylab='', ylim=c(0,200), xaxt='n',yaxt='n') 
 segments(xx,box9_min_SPM,xx,+box9_max_SPM, col='#d73027', lwd=1.8)
 segments(xx-epsilon,box9_min_SPM,xx+epsilon,box9_min_SPM, col='#d73027', lwd=1.8)
 segments(xx-epsilon,box9_max_SPM,xx+epsilon,box9_max_SPM, col='#d73027', lwd=1.8)
 
-plot(rdate[1227:1238],solid$ws10[1227:1238], type='l',col='#a50028',ylab= '',lwd=2, main='Box10',
+plot(rdate[1227:1238],solid$ws10[1227:1238], type='l',col='#a50028',ylab= '',yaxt='n',lwd=2, main='Box10',
      cex.main=1.6 , cex.axis=1.3, ylim=c(0,200))
 par(new=T)
-plot(box10_median_SPM, lwd=2.5, cex=2,col='#a50028', ylim=c(0,200), xaxt='n',yaxt='n') 
+plot(box10_median_SPM, lwd=2.5, cex=2,col='#a50028', ylab='', ylim=c(0,200), xaxt='n',yaxt='n') 
 segments(xx,box10_min_SPM,xx,+box10_max_SPM, col='#a50028', lwd=1.8)
 segments(xx-epsilon,box10_min_SPM,xx+epsilon,box10_min_SPM, col='#a50028', lwd=1.8)
 segments(xx-epsilon,box10_max_SPM,xx+epsilon,box10_max_SPM, col='#a50028', lwd=1.8)
 dev.off()
 
-png('POM_con_fin5b__.png',width = 700, height = 480, units = "px")
+png('POM_con_fin5d__.png',width = 700, height = 480, units = "px")
 par(mfrow=c(2,5), mar=c(3,1,1,1), oma=c(0,4,3.3,1), bty='n')
 plot(rdate[1227:1238], POMs$wn1[1227:1238],  
      type='l', col='#31369577',lwd=2, main='Box1', 
@@ -192,9 +193,9 @@ segments(xx,box1_min_POM,xx,+box1_max_POM, col='#313695', lwd=1.8)
 segments(xx-epsilon,box1_min_POM,xx+epsilon,box1_min_POM, col='#313695', lwd=1.8)
 segments(xx-epsilon,box1_max_POM,xx+epsilon,box1_max_POM, col='#313695', lwd=1.8)
 
-mtext('mg/L', side=2, line=3, outer=F)
-mtext('Particolato organico in sospensione (POM)',
-      side=3, line=2, outer=T, font=2)
+mtext('POM (mg/L)', side=2, line=3, outer=F)
+#mtext('Particolato organico in sospensione (POM)',
+   #   side=3, line=2, outer=T, font=2)
 
 plot(rdate[1227:1238] ,POMs$wn2[1227:1238],lty=1,    
      type='l', col='#4575b477',lwd=2,main='Box2',ylab= '',
@@ -245,7 +246,7 @@ par(new=T)
 plot(box6_median_POM,pch=1, cex=2, lwd=1,col='#fed976', 
      ylim=c(0,10),ylab='',
      xaxt='n',yaxt='n') 
-mtext('mg/L', side=2, line=3, outer=F)
+mtext('POM (mg/L)', side=2, line=3, outer=F)
 segments(xx,box6_min_POM,xx,+box6_max_POM, col='#edba55', lwd=1.8)
 segments(xx-epsilon,box6_min_POM,xx+epsilon,box6_min_POM, col='#edba55', lwd=1.8)
 segments(xx-epsilon,box6_max_POM,xx+epsilon,box6_max_POM, col='#edba55', lwd=1.8)
