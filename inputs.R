@@ -23,7 +23,7 @@ par(mfrow=c(2,1),mar=c(1,5,0,0),
     oma=c(3,0,4,1))
 plot(ax2, input$Atmo, col="cyan3", type="l", ylim=c(0,1100), 
      main='', ylab= expression(paste("kg y"^-1)), xaxt='n',
-     xlab= " ",  lwd=2, cex.axis=2, cex.lab=1.7)
+     xlab= " ",  lwd=2, cex.axis=1.5, cex.lab=1.7)
 mtext(side=3,cex=2, line=2,expression(paste('Hg'[T]*' input to the lagoon')))
 par(new=TRUE)
 plot(ax2,input$Fiumi, col="chartreuse3", type="l", 
@@ -46,7 +46,7 @@ legend(ax2[120],900,col=c('cyan3',"chartreuse3",'darkgoldenrod','grey50','black'
 
 plot(ax2, perc_atmo, col="cyan3", type="l", ylim=c(0,100), 
      main='', ylab= "%", 
-     xlab= " ",  lwd=2, cex.axis=2, cex.lab=1.7,cex.main=2.3)
+     xlab= " ",  lwd=2, cex.axis=1.5, cex.lab=1.7,cex.main=2.3)
 par(new=TRUE)
 plot(ax2,perc_fiu, col="chartreuse3", type="l", 
      xaxt='n',yaxt='n', ylim=c(0,100), lwd=2,

@@ -3,7 +3,7 @@ setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
 
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
-setwd('C:/Users/Ginevra/Dropbox/fin5')
+setwd('C:/Users/Ginevra/Dropbox/fin7')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -112,7 +112,7 @@ centr_n_hg<-c(hg$wc6[1215:1335],
 centr_s_hg<-c(hg$wc7[1215:1335])
 sud_hg<-c(hg$ws8[1215:1335],hg$ws9[1215:1335], hg$ws10[1215:1335])
 
-png('confr_MEla_E_Bloom___fin5b_.png',width = 30, 
+png('confr_MEla_E_Bloom___fin7_.png',width = 30, 
     height = 20, units = "cm",res=300)
 par(mfrow=c(2,2), bty='n',mar=c(4,5,2,0))
 boxplot(nord_hg,Water_nord_bloom, Water_nord,main='Hg acque nord', ylab='ng/L',
@@ -140,7 +140,7 @@ Water_nord_bloom<-c(29.08555,	12.1798248,	45.9912752, NA, NA, NA,NA)
 Water_central_bloom<-c(14.84366, 8.5531576,21.1341624, 2.58219507, 4.713865, 3.627636718 ,NA)
 Marghera_bloom<-c(11.9391168,56,	100.7924632,NA,NA,NA,NA)
 
-png('Mela_time_63_fin5b.png', width = 750, height = 800, units = "px")
+png('Mela_time_63_fin7.png', width = 750, height = 800, units = "px")
 par(mfrow=c(3,1), mar=c(1,5,1,1))
 #old range 241:1467  - new range 241:1467
 plot(rdate[241:1467],hg$wn1[241:1467], col='#313695', type='l',

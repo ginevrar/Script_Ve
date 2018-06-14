@@ -21,10 +21,10 @@ box8_A_hg<-select(box8_A_hg,Hg)*1000; box8_B_hg<-select(box8_B_hg,Hg)*1000;box8_
 box9_A_hg<-select(box9_A_hg,Hg)*1000; box9_B_hg<-select(box9_B_hg,Hg)*1000;box9_C_hg<-select(box9_C_hg,Hg)*1000;box9_D_hg<-select(box9_D_hg,Hg)*1000;box9_E_hg<-select(box9_E,Hg)*1000
 box10_A_hg<-select(box10_A_hg,Hg)*1000; box10_B_hg<-select(box10_B_hg,Hg)*1000;box10_C_hg<-select(box10_C_hg,Hg)*1000;box10_D_hg<-select(box10_D_hg,Hg)*1000;box10_E_hg<-select(box10_E,Hg)*1000
 #
-#
 setwd('C:/Users/Ginevra/Dropbox/new_sed_layers')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/new_in9')
 setwd('C:/Users/gi/Dropbox/ns10')
+setwd('C:/Users/Ginevra/Dropbox/fin5/fin5d')
 
 1900-2101;2425/12
 12*201;12*113# plot anno 2013 - 2015 vari layer sed
