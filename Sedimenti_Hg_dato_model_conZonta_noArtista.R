@@ -2,7 +2,8 @@ setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuoviin2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')#
 setwd('C:/Users/gi/Dropbox/new_sed_layers')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr6')
-setwd('C:/Users/gi/Dropbox/fin10')
+setwd('C:/Users/gi/Dropbox/fin23')
+setwd('C:/Users/Ginevra/Dropbox/fin23')
 
 1900-2101
 2426/12
@@ -27,6 +28,16 @@ names(hgD)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10
               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+hgP<-read.csv('Total_Sorbed_Divalent_Hg.csv',skip=1)
+names(hgP)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+
+mehgP<-read.csv('Total_Sorbed_Methyl_Hg.csv',skip=1)
+names(mehgP)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
 
 nord_hg<-c(mean(hg$wn1), mean(hg$wn2),mean(hg$wn3),mean(hg$wn4),mean(hg$wn5))
 centr_hg<-c(mean(hg$wc6), mean(hg$wc7), NA, NA, NA)
@@ -102,7 +113,7 @@ media6<-rowMeans(f); media7<-rowMeans(g); media8<-rowMeans(h); media9<-rowMeans(
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin10.png',
+png('Time_hg_sediment_finfin23b.png',
     width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,1,1,1), 

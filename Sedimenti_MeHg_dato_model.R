@@ -1,6 +1,9 @@
+setwd('L:/Il mio Drive/MERCURIO/Venezia/')
+MEHG<-read.table('MeHg_data_all.txt',  header=T)
+
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr6')
 setwd('C:/Users/gi/Dropbox/ns4')
-setwd('C:/Users/Ginevra/Dropbox/fin6')
+setwd('C:/Users/Ginevra/Dropbox/fin23')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -8,10 +11,6 @@ names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws1
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
-setwd('L:/Il mio Drive/MERCURIO/Venezia/')
-
-
-MEHG<-read.table('MeHg_data_all.txt',  header=T)
 
 
 time.steps <- mehg[,1]
@@ -46,7 +45,7 @@ media8<-rowMeans(h)
 media9<-rowMeans(i)
 media10<-rowMeans(l)
 
-png('All_boxes_MeHgSED_fin6.png',
+png('All_boxes_MeHgSED_fin23.png',
     width = 950, height = 530,
     units = "px")
 par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')

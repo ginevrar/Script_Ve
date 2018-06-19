@@ -244,7 +244,6 @@ st30<-rbind(box1_A[17,1:16],box1_B[17,1:16],box1_C[17,1:16],box1_D[17,1:16],box1
 st31<-rbind(box1_A[18,1:16],box1_B[18,1:16],box1_C[18,1:16],box1_D[18,1:16],box1_E[18,1:16])
 st84<-rbind(box1_A[19,1:16],box1_B[19,1:16],box1_C[19,1:16],box1_D[19,1:16],box1_E[19,1:16])
 
-
 ## STAZIONI box2
 st1<-rbind(box2_A[1,1:16],box2_B[1,1:16],box2_C[1,1:16],box2_D[1,1:16],box2_E[1,1:16])
 st2<-rbind(box2_A[2,1:16],box2_B[2,1:16],box2_C[2,1:16],box2_D[2,1:16],box2_E[2,1:16])
