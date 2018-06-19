@@ -29,7 +29,7 @@ dati_pw7<-c(7.02065,3.00885,2.20649,4.41298)  #Kim et al 2011
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuoviin2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr5')
 setwd('C:/Users/gi/Dropbox/res_eutr19')
-setwd('C:/Users/Ginevra/Dropbox/fin23')
+setwd('C:/Users/gi/Dropbox/fin24')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -61,7 +61,7 @@ TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 rdate
 
-png('Boxes3_6_7_PoreW_23.png',width = 740, height = 480, units = "px")
+png('Boxes3_6_7_PoreW_24.png',width = 740, height = 480, units = "px")
 par(mfrow=c(2,2), mar=c(3,4.5,2,0))
 plot(rdate[650:667],hgD$sn1[650:667],ylim=c(0,20), type='l', 
      col='#4575b4',lwd=2,main='Box1',ylab= 'HgD (ng/L)',
@@ -96,7 +96,7 @@ mehg_pW1<-c( 0.38, 	 1.21,	 0.54,  0.44, 	 1.52, 	 0.66,
 
 
 
-png('Boxes3_6_7_PoreW_mehg_23.png',width = 740, height = 480, units = "px")
+png('Boxes3_6_7_PoreW_mehg_24.png',width = 740, height = 480, units = "px")
 par(mfrow=c(1,3), mar=c(3,4.5,2,0))
 plot(rdate[650:667],mehgD$sn1[650:667],ylim=c(0,1.5), type='l', 
      col='#313695',lwd=2,main='Box1',ylab= 'MeHg (ng/L)',

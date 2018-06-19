@@ -2,8 +2,7 @@ setwd('L:/Il mio Drive/MERCURIO/Venezia/')
 MEHG<-read.table('MeHg_data_all.txt',  header=T)
 
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr6')
-setwd('C:/Users/gi/Dropbox/ns4')
-setwd('C:/Users/Ginevra/Dropbox/fin23')
+setwd('C:/Users/gi/Dropbox/fin24')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

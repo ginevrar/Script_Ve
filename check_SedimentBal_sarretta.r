@@ -7,6 +7,7 @@ setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr5')
 setwd('C:/Users/gi/Dropbox/fin10')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr5')
 setwd('C:/Users/Ginevra/Dropbox/fin23')
+setwd('C:/Users/gi/Dropbox/fin24')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -1295,7 +1296,7 @@ dev.off()
   b6_depo_2014_gm2d<-c(667,147,1584)   #kg DW m2y
   b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
   
-  png('DEPO_kgm2y_fin23.png',width = 950, height = 530, units = "px")
+  png('DEPO_kgm2y_fin24.png',width = 950, height = 530, units = "px")
   par(mfrow=c(2,5))
   plot(depo1_kg_y/a1, type='l')     # 1989 - 1990: 113 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
   plot(depo2_kg_y/a2, type='l') 
@@ -1335,7 +1336,7 @@ dev.off()
   sar_b9<-c(-0.3125, 0.3125)
   sar_b10<-c(-1.5625,-0.3125)
   
-  png('DEPO_vs_Sarretta_fin23.png',width = 950, height = 530, units = "px")
+  png('DEPO_vs_Sarretta_fin24.png',width = 950, height = 530, units = "px")
   par(mfrow=c(2,5))
   plot(netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
   
@@ -1376,7 +1377,7 @@ dev.off()
   boxplot(sar_b10,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#a5002855')
   dev.off()
     
-  png('DEPO_vs_Sarretta_fin23.png',
+  png('DEPO_vs_Sarretta_fin24.png',
       width = 30, height = 20, units = "cm", res=300)
   par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
   plot(rdate[241:1467], netdepo_sed1[241:1467], type='l',ylim=c(-0.3,0.6),
@@ -1434,7 +1435,7 @@ dev.off()
   abline(h=0, lty=3)
   dev.off()
   
-  png('Burial_fin23.png',width = 950, height = 530, units = "px")
+  png('Burial_fin24.png',width = 950, height = 530, units = "px")
   par(mfrow=c(2,5))
   plot(rdate,burial$sn1,col='#313695',type='l', lwd=2, ylim=c(0,0.5))
   par(new=T)
@@ -1501,7 +1502,7 @@ dev.off()
   TOTs<-POMs+silts+sands
   POM_perc<-POMs/TOTs*100
   
-  png('solids_sed_conc_fin23.png',width = 21, height = 29,
+  png('solids_sed_conc_fin24.png',width = 21, height = 29,
       units = "cm", res=400)
   par(mfrow=c(10,3),mar=c(1,1,1,1),
       oma=c(2.3,5.3,1.5,0), bty='n')
@@ -1783,7 +1784,7 @@ dev.off()
   poc9[1306:1308]<-c(1.7,2.0,1.8)
   poc10[1306:1308]<-c(1.6,1.6,1.4)
   
-  png('POC_perc_fin23.png',width = 950, height = 530, units = "px")
+  png('POC_perc_fin24.png',width = 950, height = 530, units = "px")
   par(mfrow=c(2,5))
   plot(rdate[480:1440],POC_perc$sn1[480:1440],col='#313695',type='l', lwd=2, ylim=c(0,10))
   par(new=T)
