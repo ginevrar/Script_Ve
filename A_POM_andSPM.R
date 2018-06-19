@@ -71,7 +71,7 @@ box10_min_POM <- tapply(box10$POM, box10$MESE, min); box10_max_POM <- tapply(box
 #setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')
 setwd('C:/Users/Ginevra/Dropbox/new_sed_layers2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
-setwd('C:/Users/Ginevra/Dropbox/fin8')
+setwd('C:/Users/gi/Dropbox/fin10')
 solid<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solid)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -94,7 +94,7 @@ rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
 xx<-seq(1,12);epsilon <- 0.08
 
-png('All_boxes_SPM_res_fin8__.png',res=300,
+png('All_boxes_SPM_res_fin10__.png',res=300,
     width=30, height = 20, units = "cm")
 par(mfrow=c(2,5), mar=c(3,1,1,1), oma=c(0,4,3.3,1), bty='n')
 plot(rdate[1227:1238], solid$wn1[1227:1238], type='l', col='#313695',lwd=2, main='Box1', 
@@ -181,7 +181,7 @@ segments(xx-epsilon,box10_min_SPM,xx+epsilon,box10_min_SPM, col='#a50028', lwd=1
 segments(xx-epsilon,box10_max_SPM,xx+epsilon,box10_max_SPM, col='#a50028', lwd=1.8)
 dev.off()
 
-png('POM_con_fin8__.png',width = 700, height = 480, units = "px")
+png('POM_con_fin10__.png',width = 700, height = 480, units = "px")
 par(mfrow=c(2,5), mar=c(3,1,1,1), oma=c(0,4,3.3,1), bty='n')
 plot(rdate[1227:1238], POMs$wn1[1227:1238],  
      type='l', col='#31369577',lwd=2, main='Box1', 

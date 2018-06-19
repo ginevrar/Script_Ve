@@ -4,7 +4,7 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #dati<-read.table('QSEV_data.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
 
-setwd('C:/Users/Ginevra/Dropbox/fin8')
+setwd('C:/Users/gi/Dropbox/fin10')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -219,44 +219,15 @@ b9_max<-c(box9_A_max,box9_B_max,box9_C_max,box9_D_max,box9_E_max)
 b10_max<-c(box10_A_max,box10_B_max,box10_C_max,box10_D_max,box10_E_max)
 
 b1_profile_mod<-c(mean(hg$la1[1298:1309]), mean(hg$lb1[1298:1309]),mean(hg$lc1[1298:1309]),mean(hg$ld1[1298:1309]), NA)
-b1_max_mod/1000<-c(max(hg$la1[1298:1309]), max(hg$lb1[1298:1309]),max(hg$lc1[1298:1309]),max(hg$ld1[1298:1309]),NA)
-b1_min_mod/1000<-c(min(hg$la1[1298:1309]), min(hg$lb1[1298:1309]),min(hg$lc1[1298:1309]),min(hg$ld1[1298:1309]), NA)
-
 b2_profile_mod<-c(mean(hg$la2[1298:1309]), mean(hg$lb2[1298:1309]),mean(hg$lc2[1298:1309]), mean(hg$ld2[1298:1309]), NA)
-b2_max_mod/1000<-c(max(hg$la2[1298:1309]), max(hg$lb2[1298:1309]),max(hg$lc2[1298:1309]), max(hg$ld2[1298:1309]), NA)
-b2_min_mod/1000<-c(min(hg$la2[1298:1309]), min(hg$lb2[1298:1309]),min(hg$lc2[1298:1309]), min(hg$ld2[1298:1309]), NA)
-
 b3_profile_mod<-c(mean(hg$la3[1298:1309]), mean(hg$lb3[1298:1309]),mean(hg$lc3[1298:1309]),mean(hg$ld3[1298:1309]), NA)
-b3_max_mod/1000<-c(max(hg$la3[1298:1309]), max(hg$lb3[1298:1309]),max(hg$lc3[1298:1309]),max(hg$ld3[1298:1309]), NA)
-b3_min_mod/1000<-c(min(hg$la3[1298:1309]), min(hg$lb3[1298:1309]),min(hg$lc3[1298:1309]),min(hg$ld3[1298:1309]), NA)
-
 b4_profile_mod<-c(mean(hg$la4[1298:1309]), mean(hg$lb4[1298:1309]),mean(hg$lc4[1298:1309]),mean(hg$ld4[1298:1309]), NA)
-b4_max_mod/1000<-c(max(hg$la4[1298:1309]), max(hg$lb4[1298:1309]),max(hg$lc4[1298:1309]),max(hg$ld4[1298:1309]), NA)
-b4_min_mod/1000<-c(max(hg$la4[1298:1309]), min(hg$lb4[1298:1309]),min(hg$lc4[1298:1309]),min(hg$ld4[1298:1309]), NA)
-
 b5_profile_mod<-c(mean(hg$la5[1298:1309]), mean(hg$lb5[1298:1309]),mean(hg$lc5[1298:1309]),mean(hg$ld5[1298:1309]), NA)
-b5_max_mod/1000<-c(max(hg$la5[1298:1309]), max(hg$lb5[1298:1309]),max(hg$lc5[1298:1309]),max(hg$ld5[1298:1309]), NA)
-b5_min_mod/1000<-c(min(hg$la5[1298:1309]), min(hg$lb5[1298:1309]),min(hg$lc5[1298:1309]),min(hg$ld5[1298:1309]), NA)
-
 b6_profile_mod<-c(mean(hg$la6[1298:1309]), mean(hg$lb6[1298:1309]),mean(hg$lc6[1298:1309]),mean(hg$ld6[1298:1309]), NA)
-b6_max_mod/1000<-c(max(hg$la6[1298:1309]), max(hg$lb6[1298:1309]),max(hg$lc6[1298:1309]),max(hg$ld6[1298:1309]), NA)
-b6_min_mod/1000<-c(min(hg$la6[1298:1309]), min(hg$lb6[1298:1309]),min(hg$lc6[1298:1309]),min(hg$ld6[1298:1309]), NA)
-
 b7_profile_mod<-c(mean(hg$la7[1298:1309]), mean(hg$lb7[1298:1309]),mean(hg$lc7[1298:1309]),mean(hg$ld7[1298:1309]), NA)
-b7_max_mod/1000<-c(max(hg$la7[1298:1309]), max(hg$lb7[1298:1309]),max(hg$lc7[1298:1309]),max(hg$ld7[1298:1309]), NA)
-b7_min_mod/1000<-c(min(hg$la7[1298:1309]), min(hg$lb7[1298:1309]),min(hg$lc7[1298:1309]),min(hg$ld7[1298:1309]), NA)
-
 b8_profile_mod<-c(mean(hg$la8[1298:1309]), mean(hg$lb8[1298:1309]),mean(hg$lc8[1298:1309]),mean(hg$ld8[1298:1309]), NA)
-b8_max_mod/1000<-c(max(hg$la8[1298:1309]), max(hg$lb8[1298:1309]),max(hg$lc8[1298:1309]),max(hg$ld8[1298:1309]), NA)
-b8_min_mod/1000<-c(min(hg$la8[1298:1309]), min(hg$lb8[1298:1309]),min(hg$lc8[1298:1309]),min(hg$ld8[1298:1309]), NA)
-
 b9_profile_mod<-c(mean(hg$la9[1298:1309]), mean(hg$lb9[1298:1309]),mean(hg$lc9[1298:1309]),mean(hg$ld9[1298:1309]), NA)
-b9_max_mod/1000<-c(max(hg$la9[1298:1309]), max(hg$lb9[1298:1309]),max(hg$lc9[1298:1309]),max(hg$ld9[1298:1309]), NA)
-b9_min_mod/1000<-c(min(hg$la9[1298:1309]), min(hg$lb9[1298:1309]),min(hg$lc9[1298:1309]),min(hg$ld9[1298:1309]), NA)
-
 b10_profile_mod<-c(mean(hg$la10[1298:1309]), mean(hg$lb10[1298:1309]),mean(hg$lc10[1298:1309]),mean(hg$ld10[1298:1309]), NA)
-b10_max_mod/1000<-c(max(hg$la10[1298:1309]), max(hg$lb10[1298:1309]),max(hg$lc10[1298:1309]),max(hg$ld10[1298:1309]), NA)
-b10_min_mod/1000<-c(min(hg$la10[1298:1309]), min(hg$lb10[1298:1309]),min(hg$lc10[1298:1309]),min(hg$ld10[1298:1309]), NA)
 
 axis(1, at = my.at, labels = my.at)
 my.at<-seq()
@@ -274,7 +245,7 @@ bb8<-data.frame(box8_A_hg,box8_B_hg,box8_C_hg,box8_D_hg, box8_D_hg)
 bb9<-data.frame(box9_A_hg,box9_B_hg,box9_C_hg,box9_D_hg, box9_D_hg)
 bb10<-data.frame(box10_A_hg,box10_B_hg,box10_C_hg,box10_D_hg, box10_D_hg)
 
-png('profile_ZONTA_datoModeo_boxpl_f8.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_ZONTA_datoModeo_boxpl_fin10c.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
