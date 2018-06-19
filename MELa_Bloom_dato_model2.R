@@ -3,7 +3,7 @@ setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
 
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
-setwd('C:/Users/gi/Dropbox/fin5')
+setwd('C:/Users/gi/Dropbox/fin19')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -81,7 +81,6 @@ box9_data <-Mela1[(Mela1$Staz=='B20' | Mela1$Staz=='C08'),] #bind(b17,
 box10_data<-Mela1[(Mela1$Staz=='B17' | Mela1$Staz=='B19'|
                    Mela1$Staz=='B18'),] #cbind(,b17)
 
-
 str(Water_sud)
 Water_nord_df<-Mela1[(Mela1$Zone == 'Nord'),]
 Water_nord<-Water_nord_df$Hg1
@@ -101,7 +100,7 @@ time.steps <- hg[,1]
 time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
-hgTE<- cbind(TEMPO, hg)
+hg<- cbind(TEMPO, hg)
 str(hgTE)
 rdate<-as.Date(hg$TEMPO, tz= "GMT", format="%Y")
 
@@ -128,6 +127,14 @@ par(new=T)
 plot(rdate1,nord_hg$w4,ylim=c(0,60),type='l',lwd=2,
      yaxt='n',col='#4575b4')
 par(new=T)
+plot(Water_nord_df$Hg1, type='l')
+
+library(dplyr)
+Water_nord_df_2003<-filter(Water_nord_df, Anno==2003)
+plot(Water_nord_df_2003$Mese,Water_nord_df_2003$Hg1)
+
+
+
 
 boxplot(Water_nord_bloom, Water_nord,main='Hg in water - north', 
         ylab='ng/L',cex.lab=1.8,
