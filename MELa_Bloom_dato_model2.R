@@ -1,9 +1,4 @@
-setwd('C:/Users/gi/Downloads/')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
-Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
-
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
-setwd('C:/Users/gi/Dropbox/fin19')
+setwd('C:/Users/Ginevra/Dropbox/fin19')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -11,111 +6,37 @@ names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10'
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
-summary(Mel$Hg)
-Mel$Hg1<-Mel$Hg*1000
-
-summary(Mel$Hg1)
-
-Melaa<-Mel[(Mel$Hg1<660),]
-summary(Melaa$Hg1)
-
-
-#dati Bloom 
-Water_sud_bloom<-c(3.15,2.08,4.2)
-Water_nord_bloom<-c(29.08555,	12.1798248,	45.9912752, 
-                    NA, NA, NA,NA)
-Water_central_bloom<-c(14.84366, 8.5531576,
-                       21.1341624, 2.58219507, 4.713865, 
-                       3.627636718 ,NA)
-Marghera_bloom<-c(11.9391168,56,	100.7924632,NA,NA,NA,NA)
-
-Mela<-Mel[(Mel$Staz!='M01' & Mel$Staz!='M02'& Mel$Staz!='B31'&
-             Mel$Staz!='E' & Mel$Hg1<300 & Mel$Anno>2001),]
-
-Mela1<-Mela[complete.cases(Mela),]
-
-summary(Mela1$Staz)
-
-Mela1$Zone[Mela1$Staz == 'B01' | Mela1$Staz == 'B02'| Mela1$Staz == 'B03' |
-             Mela1$Staz == 'B04'| Mela1$Staz == 'C01'| Mela1$Staz == 'C02'] <- "Nord"
-
-Mela1$Zone[Mela1$Staz == 'B05' | Mela1$Staz == 'B06'| Mela1$Staz == 'B07' |
-             Mela1$Staz == 'B08'| Mela1$Staz == 'B09'| Mela1$Staz == 'B10'|
-             Mela1$Staz == 'B11'| Mela1$Staz == 'B12'| Mela1$Staz == 'C03'| Mela1$Staz == 'C04'|
-             Mela1$Staz == 'C05'] <- "Centro-Nord"
-
-Mela1$Zone[Mela1$Staz == 'CS' ] <- "Città"
-Mela1$Zone[Mela1$Staz == 'CI' ] <- "Industriali"
-
-Mela1$Zone[Mela1$Staz == 'B13' |Mela1$Staz == 'B14' | Mela1$Staz == 'B15'| Mela1$Staz == 'C06'| Mela1$Staz == 'C07'] <- "Centro-Sud"
-
-Mela1$Zone[Mela1$Staz == 'B16' | Mela1$Staz == 'B17'| Mela1$Staz == 'B18'|
-             Mela1$Staz == 'B19'| Mela1$Staz == 'B20'| Mela1$Staz == 'C08'] <- "Sud"
-
-Mela1$Staz<- factor(Mela1$Staz, 
-                    levels = c("B01","B02", "B03","B04","C01","C02", 
-                               "B05","B06","B07",'CI',"B08",'CS',"B09",'B10','B11',
-                               'B12',"C03","C04","C05", 
-                               "B13","B14","B15", "C06", 'C07',
-                               "B16","B17","B18","B19",'B20','C08'))
-
-box1_data<-Mela1[(Mela1$Staz=='B03'),]
-box2_data<-Mela1[(Mela1$Staz=='B02'),]   
-box3_data<-Mela1[(Mela1$Staz=='C04'),]
-box4_data<-Mela1[(Mela1$Staz=='B01'),]
-box5_data<-Mela1[(Mela1$Staz=='B06' | Mela1$Staz =='B05'),]
-box6_data<-Mela1[(Mela1$Staz=='B07' | Mela1$Staz=='B08' |
-                  Mela1$Staz=='B09' | Mela1$Staz=='B11' |
-                  Mela1$Staz=='B12' | Mela1$Staz=='C05'),]
-box6_mean<-rowMeans(box6_data)
-box6_min<-apply(box6_data, 1, FUN=min)
-box6_max<-apply(box6_data, 1, FUN=max)
-
-box7_data<-Mela1[(Mela1$Staz=='B14' | Mela1$Staz=='B13' |
-                    Mela1$Staz=='B10' | Mela1$Staz=='B12' |
-                    Mela1$Staz=='B12' | Mela1$Staz=='C06'|
-                    Mela1$Staz=='C07'),]
-
-box8_data <-Mela1[(Mela1$Staz=='B16'),]
-box9_data <-Mela1[(Mela1$Staz=='B20' | Mela1$Staz=='C08'),] #bind(b17,
-box10_data<-Mela1[(Mela1$Staz=='B17' | Mela1$Staz=='B19'|
-                   Mela1$Staz=='B18'),] #cbind(,b17)
-
-str(Water_sud)
-Water_nord_df<-Mela1[(Mela1$Zone == 'Nord'),]
-Water_nord<-Water_nord_df$Hg1
-Water_centro_n_df<-Mela1[(Mela1$Zone == 'Centro-Nord'),]
-Water_centro_n<-Water_centro_n_df$Hg1
-
-Water_centro_s_df<-Mela1[(Mela1$Zone == 'Centro-Sud'),]
-Water_centro_s<-Water_centro_s_df$Hg1
-Water_sud_df<-Mela1[(Mela1$Zone == 'Sud'),]
-Water_sud<-Water_sud_df$Hg1
-
-summary(Water_nord);summary(Water_centro_n)
-summary(Water_centro_s);summary(Water_sud)
+read.table('water_nordMELA.txt', header=T);read.table('water_cnordMELA.txt', header=T);read.table('water_csudMELA.txt', header=T);read.table('water_sudMELA.txt', header=T) 
 
 time.steps <- hg[,1]
 #time.steps2 <- trunc(time.steps, 0)
 time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
-hg<- cbind(TEMPO, hg)
-str(hgTE)
-rdate<-as.Date(hg$TEMPO, tz= "GMT", format="%Y")
+hg1<- cbind(TEMPO, hg)
+rdate<-as.Date(hg1$TEMPO, tz= "GMT", format="%Y")
 
 #ACQUE modeled da 2001 a 2010  [1230:735] --> [1215:1250]  [1239:1332]
 
 rdate1<-rdate[1191:1359]
-nord_hg<-data.frame(hg$wn1[1191:1359],hg$wn2[1191:1359],hg$wn4[1191:1359])
-names(nord_hg)<-c('w1','w2','w4')
-centr_n_hg<-c(hg$wc6[1191:1359],
-            hg$wn3[1191:1359], hg$wn5[1191:1359])
+nord_hg<-data.frame(hg$wn1[1191:1359],hg$wn2[1191:1359],hg$wn4[1191:1359]); names(nord_hg)<-c('w1','w2','w4')
+centr_n_hg<-c(hg$wc6[1191:1359], hg$wn3[1191:1359], hg$wn5[1191:1359])
 centr_s_hg<-c(hg$wc7[1191:1359])
 sud_hg<-c(hg$ws8[1191:1359],hg$ws9[1191:1359], hg$ws10[1191:1359])
 
-png('confr_MEla_E_Bloom2__fin5b_.png',width = 30, 
-    height = 20, units = "cm",res=300)
+
+plot(nonords_median, ylim=c(0,60))
+par(new=T)
+plot(nonords_mean, ylim=c(0,60), pch=12)
+par(new=T)
+plot(nonords_min, ylim=c(0,60, pch='-')
+par(new=T)
+plot(nonords_max, ylim=c(0,60), pch='-')
+
+
+
+
+#png('confr_MEla_E_Bloom2__fin5b_.png',width = 30, height = 20, units = "cm",res=300)
 par(mfrow=c(2,2), bty='n',mar=c(4,5,2,0))
 dev.off()
 plot(rdate1,nord_hg$w1,ylim=c(0,60),type='l',lwd=2,
@@ -129,12 +50,12 @@ plot(rdate1,nord_hg$w4,ylim=c(0,60),type='l',lwd=2,
 par(new=T)
 plot(Water_nord_df$Hg1, type='l')
 
+
+
+
 library(dplyr)
 Water_nord_df_2003<-filter(Water_nord_df, Anno==2003)
 plot(Water_nord_df_2003$Mese,Water_nord_df_2003$Hg1)
-
-
-
 
 boxplot(Water_nord_bloom, Water_nord,main='Hg in water - north', 
         ylab='ng/L',cex.lab=1.8,

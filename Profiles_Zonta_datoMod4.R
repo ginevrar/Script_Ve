@@ -5,7 +5,7 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
 
 setwd('C:/Users/gi/Dropbox/fin10')
-setwd('C:/Users/Ginevra/Dropbox/fin22')
+setwd('C:/Users/gi/Dropbox/fin19mmm')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -13,6 +13,12 @@ names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10'
              'lb1','lb2','lb3','lb4','lb5','lb6','lb7','lb8','lb9','lb10',
              'lc1','lc2','lc3','lc4','lc5','lc6','lc7','lc8','lc9','lc10',
              'ld1','ld2','ld3','ld4','ld5','ld6','ld7','ld8','ld9','ld10')
+
+
+hg<-hg-hgD-mehgD
+#hgD<-hgdiss+hgDOC; mehgD<-mehgdiss+mehgDOC
+#mehgt<-mehgD+mehgP; hgIIt<-hgD+hgP
+
 
 library(dplyr)
 box1<-filter(dati,box==1);box2<-filter(dati,box ==2)
@@ -246,7 +252,7 @@ bb8<-data.frame(box8_A_hg,box8_B_hg,box8_C_hg,box8_D_hg, box8_D_hg)
 bb9<-data.frame(box9_A_hg,box9_B_hg,box9_C_hg,box9_D_hg, box9_D_hg)
 bb10<-data.frame(box10_A_hg,box10_B_hg,box10_C_hg,box10_D_hg, box10_D_hg)
 
-png('profile_ZONTA_datoModeo_boxpl_fin23.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_ZONTA_datoModeo_boxpl_fin19mm.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
