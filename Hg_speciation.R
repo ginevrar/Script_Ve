@@ -1,4 +1,4 @@
-setwd('C:/Users/Ginevra/Dropbox/fin19')
+setwd('C:/Users/Ginevra/Dropbox/fin18')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -47,3 +47,6 @@ plot(a, type='l', col=2)
 plot(part_hg_perc[,8], type='l')
 par(new=T)
 
+dev.new()
+  
+)

@@ -2,7 +2,7 @@ setwd('L:/Il mio Drive/MERCURIO/Venezia/')
 MEHG<-read.table('MeHg_data_all.txt',  header=T)
 
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr6')
-setwd('C:/Users/gi/Dropbox/fin24')
+setwd('C:/Users/Ginevra/Dropbox/fin29')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -44,7 +44,7 @@ media8<-rowMeans(h)
 media9<-rowMeans(i)
 media10<-rowMeans(l)
 
-png('All_boxes_MeHgSED_fin23.png',
+png('All_boxes_MeHgSED_fin29.png',
     width = 950, height = 530,
     units = "px")
 par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')

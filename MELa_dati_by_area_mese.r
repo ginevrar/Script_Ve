@@ -2,14 +2,6 @@ setwd('C:/Users/gi/Downloads/')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';') #setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
 
-setwd('C:/Users/Ginevra/Dropbox/fin19')
-
-hg<-read.csv('Total_Hg.csv', skip=1)
-names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
 summary(Mel$Hg)
 Mel$Hg1<-Mel$Hg*1000
 
@@ -90,6 +82,8 @@ Water_centro_s_df<-Mela1[(Mela1$Zone == 'Centro-Sud'),]
 Water_centro_s<-Water_centro_s_df$Hg1
 Water_sud_df<-Mela1[(Mela1$Zone == 'Sud'),]
 Water_sud<-Water_sud_df$Hg1
+
+library(dplyr)
 
 nord1<-(filter(Water_nord_df, Mese == 1))
 nord1_median<-median(nord1$Hg1)
@@ -462,65 +456,3 @@ write.table(df_sudMELa, file = 'water_sudMELA_mediemese.txt')
 
 
 df_nordMELa
-
-
-rdate1<-rdate[1226:1309]
-nord_hg<-data.frame(hg$wn1[1226:1309],hg$wn2[1226:1309],hg$wn4[1226:1309]); 
-names(nord_hg)<-c('w1','w2','w4')
-
-n1<-hg$wn1[1226:(1237)]       # 2002
-n2<-hg$wn1[1238:(1238+11)]   #2003
-n3<-hg$wn1[1250:(1250+11)]   # 2004
-n4<-hg$wn1[1262:(1273)]   # 2005
-n5<-hg$wn1[1274:(1285)]   # 2006
-n6<-hg$wn1[1286:(1297)]   # 2007 
-n7<-hg$wn1[1238:(1238+11)]   #2008
-
-n1b<-hg$wn2[1226:(1237)]       # 2002
-n2b<-hg$wn2[1238:(1238+11)]   #2003
-n3b<-hg$wn2[1250:(1250+11)]   # 2004
-n4b<-hg$wn2[1262:(1273)]   # 2005
-n5b<-hg$wn2[1274:(1285)]   # 2006
-n6b<-hg$wn2[1286:(1297)]   # 2007 
-n7b<-hg$wn2[1238:(1238+11)]   #2008
-
-n1c<-hg$wn4[1226:(1237)]       # 2002
-n2c<-hg$wn4[1238:(1238+11)]   #2003
-n3c<-hg$wn4[1250:(1250+11)]   # 2004
-n4c<-hg$wn4[1262:(1273)]   # 2005
-n5c<-hg$wn4[1274:(1285)]   # 2006
-n6c<-hg$wn4[1286:(1297)]   # 2007 
-n7c<-hg$wn4[1238:(1238+11)]   #2008
-
-nord_year<-data.frame(n1,n2,n3,n4,n5,n6,n7,
-                      n1b,n2b,n3b,n4b,n5b,n6b,n7b,
-                      n1c,n2c,n3c,n4c,n5c,n6c,n7c)
-  
-nord_year_mean<-rowMeans(nord_year)
-nord_year_min<-apply(nord_year, 1, FUN=min)
-nord_year_max<-apply(nord_year, 1, FUN=max)
-
-NN<-c(nord_year_min,rev(nord_year_max))
-
-
-mesi<-seq(1:12)
-xx<-c(mesi,rev(mesi))
-
-plot(nord_year_mean, type='l', ylim=c(0,60),xlim=c(0,14), lwd=2, col='#4575b4')
-polygon(xx,NN, col='#4575b455',border = NA)
-par(new=T)
-boxplot(nord1$Hg1,nord2$Hg1, nord3$Hg1, nord4$Hg1,nord5$Hg1, nord6$Hg1,
-        nord7$Hg1,nord8$Hg1,nord9$Hg1,nord10$Hg1,nord11$Hg1,nord12$Hg1, ylim=c(0,60),
-        xlim=c(0,14))
-
-
-
-centr_n_hg<-data.frame(hg$wc6[1226:1309], hg$wn3[1226:1309], hg$wn5[1226:1309])
-names(centr_n_hg)<-c('w6','w3','w5')
-
-centr_s_hg<-hg$wc7[1226:1309]
-
-
-sud_hg<-data.frame(hg$ws8[1226:1309],hg$ws9[1226:1309], hg$ws10[1226:1309])
-names(sud_hg)<-c('w8','w9','w10')
-				  
