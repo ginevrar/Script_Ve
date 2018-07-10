@@ -56,11 +56,3 @@ cor.test(layerB,layerB_mod)
 cor.test(layerC,layerC_mod)
 cor.test(layerD,layerD_mod)
 
-b5_profile_mod<-c( mean(hg$lb5[1298:1309]),mean(hg$lc5[1298:1309]),mean(hg$ld5[1298:1309]), NA)
-b6_profile_mod<-c( mean(hg$lb6[1298:1309]),mean(hg$lc6[1298:1309]),mean(hg$ld6[1298:1309]), NA)
-b7_profile_mod<-c(mean(hg$lb7[1298:1309]),mean(hg$lc7[1298:1309]),mean(hg$ld7[1298:1309]), NA)
-b8_profile_mod<-c( mean(hg$lb8[1298:1309]),mean(hg$lc8[1298:1309]),mean(hg$ld8[1298:1309]), NA)
-b9_profile_mod<-c(, mean(hg$lb9[1298:1309]),mean(hg$lc9[1298:1309]),mean(hg$ld9[1298:1309]), NA)
-b10_profile_mod<-c(mean(hg$la10[1298:1309]), mean(hg$lb10[1298:1309]),mean(hg$lc10[1298:1309]),mean(hg$ld10[1298:1309]), NA)
-
-axis(1, at = my.at, labels = my.at)

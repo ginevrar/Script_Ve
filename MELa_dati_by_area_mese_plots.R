@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Dropbox/fin49')
+setwd('C:/Users/Acer/Dropbox/fin35c')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -10,7 +10,7 @@ rdate[1226:(1237)]
 rdate[1298:(1298+11)]
 
 rdate1<-rdate[1226:1309]
-n1<-hg$wn1[1226:(1237)]       # 2002
+n1<-hg$wn1[1226:1237]       # 2002
 n2<-hg$wn1[1238:(1238+11)]   #2003
 n3<-hg$wn1[1250:(1250+11)]   # 2004
 n4<-hg$wn1[1262:(1273)]   # 2005
