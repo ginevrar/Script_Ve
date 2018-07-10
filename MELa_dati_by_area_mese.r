@@ -1,5 +1,5 @@
 setwd('C:/Users/gi/Downloads/')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
+setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';') #setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
 
 summary(Mel$Hg)
