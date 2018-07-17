@@ -1,6 +1,6 @@
 
-setwd('C:/Users/gi/Dropbox/fin86')
-setwd('C:/Users/Acer/Dropbox/fin87')
+setwd('C:/Users/gi/Dropbox/fin82')
+setwd('C:/Users/Acer/Dropbox/fin82')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 

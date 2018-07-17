@@ -182,7 +182,14 @@ axis(1,at=1:12, labels = ax)
 dev.off()
 
 
-
+boxplot(nord1$Hg1,t(nord_year[1,]),nord2$Hg1,t(nord_year[2,]), 
+        nord3$Hg1, nord4$Hg1,nord5$Hg1, nord6$Hg1,
+        nord7$Hg1,nord8$Hg1,nord9$Hg1,nord10$Hg1,nord11$Hg1,nord12$Hg1, ylim=c(0,70),
+        ylab='',xlab='', xlim=c(0.7,12.3), col='#4575b499',varwidth=T)
+par(new=T)
+boxplot
+as.numeric(data.frame(nord_year[1,],nord_year[2,],nord_year[3,],
+        nord_year[4,],nord_year[5,],nord_year[6,]))
 
 
 
