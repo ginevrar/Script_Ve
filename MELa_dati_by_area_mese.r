@@ -2,7 +2,7 @@ setwd('C:/Users/gi/Downloads/')
 setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';') #setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
 
-summary(Mel$Hg)
+summary(Mel)
 Mel$Hg1<-Mel$Hg*1000
 
 summary(Mel$Hg1)
@@ -72,7 +72,6 @@ box9_data <-Mela1[(Mela1$Staz=='B20' | Mela1$Staz=='C08'),] #bind(b17,
 box10_data<-Mela1[(Mela1$Staz=='B17' | Mela1$Staz=='B19'|
                    Mela1$Staz=='B18'),] #cbind(,b17)
 
-str(Water_sud)
 Water_nord_df<-Mela1[(Mela1$Zone == 'Nord'),]
 Water_nord<-Water_nord_df$Hg1
 Water_centro_n_df<-Mela1[(Mela1$Zone == 'Centro-Nord'),]
