@@ -2,7 +2,7 @@ setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuoviin2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')#
 setwd('C:/Users/gi/Dropbox/new_sed_layers')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr6')
-setwd('C:/Users/Ginevra/Dropbox/fin8')
+setwd('C:/Users/Acer/Dropbox/fin35c')
 
 1900-2101
 2426/12
@@ -103,7 +103,7 @@ media6<-rowMeans(f); media7<-rowMeans(g); media8<-rowMeans(h); media9<-rowMeans(
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin8___.png',
+png('Time_hg_sediment_fin35c__.png',
     width = 36, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,1,1,1), 

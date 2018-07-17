@@ -1,8 +1,8 @@
 setwd('C:/Users/gi/Downloads/')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
+setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';') #setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
 
-summary(Mel$Hg)
+summary(Mel)
 Mel$Hg1<-Mel$Hg*1000
 
 summary(Mel$Hg1)
@@ -72,7 +72,6 @@ box9_data <-Mela1[(Mela1$Staz=='B20' | Mela1$Staz=='C08'),] #bind(b17,
 box10_data<-Mela1[(Mela1$Staz=='B17' | Mela1$Staz=='B19'|
                    Mela1$Staz=='B18'),] #cbind(,b17)
 
-str(Water_sud)
 Water_nord_df<-Mela1[(Mela1$Zone == 'Nord'),]
 Water_nord<-Water_nord_df$Hg1
 Water_centro_n_df<-Mela1[(Mela1$Zone == 'Centro-Nord'),]
@@ -435,10 +434,16 @@ sud12_mean<-mean(sud12$Hg1)
 sud12_min<-min(sud12$Hg1)
 sud12_max<-min(sud12$Hg1)
 
+boxplot(suds_all)
+suds_all<-data.frame(sud1$Hg1,sud2$Hg1,sud3$Hg1,sud4$Hg1,
+                sud5$Hg1,sud6$Hg1,sud7$Hg1,sud8$Hg1,sud9$Hg1,
+                sud10$Hg1,sud11$Hg1,sud12$Hg1, check.rows=FALSE)		  
+
+
 suds_median<-c(sud1_median, sud2_median,sud3_median,sud4_median,
 				  sud5_median,sud6_median, sud7_median,sud8_median,sud9_median,
 				  sud10_median,sud11_median,sud12_median)		  
-				  
+		  
 suds_mean<-c(sud1_mean, sud2_mean,sud3_mean,sud4_mean,
 				  sud5_mean,sud6_mean, sud7_mean,sud8_mean,sud9_mean,
 				  sud10_mean,sud11_mean,sud12_mean)

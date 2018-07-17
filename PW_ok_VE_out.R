@@ -1,4 +1,4 @@
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice')
+setwd('C:/Users/Acer/Dropbox/')
 art<-read.table('ARTISTA.txt', header=T)
 str(art)
 
@@ -29,7 +29,9 @@ dati_pw7<-c(7.02065,3.00885,2.20649,4.41298)  #Kim et al 2011
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuoviin2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr5')
 setwd('C:/Users/gi/Dropbox/res_eutr19')
+
 setwd('C:/Users/gi/Dropbox/fin44')
+setwd('C:/Users/Acer/Dropbox/fin83')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -46,8 +48,8 @@ names(mehgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
 
-mehgD<-read.csv('Dissolved_Methyl_Hg.csv',skip=1)
-names(mehgD)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+mehgdiss<-read.csv('Dissolved_Methyl_Hg.csv',skip=1)
+names(mehgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
 
@@ -61,7 +63,7 @@ TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 rdate
 
-png('Boxes3_6_7_PoreW_44.png',width = 740, height = 480, units = "px")
+png('Boxes3_6_7_PoreW_fin83.png',width = 740, height = 480, units = "px")
 par(mfrow=c(2,2), mar=c(3,4.5,2,0))
 plot(rdate[650:667],hgD$sn1[650:667],ylim=c(0,20), type='l', 
      col='#4575b4',lwd=2,main='Box1',ylab= 'HgD (ng/L)',
@@ -94,7 +96,7 @@ mehg_pW2<-c(0.03,0.75,.07, 0.18,.40, 0.02,.13, 0.09)
 mehg_pW1<-c( 0.38, 	 1.21,	 0.54,  0.44, 	 1.52, 	 0.66,
              0.09,	 0.18, 	 0.15)
 
-png('Boxes3_6_7_PoreW_mehg_44.png',width = 740, height = 480, units = "px")
+png('Boxes3_6_7_PoreW_mehg_fin83.png',width = 740, height = 480, units = "px")
 par(mfrow=c(1,3), mar=c(3,4.5,2,0))
 plot(rdate[650:667],mehgD$sn1[650:667],ylim=c(0,1.5), type='l', 
      col='#313695',lwd=2,main='Box1',ylab= 'MeHg (ng/L)',

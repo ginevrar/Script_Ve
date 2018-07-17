@@ -1,11 +1,10 @@
-setwd('L:/Il mio Drive/MERCURIO/Venezia/')
+setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 setwd('C:/Users/gi/Downloads/')
 dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #dati<-read.table('QSEV_data.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
-
-setwd('C:/Users/gi/Dropbox/fin10')
-setwd('C:/Users/Ginevra/Dropbox/fin37')
+setwd('C:/Users/gi/Dropbox/fin87')
+setwd('C:/Users/Acer/Dropbox/fin87')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -14,11 +13,9 @@ names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10'
              'lc1','lc2','lc3','lc4','lc5','lc6','lc7','lc8','lc9','lc10',
              'ld1','ld2','ld3','ld4','ld5','ld6','ld7','ld8','ld9','ld10')
 
-
 hg<-hg-hgD-mehgD
 #hgD<-hgdiss+hgDOC; mehgD<-mehgdiss+mehgDOC
 #mehgt<-mehgD+mehgP; hgIIt<-hgD+hgP
-
 
 library(dplyr)
 box1<-filter(dati,box==1);box2<-filter(dati,box ==2)
@@ -225,6 +222,8 @@ b8_max<-c(box8_A_max,box8_B_max,box8_C_max,box8_D_max,box8_E_max)
 b9_max<-c(box9_A_max,box9_B_max,box9_C_max,box9_D_max,box9_E_max)
 b10_max<-c(box10_A_max,box10_B_max,box10_C_max,box10_D_max,box10_E_max)
 
+rdate[1298:1309]
+
 b1_profile_mod<-c(mean(hg$la1[1298:1309]), mean(hg$lb1[1298:1309]),mean(hg$lc1[1298:1309]),mean(hg$ld1[1298:1309]), NA)
 b2_profile_mod<-c(mean(hg$la2[1298:1309]), mean(hg$lb2[1298:1309]),mean(hg$lc2[1298:1309]), mean(hg$ld2[1298:1309]), NA)
 b3_profile_mod<-c(mean(hg$la3[1298:1309]), mean(hg$lb3[1298:1309]),mean(hg$lc3[1298:1309]),mean(hg$ld3[1298:1309]), NA)
@@ -235,6 +234,15 @@ b7_profile_mod<-c(mean(hg$la7[1298:1309]), mean(hg$lb7[1298:1309]),mean(hg$lc7[1
 b8_profile_mod<-c(mean(hg$la8[1298:1309]), mean(hg$lb8[1298:1309]),mean(hg$lc8[1298:1309]),mean(hg$ld8[1298:1309]), NA)
 b9_profile_mod<-c(mean(hg$la9[1298:1309]), mean(hg$lb9[1298:1309]),mean(hg$lc9[1298:1309]),mean(hg$ld9[1298:1309]), NA)
 b10_profile_mod<-c(mean(hg$la10[1298:1309]), mean(hg$lb10[1298:1309]),mean(hg$lc10[1298:1309]),mean(hg$ld10[1298:1309]), NA)
+
+
+time.steps <- hg[,1]
+time.steps3 <- time.steps*24*3600
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+TEMPO[1:10]
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
+tail(rdate)
+rdate[1298:1309]
 
 axis(1, at = my.at, labels = my.at)
 my.at<-seq()
@@ -252,7 +260,7 @@ bb8<-data.frame(box8_A_hg,box8_B_hg,box8_C_hg,box8_D_hg, box8_D_hg)
 bb9<-data.frame(box9_A_hg,box9_B_hg,box9_C_hg,box9_D_hg, box9_D_hg)
 bb10<-data.frame(box10_A_hg,box10_B_hg,box10_C_hg,box10_D_hg, box10_D_hg)
 
-png('profile_ZONTA_datoModeo_boxpl_fin37b.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_ZONTA_datoModeo_boxpl_fin87c.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
