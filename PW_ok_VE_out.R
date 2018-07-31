@@ -29,6 +29,8 @@ dati_pw7<-c(7.02065,3.00885,2.20649,4.41298)  #Kim et al 2011
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/Buona/nuoviin2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr5')
 setwd('C:/Users/gi/Dropbox/res_eutr19')
+
+setwd('C:/Users/gi/Dropbox/fin44')
 setwd('C:/Users/Acer/Dropbox/fin83')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)

@@ -434,10 +434,16 @@ sud12_mean<-mean(sud12$Hg1)
 sud12_min<-min(sud12$Hg1)
 sud12_max<-min(sud12$Hg1)
 
+boxplot(suds_all)
+suds_all<-data.frame(sud1$Hg1,sud2$Hg1,sud3$Hg1,sud4$Hg1,
+                sud5$Hg1,sud6$Hg1,sud7$Hg1,sud8$Hg1,sud9$Hg1,
+                sud10$Hg1,sud11$Hg1,sud12$Hg1, check.rows=FALSE)		  
+
+
 suds_median<-c(sud1_median, sud2_median,sud3_median,sud4_median,
 				  sud5_median,sud6_median, sud7_median,sud8_median,sud9_median,
 				  sud10_median,sud11_median,sud12_median)		  
-				  
+		  
 suds_mean<-c(sud1_mean, sud2_mean,sud3_mean,sud4_mean,
 				  sud5_mean,sud6_mean, sud7_mean,sud8_mean,sud9_mean,
 				  sud10_mean,sud11_mean,sud12_mean)

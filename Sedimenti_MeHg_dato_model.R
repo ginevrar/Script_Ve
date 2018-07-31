@@ -1,4 +1,5 @@
 setwd('G:/Il mio Drive/MERCURIO/Venezia/')
+setwd('C:\\Users\\gi\\Downloads')
 MEHG<-read.table('MeHg_data_all.txt',  header=T)
 
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr6')

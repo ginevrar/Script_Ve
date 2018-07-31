@@ -1,6 +1,6 @@
-setwd('C:/Users/gi/Dropbox/fin87')
-setwd('C:/Users/Acer/Dropbox/fin87')
 
+setwd('C:/Users/gi/Dropbox/fin82')
+setwd('C:/Users/Acer/Dropbox/fin82')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -131,91 +131,49 @@ sud_year_median<-apply(sud_year, 1, FUN=median)
 
 SS<-c(sud_year_min,rev(sud_year_max))
 
-mesi<-seq(1:12)
-xx<-c(mesi,rev(mesi))
-ax<-c('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
+tutti_dati_med<-c(nords_median,cnords_median,
+                 csuds_median,suds_median)
+tutti_mod_med<-c(nord_year_median,c_nord_year_median,
+                  c_sud_year_median,sud_year_median)
 
-png('Hg_water_fin87c_.png',width = 32, height = 18,res=400,units = "cm")
+cor.test(tutti_dati_med,tutti_mod_med)
+plot(tutti_dati_med,tutti_mod_med)
+
+plot(nords_median, nord_year_median)
+
+plot(cnords_median, c_nord_year_median)
+cor.test(csuds_median, c_sud_year_median)
+
+cor.test(suds_median, sud_year_median)
+
+
+plot(nords_median)
+
+library('plotrix')
+#svg(filename="meHg_m1_m6-m7.svg", pointsize = 18)
+#win.graph()
+par(mfrow=c(1,1),oma=c(2,2,2,2))
+taylor.diagram(nords_median, nord_year_median,
+               add=FALSE,
+               col="black",bg='gray',pos.cor=T,
+               xlab="",ylab="",main=" ",show.gamma=TRUE,ngamma=3,
+               gamma.col="gray50",sd.arcs=0,ref.sd=T, mar=c(1.5,3,3,1.3),
+               sd.method="sample",pcex=4.2, pch=21,
+               grad.corr.lines=c(0.2,0.4,0.6,0.8,0.9, .95,0.99),
+               cex.axis=1,normalize=FALSE)
+
+text(0.035,0.04, labels = "m7", font=4, cex=1)
+dev.new()
+taylor.diagram(cnords_median, c_nord_year_median,
+               add=FALSE,col='#80b1d3', pos.cor=T,
+               xlab="",ylab="",main="T ",show.gamma=TRUE,ngamma=3,
+               gamma.col="gray50",sd.arcs=0,ref.sd=T,
+               sd.method="sample",pcex=4.2, pch=22,
+               grad.corr.lines=c(0.2,0.4,0.6,0.8,0.9, 0.99),cex.axis=1,normalize=FALSE)
+text(0.08,0.01, labels = "m1", col="#80b1d3", font=4, cex=1)
+
+#png('Hg_water_fin86_.png',width = 32, height = 18,res=400,units = "cm")
 par(mfrow=c(2,2),mar=c(3,4.5,1,0), 
     oma=c(0,0,3,1), bty='n', mgp=c(3.5,1.5,0))
 #  plot(nord_year_mean, type='b', pch=19, ylim=c(0,70),xlim=c(0.7,12.3), lwd=2, col='#4575b4')
 #par(new=T)
-boxplot(nord1$Hg1,nord2$Hg1, nord3$Hg1, nord4$Hg1,nord5$Hg1, nord6$Hg1,
-        nord7$Hg1,nord8$Hg1,nord9$Hg1,nord10$Hg1,nord11$Hg1,nord12$Hg1, ylim=c(0,70),
-        ylab='',xlab='', xlim=c(0.7,12.3), col='#4575b499',varwidth=T)
-par(new=T)
-plot(nord_year_median, type='b', pch=24, main='northern area',
-     ylim=c(0,70),xlim=c(0.7,12.3), ylab='ng/L', xlab='', 
-     xaxt='n',lwd=1, col='black',bg='#2d4c7599', cex=2)
-axis(1,at=1:12, labels = ax)
-polygon(xx,NN, col='#4575b455',border = NA)
-mtext(side=3,text='Hg in the water column', outer=TRUE,line=1,font=2,cex=1.4)
-
-boxplot(cnord1$Hg1,cnord2$Hg1, cnord3$Hg1, cnord4$Hg1,cnord5$Hg1, cnord6$Hg1,
-        cnord7$Hg1,cnord8$Hg1,cnord9$Hg1,cnord10$Hg1,cnord11$Hg1,cnord12$Hg1, ylim=c(0,70),
-        ylab='', xlab='', xlim=c(0.7,12.3), col='#e5e57299',varwidth=T)		
-
-par(new=T)
-plot(c_nord_year_median, type='b',xaxt='n', pch=24,ylim=c(0,70),xlim=c(0.7,12.3), 
-     main='central northern area', lwd=1,cex=2,col='black' ,ylab='ng/L', xlab='', bg='#c6c63b99')
-polygon(xx,CN, col='#e5e57255',border = NA)
-axis(1,at=1:12, labels = ax)
-
-boxplot(csud1$Hg1,csud2$Hg1, csud3$Hg1, csud4$Hg1,csud5$Hg1, csud6$Hg1,
-        csud7$Hg1,csud8$Hg1,csud9$Hg1,csud10$Hg1,csud11$Hg1,csud12$Hg1, ylim=c(0,70),
-        ylab='', xlab='', xlim=c(0.7,12.3), col='#f7922099',varwidth=T)		
-par(new=T)
-plot(c_sud_year_median, type='b', pch=24,xaxt='n',cex=2, main='central southern area',
-     ylab='ng/L', xlab='', ylim=c(0,70),xlim=c(0.7,12.3), lwd=1, col=1,bg='#d1740c99')
-polygon(xx,CS, col='#f7922055',border = NA)
-axis(1,at=1:12, labels = ax)
-
-boxplot(sud1$Hg1,sud2$Hg1, sud3$Hg1, sud4$Hg1,sud5$Hg1, sud6$Hg1,
-        sud7$Hg1,sud8$Hg1,sud9$Hg1,sud10$Hg1,sud11$Hg1,sud12$Hg1, ylim=c(0,70),
-        ylab='', xlab='', xlim=c(0.7,12.3), col='#a5002899',varwidth=T)	
-par(new=T)
-plot(sud_year_median,  type='b', main='southern area',
-     ylim=c(0,70),pch=24,xaxt='n',cex=2, ylab='ng/L', xlab='',
-     xlim=c(0.7,12.3), lwd=1, col=1,bg='#82012099')
-polygon(xx,SS, col='#a5002855',border = NA)
-axis(1,at=1:12, labels = ax)
-dev.off()
-
-
-boxplot(nord1$Hg1,t(nord_year[1,]),nord2$Hg1,t(nord_year[2,]), 
-        nord3$Hg1, nord4$Hg1,nord5$Hg1, nord6$Hg1,
-        nord7$Hg1,nord8$Hg1,nord9$Hg1,nord10$Hg1,nord11$Hg1,nord12$Hg1, ylim=c(0,70),
-        ylab='',xlab='', xlim=c(0.7,12.3), col='#4575b499',varwidth=T)
-par(new=T)
-boxplot
-as.numeric(data.frame(nord_year[1,],nord_year[2,],nord_year[3,],
-        nord_year[4,],nord_year[5,],nord_year[6,]))
-
-
-
-nord_jan<-t(nord_year[1,])
-nord_feb<-t(nord_year[2,])
-nord_mar<-t(nord_year[3,])
-nord_apr<-t(nord_year[4,])
-nord_may<-t(nord_year[5,])
-nord_jun<-t(nord_year[6,])
-nord_jul<-t(nord_year[7,])
-nord_aug<-t(nord_year[8,])
-nord_sep<-t(nord_year[9,])
-nord_oct<-t(nord_year[10,])
-nord_nov<-t(nord_year[11,])
-nord_dec<-t(nord_year[12,])
-
-boxplot(nord1$Hg1,nord_jan, nord2$Hg1,nord_feb, nord3$Hg1,nord_mar,
-        nord4$Hg1,nord_apr, nord5$Hg1,nord_may, nord6$Hg1,nord_jun,
-        nord7$Hg1,nord_jul, nord8$Hg1,nord_aug, nord9$Hg1,nord_sep,
-        nord10$Hg1,nord_oct, nord11$Hg1,nord_nov,nord12$Hg1,nord_dec, ylim=c(0,70),
-        xlim=c(0.7,12.3), col=c('#4575b499','#4575b422'),varwidth=T)
-par(new=T)
-plot(nord_year_median, type='b', pch=24, ylim=c(0,70),xlim=c(0.7,12.3), 
-     xaxt='n',lwd=1, col='black',bg='#2d4c7599', cex=2)
-
-
-
-
-
