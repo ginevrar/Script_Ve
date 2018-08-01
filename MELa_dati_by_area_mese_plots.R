@@ -1,5 +1,5 @@
 setwd('C:/Users/gi/Dropbox/fin87')
-setwd('C:/Users/Acer/Dropbox/fin87')
+setwd('C:/Users/Acer/Dropbox/fin90')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -216,6 +216,39 @@ plot(nord_year_median, type='b', pch=24, ylim=c(0,70),xlim=c(0.7,12.3),
      xaxt='n',lwd=1, col='black',bg='#2d4c7599', cex=2)
 
 
+dN<-c(median(nord1$Hg1),median(nord2$Hg1), median(nord3$Hg1), median(nord4$Hg1),
+      median(nord5$Hg1),median(nord6$Hg1),median(nord7$Hg1),median(nord8$Hg1),
+      median(nord9$Hg1),median(nord10$Hg1),median(nord11$Hg1),median(nord12$Hg1))
+
+dCN<-c(median(cnord1$Hg1),median(cnord2$Hg1),median(cnord3$Hg1),median(cnord4$Hg1),
+       median(cnord5$Hg1),median(cnord6$Hg1),
+       median(cnord7$Hg1),median(cnord8$Hg1),median(cnord9$Hg1),
+       median(cnord10$Hg1),median(cnord11$Hg1),median(cnord12$Hg1))
+
+dCS<-c(median(csud1$Hg1),median(csud2$Hg1),median(csud3$Hg1),median(csud4$Hg1),
+       median(csud5$Hg1),median(csud6$Hg1),median(csud7$Hg1),median(csud8$Hg1),
+      median(csud9$Hg1),median(csud10$Hg1),median(csud11$Hg1),median(csud12$Hg1))
+
+dS<-c(median(sud1$Hg1),median(sud2$Hg1),median(sud3$Hg1),median(sud4$Hg1),median(sud5$Hg1),
+      median(sud6$Hg1),median(sud7$Hg1),median(sud8$Hg1),median(sud9$Hg1),
+      median(sud10$Hg1),median(sud11$Hg1),median(sud12$Hg1))
 
 
+datiw<-c(dN, dCN, dCS, dS)
+modew<-c(nord_year_median,c_nord_year_median,c_sud_year_median,sud_year_median)
 
+plot(datiw,modew)
+
+cor(datiw,modew)
+
+
+str(modew)
+str(datiw)
+
+str(dS)
+
+plot(dN,nord_year_median)
+
+acque<-data.frame(datiw, modew)
+write.table(acque, file='acque_perTaylorD.txt')
+getwd()

@@ -57,14 +57,18 @@ dissmehg<-mehgd + mehgDOC
 TEMPOd <-as.POSIXct(corila[,1], tz= "GMT",format="%d-%m-%Y")
 as.POSIXct(corila$data) 
 
+
+
+dev.new()
+par(mfrow=c(1,2))
 plot(tmp,corila$HgII,ylim=c(0,8),pch=18,xaxt='n',
      xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
 par(new=T)
 plot(rdate[1313:(1325)],(disshg$wc6[1313:(1325)]),ylim=c(0,8),xaxt='n',
      xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
-par(new=T)
-plot(rdate[1313:(1325)],hg0$wc6[1313:(1325)],xaxt='n',type='l',
-     xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
+#par(new=T)
+#plot(rdate[1313:(1325)],hg0$wc6[1313:(1325)],xaxt='n',type='l',
+ #    xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
 axis(side=1, at=rdate[1313:(1325)],'%d/%m/%Y', labels=rdate[1313:(1325)])
   
 plot(tmp,corila$MeHg,ylim=c(0,.3),pch=18,xaxt='n',
