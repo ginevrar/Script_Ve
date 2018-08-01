@@ -1,5 +1,5 @@
 setwd('C:/Users/gi/Dropbox/fin87')
-setwd('C:/Users/Acer/Dropbox/fin90')
+setwd('C:/Users/Acer/Dropbox/fin90/c')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -7,6 +7,8 @@ names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10'
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
+
+rdate1<-rdate[1226:1237]
 rdate1<-rdate[1226:1309]
 n1<-hg$wn1[1226:1237]       # 2002
 n2<-hg$wn1[1238:(1238+11)]  #2003
@@ -135,7 +137,7 @@ mesi<-seq(1:12)
 xx<-c(mesi,rev(mesi))
 ax<-c('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
 
-png('Hg_water_fin87c_.png',width = 32, height = 18,res=400,units = "cm")
+png('Hg_water_fin90c3_.png',width = 32, height = 18,res=400,units = "cm")
 par(mfrow=c(2,2),mar=c(3,4.5,1,0), 
     oma=c(0,0,3,1), bty='n', mgp=c(3.5,1.5,0))
 #  plot(nord_year_mean, type='b', pch=19, ylim=c(0,70),xlim=c(0.7,12.3), lwd=2, col='#4575b4')
@@ -174,7 +176,7 @@ boxplot(sud1$Hg1,sud2$Hg1, sud3$Hg1, sud4$Hg1,sud5$Hg1, sud6$Hg1,
         sud7$Hg1,sud8$Hg1,sud9$Hg1,sud10$Hg1,sud11$Hg1,sud12$Hg1, ylim=c(0,70),
         ylab='', xlab='', xlim=c(0.7,12.3), col='#a5002899',varwidth=T)	
 par(new=T)
-plot(sud_year_median,  type='b', main='southern area',
+plot(sud_year_mean,  type='b', main='southern area',
      ylim=c(0,70),pch=24,xaxt='n',cex=2, ylab='ng/L', xlab='',
      xlim=c(0.7,12.3), lwd=1, col=1,bg='#82012099')
 polygon(xx,SS, col='#a5002855',border = NA)
@@ -213,6 +215,9 @@ boxplot(nord1$Hg1,nord_jan, nord2$Hg1,nord_feb, nord3$Hg1,nord_mar,
         xlim=c(0.7,12.3), col=c('#4575b499','#4575b422'),varwidth=T)
 par(new=T)
 plot(nord_year_median, type='b', pch=24, ylim=c(0,70),xlim=c(0.7,12.3), 
+     xaxt='n',lwd=1, col='black',bg='#2d4c7599', cex=2)
+par(new=T)
+plot(nord_year_mean, type='b', pch=19, ylim=c(0,70),xlim=c(0.7,12.3), 
      xaxt='n',lwd=1, col='black',bg='#2d4c7599', cex=2)
 
 

@@ -10,6 +10,11 @@ summary(Mel$Hg1)
 Melaa<-Mel[(Mel$Hg1<660),]
 summary(Melaa$Hg1)
 
+str(Melaa)
+
+filter(Melaa, Mese ==1)
+filter(Melaa, Mese ==5)
+
 
 #dati Bloom 
 Water_sud_bloom<-c(3.15,2.08,4.2)
@@ -24,6 +29,20 @@ Mela<-Mel[(Mel$Staz!='M01' & Mel$Staz!='M02'& Mel$Staz!='B31'&
              Mel$Staz!='E' & Mel$Hg1<300 & Mel$Anno>2001),]
 
 Mela1<-Mela[complete.cases(Mela),]
+
+str(filter(Mela1, Mese==1))
+str(filter(Mela1, Mese==2))
+str(filter(Mela1, Mese==3))
+str(filter(Mela1, Mese==4))
+str(filter(Mela1, Mese==5))
+str(filter(Mela1, Mese==6))
+str(filter(Mela1, Mese==7))
+str(filter(Mela1, Mese==8))
+str(filter(Mela1, Mese==9))
+str(filter(Mela1, Mese==10))
+str(filter(Mela1, Mese==11))
+str(filter(Mela1, Mese==12))
+
 
 summary(Mela1$Staz)
 
@@ -76,6 +95,8 @@ Water_nord_df<-Mela1[(Mela1$Zone == 'Nord'),]
 Water_nord<-Water_nord_df$Hg1
 Water_centro_n_df<-Mela1[(Mela1$Zone == 'Centro-Nord'),]
 Water_centro_n<-Water_centro_n_df$Hg1
+
+filter(Water_centro_n_df, Mese==1)
 
 Water_centro_s_df<-Mela1[(Mela1$Zone == 'Centro-Sud'),]
 Water_centro_s<-Water_centro_s_df$Hg1

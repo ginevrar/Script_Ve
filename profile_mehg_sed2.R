@@ -4,7 +4,7 @@ setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
 setwd('C:/Users/gi/Dropbox/fin81')
-setwd('C:/Users/Acer/Dropbox/fin90/b')
+setwd('C:/Users/Acer/Dropbox/fin90/c')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -60,7 +60,7 @@ box3<-c(mean(A3$mehg),mean(B3$mehg),mean(C3$mehg))
 box6<-c(mean(A6$mehg),mean(B6$mehg),mean(C6$mehg))
 box7<-c(mean(A7$mehg),mean(B7$mehg),mean(C7$mehg))
 
-png('profile_Mehg_datoModeo_boxpl_fin90.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_Mehg_datoModeo_boxpl_fin90c.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,3),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
@@ -161,8 +161,13 @@ box7m<-c(median(A7$mehg),median(B7$mehg),median(C7$mehg))
 sedd<-c(box1m,box2m,box3m,box6m,box7m)
 modd<-c(b1_profile_mod,b2_profile_mod,b3_profile_mod,b6_profile_mod,b7_profile_mod)
 
+datsurfmehg<-c(median(A1$mehg),median(A2$mehg),median(A3$mehg),median(A6$mehg),median(A7$mehg))
+modsurfmehg<-c(b1_profile_mod[1],b2_profile_mod[1],
+               b3_profile_mod[1],b6_profile_mod[1],b7_profile_mod[1])
 
-sedMehg<-data.frame(sedd, modd)
+
+
+sedMehg<-data.frame(datsurfmehg, modsurfmehg)
 write.table(sedMehg, file='sedMehg_perTaylorD.txt')
 getwd()
 

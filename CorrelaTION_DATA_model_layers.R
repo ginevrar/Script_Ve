@@ -1,3 +1,11 @@
+setwd('C:/Users/Acer/Dropbox/fin90/c')
+
+hg<-read.csv('Total_Hg.csv', skip=1)
+names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+             'la1','la2','la3','la4','la5','la6','la7','la8','la9','la10',
+             'lb1','lb2','lb3','lb4','lb5','lb6','lb7','lb8','lb9','lb10',
+             'lc1','lc2','lc3','lc4','lc5','lc6','lc7','lc8','lc9','lc10',
+             'ld1','ld2','ld3','ld4','ld5','ld6','ld7','ld8','ld9','ld10')
 
 layerA<-c(median(box1_A_hg$Hg),median(box2_A_hg$Hg),median(box3_A_hg$Hg),
         median(box4_A_hg$Hg),median(box5_A_hg$Hg),median(box6_A_hg$Hg),
@@ -31,6 +39,13 @@ layerC_mod<-c(mean(hg$lc1[1298:1309]),mean(hg$lc2[1298:1309]), mean(hg$lc3[1298:
 layerD_mod<-c(mean(hg$ld1[1298:1309]),mean(hg$ld2[1298:1309]), mean(hg$ld3[1298:1309]), mean(hg$ld4[1298:1309]),
               mean(hg$ld5[1298:1309]),mean(hg$ld6[1298:1309]),mean(hg$ld7[1298:1309]), mean(hg$ld8[1298:1309]),
               mean(hg$ld9[1298:1309]),mean(hg$ld10[1298:1309])) 
+
+dfsurf<-data.frame(layerA,layerA_mod)
+dfsubsurf<-data.frame(layerB,layerB_mod)
+
+write.table(dfsurf,'surf_sedhg_taylor.txt')
+write.table(dfsubsurf,'subsurf_sedhg_taylor.txt')
+
 
 png('Corr_sed.png')
 par(mfrow=c(1,1))
