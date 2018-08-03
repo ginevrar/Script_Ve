@@ -67,7 +67,7 @@ box10_min_POM <- tapply(box10$POM, box10$MESE, min); box10_max_POM <- tapply(box
 #POM_box1<-POC_box1*1.88
 #POM_box1_sd<-POC_box1_sd*1.88
 
-setwd('C:/Users/Acer/Dropbox/fin90')
+setwd('C:/Users/Acer/Dropbox/fin91')
 
 solid<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solid)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -91,7 +91,7 @@ rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
 xx<-seq(1,12);epsilon <- 0.08
 
-png('All_boxes_SPM_res_fin90_.png',res=300,
+png('All_boxes_SPM_res_fin91b_.png',res=300,
     width=30, height = 20, units = "cm")
 par(mfrow=c(2,5), mar=c(3,1,1,1), oma=c(0,4,3.3,1), bty='n')
 plot(rdate[1227:1238], solid$wn1[1227:1238], type='l', col='#313695',lwd=2, main='Box1', 
@@ -178,7 +178,7 @@ segments(xx-epsilon,box10_min_SPM,xx+epsilon,box10_min_SPM, col='#a50028', lwd=1
 segments(xx-epsilon,box10_max_SPM,xx+epsilon,box10_max_SPM, col='#a50028', lwd=1.8)
 dev.off()
 
-png('POM_con_fin90__.png',width = 700, height = 480, units = "px")
+png('POM_con_fin91b__.png',width = 700, height = 480, units = "px")
 par(mfrow=c(2,5), mar=c(3,1,1,1), oma=c(0,4,3.3,1), bty='n')
 plot(rdate[1227:1238], POMs$wn1[1227:1238],  
      type='l', col='#31369577',lwd=2, main='Box1', 

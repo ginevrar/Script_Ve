@@ -1,8 +1,10 @@
 setwd('C:\\Users\\gi\\Downloads')
+setwd('C:/Users/Acer/Dropbox/fin91')
+
 dati<-read.table('MeHg_data_layer.txt',  header=T)
 
 setwd('C:/Users/gi/Dropbox/fin81')
-setwd('C:/Users/Acer/Dropbox/fin86')
+setwd('C:/Users/Acer/Dropbox/fin91')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -56,7 +58,7 @@ b10_profile_mod<-c(mean(mehg$la10[1298:1309]), mean(mehg$lb10[1298:1309]),mean(m
 
 
 
-png('profile_Mehg_datoModeo_boxpl_fin81.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_Mehg_datoModeo_boxpl_fin91.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,3),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 boxplot(bbox1A,bbox1B, xlim=c(-40,0),cex=2.6, 

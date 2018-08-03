@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Dropbox/fin90/c')
+setwd('C:/Users/Acer/Dropbox/fin91')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -47,27 +47,33 @@ write.table(dfsurf,'surf_sedhg_taylor.txt')
 write.table(dfsubsurf,'subsurf_sedhg_taylor.txt')
 
 
+r1<-round(cor(layerA,layerA_mod), digits = 2)
+r2<-round(cor(layerB,layerB_mod), digits = 2)
+r3<-round(cor(layerC,layerC_mod), digits = 2)
+r4<-round(cor(layerD,layerD_mod), digits = 2)
+
 png('Corr_sed.png')
+win.graph()
 par(mfrow=c(1,1))
 plot(layerA,layerA_mod, col='indianred1',bg='indianred1', 
      pch=21,ylab = 'model (ng g)', 
      xlab = 'observations (ng g)', xlim=c(0,1000), ylim=c(0,1000))
 abline(lm(layerA_mod~layerA), col='indianred1', lwd=2)
-text(840,640,'r = 0.85 \n p<0.01',col='indianred1', font=2)
+text(840,640,paste('r = ', r1,' p<0.01'),col='indianred1', font=2)
 par(new=T)
 plot(layerB,layerB_mod, col='indianred3', ylab = 'model (ng g)', pch=22,bg='indianred3',
      xlab = 'observations (ng g)', xlim=c(0,1000), ylim=c(0,1000))
 abline(lm(layerB_mod~layerB), col='indianred3', lty=2,lwd=2)
-text(840,440,'r = 0.79 \n p<0.01',col='indianred3', font=2)
+text(840,440,paste('r =',r2,' p<0.01'),col='indianred3', font=2)
 par(new=T)
 plot(layerC,layerC_mod, col='indianred4', ylab = 'model (ng g)', pch=23,bg='indianred4',
      xlab = 'observations (ng g)', xlim=c(0,1000), ylim=c(0,1000))
 abline(lm(layerC_mod~layerC), col='indianred4', lty=3,lwd=2)
-text(840,160,'r = 0.75 \n p<0.05',col='indianred4', font=2)
+text(840,160,paste('r =', r3, ' p<0.05'),col='indianred4', font=2)
 dev.off()
 
-cor.test(layerA,layerA_mod)
-cor.test(layerB,layerB_mod)
-cor.test(layerC,layerC_mod)
-cor.test(layerD,layerD_mod)
+bo<-cor.test(layerA,layerA_mod)
+str(bo)
+bo$p.value
+bo$estimate
 

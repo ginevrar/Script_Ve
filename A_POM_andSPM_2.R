@@ -73,7 +73,7 @@ setwd('C:/Users/Ginevra/Dropbox/new_sed_layers2')
 setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
 setwd('C:/Users/gi/Dropbox/fin28')
 setwd('C:/Users/gi/Dropbox/fin45')
-setwd('C:/Users/Acer/Dropbox/fin90/c')
+setwd('C:/Users/Acer/Dropbox/fin91')
 
 solid<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solid)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -97,13 +97,30 @@ rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
 xx<-seq(1,12);epsilon <- 0.08
 
-ai1<-silts$wn1[1226+1:(1237)]       # 2002
-ai2<-silts$wn1[1238+1:(1238+11)]   #2003h
-ai3<-silts$wn1[1250+1:(1250+11)]   # 2004
-ai4<-silts$wn1[1263+1:(1274)]   # 2005
-ai5<-silts$wn1[1274+1:(1285)]   # 2006
-ai6<-silts$wn1[1286+1:(1297)]   # 2007 
-ai7<-silts$wn1[1298+1:(1298+11)]  
+
+rdate[1239:1251] 
+
+        
+ai1<-silts$wn1[1227:1238]       # 2002
+ai2<-silts$wn1[1239:1250]   #2003h    @@ SOLO 11 elementi 2003
+ai3<-silts$wn1[1251:1262]   # 2004
+ai4<-silts$wn1[1263:1274]   # 2005
+ai5<-silts$wn1[1275:1286]   # 2006
+ai6<-silts$wn1[1287:1298]   # 2007 
+ai7<-silts$wn1[1299:1310]  
+
+win.graph()
+par(mfrow=c(2,3))
+plot(rdate[1227:1285], silts$wn1[1204:1285], type='l')
+
+1204+24
+str(ai1)
+plot(ai1, type='l')
+plot(ai2, type='l')
+plot(ai3, type='l')
+plot(ai4, type='l')
+plot(ai5, type='l')
+plot(ai6, type='l')
 
 ai_year<-data.frame(ai1,ai2,ai3,ai4,ai5,ai6,ai7)
 ai_mean<-rowMeans(ai_year)
@@ -112,13 +129,13 @@ ai_max<-apply(ai_year, 1, FUN=max)
 
 AI<-c(ai_min,rev(ai_max))
 
-bi1<-silts$wn2[1226+1:(1237)]       # 2002
-bi2<-silts$wn2[1238+1:(1238+11)]   #2003h
-bi3<-silts$wn2[1250+1:(1250+11)]   # 2004
-bi4<-silts$wn2[1263+1:(1274)]   # 2005
-bi5<-silts$wn2[1274+1:(1285)]   # 2006
-bi6<-silts$wn2[1286+1:(1297)]   # 2007 
-bi7<-silts$wn2[1298+1:(1298+11)]  
+bi1<-silts$wn2[1227:1238]       # 2002
+bi2<-silts$wn2[1239:1250]  #2003h
+bi3<-silts$wn2[1251:1262]   # 2004
+bi4<-silts$wn2[1263:1274]   # 2005
+bi5<-silts$wn2[1275:1286]   # 2006
+bi6<-silts$wn2[1287:1298]   # 2007 
+bi7<-silts$wn2[1299:1310] 
 
 bi_year<-data.frame(bi1,bi2,bi3,bi4,bi5,bi6,bi7)
 bi_mean<-rowMeans(bi_year)
@@ -127,13 +144,14 @@ bi_max<-apply(bi_year, 1, FUN=max)
 
 BI<-c(bi_min,rev(bi_max))
 
-ci1<-silts$wn3[1226+1:(1237)]       # 2002
-ci2<-silts$wn3[1238+1:(1238+11)]   #2003h
-ci3<-silts$wn3[1250+1:(1250+11)]   # 2004
-ci4<-silts$wn3[1263+1:(1274)]   # 2005
-ci5<-silts$wn3[1274+1:(1285)]   # 2006
-ci6<-silts$wn3[1286+1:(1297)]   # 2007 
-ci7<-silts$wn3[1298+1:(1298+11)]  
+ci1<-silts$wn3[1227:1238]       # 2002
+ci2<-silts$wn3[1239:1250]   #2003h
+ci3<-silts$wn3[1251:1262]   # 2004
+ci4<-silts$wn3[1263:1274]   # 2005
+ci5<-silts$wn3[1275:1286]   # 2006
+ci6<-silts$wn3[1287:1298]   # 2007 
+ci7<-silts$wn3[1299:1310]  
+
 
 ci_year<-data.frame(ci1,ci2,ci3,ci4,ci5,ci6,ci7)
 ci_mean<-rowMeans(ci_year)
@@ -141,13 +159,13 @@ ci_min<-apply(ci_year, 1, FUN=min)
 ci_max<-apply(ci_year, 1, FUN=max)
 CI<-c(ci_min,rev(ci_max))
 
-di1<-silts$wn4[1226+1:(1237)]       # 2002
-di2<-silts$wn4[1238+1:(1238+11)]   #2003h
-di3<-silts$wn4[1250+1:(1250+11)]   # 2004
-di4<-silts$wn4[1263+1:(1274)]   # 2005
-di5<-silts$wn4[1274+1:(1285)]   # 2006
-di6<-silts$wn4[1286+1:(1297)]   # 2007 
-di7<-silts$wn4[1298+1:(1298+11)]  
+di1<-silts$wn4[1227:1238]       # 2002
+di2<-silts$wn4[1239:1250]   #2003h
+di3<-silts$wn4[1251:1262]   # 2004
+di4<-silts$wn4[1263:1274]   # 2005
+di5<-silts$wn4[1275:1286]   # 2006
+di6<-silts$wn4[1287:1298]   # 2007 
+di7<-silts$wn4[1299:1310]  
 
 di_year<-data.frame(di1,di2,di3,di4,di5,di6,di7)
 di_mean<-rowMeans(di_year)
@@ -157,13 +175,13 @@ di_max<-apply(di_year, 1, FUN=max)
 DI<-c(di_min,rev(di_max))
 
 
-ei1<-silts$wn5[1226+1:(1237)]       # 2002
-ei2<-silts$wn5[1238+1:(1238+11)]   #2003h
-ei3<-silts$wn5[1250+1:(1250+11)]   # 2004
-ei4<-silts$wn5[1263+1:(1274)]   # 2005
-ei5<-silts$wn5[1274+1:(1285)]   # 2006
-ei6<-silts$wn5[1286+1:(1297)]   # 2007 
-ei7<-silts$wn5[1298+1:(1298+11)]  
+ei1<-silts$wn5[1227:1238]       # 2002
+ei2<-silts$wn5[1239:1250]   #2003h
+ei3<-silts$wn5[1251:1262]   # 2004
+ei4<-silts$wn5[1263:1274]   # 2005
+ei5<-silts$wn5[1275:1286]   # 2006
+ei6<-silts$wn5[1287:1298]   # 2007 
+ei7<-silts$wn5[1299:1310]  
 
 ei_year<-data.frame(ei1,ei2,ei3,ei4,ei5,ei6,ei7)
 ei_mean<-rowMeans(ei_year)
@@ -173,13 +191,13 @@ ei_max<-apply(ei_year, 1, FUN=max)
 EI<-c(di_min,rev(di_max))
 
 
-fi1<-silts$wc6[1226+1:(1237)]       # 2002
-fi2<-silts$wc6[1238+1:(1238+11)]   #2003h
-fi3<-silts$wc6[1250+1:(1250+11)]   # 2004
-fi4<-silts$wc6[1263+1:(1274)]   # 2005
-fi5<-silts$wc6[1274+1:(1285)]   # 2006
-fi6<-silts$wc6[1286+1:(1297)]   # 2007 
-fi7<-silts$wc6[1298+1:(1298+11)]  
+fi1<-silts$wc6[1227:1238]       # 2002
+fi2<-silts$wc6[1239:1250]   #2003h
+fi3<-silts$wc6[1251:1262]   # 2004
+fi4<-silts$wc6[1263:1274]   # 2005
+fi5<-silts$wc6[1275:1286]   # 2006
+fi6<-silts$wc6[1287:1298]   # 2007 
+fi7<-silts$wc6[1299:1310]  
 
 fi_year<-data.frame(fi1,fi2,fi3,fi4,fi5,fi6,fi7)
 fi_mean<-rowMeans(fi_year)
@@ -190,13 +208,13 @@ FI<-c(fi_min,rev(fi_max))
 xxx<-c(rdate[1227+1:1238],rev(rdate[1227+1:1238]))
 
 
-gi1<-silts$wc7[1226+1:(1237)]       # 2002
-gi2<-silts$wc7[1238+1:(1238+11)]   #2003h
-gi3<-silts$wc7[1250+1:(1250+11)]   # 2004
-gi4<-silts$wc7[1263+1:(1274)]   # 2005
-gi5<-silts$wc7[1274+1:(1285)]   # 2006
-gi6<-silts$wc7[1286+1:(1297)]   # 2007 
-gi7<-silts$wc7[1298+1:(1298+11)]  
+gi1<-silts$wc7[1227:1238]       # 2002
+gi2<-silts$wc7[1239:1250]   #2003h
+gi3<-silts$wc7[1251:1262]   # 2004
+gi4<-silts$wc7[1263:1274]   # 2005
+gi5<-silts$wc7[1275:1286]   # 2006
+gi6<-silts$wc7[1287:1298]   # 2007 
+gi7<-silts$wc7[1299:1310]  
 
 gi_year<-data.frame(gi1,gi2,gi3,gi4,gi5,gi6,gi7)
 gi_mean<-rowMeans(gi_year)
@@ -206,11 +224,11 @@ gi_max<-apply(gi_year, 1, FUN=max)
 GI<-c(gi_min,rev(gi_max))
 
 
-hi1<-silts$ws8[1226+1:(1237)]       # 2002
-hi2<-silts$ws8[1238+1:(1238+11)]   #2003h
-hi3<-silts$ws8[1250+1:(1250+11)]   # 2004
-hi4<-silts$ws8[1263+1:(1274)]   # 2005
-hi5<-silts$ws8[1274+1:(1285)]   # 2006
+hi1<-silts$ws8[1227:1238]       # 2002
+hi2<-silts$ws8[1239:1250]   #2003h
+hi3<-silts$ws8[1251:1262]   # 2004
+hi4<-silts$ws8[1263:1274]   # 2005
+hi5<-silts$ws8[1275:1286]   # 2006
 hi6<-silts$ws8[(1286+1):(1297)]   # 2007 
 hi7<-silts$ws8[1298:(1298+11)]  
 
@@ -223,13 +241,13 @@ HI<-c(hi_min,rev(hi_max))
 
 rdate[1226:1237]
 
-ii1<-silts$ws9[1226+1:(1237)]       # 2002
-ii2<-silts$ws9[1238+1:(1238+11)]   #2003h
-ii3<-silts$ws9[1250+1:(1250+11)]   # 2004
-ii4<-silts$ws9[1263+1:(1274)]   # 2005
-ii5<-silts$ws9[1274+1:(1285)]   # 2006
-ii6<-silts$ws9[1286+1:(1297)]   # 2007 
-ii7<-silts$ws9[1298+1:(1298+11)]  
+ii1<-silts$ws9[1227:1238]       # 2002
+ii2<-silts$ws9[1239:1250]   #2003h
+ii3<-silts$ws9[1251:1262]   # 2004
+ii4<-silts$ws9[1263:1274]   # 2005
+ii5<-silts$ws9[1275:1286]   # 2006
+ii6<-silts$ws9[1287:1298]   # 2007 
+ii7<-silts$ws9[1299:1310]  
 rdate[1274+1:1285]
 
 ii_year<-data.frame(ii1,ii2,ii3,ii4,ii5,ii6,ii7)
@@ -239,15 +257,15 @@ ii_max<-apply(ii_year, 1, FUN=max)
 
 II<-c(ii_min,rev(ii_max))
 
-rdate[1263+1:(1274)] 
+rdate[1263:1274] 
 
-li1<-silts$ws10[1226+1:(1237)]       # 2002
-li2<-silts$ws10[1238+1:(1238+11)]   #2003h
-li3<-silts$ws10[1250+1:(1250+11)]   # 2004
-li4<-silts$ws10[1263+1:(1274)]   # 2005
-li5<-silts$ws10[1274+1:(1285)]   # 2006
-li6<-silts$ws10[1286+1:(1297)]   # 2007 
-li7<-silts$ws10[1298+1:(1298+11)]  
+li1<-silts$ws10[1227:1238]       # 2002
+li2<-silts$ws10[1239:1250]   #2003h
+li3<-silts$ws10[1251:1262]   # 2004
+li4<-silts$ws10[1263:1274]   # 2005
+li5<-silts$ws10[1275:1286]   # 2006
+li6<-silts$ws10[1287:1298]   # 2007 
+li7<-silts$ws10[1299:1310]  
 
 li_year<-data.frame(li1,li2,li3,li4,li5,li6,li7)
 li_mean<-rowMeans(li_year)
@@ -263,7 +281,7 @@ li_median<-apply(li_year, 1, FUN=median)
 LI<-c(li_min,rev(li_max))
 
 
-png('All_boxes_SPM_res_fin90c_.png',res=300,
+png('All_boxes_SPM_res_fin91b_.png',res=300,
     width=30, height = 20, units = "cm")
 par(mfrow=c(2,5), mar=c(3,1,1,1), oma=c(0,4,3.3,1), bty='n')
 plot(rdate[1227+1:1238], ai_median, type='l', 
@@ -359,13 +377,13 @@ segments(xx-epsilon,box10_min_SPM,xx+epsilon,box10_min_SPM, col='#a50028', lwd=1
 segments(xx-epsilon,box10_max_SPM,xx+epsilon,box10_max_SPM, col='#a50028', lwd=1.8)
 dev.off()
 
-aip1<-POMs$wn1[1226+1:(1237)]       # 2002
-aip2<-POMs$wn1[1238+1:(1238+11)]   #2003h
-aip3<-POMs$wn1[1250+1:(1250+11)]   # 2004
-aip4<-POMs$wn1[1263+1:(1274)]   # 2005
-aip5<-POMs$wn1[1274+1:(1285)]   # 2006
-aip6<-POMs$wn1[1286+1:(1297)]   # 2007 
-aip7<-POMs$wn1[1298+1:(1298+11)]  
+aip1<-POMs$wn1[1227:1238]       # 2002
+aip2<-POMs$wn1[1239:1250]   #2003h
+aip3<-POMs$wn1[1251:1262]   # 2004
+aip4<-POMs$wn1[1263:1274]   # 2005
+aip5<-POMs$wn1[1275:1286]   # 2006
+aip6<-POMs$wn1[1287:1298]   # 2007 
+aip7<-POMs$wn1[1299:1310]  
 
 ai_year<-data.frame(ai1,ai2,ai3,ai4,ai5,ai6,ai7)
 ai_mean<-rowMeans(ai_year)
@@ -375,7 +393,7 @@ ai_max<-apply(ai_year, 1, FUN=max)
 AI<-c(ai_min,rev(ai_max))
 
 
-png('POM_con_fin90c__.png',width = 700, height = 480, units = "px")
+png('POM_con_fin91b__.png',width = 700, height = 480, units = "px")
 par(mfrow=c(2,5), mar=c(3,1,1,1), oma=c(0,4,3.3,1), bty='n')
 plot(rdate[1227+1:1238], POMs$wn1[1227+1:1238],  
      type='l', col='#31369577',lwd=2, main='Box1', 
@@ -466,13 +484,13 @@ segments(xx,box8_min_POM,xx,+box8_max_POM, col='#f46d43', lwd=1.8)
 segments(xx-epsilon,box8_min_POM,xx+epsilon,box8_min_POM, col='#f46d43', lwd=1.8)
 segments(xx-epsilon,box8_max_POM,xx+epsilon,box8_max_POM, col='#f46d43', lwd=1.8)
 
-hi1<-POMs$ws9[1226+1:(1237)]       # 2002
-hi2<-POMs$ws9[1238+1:(1238+11)]   #2003h
-hi3<-POMs$ws9[1250+1:(1250+11)]   # 2004
-hi4<-POMs$ws9[1263+1:(1274)]   # 2005
-hi5<-POMs$ws9[1274+1:(1285)]   # 2006
-hi6<-POMs$ws9[1286+1:(1297)]   # 2007 
-hi7<-POMs$ws9[1298+1:(1298+11)]  
+hi1<-POMs$ws9[1227:1238]       # 2002
+hi2<-POMs$ws9[1239:1250]   #2003h
+hi3<-POMs$ws9[1251:1262]   # 2004
+hi4<-POMs$ws9[1263:1274]   # 2005
+hi5<-POMs$ws9[1275:1286]   # 2006
+hi6<-POMs$ws9[1287:1298]   # 2007 
+hi7<-POMs$ws9[1299:1310]  
 
 hi_year<-data.frame(hi1,hi2,hi3,hi4,hi5,hi6,hi7)
                    
