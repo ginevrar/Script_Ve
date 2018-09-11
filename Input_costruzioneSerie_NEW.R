@@ -27,12 +27,17 @@ m
 ri<-c(rep(6.7,40), rep(6.7,10), seq(11,20, 1), rep(30, 30), seq(27,24, length.out = 10), m)
 riv<-data.frame(anno[1:201],ri)
 
-riv$BOX2 = riv$ri*0.26
-riv$BOX5 = riv$ri*0.15
-riv$BOX6 = riv$ri*0.34
-riv$BOX8 = riv$ri*0.14
-riv$BOX9 = riv$ri*0.11
+f_box2<-0.458421978				
+f_box5<-0.062621404			
+f_box6<-0.220793636
+f_box8<-0.170567015
+f_box9<-0.087595967
 
+riv$BOX2 = riv$ri*f_box2 #0.26
+riv$BOX5 = riv$ri*f_box5 #0.15
+riv$BOX6 = riv$ri*f_box6 #0.34
+riv$BOX8 = riv$ri*f_box8 #0.14
+riv$BOX9 = riv$ri*f_box9 #0.11
 
 ci<-c(rep(2,40),rep(4,10), rep(6,10),rep(10,30), rep(12,16),rep(5,15), rep(0,80)) 
 cit<-data.frame(anno[1:201],ci)
@@ -258,10 +263,7 @@ all_input<-data.frame(ladataOK,in1,in2,in3,in4,in5,in6,in7,in8,in9,in10)
 
 monthly_riv_mehg<-data.frame(ladataOK,monthly_riv[2:6]*5/(365*100))
 
-monthly_riv_mehg2<-data.frame(ladataOK,monthly_riv[2:6]*4/(365*100))
 
-monthly_riv_mehg[2,2]
-monthly_riv_mehg2[2,2]  #! per usare 4% moltiplico load *0.79 
 
 TOT<-tot_city+tot_depo+tot_ind+tot_riv
   

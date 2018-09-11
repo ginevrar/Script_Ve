@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Dropbox/fin91')
+setwd('C:/Users/Acer/Dropbox/fin92b/photo8')
 
 hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
 names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -30,6 +30,13 @@ names(mehgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','
                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
+vol<-read.csv('Volatilization_Loss_rate.csv', skip=1)
+names(vol)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+
 setwd('C:/Users/Acer/Dropbox')
 corila<-read.table('Corila_dati_acque.txt', header=T,as.is=TRUE)
 str(corila)
@@ -46,7 +53,13 @@ rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 rdate1<-format(rdate,"%d-%m-%Y" )
 rdate[1313:(1325)]
 rdate1[1313:(1325)]
-### B
+### Bùù
+
+plot(rdate[1322:(1333)],vol$wn1[1322:1333])
+plot(rdate[1322:(1333)],vol$wn2[1322:1333])
+plot(rdate[1322:(1333)],vol$wn3[1322:1333])
+plot(rdate[1322:(1333)],vol$wn4[1322:1333])
+
 tmp2
 disshg<-hgd + hgDOC
 dissmehg<-mehgd + mehgDOC
@@ -57,8 +70,9 @@ as.POSIXct(corila$data)
 
 
 dev.new()
-par(mfrow=c(1,2))
-plot(tmp,corila$HgII,ylim=c(0,8),pch='-',xaxt='n',type='p',cex=2,
+par(mfrow=c(1,2), mgp=c(2,1,0))
+plot(tmp,corila$HgII,ylim=c(0,8),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     ylab=expression(paste('ng l'^-1)),
      xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
 segments(tmp[1],corila$HgII[1],tmp[1],corila$HgII[7])
 segments(tmp[2],corila$HgII[2],tmp[2],corila$HgII[8])
@@ -66,19 +80,25 @@ segments(tmp[3],corila$HgII[3],tmp[3],corila$HgII[9])
 segments(tmp[4],corila$HgII[4],tmp[4],corila$HgII[10])
 segments(tmp[5],corila$HgII[5],tmp[5],corila$HgII[11])
 segments(tmp[6],corila$HgII[6],tmp[6],corila$HgII[12])
-
 par(new=T)
-plot(rdate[1313:1325],(disshg$wc6[1313:1325]), ylim=c(0,8), xaxt='n',
+plot(rdate[1313:1325],(disshg$wc6[1313:1325]), ylim=c(0,8), xaxt='n',xlab='',ylab='',
      xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
 #par(new=T)
 #plot(rdate[1313:(1325)],hg0$wc6[1313:(1325)],xaxt='n',type='l',
  #    xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
-axis(side=1, at=rdate1[1313:(1325)],labels=rdate1[1313:(1325)])
-  
-plot(tmp,corila$MeHg,ylim=c(0,.3),pch=18,xaxt='n',
+axis(side=1, at=rdate[1313:1325],'%d/%m/%Y', labels=rdate[1313:1325])
+
+plot(tmp,corila$MeHg,ylim=c(0,.3),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     ylab=expression(paste('ng l'^-1)),
      xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
+segments(tmp[1],corila$MeHg[1],tmp[1],corila$MeHg[7])
+segments(tmp[2],corila$MeHg[2],tmp[2],corila$MeHg[8])
+segments(tmp[3],corila$MeHg[3],tmp[3],corila$MeHg[9])
+segments(tmp[4],corila$MeHg[4],tmp[4],corila$MeHg[10])
+segments(tmp[5],corila$MeHg[5],tmp[5],corila$MeHg[11])
+segments(tmp[6],corila$MeHg[6],tmp[6],corila$MeHg[12])
 par(new=T)
-plot(rdate[1313:(1325)],dissmehg$wc6[1313:(1325)], ylim=c(0,.3),xaxt='n',
+plot(rdate[1313:(1325)],dissmehg$wc6[1313:(1325)], ylim=c(0,.3), xaxt='n',xlab='',ylab='',
      xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
 axis(side=1, at=rdate[1313:(1325)],'%d/%m/%Y', labels=rdate[1313:(1325)])
 

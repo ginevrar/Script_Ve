@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Dropbox/fin91')
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -53,7 +53,6 @@ r3<-round(cor(layerC,layerC_mod), digits = 2)
 r4<-round(cor(layerD,layerD_mod), digits = 2)
 
 png('Corr_sed.png')
-win.graph()
 par(mfrow=c(1,1))
 plot(layerA,layerA_mod, col='indianred1',bg='indianred1', 
      pch=21,ylab = 'model (ng g)', 
