@@ -4,7 +4,7 @@ Water_central_bloom<-c(14.84366, 8.5531576,21.1341624, 2.58219507, 4.713865, 3.6
 Marghera_bloom<-c(11.9391168,56,	100.7924632,NA,NA,NA,NA)
 
 
-setwd('C:/Users/Ginevra/Dropbox/fin92b/novar')
+setwd('C:/Users/Ginevra/Dropbox/fin92b/mehg4')
 setwd('C:/Users/Acer/Dropbox/fin92b/photo11')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
@@ -35,6 +35,7 @@ names(centr_n_hg)<-c('w6','w3','w5')
 
 centr_s_hg<-hg$wc7[1226:1309]
 
+rdate[1226:1309]
 
 sud_hg<-data.frame(hg$ws8[1226:1309],hg$ws9[1226:1309], hg$ws10[1226:1309])
 names(sud_hg)<-c('w8','w9','w10')

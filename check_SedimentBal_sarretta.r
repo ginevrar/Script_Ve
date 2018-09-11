@@ -3,8 +3,8 @@
 # 1997        [1167:1178] # 2010        [1323:1334]
 # 2050        [1804:1815] # 2001 - 2003 [1215:1250]
 #
-setwd('C:/Users/gi/Dropbox/fin90')
-setwd('C:/Users/Acer/Dropbox/fin92b/photo11')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4')
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg3')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -73,6 +73,39 @@ silt_res<-read.csv("Silt_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec="."
 #fraction of POM
 fPOM  <-POMs/TOTs
 fsilt <-silts/TOTs
+
+mean(fPOM$sn1[241:1467]);mean(fPOM$sn2[241:1467]);mean(fPOM$sn3[241:1467]);mean(fPOM$sn4[241:1467])
+mean(fPOM$sn5[241:1467]);mean(fPOM$sc6[241:1467]);mean(fPOM$sc7[241:1467]);mean(fPOM$ss8[241:1467])
+mean(fPOM$ss9[241:1467]);mean(fPOM$ss10[241:1467])
+
+png('POM_fraction.png')
+plot(fPOM$sn1[241:1467], ylim=c(0,0.2),col=1, type = 'l', lty=1,lwd=2)
+par(new=T)
+plot(fPOM$sn2[241:1467], ylim=c(0,0.2),col=2, type = 'l', lty=2,lwd=1.9)
+par(new=T)
+plot(fPOM$sn3[241:1467], ylim=c(0,0.2),col=3,type = 'l', lty=3,lwd=2)
+par(new=T)
+plot(fPOM$sn4[241:1467], ylim=c(0,0.2),col=4,type = 'l', lty=4,lwd=1.5)
+par(new=T)
+plot(fPOM$sn5[241:1467], ylim=c(0,0.2),col=5,type = 'l', lty=5,lwd=2)
+par(new=T)
+plot(fPOM$sc6[241:1467], ylim=c(0,0.2),col=6,type = 'l', lty=2,lwd=1.6)
+par(new=T)
+plot(fPOM$sc7[241:1467], ylim=c(0,0.2),col=7,type = 'l', lty=1,lwd=2)
+par(new=T)
+plot(fPOM$ss8[241:1467], ylim=c(0,0.2),col=8,type = 'l', lty=3,lwd=1.3)
+par(new=T)
+plot(fPOM$ss9[241:1467], ylim=c(0,0.2),col=9,type = 'l', lty=4,lwd=1.7)
+par(new=T)
+plot(fPOM$ss10[241:1467], ylim=c(0,0.2),col=10,type = 'l', lty=5,lwd=1.8)
+legend(10,0.2,  legend = c('b1','b2','b3','b4','b5','b6','b7','b8','b9','b10'),
+       col=c(1,2,3,4,5,6,7,8,9,10),pch=19)
+dev.off()
+
+;mean(fPOM$sn3[241:1467]);mean(fPOM$sn4[241:1467])
+mean(fPOM$sn5[241:1467]);mean(fPOM$sc6[241:1467]);mean(fPOM$sc7[241:1467]);mean(fPOM$ss8[241:1467])
+mean(fPOM$ss9[241:1467]);mean(fPOM$ss10[241:1467])
+
 
 solids_sed1  <-TOTs$sn1;   solids_dsed1  <-TOTs$dsn1;    
   solids_sed2  <-TOTs$sn2;   solids_dsed2  <-TOTs$dsn2;    

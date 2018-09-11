@@ -22,6 +22,22 @@ box8_median_SPM <- tapply(box8$TSS, box8$MESE, median);box8_sd_SPM <- tapply(box
 box9_median_SPM <- tapply(box9$TSS, box9$MESE, median);box9_sd_SPM <- tapply(box9$TSS, box9$MESE, sd)
 box10_median_SPM <- tapply(box10$TSS, box10$MESE, median);box10_sd_SPM <- tapply(box10$TSS, box10$MESE, sd)
 
+box1_mean_SPM <- tapply(box1$TSS, box1$MESE, mean);box1_sd_POM <- tapply(box1$TSS, box1$MESE, sd)
+box2_mean_SPM <- tapply(box2$TSS, box2$MESE, mean);box2_sd_SPM <- tapply(box2$TSS, box2$MESE, sd)
+box3_mean_SPM <- tapply(box3$TSS, box3$MESE, mean);box3_sd_SPM <- tapply(box3$TSS, box3$MESE, sd)
+box4_mean_SPM <- tapply(box4$TSS, box4$MESE, mean);box4_sd_SPM <- tapply(box4$TSS, box4$MESE, sd)
+box5_mean_SPM <- tapply(box5$TSS, box5$MESE, mean);box5_sd_SPM <- tapply(box5$TSS, box5$MESE, sd)
+box6_mean_SPM <- tapply(box6$TSS, box6$MESE, mean);box6_sd_SPM <- tapply(box6$TSS, box6$MESE, sd)
+box7_mean_SPM <- tapply(box7$TSS, box7$MESE, mean);box7_sd_SPM <- tapply(box7$TSS, box7$MESE, sd)
+box8_mean_SPM <- tapply(box8$TSS, box8$MESE, mean);box8_sd_SPM <- tapply(box8$TSS, box8$MESE, sd)
+box9_mean_SPM <- tapply(box9$TSS, box9$MESE, mean);box9_sd_SPM <- tapply(box9$TSS, box9$MESE, sd)
+box10_mean_SPM <- tapply(box10$TSS, box10$MESE, mean);box10_sd_SPM <- tapply(box10$TSS, box10$MESE, sd)
+
+win.graph()
+plot(box1_median_SPM, type = 'l', ylim=c(0,30))
+par(new=T)
+plot(box1_mean_SPM, type = 'l', ylim=c(0,30))
+
 box1_min_SPM <- tapply(box1$TSS, box1$MESE, min);box1_max_SPM <- tapply(box1$TSS, box1$MESE, max)
 box2_min_SPM <- tapply(box2$TSS, box2$MESE, min);box2_max_SPM <- tapply(box2$TSS, box2$MESE, max)
 box3_min_SPM <- tapply(box3$TSS, box3$MESE, min);box3_max_SPM <- tapply(box3$TSS, box3$MESE, max)
@@ -67,12 +83,7 @@ box10_min_POM <- tapply(box10$POM, box10$MESE, min); box10_max_POM <- tapply(box
 #POM_box1<-POC_box1*1.88
 #POM_box1_sd<-POC_box1_sd*1.88
 
-#setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
-#setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_eutrop9')
-setwd('C:/Users/Ginevra/Dropbox/new_sed_layers2')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/res_eutr7')
-setwd('C:/Users/gi/Dropbox/fin28')
-setwd('C:/Users/gi/Dropbox/fin45')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4')
 setwd('C:/Users/Acer/Dropbox/fin91')
 
 solid<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")

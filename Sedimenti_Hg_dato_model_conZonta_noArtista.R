@@ -1,4 +1,4 @@
-setwd('C:/Users/gi/Dropbox/fin87')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/c')
 setwd('C:/Users/Acer/Dropbox/fin87')
 
 1900-2101

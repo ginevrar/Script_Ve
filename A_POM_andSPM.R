@@ -68,6 +68,7 @@ box10_min_POM <- tapply(box10$POM, box10$MESE, min); box10_max_POM <- tapply(box
 #POM_box1_sd<-POC_box1_sd*1.88
 
 setwd('C:/Users/Acer/Dropbox/fin91')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4')
 
 solid<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solid)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

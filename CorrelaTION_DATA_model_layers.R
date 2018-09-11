@@ -1,3 +1,4 @@
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
