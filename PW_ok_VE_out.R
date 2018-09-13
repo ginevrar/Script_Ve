@@ -7,7 +7,7 @@ dati_pw6<-c(7.42,29.09,3.01,5.62)               #Kim et al 2011
 dati_pw7<-c(7.02065,3.00885,2.20649,4.41298)  #Kim et al 2011
 
 setwd('C:/Users/gi/Dropbox/fin92b/mehg4')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg3')
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid2')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -39,7 +39,7 @@ TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 rdate
 
-png('Boxes3_6_7_PoreW_mehg3.png',width = 740, height = 480, units = "px")
+png('Boxes3_6_7_PoreW_mehg4oks2.png',width = 740, height = 480, units = "px")
 par(mfrow=c(2,2), mar=c(3,4.5,2,0))
 plot(rdate[650:667],hgD$sn1[650:667],ylim=c(0,20), type='l', 
      col='#4575b4',lwd=2,main='Box1',ylab= 'HgD (ng/L)',
@@ -94,7 +94,7 @@ cor(dd,mm)
 df<-cbind(dd,mm)
 write.table(df, file = 'pw_hg_perTaylorD.txt')
 
-png('Boxes3_6_7_PoreW_mehg_mehg2.png',width = 740, height = 480, units = "px")
+png('Boxes3_6_7_PoreW_mehg_mehg4oks2.png',width = 740, height = 480, units = "px")
 par(mfrow=c(1,3), mar=c(3,4.5,2,0))
 plot(rdate[650:667],mehgD$sn1[650:667],ylim=c(0,1.5), type='l', 
      col='#313695',lwd=2,main='Box1',ylab= 'MeHg (ng/L)',

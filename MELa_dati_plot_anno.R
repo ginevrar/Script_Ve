@@ -1,11 +1,5 @@
-Water_sud_bloom<-c(3.15,2.08,4.2)
-Water_nord_bloom<-c(29.08555,	12.1798248,	45.9912752, NA, NA, NA,NA)
-Water_central_bloom<-c(14.84366, 8.5531576,21.1341624, 2.58219507, 4.713865, 3.627636718 ,NA)
-Marghera_bloom<-c(11.9391168,56,	100.7924632,NA,NA,NA,NA)
-
-
 setwd('C:/Users/Ginevra/Dropbox/fin92b/mehg4')
-setwd('C:/Users/Acer/Dropbox/fin92b/photo11')
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/zerores')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -162,3 +156,4 @@ boxplot(Water_sud_bloom,Water_sud,  main='Hg acque sud',
         ylim=c(0,70), range =T, cex.main=2)
       
 dev.off()
+getwd()

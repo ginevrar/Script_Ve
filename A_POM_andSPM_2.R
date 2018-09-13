@@ -84,7 +84,7 @@ box10_min_POM <- tapply(box10$POM, box10$MESE, min); box10_max_POM <- tapply(box
 #POM_box1_sd<-POC_box1_sd*1.88
 
 setwd('C:/Users/gi/Dropbox/fin92b/mehg4')
-setwd('C:/Users/Acer/Dropbox/fin91')
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4')
 
 solid<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solid)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -96,8 +96,8 @@ names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws1
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')		 
 
-silt<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
-names(silt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+silts<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+names(silts)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')		 
 
@@ -105,13 +105,9 @@ time.steps <- solid[,1]
 time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
-
 xx<-seq(1,12);epsilon <- 0.08
-
-
 rdate[1239:1251] 
 
-        
 ai1<-silts$wn1[1227:1238]       # 2002
 ai2<-silts$wn1[1239:1250]   #2003h    @@ SOLO 11 elementi 2003
 ai3<-silts$wn1[1251:1262]   # 2004
@@ -119,19 +115,6 @@ ai4<-silts$wn1[1263:1274]   # 2005
 ai5<-silts$wn1[1275:1286]   # 2006
 ai6<-silts$wn1[1287:1298]   # 2007 
 ai7<-silts$wn1[1299:1310]  
-
-win.graph()
-par(mfrow=c(2,3))
-plot(rdate[1227:1285], silts$wn1[1204:1285], type='l')
-
-1204+24
-str(ai1)
-plot(ai1, type='l')
-plot(ai2, type='l')
-plot(ai3, type='l')
-plot(ai4, type='l')
-plot(ai5, type='l')
-plot(ai6, type='l')
 
 ai_year<-data.frame(ai1,ai2,ai3,ai4,ai5,ai6,ai7)
 ai_mean<-rowMeans(ai_year)
@@ -420,7 +403,7 @@ mtext('POM (mg/L)', side=2, line=3, outer=F)
 #mtext('Particolato organico in sospensione (POM)',
    #   side=3, line=2, outer=T, font=2)
 
-plot(rdate[1227+1:1238] ,POMs$wn2[1227+1:1238],lty=1,    
+plot(rdate[1227:1238] ,POMs$wn2[1227:1238],lty=1,    
      type='l', col='#4575b477',lwd=2,main='Box2',ylab= '',
      xlab= '', cex.lab=2 , cex.main=1.6 , yaxt='n',cex.axis=1.3,ylim=c(0,10))
 par(new=T)
@@ -429,7 +412,7 @@ segments(xx,box2_min_POM,xx,+box2_max_POM, col='#4575b4', lwd=1.8)
 segments(xx-epsilon,box2_min_POM,xx+epsilon,box2_min_POM, col='#4575b4', lwd=1.8)
 segments(xx-epsilon,box2_max_POM,xx+epsilon,box2_max_POM, col='#4575b4', lwd=1.8)
 
-plot(rdate[1227+1:1238],POMs$wn4[1227+1:1238], ylim=c(0,10),   type='l',
+plot(rdate[1227:1238],POMs$wn4[1227:1238], ylim=c(0,10),   type='l',
      col='#abd9e988',lwd=2,main='Box4',
      xlab= '',ylab= '', cex.lab=2 , cex.main=1.6 , yaxt='n',cex.axis=1.3)
 par(new=T)
