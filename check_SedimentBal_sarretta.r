@@ -3,7 +3,7 @@
 # 1997        [1167:1178] # 2010        [1323:1334]
 # 2050        [1804:1815] # 2001 - 2003 [1215:1250]
 #
-setwd('C:/Users/gi/Dropbox/fin92b/mehg4')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid6')
 
 hg<-read.csv('Total_Hg.csv', skip=1)

@@ -1,6 +1,4 @@
-setwd('C:/Users/gi/Dropbox/fin92b/mehg2')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid7')
-
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19') #setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid7')
 hgw<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA<-read.table('surf_sedhg_taylor.txt', header=T)
 hgsedB<-read.table('subsurf_sedhg_taylor.txt', header=T)
@@ -8,7 +6,7 @@ mehgsedA<-read.table('sedMehg_perTaylorD.txt')
 pWhg<-read.table('pw_hg_perTaylorD.txt', header=T)
 pWmehg<-read.table('pw_mehg_perTaylorD.txt', header=T)
 
-setwd('C:/Users/gi/Dropbox/fin92b/mehg3')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid18')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid4')
 hgwo<-read.table('acque_perTaylorD.txt', header=T)
 hgsedAo<-read.table('surf_sedhg_taylor.txt', header=T)
@@ -33,6 +31,7 @@ taylor.diagram(hgw$datiw, hgwo$modew,add=TRUE,col="black",bg='gray',pos.cor=T,
                sd.method="sample",pcex=2, pch=18, 
                grad.corr.lines=c(0.2,0.4,0.6,0.8,0.9, .95,0.99),
                cex.axis=1,normalize=TRUE)
+
 text(1.5,0.1, labels = "Hg in water", col="royalblue", font=4, cex=1)
 
 taylor.diagram(hgsedA$layerA, hgsedA$layerA_mod,add=TRUE,col="#FFE700",bg='gray',pos.cor=T,

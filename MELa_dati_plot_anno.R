@@ -1,4 +1,4 @@
-setwd('C:/Users/Ginevra/Dropbox/fin92b/mehg4')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid17')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/zerores')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
@@ -34,8 +34,12 @@ rdate[1226:1309]
 sud_hg<-data.frame(hg$ws8[1226:1309],hg$ws9[1226:1309], hg$ws10[1226:1309])
 names(sud_hg)<-c('w8','w9','w10')
 
-png('Yearly_water_concjit_92bph6.png',width = 30, height = 20, units = "cm",res=300)
 
+
+
+
+
+png('Yearly_water_concjit_92bph6.png',width = 30, height = 20, units = "cm",res=300)
 par(mfrow=c(2,2), bty='n',mar=c(4,5,2,0))
 plot(rdate1,nord_hg$w1,ylim=c(0,60),type='l',lwd=2,xlim=c(rdate2[7],rdate2[79]),
      yaxt='n',col='#313695')

@@ -12,8 +12,7 @@ box8<-read.table('Box8_tss_poc.txt', header=T)   #ricordare di convertire poc a 
 box9<-read.table('Box9_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 box10<-read.table('Box10_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/g')
-setwd('G:/Il mio Drive/MERCURIO/Venezia/fin92b/b')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')  #oksolid7
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid8')  #oksolid7
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
@@ -77,11 +76,8 @@ ai1<-silts$wn1[1227:1238]       # 2002
 ai2<-silts$wn1[1239:1250]   #2003h    @@ SOLO 11 elementi 2003
 ai3<-silts$wn1[1251:1262]   # 2004
 ai4<-silts$wn1[1263:1274]   # 2005
-ai5<-silts$wn1[1275:1286]   # 2006
-ai6<-silts$wn1[1287:1298]   # 2007 
-ai7<-silts$wn1[1299:1310]  
 
-ai_year<-data.frame(ai1,ai2,ai3,ai4,ai5,ai6,ai7)
+ai_year<-data.frame(ai1,ai2,ai3,ai4)
 ai_mean<-rowMeans(ai_year)
 ai_min<-apply(ai_year, 1, FUN=min)
 ai_max<-apply(ai_year, 1, FUN=max)
@@ -91,11 +87,8 @@ bi1<-silts$wn2[1227:1238]       # 2002
 bi2<-silts$wn2[1239:1250]  #2003h
 bi3<-silts$wn2[1251:1262]   # 2004
 bi4<-silts$wn2[1263:1274]   # 2005
-bi5<-silts$wn2[1275:1286]   # 2006
-bi6<-silts$wn2[1287:1298]   # 2007 
-bi7<-silts$wn2[1299:1310] 
 
-bi_year<-data.frame(bi1,bi2,bi3,bi4,bi5,bi6,bi7)
+bi_year<-data.frame(bi1,bi2,bi3,bi4)
 bi_mean<-rowMeans(bi_year)
 bi_min<-apply(bi_year, 1, FUN=min)
 bi_max<-apply(bi_year, 1, FUN=max)
@@ -106,12 +99,9 @@ ci1<-silts$wn3[1227:1238]       # 2002
 ci2<-silts$wn3[1239:1250]   #2003h
 ci3<-silts$wn3[1251:1262]   # 2004
 ci4<-silts$wn3[1263:1274]   # 2005
-ci5<-silts$wn3[1275:1286]   # 2006
-ci6<-silts$wn3[1287:1298]   # 2007 
-ci7<-silts$wn3[1299:1310]  
 
 
-ci_year<-data.frame(ci1,ci2,ci3,ci4,ci5,ci6,ci7)
+ci_year<-data.frame(ci1,ci2,ci3,ci4)
 ci_mean<-rowMeans(ci_year)
 ci_min<-apply(ci_year, 1, FUN=min)
 ci_max<-apply(ci_year, 1, FUN=max)
@@ -122,11 +112,8 @@ di1<-silts$wn4[1227:1238]       # 2002
 di2<-silts$wn4[1239:1250]   #2003h
 di3<-silts$wn4[1251:1262]   # 2004
 di4<-silts$wn4[1263:1274]   # 2005
-di5<-silts$wn4[1275:1286]   # 2006
-di6<-silts$wn4[1287:1298]   # 2007 
-di7<-silts$wn4[1299:1310]  
 
-di_year<-data.frame(di1,di2,di3,di4,di5,di6,di7)
+di_year<-data.frame(di1,di2,di3,di4)
 di_mean<-rowMeans(di_year)
 di_min<-apply(di_year, 1, FUN=min)
 di_max<-apply(di_year, 1, FUN=max)
@@ -136,11 +123,8 @@ ei1<-silts$wn5[1227:1238]       # 2002
 ei2<-silts$wn5[1239:1250]   #2003h
 ei3<-silts$wn5[1251:1262]   # 2004
 ei4<-silts$wn5[1263:1274]   # 2005
-ei5<-silts$wn5[1275:1286]   # 2006
-ei6<-silts$wn5[1287:1298]   # 2007 
-ei7<-silts$wn5[1299:1310]  
 
-ei_year<-data.frame(ei1,ei2,ei3,ei4,ei5,ei6,ei7)
+ei_year<-data.frame(ei1,ei2,ei3,ei4)
 ei_mean<-rowMeans(ei_year)
 ei_min<-apply(ei_year, 1, FUN=min)
 ei_max<-apply(ei_year, 1, FUN=max)
@@ -150,11 +134,8 @@ fi1<-silts$wc6[1227:1238]       # 2002
 fi2<-silts$wc6[1239:1250]   #2003h
 fi3<-silts$wc6[1251:1262]   # 2004
 fi4<-silts$wc6[1263:1274]   # 2005
-fi5<-silts$wc6[1275:1286]   # 2006
-fi6<-silts$wc6[1287:1298]   # 2007 
-fi7<-silts$wc6[1299:1310]  
 
-fi_year<-data.frame(fi1,fi2,fi3,fi4,fi5,fi6,fi7)
+fi_year<-data.frame(fi1,fi2,fi3,fi4)
 fi_mean<-rowMeans(fi_year)
 fi_min<-apply(fi_year, 1, FUN=min)
 fi_max<-apply(fi_year, 1, FUN=max)
@@ -165,11 +146,8 @@ gi1<-silts$wc7[1227:1238]       # 2002
 gi2<-silts$wc7[1239:1250]   #2003h
 gi3<-silts$wc7[1251:1262]   # 2004
 gi4<-silts$wc7[1263:1274]   # 2005
-gi5<-silts$wc7[1275:1286]   # 2006
-gi6<-silts$wc7[1287:1298]   # 2007 
-gi7<-silts$wc7[1299:1310]  
 
-gi_year<-data.frame(gi1,gi2,gi3,gi4,gi5,gi6,gi7)
+gi_year<-data.frame(gi1,gi2,gi3,gi4)
 gi_mean<-rowMeans(gi_year)
 gi_min<-apply(gi_year, 1, FUN=min)
 gi_max<-apply(gi_year, 1, FUN=max)
@@ -179,11 +157,8 @@ hi1<-silts$ws8[1227:1238]       # 2002
 hi2<-silts$ws8[1239:1250]   #2003h
 hi3<-silts$ws8[1251:1262]   # 2004
 hi4<-silts$ws8[1263:1274]   # 2005
-hi5<-silts$ws8[1275:1286]   # 2006
-hi6<-silts$ws8[(1286+1):(1297)]   # 2007 
-hi7<-silts$ws8[1298:(1298+11)]  
 
-hi_year<-data.frame(hi1,hi2,hi3,hi4,hi5,hi6,hi7)
+hi_year<-data.frame(hi1,hi2,hi3,hi4)
 hi_mean<-rowMeans(hi_year)
 hi_min<-apply(hi_year, 1, FUN=min)
 hi_max<-apply(hi_year, 1, FUN=max)
@@ -193,11 +168,8 @@ ii1<-silts$ws9[1227:1238]       # 2002
 ii2<-silts$ws9[1239:1250]   #2003h
 ii3<-silts$ws9[1251:1262]   # 2004
 ii4<-silts$ws9[1263:1274]   # 2005
-ii5<-silts$ws9[1275:1286]   # 2006
-ii6<-silts$ws9[1287:1298]   # 2007 
-ii7<-silts$ws9[1299:1310]  
 
-ii_year<-data.frame(ii1,ii2,ii3,ii4,ii5,ii6,ii7)
+ii_year<-data.frame(ii1,ii2,ii3,ii4)
 ii_mean<-rowMeans(ii_year)
 ii_min<-apply(ii_year, 1, FUN=min)
 ii_max<-apply(ii_year, 1, FUN=max)
@@ -207,11 +179,8 @@ li1<-silts$ws10[1227:1238]       # 2002
 li2<-silts$ws10[1239:1250]   #2003h
 li3<-silts$ws10[1251:1262]   # 2004
 li4<-silts$ws10[1263:1274]   # 2005
-li5<-silts$ws10[1275:1286]   # 2006
-li6<-silts$ws10[1287:1298]   # 2007 
-li7<-silts$ws10[1299:1310]  
 
-li_year<-data.frame(li1,li2,li3,li4,li5,li6,li7)
+li_year<-data.frame(li1,li2,li3,li4)
 li_mean<-rowMeans(li_year)
 li_min<-apply(li_year, 1, FUN=min)
 li_max<-apply(li_year, 1, FUN=max)
@@ -222,11 +191,8 @@ aiP1<-POMs$wn1[1227:1238]       # 2002
 aiP2<-POMs$wn1[1239:1250]   #2003h    @@ SOLO 11 elementi 2003
 aiP3<-POMs$wn1[1251:1262]   # 2004
 aiP4<-POMs$wn1[1263:1274]   # 2005
-aiP5<-POMs$wn1[1275:1286]   # 2006
-aiP6<-POMs$wn1[1287:1298]   # 2007 
-aiP7<-POMs$wn1[1299:1310]  
 
-ai_pom_year<-data.frame(aiP1,aiP2,aiP3,aiP4,aiP5,aiP6,aiP7)
+ai_pom_year<-data.frame(aiP1,aiP2,aiP3,aiP4)
 ai_pom_mean<-rowMeans(ai_pom_year)
 ai_pom_min<-apply(ai_pom_year, 1, FUN=min)
 ai_pom_max<-apply(ai_pom_year, 1, FUN=max)
@@ -236,11 +202,8 @@ biP1<-POMs$wn2[1227:1238]       # 2002
 biP2<-POMs$wn2[1239:1250]  #2003h
 biP3<-POMs$wn2[1251:1262]   # 2004
 biP4<-POMs$wn2[1263:1274]   # 2005
-biP5<-POMs$wn2[1275:1286]   # 2006
-biP6<-POMs$wn2[1287:1298]   # 2007 
-biP7<-POMs$wn2[1299:1310] 
 
-bi_pom_year<-data.frame(biP1,biP2,biP3,biP4,biP5,biP6,biP7)
+bi_pom_year<-data.frame(biP1,biP2,biP3,biP4)
 bi_pom_mean<-rowMeans(bi_pom_year)
 bi_pom_min<-apply(bi_pom_year, 1, FUN=min)
 bi_pom_max<-apply(bi_pom_year, 1, FUN=max)
@@ -251,12 +214,8 @@ ciP1<-POMs$wn3[1227:1238]       # 2002
 ciP2<-POMs$wn3[1239:1250]   #2003h
 ciP3<-POMs$wn3[1251:1262]   # 2004
 ciP4<-POMs$wn3[1263:1274]   # 2005
-ciP5<-POMs$wn3[1275:1286]   # 2006
-ciP6<-POMs$wn3[1287:1298]   # 2007 
-ciP7<-POMs$wn3[1299:1310]  
 
-
-ci_pom_year<-data.frame(ciP1,ciP2,ciP3,ciP4,ciP5,ciP6,ciP7)
+ci_pom_year<-data.frame(ciP1,ciP2,ciP3,ciP4)
 ci_pom_mean<-rowMeans(ci_pom_year)
 ci_pom_min<-apply(ci_pom_year, 1, FUN=min)
 ci_pom_max<-apply(ci_pom_year, 1, FUN=max)
@@ -267,11 +226,8 @@ diP1<-POMs$wn4[1227:1238]       # 2002
 diP2<-POMs$wn4[1239:1250]   #2003h
 diP3<-POMs$wn4[1251:1262]   # 2004
 diP4<-POMs$wn4[1263:1274]   # 2005
-diP5<-POMs$wn4[1275:1286]   # 2006
-diP6<-POMs$wn4[1287:1298]   # 2007 
-diP7<-POMs$wn4[1299:1310]  
 
-di_pom_year<-data.frame(diP1,diP2,diP3,diP4,diP5,diP6,diP7)
+di_pom_year<-data.frame(diP1,diP2,diP3,diP4)
 di_pom_mean<-rowMeans(di_pom_year)
 di_pom_min<-apply(di_pom_year, 1, FUN=min)
 di_pom_max<-apply(di_pom_year, 1, FUN=max)
@@ -281,11 +237,8 @@ eiP1<-POMs$wn5[1227:1238]       # 2002
 eiP2<-POMs$wn5[1239:1250]   #2003h
 eiP3<-POMs$wn5[1251:1262]   # 2004
 eiP4<-POMs$wn5[1263:1274]   # 2005
-eiP5<-POMs$wn5[1275:1286]   # 2006
-eiP6<-POMs$wn5[1287:1298]   # 2007 
-eiP7<-POMs$wn5[1299:1310]  
 
-ei_pom_year<-data.frame(eiP1,eiP2,eiP3,eiP4,eiP5,eiP6,eiP7)
+ei_pom_year<-data.frame(eiP1,eiP2,eiP3,eiP4)
 ei_pom_mean<-rowMeans(ei_pom_year)
 ei_pom_min<-apply(ei_pom_year, 1, FUN=min)
 ei_pom_max<-apply(ei_pom_year, 1, FUN=max)
@@ -295,11 +248,8 @@ fiP1<-POMs$wc6[1227:1238]       # 2002
 fiP2<-POMs$wc6[1239:1250]   #2003h
 fiP3<-POMs$wc6[1251:1262]   # 2004
 fiP4<-POMs$wc6[1263:1274]   # 2005
-fiP5<-POMs$wc6[1275:1286]   # 2006
-fiP6<-POMs$wc6[1287:1298]   # 2007 
-fiP7<-POMs$wc6[1299:1310]  
 
-fi_pom_year<-data.frame(fiP1,fiP2,fiP3,fiP4,fiP5,fiP6,fiP7)
+fi_pom_year<-data.frame(fiP1,fiP2,fiP3,fiP4)
 fi_pom_mean<-rowMeans(fi_pom_year)
 fi_pom_min<-apply(fi_pom_year, 1, FUN=min)
 fi_pom_max<-apply(fi_pom_year, 1, FUN=max)
@@ -310,11 +260,8 @@ giP1<-POMs$wc7[1227:1238]       # 2002
 giP2<-POMs$wc7[1239:1250]   #2003h
 giP3<-POMs$wc7[1251:1262]   # 2004
 giP4<-POMs$wc7[1263:1274]   # 2005
-giP5<-POMs$wc7[1275:1286]   # 2006
-giP6<-POMs$wc7[1287:1298]   # 2007 
-giP7<-POMs$wc7[1299:1310]  
 
-gi_pom_year<-data.frame(giP1,giP2,giP3,giP4,giP5,giP6,giP7)
+gi_pom_year<-data.frame(giP1,giP2,giP3,giP4)
 gi_pom_mean<-rowMeans(gi_pom_year)
 gi_pom_min<-apply(gi_pom_year, 1, FUN=min)
 gi_pom_max<-apply(gi_pom_year, 1, FUN=max)
@@ -324,11 +271,8 @@ hiP1<-POMs$ws8[1227:1238]       # 2002
 hiP2<-POMs$ws8[1239:1250]   #2003h
 hiP3<-POMs$ws8[1251:1262]   # 2004
 hiP4<-POMs$ws8[1263:1274]   # 2005
-hiP5<-POMs$ws8[1275:1286]   # 2006
-hiP6<-POMs$ws8[(1287):(1298)]   # 2007 
-hiP7<-POMs$ws8[1298:(1298+11)]  
 
-hi_pom_year<-data.frame(hiP1,hiP2,hiP3,hiP4,hiP5,hiP6,hiP7)
+hi_pom_year<-data.frame(hiP1,hiP2,hiP3,hiP4)
 hi_pom_mean<-rowMeans(hi_pom_year)
 hi_pom_min<-apply(hi_pom_year, 1, FUN=min)
 hi_pom_max<-apply(hi_pom_year, 1, FUN=max)
@@ -338,11 +282,8 @@ iiP1<-POMs$ws9[1227:1238]       # 2002
 iiP2<-POMs$ws9[1239:1250]   #2003h
 iiP3<-POMs$ws9[1251:1262]   # 2004
 iiP4<-POMs$ws9[1263:1274]   # 2005
-iiP5<-POMs$ws9[1275:1286]   # 2006
-iiP6<-POMs$ws9[1287:1298]   # 2007 
-iiP7<-POMs$ws9[1299:1310]  
 
-ii_pom_year<-data.frame(iiP1,iiP2,iiP3,iiP4,iiP5,iiP6,iiP7)
+ii_pom_year<-data.frame(iiP1,iiP2,iiP3,iiP4)
 ii_pom_mean<-rowMeans(ii_pom_year)
 ii_pom_min<-apply(ii_pom_year, 1, FUN=min)
 ii_pom_max<-apply(ii_pom_year, 1, FUN=max)
@@ -352,11 +293,8 @@ liP1<-POMs$ws10[1227:1238]       # 2002
 liP2<-POMs$ws10[1239:1250]   #2003h
 liP3<-POMs$ws10[1251:1262]   # 2004
 liP4<-POMs$ws10[1263:1274]   # 2005
-liP5<-POMs$ws10[1275:1286]   # 2006
-liP6<-POMs$ws10[1287:1298]   # 2007 
-liP7<-POMs$ws10[1299:1310]  
 
-li_pom_year<-data.frame(liP1,liP2,liP3,liP4,liP5,liP6,liP7)
+li_pom_year<-data.frame(liP1,liP2,liP3,liP4)
 li_pom_mean<-rowMeans(li_pom_year)
 li_pom_min<-apply(li_pom_year, 1, FUN=min)
 li_pom_max<-apply(li_pom_year, 1, FUN=max)
@@ -368,11 +306,8 @@ ai_Tot1<-tots$wn1[1227:1238]       # 2002
 ai_Tot2<-tots$wn1[1239:1250]   #2003h    @@ SOLO 11 elementi 2003
 ai_Tot3<-tots$wn1[1251:1262]   # 2004
 ai_Tot4<-tots$wn1[1263:1274]   # 2005
-ai_Tot5<-tots$wn1[1275:1286]   # 2006
-ai_Tot6<-tots$wn1[1287:1298]   # 2007 
-ai_Tot7<-tots$wn1[1299:1310]  
 
-ai_tot_year<-data.frame(ai_Tot1,ai_Tot2,ai_Tot3,ai_Tot4,ai_Tot5,ai_Tot6,ai_Tot7)
+ai_tot_year<-data.frame(ai_Tot1,ai_Tot2,ai_Tot3,ai_Tot4)
 ai_tot_mean<-rowMeans(ai_tot_year)
 ai_tot_min<-apply(ai_tot_year, 1, FUN=min)
 ai_tot_max<-apply(ai_tot_year, 1, FUN=max)
@@ -382,11 +317,8 @@ bi_Tot1<-tots$wn2[1227:1238]       # 2002
 bi_Tot2<-tots$wn2[1239:1250]  #2003h
 bi_Tot3<-tots$wn2[1251:1262]   # 2004
 bi_Tot4<-tots$wn2[1263:1274]   # 2005
-bi_Tot5<-tots$wn2[1275:1286]   # 2006
-bi_Tot6<-tots$wn2[1287:1298]   # 2007 
-bi_Tot7<-tots$wn2[1299:1310] 
 
-bi_tot_year<-data.frame(bi_Tot1,bi_Tot2,bi_Tot3,bi_Tot4,bi_Tot5,bi_Tot6,bi_Tot7)
+bi_tot_year<-data.frame(bi_Tot1,bi_Tot2,bi_Tot3,bi_Tot4)
 bi_tot_mean<-rowMeans(bi_tot_year)
 bi_tot_min<-apply(bi_tot_year, 1, FUN=min)
 bi_tot_max<-apply(bi_tot_year, 1, FUN=max)
@@ -397,12 +329,8 @@ ci_Tot1<-tots$wn3[1227:1238]       # 2002
 ci_Tot2<-tots$wn3[1239:1250]   #2003h
 ci_Tot3<-tots$wn3[1251:1262]   # 2004
 ci_Tot4<-tots$wn3[1263:1274]   # 2005
-ci_Tot5<-tots$wn3[1275:1286]   # 2006
-ci_Tot6<-tots$wn3[1287:1298]   # 2007 
-ci_Tot7<-tots$wn3[1299:1310]  
 
-
-ci_tot_year<-data.frame(ci_Tot1,ci_Tot2,ci_Tot3,ci_Tot4,ci_Tot5,ci_Tot6,ci_Tot7)
+ci_tot_year<-data.frame(ci_Tot1,ci_Tot2,ci_Tot3,ci_Tot4)
 ci_tot_mean<-rowMeans(ci_tot_year)
 ci_tot_min<-apply(ci_tot_year, 1, FUN=min)
 ci_tot_max<-apply(ci_tot_year, 1, FUN=max)
@@ -413,11 +341,8 @@ di_Tot1<-tots$wn4[1227:1238]       # 2002
 di_Tot2<-tots$wn4[1239:1250]   #2003h
 di_Tot3<-tots$wn4[1251:1262]   # 2004
 di_Tot4<-tots$wn4[1263:1274]   # 2005
-di_Tot5<-tots$wn4[1275:1286]   # 2006
-di_Tot6<-tots$wn4[1287:1298]   # 2007 
-di_Tot7<-tots$wn4[1299:1310]  
 
-di_tot_year<-data.frame(di_Tot1,di_Tot2,di_Tot3,di_Tot4,di_Tot5,di_Tot6,di_Tot7)
+di_tot_year<-data.frame(di_Tot1,di_Tot2,di_Tot3,di_Tot4)
 di_tot_mean<-rowMeans(di_tot_year)
 di_tot_min<-apply(di_tot_year, 1, FUN=min)
 di_tot_max<-apply(di_tot_year, 1, FUN=max)
@@ -427,11 +352,8 @@ ei_Tot1<-tots$wn5[1227:1238]       # 2002
 ei_Tot2<-tots$wn5[1239:1250]   #2003h
 ei_Tot3<-tots$wn5[1251:1262]   # 2004
 ei_Tot4<-tots$wn5[1263:1274]   # 2005
-ei_Tot5<-tots$wn5[1275:1286]   # 2006
-ei_Tot6<-tots$wn5[1287:1298]   # 2007 
-ei_Tot7<-tots$wn5[1299:1310]  
 
-ei_tot_year<-data.frame(ei_Tot1,ei_Tot2,ei_Tot3,ei_Tot4,ei_Tot5,ei_Tot6,ei_Tot7)
+ei_tot_year<-data.frame(ei_Tot1,ei_Tot2,ei_Tot3,ei_Tot4)
 ei_tot_mean<-rowMeans(ei_tot_year)
 ei_tot_min<-apply(ei_tot_year, 1, FUN=min)
 ei_tot_max<-apply(ei_tot_year, 1, FUN=max)
@@ -441,11 +363,8 @@ fi_Tot1<-tots$wc6[1227:1238]       # 2002
 fi_Tot2<-tots$wc6[1239:1250]   #2003h
 fi_Tot3<-tots$wc6[1251:1262]   # 2004
 fi_Tot4<-tots$wc6[1263:1274]   # 2005
-fi_Tot5<-tots$wc6[1275:1286]   # 2006
-fi_Tot6<-tots$wc6[1287:1298]   # 2007 
-fi_Tot7<-tots$wc6[1299:1310]  
 
-fi_tot_year<-data.frame(fi_Tot1,fi_Tot2,fi_Tot3,fi_Tot4,fi_Tot5,fi_Tot6,fi_Tot7)
+fi_tot_year<-data.frame(fi_Tot1,fi_Tot2,fi_Tot3,fi_Tot4)
 fi_tot_mean<-rowMeans(fi_tot_year)
 fi_tot_min<-apply(fi_tot_year, 1, FUN=min)
 fi_tot_max<-apply(fi_tot_year, 1, FUN=max)
@@ -456,11 +375,8 @@ gi_Tot1<-tots$wc7[1227:1238]       # 2002
 gi_Tot2<-tots$wc7[1239:1250]   #2003h
 gi_Tot3<-tots$wc7[1251:1262]   # 2004
 gi_Tot4<-tots$wc7[1263:1274]   # 2005
-gi_Tot5<-tots$wc7[1275:1286]   # 2006
-gi_Tot6<-tots$wc7[1287:1298]   # 2007 
-gi_Tot7<-tots$wc7[1299:1310]  
 
-gi_tot_year<-data.frame(gi_Tot1,gi_Tot2,gi_Tot3,gi_Tot4,gi_Tot5,gi_Tot6,gi_Tot7)
+gi_tot_year<-data.frame(gi_Tot1,gi_Tot2,gi_Tot3,gi_Tot4)
 gi_tot_mean<-rowMeans(gi_tot_year)
 gi_tot_min<-apply(gi_tot_year, 1, FUN=min)
 gi_tot_max<-apply(gi_tot_year, 1, FUN=max)
@@ -470,11 +386,8 @@ hi_Tot1<-tots$ws8[1227:1238]       # 2002
 hi_Tot2<-tots$ws8[1239:1250]   #2003h
 hi_Tot3<-tots$ws8[1251:1262]   # 2004
 hi_Tot4<-tots$ws8[1263:1274]   # 2005
-hi_Tot5<-tots$ws8[1275:1286]   # 2006
-hi_Tot6<-tots$ws8[1287:1298]   # 2007 
-hi_Tot7<-tots$ws8[1299:(1310)]  
 
-hi_tot_year<-data.frame(hi_Tot1,hi_Tot2,hi_Tot3,hi_Tot4,hi_Tot5,hi_Tot6,hi_Tot7)
+hi_tot_year<-data.frame(hi_Tot1,hi_Tot2,hi_Tot3,hi_Tot4)
 hi_tot_mean<-rowMeans(hi_tot_year)
 hi_tot_min<-apply(hi_tot_year, 1, FUN=min)
 hi_tot_max<-apply(hi_tot_year, 1, FUN=max)
@@ -484,11 +397,8 @@ ii_Tot1<-tots$ws9[1227:1238]       # 2002
 ii_Tot2<-tots$ws9[1239:1250]   #2003h
 ii_Tot3<-tots$ws9[1251:1262]   # 2004
 ii_Tot4<-tots$ws9[1263:1274]   # 2005
-ii_Tot5<-tots$ws9[1275:1286]   # 2006
-ii_Tot6<-tots$ws9[1287:1298]   # 2007 
-ii_Tot7<-tots$ws9[1299:1310]  
 
-ii_tot_year<-data.frame(ii_Tot1,ii_Tot2,ii_Tot3,ii_Tot4,ii_Tot5,ii_Tot6,ii_Tot7)
+ii_tot_year<-data.frame(ii_Tot1,ii_Tot2,ii_Tot3,ii_Tot4)
 ii_tot_mean<-rowMeans(ii_tot_year)
 ii_tot_min<-apply(ii_tot_year, 1, FUN=min)
 ii_tot_max<-apply(ii_tot_year, 1, FUN=max)
@@ -498,11 +408,8 @@ li_Tot1<-tots$ws10[1227:1238]       # 2002
 li_Tot2<-tots$ws10[1239:1250]   #2003h
 li_Tot3<-tots$ws10[1251:1262]   # 2004
 li_Tot4<-tots$ws10[1263:1274]   # 2005
-li_Tot5<-tots$ws10[1275:1286]   # 2006
-li_Tot6<-tots$ws10[1287:1298]   # 2007 
-li_Tot7<-tots$ws10[1299:1310]  
 
-li_tot_year<-data.frame(li_Tot1,li_Tot2,li_Tot3,li_Tot4,li_Tot5,li_Tot6,li_Tot7)
+li_tot_year<-data.frame(li_Tot1,li_Tot2,li_Tot3,li_Tot4)
 li_tot_mean<-rowMeans(li_tot_year)
 li_tot_min<-apply(li_tot_year, 1, FUN=min)
 li_tot_max<-apply(li_tot_year, 1, FUN=max)
@@ -586,11 +493,6 @@ plot(box10_median_SPM, type='l',ylim=c(0,56))
 par(new=T)
 plot(li_tot_mean, type='l',ylim=c(0,56), col=2)
 
-pom_dm<-cbind(dd_POM,mm_POM)
-SPM_dm<-cbind(dd_SPM,mm_SPM)
-
-write.table(pom_dm, file='POM_perTaylorD.txt')
-write.table(SPM_dm, file='SPM_perTaylorD.txt')
 
 POM_perc<-POMs/tots*100
 POC_perc<-POM_perc/1.77

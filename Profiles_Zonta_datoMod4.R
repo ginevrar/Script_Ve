@@ -3,7 +3,7 @@ setwd('C:/Users/gi/Downloads/')
 dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #dati<-read.table('QSEV_data.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
-setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid5')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid7')
 
 hg<-read.csv('Total_Hg.csv', skip=1)

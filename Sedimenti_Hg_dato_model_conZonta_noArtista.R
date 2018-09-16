@@ -1,11 +1,6 @@
-setwd('C:/Users/gi/Dropbox/fin92b/mehg4/c')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
 setwd('C:/Users/Acer/Dropbox/fin87')
 
-1900-2101
-2426/12
-# plot da 1920 a 2020
-12*80
-2427-960
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -19,21 +14,6 @@ names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10'
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
-hgD<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
-names(hgD)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-hgP<-read.csv('Total_Sorbed_Divalent_Hg.csv',skip=1)
-names(hgP)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
-
-mehgP<-read.csv('Total_Sorbed_Methyl_Hg.csv',skip=1)
-names(mehgP)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
 
 nord_hg<-c(mean(hg$wn1), mean(hg$wn2),mean(hg$wn3),mean(hg$wn4),mean(hg$wn5))
 centr_hg<-c(mean(hg$wc6), mean(hg$wc7), NA, NA, NA)
@@ -133,7 +113,8 @@ plot(rdate[2: 1920],hg$osn1[2: 1920],ylim=c(-50,5000), type='l', col='#313695',
 par(new=T)
 boxplot(box1_77,box1,box1_A_hg$Hg,ylim=c(-50,5000),
         col='#31369588', ylab=' ', range=F,
-        boxwex=1700, xaxt='n',yaxt='n', xlim=c(rdate[2],rdate[1920]),
+        boxwex=1700, xaxt='n',yaxt='n', 
+        xlim=c(rdate[2],rdate[1920]),
         at=c(c1,c2,c5))   #0.23,0.45
 v_text<-c('10 cm','15 cm','5 cm')
 x=c(c1-1000,c2-441,c5+500+950)

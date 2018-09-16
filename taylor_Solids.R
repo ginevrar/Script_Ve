@@ -1,11 +1,11 @@
 #setwd('C:/Users/gi/Dropbox/fin92b/mehg4')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid8')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid18')
 pomw<-read.table('POM_perTaylorD.txt', header=T)
 spmw<-read.table('SPM_perTaylorD.txt', header=T)
 pom_surfsed<-read.table('POM_surfsed_perTaylorD.txt', header=T)
 pom_subsed<-read.table('POM_subssed_perTaylorD.txt', header=T)
 
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid6')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/fin92b/oksolid4')
 pomwo<-read.table('POM_perTaylorD.txt', header=T)
 spmwo<-read.table('SPM_perTaylorD.txt', header=T)
