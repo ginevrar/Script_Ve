@@ -7,7 +7,7 @@ dati_pw6<-c(7.42,29.09,3.01,5.62)               #Kim et al 2011
 dati_pw7<-c(7.02065,3.00885,2.20649,4.41298)  #Kim et al 2011
 
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4')
-setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid43')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

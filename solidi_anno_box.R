@@ -1,5 +1,5 @@
 setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid8')
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid43')
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(tots)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

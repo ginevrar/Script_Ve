@@ -1,5 +1,5 @@
 setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/zerores')
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid43')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -65,7 +65,7 @@ bsud_y7<-filter(Water_sud_df, Water_sud_df$Anno ==2008)
 
 
 
-png('allboxes_year_Hg1_07.png',width = 21, height = 26,
+png('allboxes_year_Hg1_07_43b.png',width = 21, height = 26,
   units = "cm", res=400)
 
 par(mfrow=c(4,7),mar=c(.4,.1,1.5,0.0),

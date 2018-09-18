@@ -1,5 +1,5 @@
 setwd('C:/Users/gi/Dropbox/fin87')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid6')
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid38')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -146,7 +146,7 @@ mesi<-seq(1:12)
 xx<-c(mesi,rev(mesi))
 ax<-c('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
 
-png('Hg_water_fin92b_.png',width = 32, height = 18,res=400,units = "cm")
+png('Hg_water_fin92b_31.png',width = 32, height = 18,res=400,units = "cm")
 par(mfrow=c(2,2),mar=c(3,4.5,1,0), 
     oma=c(0,0,3,1), bty='n', mgp=c(3.5,1.5,0))
 #  plot(nord_year_mean, type='b', pch=19, ylim=c(0,60),xlim=c(0.7,12.3), lwd=2, col='#4575b4')
