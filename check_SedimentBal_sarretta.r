@@ -3,8 +3,9 @@
 # 1997        [1167:1178] # 2010        [1323:1334]
 # 2050        [1804:1815] # 2001 - 2003 [1215:1250]
 #
-setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
+setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
+setwd('C:/Users/gi/Desktop/ba6')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -78,7 +79,7 @@ mean(fPOM$sn1[241:1467]);mean(fPOM$sn2[241:1467]);mean(fPOM$sn3[241:1467]);mean(
 mean(fPOM$sn5[241:1467]);mean(fPOM$sc6[241:1467]);mean(fPOM$sc7[241:1467]);mean(fPOM$ss8[241:1467])
 mean(fPOM$ss9[241:1467]);mean(fPOM$ss10[241:1467])
 
-png('POM_fraction__oks238ee.png')
+png('POM_fraction__oks238ba5d.png')
 plot(fPOM$sn1[241:1467], ylim=c(0,0.2),col=1, type = 'l', lty=1,lwd=2)
 par(new=T)
 plot(fPOM$sn2[241:1467], ylim=c(0,0.2),col=2, type = 'l', lty=2,lwd=1.9)
@@ -351,7 +352,7 @@ res10_kg_y <-res10_g_y/1000
 res10_Phg_kg_y<-res10_kg_y*SEDhg$ss10/10^6 
 
 ##92.4% of re-suspension (1.13 10^12 g year?1) 
-# oeeurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
+# oba5durs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
 depo_tot<-depo1_kg_y+depo2_kg_y+depo3_kg_y+depo4_kg_y+depo5_kg_y+depo6_kg_y+depo7_kg_y+depo8_kg_y+depo9_kg_y+depo10_kg_y
 res_tot<-res1_kg_y+res2_kg_y+res3_kg_y+res4_kg_y+res5_kg_y+res6_kg_y+res7_kg_y+res8_kg_y+res9_kg_y+res10_kg_y
@@ -403,7 +404,7 @@ b5_depo_2014 <-b5_depo_2014_gm2d*365/1000   #kg DW m2y
 b6_depo_2014_gm2d<-c(667,147,1584)   #kg DW m2y
 b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
 
-png('DEPO_kgm2y_fin92b__oks238ee.png',width = 950, height = 530, units = "px")
+png('DEPO_kgm2y_fin92b__oks238ba5d.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
 plot(depo1_kg_y/a1, type='l')     # 1989 - 1990: 113 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
 plot(depo2_kg_y/a2, type='l') 
@@ -432,179 +433,61 @@ dev.off()
 
 summary(BURIAL_cmy)
 
-sar_b1<-c(-0.3125, 0.3125)
-sar_b2<-c(-0.3125, 0.3125)
-sar_b3<-c(-0.3125, 0.3125)
-sar_b4<-c(-0.3125, 0.3125)
-sar_b5<-c(-0.3125, 0.3125)
-sar_b6<-c(-1.5625,-0.3125)
-sar_b7<-c(-1.5625,-0.3125)
-sar_b8<-c(-0.3125, 0.3125)
-sar_b9<-c(-0.3125, 0.3125)
-sar_b10<-c(-1.5625,-0.3125)
-
-png('DEPO_vs_Sarretta_fin92b__oks238ee.png',width = 950, height = 530, units = "px")
-par(mfrow=c(2,5))
-plot(netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
-
-plot(netdepo_sed2, ylim=c(-1.6,1.6),type='l', col='#4575b4', lwd=2)
-par(new=T)
-boxplot(sar_b2,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#4575b455')
-
-plot(netdepo_sed4,ylim=c(-1.6,1.6),  type='l', col='#abd9e9', lwd=2)
-par(new=T)
-boxplot(sar_b4,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#abd9e955')
-
-plot(netdepo_sed3,ylim=c(-1.6,1.6), type='l', col='#DDF26B', lwd=2)
-par(new=T)
-boxplot(sar_b3,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2),col='#DDF26B55')
-
-plot(netdepo_sed5, ylim=c(-1.6,1.6), type='l', col='#e5e572', lwd=2)
-par(new=T)
-boxplot(sar_b5,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#e5e57255')
-
-plot(netdepo_sed6, type='l', ylim=c(-1.6,1.6), col='#fed976', lwd=2)
-par(new=T)
-boxplot(sar_b6,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#fed97655')
-
-plot(netdepo_sed7, ylim=c(-1.6,1.6),type='l', col='#f79220', lwd=2)
-par(new=T)
-boxplot(sar_b7,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f7922055')
-
-plot(netdepo_sed8,ylim=c(-1.6,1.6), type='l', col='#f46d43', lwd=2)
-par(new=T)
-boxplot(sar_b8,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f46d4355')
-
-plot(netdepo_sed9, ylim=c(-1.6,1.6),type='l', col='#d73027', lwd=2)
-par(new=T)
-boxplot(sar_b9,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#d7302755')
-
-plot(netdepo_sed10,ylim=c(-1.6,1.6), type='l', col='#a50028', lwd=2)
-par(new=T)
-boxplot(sar_b10,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#a5002855')
-dev.off()
   
-png('DEPO_vs_Sarretta_fin92b__oks238ee.png',
-    width = 30, height = 20, units = "cm", res=300)
-par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
-plot(rdate[241:1467], netdepo_sed1[241:1467], type='l',ylim=c(-0.3,0.6),
-     ylab='', cex.axis=1.6,main='Box 1',
-     col='#313695', lwd=2)
-abline(h=0, lty=3)
-#abline(v=rdate[1080], lty=3)
-mtext('cm/y', side = 2, line=2.6, cex=1.2)
-
-plot(rdate[241:1467],netdepo_sed2[241:1467], ylim=c(-0.3,0.6),
-     type='l', col='#4575b4', lwd=2,
-     ylab='', cex.axis=1.6,main='Box 2')
-abline(h=0, lty=3)
-
-plot(rdate[241:1467],netdepo_sed4[241:1467],
-     ylim=c(-0.3,0.6),  type='l', 
-     ylab='', cex.axis=1.6,main='Box 4',
-     col='#abd9e9', lwd=2)
-abline(h=0, lty=3)
-
-plot(rdate[241:1467],netdepo_sed3[241:1467],
-     ylab='', cex.axis=1.6,main='Box 3',
-     ylim=c(-0.3,0.6), type='l', col='#DDF26B', lwd=2)
-abline(h=0, lty=3)
-
-plot(rdate[241:1467],netdepo_sed5[241:1467],
-     ylim=c(-0.3,0.6), type='l', col='#e5e572', 
-     ylab='', cex.axis=1.6,main='Box 5',lwd=2)
-abline(h=0, lty=3)
-
-plot(rdate[241:1467],netdepo_sed6[241:1467], type='l', 
-     ylim=c(-0.3,0.6), col='#fed976', lwd=2,
-     ylab='', cex.axis=1.6,main='Box 6')
-abline(h=0, lty=3)
-mtext('cm/y', side = 2, line=2.6, cex=1.2)
-
-plot(rdate[241:1467],netdepo_sed7[241:1467],
-     ylim=c(-0.3,0.6),type='l', col='#f79220',
-     ylab='', cex.axis=1.6,main='Box 7',lwd=2)
-abline(h=0, lty=3)
-
-plot(rdate[241:1467],netdepo_sed8[241:1467],ylim=c(-0.3,0.6),
-     type='l', col='#f46d43', lwd=2,
-     ylab='', cex.axis=1.6,main='Box 8')
-abline(h=0, lty=3)
-
-plot(rdate[241:1467],netdepo_sed9[241:1467],
-     ylim=c(-0.3,0.6),type='l', col='#d73027', 
-     ylab='', cex.axis=1.6,main='Box 9',lwd=2)
-abline(h=0, lty=3)
-
-plot(rdate[241:1467],netdepo_sed10[241:1467],
-     ylim=c(-0.3,0.6), type='l', col='#a50028',
-     ylab='', cex.axis=1.6,main='Box 10',lwd=2)
-abline(h=0, lty=3)
-dev.off()
-
-png('Burial_fin92b__oks238ee.png',width = 950, height = 530, units = "px")
-par(mfrow=c(2,5))
-plot(rdate,burial$sn1,col='#313695',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dsn1,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$osn1,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-
-plot(rdate,burial$sn2,col='#4575b4',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dsn2,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$osn2,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-
-plot(rdate,burial$sn4,col='#abd9e9',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dsn4,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$osn4,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-
-plot(rdate,burial$sn3,col='#DDF26B',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dsn3,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$osn3,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-
-plot(rdate,burial$sn5,col='#e5e572',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dsn5,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$osn5,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-
-plot(rdate,burial$sc6,col='grey60',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dsc6,col='#fed976',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$osc6,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-
-plot(rdate,burial$sc7,col='#f79220',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dsc7,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$osc7,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-
-
-plot(rdate,burial$ss8,col='#f46d43',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dss8,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$oss8,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-
-plot(rdate,burial$ss9,col='#d73027',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dss9,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$oss9,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-
-plot(rdate,burial$ss10,col='#a50028',type='l', lwd=2, ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$dss10,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-par(new=T)
-plot(rdate,burial$oss10,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-dev.off()
+  sar_b1<-c(-0.3125, 0.3125)
+  sar_b2<-c(-0.3125, 0.3125)
+  sar_b3<-c(-0.3125, 0.3125)
+  sar_b4<-c(-0.3125, 0.3125)
+  sar_b5<-c(-0.3125, 0.3125)
+  sar_b6<-c(-1.5625,-0.3125)
+  sar_b7<-c(-1.5625,-0.3125)
+  sar_b8<-c(-0.3125, 0.3125)
+  sar_b9<-c(-0.3125, 0.3125)
+  sar_b10<-c(-1.5625,-0.3125)
+  
+  
+  png('DEPO_vs_Sarretta_fin92b__oks238ba5d.png',width = 950, height = 530, units = "px")
+  par(mfrow=c(2,5))
+  plot(netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
+  par(new=T)
+  boxplot(sar_b2,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#31369555')
+  
+  plot(netdepo_sed2, ylim=c(-1.6,1.6),type='l', col='#4575b4', lwd=2)
+  par(new=T)
+  boxplot(sar_b2,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#4575b455')
+  
+  plot(netdepo_sed4,ylim=c(-1.6,1.6),  type='l', col='#abd9e9', lwd=2)
+  par(new=T)
+  boxplot(sar_b4,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#abd9e955')
+  
+  plot(netdepo_sed3,ylim=c(-1.6,1.6), type='l', col='#DDF26B', lwd=2)
+  par(new=T)
+  boxplot(sar_b3,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2),col='#DDF26B55')
+  
+  plot(netdepo_sed5, ylim=c(-1.6,1.6), type='l', col='#e5e572', lwd=2)
+  par(new=T)
+  boxplot(sar_b5,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#e5e57255')
+  
+  plot(netdepo_sed6, type='l', ylim=c(-1.6,1.6), col='#fed976', lwd=2)
+  par(new=T)
+  boxplot(sar_b6,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#fed97655')
+  
+  plot(netdepo_sed7, ylim=c(-1.6,1.6),type='l', col='#f79220', lwd=2)
+  par(new=T)
+  boxplot(sar_b7,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f7922055')
+  
+  plot(netdepo_sed8,ylim=c(-1.6,1.6), type='l', col='#f46d43', lwd=2)
+  par(new=T)
+  boxplot(sar_b8,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f46d4355')
+  
+  plot(netdepo_sed9, ylim=c(-1.6,1.6),type='l', col='#d73027', lwd=2)
+  par(new=T)
+  boxplot(sar_b9,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#d7302755')
+  
+  plot(netdepo_sed10,ylim=c(-1.6,1.6), type='l', col='#a50028', lwd=2)
+  par(new=T)
+  boxplot(sar_b10,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#a5002855')
+  dev.off()  
 
 TOTs<-POMs+silts+sands
 POM_perc<-POMs/TOTs*100
@@ -630,7 +513,7 @@ poc8[1306:1308]<-c(7.2,7.4,8.5)
 poc9[1306:1308]<-c(1.7,2.0,1.8)
 poc10[1306:1308]<-c(1.6,1.6,1.4)
 
-png('POC_perc_fin92b__oks238ee.png',width = 950, height = 530, units = "px")
+png('POC_perc_fin92b__oks238ba5d.png',width = 950, height = 530, units = "px")
 par(mfrow=c(2,5))
 plot(rdate[480:1440],POC_perc$sn1[480:1440],col='#313695',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
@@ -1065,7 +948,7 @@ dev.off()
   b6_depo_2014_gm2d<-c(667,147,1584)   #kg DW m2y
   b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
   
-  png('DEPO_kgm2y_fin92b__oks238ee.png',width = 950, height = 530, units = "px")
+  png('DEPO_kgm2y_fin92b__oks238ba5d.png',width = 950, height = 530, units = "px")
   par(mfrow=c(2,5))
   plot(depo1_kg_y/a1, type='l')     # 1989 - 1990: 113 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
   plot(depo2_kg_y/a2, type='l') 
@@ -1093,60 +976,8 @@ dev.off()
   dev.off()
   
   summary(BURIAL_cmy)
-  
-  sar_b1<-c(-0.3125, 0.3125)
-  sar_b2<-c(-0.3125, 0.3125)
-  sar_b3<-c(-0.3125, 0.3125)
-  sar_b4<-c(-0.3125, 0.3125)
-  sar_b5<-c(-0.3125, 0.3125)
-  sar_b6<-c(-1.5625,-0.3125)
-  sar_b7<-c(-1.5625,-0.3125)
-  sar_b8<-c(-0.3125, 0.3125)
-  sar_b9<-c(-0.3125, 0.3125)
-  sar_b10<-c(-1.5625,-0.3125)
-  
-  png('DEPO_vs_Sarretta_fin92b__oks238ee.png',width = 950, height = 530, units = "px")
-  par(mfrow=c(2,5))
-  plot(netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
-  
-  plot(netdepo_sed2, ylim=c(-1.6,1.6),type='l', col='#4575b4', lwd=2)
-  par(new=T)
-  boxplot(sar_b2,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#4575b455')
-  
-  plot(netdepo_sed4,ylim=c(-1.6,1.6),  type='l', col='#abd9e9', lwd=2)
-  par(new=T)
-  boxplot(sar_b4,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#abd9e955')
-  
-  plot(netdepo_sed3,ylim=c(-1.6,1.6), type='l', col='#DDF26B', lwd=2)
-  par(new=T)
-  boxplot(sar_b3,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2),col='#DDF26B55')
-  
-  plot(netdepo_sed5, ylim=c(-1.6,1.6), type='l', col='#e5e572', lwd=2)
-  par(new=T)
-  boxplot(sar_b5,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#e5e57255')
-  
-  plot(netdepo_sed6, type='l', ylim=c(-1.6,1.6), col='#fed976', lwd=2)
-  par(new=T)
-  boxplot(sar_b6,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#fed97655')
-  
-  plot(netdepo_sed7, ylim=c(-1.6,1.6),type='l', col='#f79220', lwd=2)
-  par(new=T)
-  boxplot(sar_b7,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f7922055')
-  
-  plot(netdepo_sed8,ylim=c(-1.6,1.6), type='l', col='#f46d43', lwd=2)
-  par(new=T)
-  boxplot(sar_b8,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#f46d4355')
-  
-  plot(netdepo_sed9, ylim=c(-1.6,1.6),type='l', col='#d73027', lwd=2)
-  par(new=T)
-  boxplot(sar_b9,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#d7302755')
-  
-  plot(netdepo_sed10,ylim=c(-1.6,1.6), type='l', col='#a50028', lwd=2)
-  par(new=T)
-  boxplot(sar_b10,ylim=c(-1.6,1.6), xaxt='n', xlim=c(0,2), col='#a5002855')
-  dev.off()
-    
-  png('DEPO_vs_Sarretta_fin92b__oks238ee.png',
+
+  png('DEPO_NET_fin92b__oks238ba5d.png',
       width = 30, height = 20, units = "cm", res=300)
   par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
   plot(rdate[241:1467], netdepo_sed1[241:1467], type='l',ylim=c(-0.3,0.6),
@@ -1204,74 +1035,10 @@ dev.off()
   abline(h=0, lty=3)
   dev.off()
   
-  png('Burial_fin92b__oks238ee.png',width = 950, height = 530, units = "px")
-  par(mfrow=c(2,5))
-  plot(rdate,burial$sn1,col='#313695',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dsn1,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$osn1,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  
-  plot(rdate,burial$sn2,col='#4575b4',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dsn2,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$osn2,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  
-  plot(rdate,burial$sn4,col='#abd9e9',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dsn4,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$osn4,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  
-  plot(rdate,burial$sn3,col='#DDF26B',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dsn3,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$osn3,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  
-  plot(rdate,burial$sn5,col='#e5e572',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dsn5,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$osn5,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  
-  plot(rdate,burial$sc6,col='grey60',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dsc6,col='#fed976',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$osc6,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  
-  plot(rdate,burial$sc7,col='#f79220',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dsc7,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$osc7,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  
-  
-  plot(rdate,burial$ss8,col='#f46d43',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dss8,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$oss8,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  
-  plot(rdate,burial$ss9,col='#d73027',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dss9,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$oss9,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  
-  plot(rdate,burial$ss10,col='#a50028',type='l', lwd=2, ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$dss10,col='grey60',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  par(new=T)
-  plot(rdate,burial$oss10,col='black',type='l', lwd=2, lty=2,ylim=c(0,0.5))
-  dev.off()
-  
   TOTs<-POMs+silts+sands
   POM_perc<-POMs/TOTs*100
   
-  png('solids_sed_conc_fin92b__oks6_38ee.png',width = 21, height = 29,
+  png('solids_sed_conc_fin92b__oks6_38ba5d.png',width = 21, height = 29,
       units = "cm", res=400)
   par(mfrow=c(10,3),mar=c(1,1,1,1),
       oma=c(2.3,5.3,1.5,0), bty='n')
@@ -1553,7 +1320,7 @@ dev.off()
   poc9[1306:1308]<-c(1.7,2.0,1.8)
   poc10[1306:1308]<-c(1.6,1.6,1.4)
   
-  png('POC_perc_fin92b__oks238ee.png',width = 950, height = 530, units = "px")
+  png('POC_perc_fin92b__oks238ba5d.png',width = 950, height = 530, units = "px")
   par(mfrow=c(2,5))
   plot(rdate[480:1440],POC_perc$sn1[480:1440],col='#313695',type='l', lwd=2, ylim=c(0,10))
   par(new=T)

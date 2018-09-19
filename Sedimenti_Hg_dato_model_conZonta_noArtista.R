@@ -1,5 +1,7 @@
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
 setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
-setwd('C:/Users/Acer/Dropbox/fin87')
+setwd('C:/Users/gi/Desktop/ba5')
+
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -89,7 +91,7 @@ media6<-rowMeans(f); media7<-rowMeans(g); media8<-rowMeans(h); media9<-rowMeans(
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin87.png',
+png('Time_hg_sediment_ba5b.png',
     width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,1,1,1), 

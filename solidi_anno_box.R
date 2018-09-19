@@ -1,5 +1,7 @@
 setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41m')
+setwd('C:/Users/gi/Desktop/ba6')
+
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(tots)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -81,7 +83,7 @@ b10_y4<-filter(box10, box10$ANNO ==2005)
 
 
 
-png('TSS_allboxes_year_07__2.png',width = 21, height = 26,
+png('TSS_allboxes_year_07__6.png',width = 21, height = 26,
     units = "cm", res=400)
 
 par(mfrow=c(10,4),mar=c(.4,.1,1.5,0.0),
@@ -278,7 +280,7 @@ dev.off()
 
 
 
-png('POM_allboxes_year_07__2.png',width = 21, height = 26,
+png('POM_allboxes_year_07__6.png',width = 21, height = 26,
     units = "cm", res=400)
 
 par(mfrow=c(10,4),mar=c(.4,.1,1.5,0.0),
