@@ -1,6 +1,6 @@
 etwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid8')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid43')  #oksolid7
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41l')  #oksolid7
 #setwd('C:/Users/Acer/Desktop/fin92bold/oksolid6')
 
 POM<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")

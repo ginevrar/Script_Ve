@@ -1,4 +1,4 @@
-  setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid43')
+  setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
   
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
   names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
