@@ -1,10 +1,33 @@
 ###--corila? Hg??
 
-dati_pw1<-c(6.07 , 5.30, 5.30, 6.67,3.5, 5.47, 5.90, 8.72, 11.28)   # box1  PW guedron et al. 2012
-dati_pw2<-c( 12.69 ,13.78 , 8.26, 13.45, 10.3823,	41.53,6.222,	12.51)# box2  PW guedron e
-dati_pw6<-c(7.42,29.09,3.01,5.62)               #Kim et al 2011
-dati_pw7<-c(7.02065,3.00885,2.20649,4.41298)  #Kim et al 2011
+b1_layerA_pw = 38              #site B Han et al., 2007
+b1_layerA_pw_mehg =  2.72727   #site B Han et al., 2007
 
+b1_layerB_pw = 48              #site B Han et al., 2007
+b1_layerB_pw_mehg =  3.93939   #site B Han et al., 2007
+
+b1_layerC_pw = 	30              #site B Han et al., 2007
+b1_layerC_pw_mehg =  2.32323  #site B Han et al., 2007
+
+b6_layerA_pw =  NA       #site S1 Han et al., 2007 (S0 is a dredged channel)
+b6_layerA_pw_mehg =  NA
+
+b6_layerB_pw = 52.5773	       #site S1 Han et al., 2007
+b6_layerB_pw_mehg =  2.55102
+
+b6_layerC_pw = c(84.5361,89.6907)       #site S1 Han et al., 2007   - 12 e 17 cm prof
+b6_layerC_pw_mehg =  c(0.01,0.510204)
+
+b7_layerA_pw =  35.3535        #site S2 Han et al., 2007
+b7_layerA_pw_mehg = 1.21212    #site S2 Han et al., 2007
+
+b7_layerB_pw =  37.3737    #site S2 Han et al., 2007
+b7_layerB_pw_mehg = 1.61616    #site S2 Han et al., 2007
+	
+b7_layerC_pw =c(29.2929,31.3131)#site S2 Han et al., 2007
+b7_layerC_pw_mehg = c(1.71717	,0.808081) #site S2 Han et al., 2007
+
+#non misurate porewater site A Han et al., 2007 (box3)
 
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41m')
@@ -12,23 +35,23 @@ setwd('C:/Users/Acer/Desktop/baba/buona')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
 
 hgDOC<-read.csv('DOC_Sorbed_Divalent_Hg.csv',skip=1)
 names(hgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
-
-mehgDOC<-read.csv('DOC_Sorbed_Methyl_Hg.csv',skip=1)
-names(mehgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
 
+mehgDOC<-read.csv('DOC_Sorbed_Methyl_Hg.csv',skip=1)
+names(mehgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+
 mehgdiss<-read.csv('Dissolved_Methyl_Hg.csv',skip=1)
 names(mehgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+                   'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                   'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
 
 hgD<-hgdiss+hgDOC
 mehgD<-mehgdiss+mehgDOC
@@ -88,7 +111,7 @@ mehg_pW1<-c( 0.38, 	 1.21,	 0.54,  0.44, 	 1.52, 	 0.66,
 
 
 dddd<-c(median(mehg_pW1), median(mehg_pW2), median(mehg_pW6))
-        
+
 mm <-c(mean(hgD$sn1[650:667]),mean(hgD$sn2[650:667]),mean(hgD$sc6[650:667]),mean(hgD$sc7[650:667]))
 
 cor(dd,mm)

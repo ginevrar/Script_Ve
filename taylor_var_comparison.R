@@ -1,4 +1,6 @@
   setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41f') #setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid7')
+  setwd('C:/Users/Acer/Desktop/baba/ba16')
+  
   hgw<-read.table('acque_perTaylorD.txt', header=T)
   hgsedA<-read.table('surf_sedhg_taylor.txt', header=T)
   hgsedB<-read.table('subsurf_sedhg_taylor.txt', header=T)
@@ -6,8 +8,9 @@
   pWhg<-read.table('pw_hg_perTaylorD.txt', header=T)
   pWmehg<-read.table('pw_mehg_perTaylorD.txt', header=T)
   
-  setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid22')
-  setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41m')
+
+  setwd('C:/Users/Acer/Desktop/baba/buona')
+  
   hgwo<-read.table('acque_perTaylorD.txt', header=T)
   hgsedAo<-read.table('surf_sedhg_taylor.txt', header=T)
   hgsedBo<-read.table('subsurf_sedhg_taylor.txt', header=T)

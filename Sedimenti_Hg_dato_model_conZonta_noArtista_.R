@@ -1,6 +1,6 @@
 setwd('C:/Users/gi/Dropbox/fin23')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
-
+setwd('C:/Users/Acer/Desktop/baba/buona/b')
 1900-2101
 2426/12
 # plot da 1920 a 2020
@@ -109,7 +109,7 @@ media6<-rowMeans(f); media7<-rowMeans(g); media8<-rowMeans(h); media9<-rowMeans(
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin92b_oks2_41nb2.png',
+png('Time_hg_sediment_fin92b_oks_buonab.png',
     width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,1,1,1), 

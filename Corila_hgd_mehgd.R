@@ -1,4 +1,5 @@
   setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
+  setwd('C:/Users/Acer/Desktop/baba/buona')
   
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
   names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -68,8 +69,7 @@
   as.POSIXct(corila$data) 
   
   
-  
-  dev.new()
+png('disss_hg_mehg_COrila.png')
   par(mfrow=c(1,2), mgp=c(2,1,0))
   plot(tmp,corila$HgII,ylim=c(0,8),pch='-',xaxt='n',type='p',cex=2,xlab='',
        ylab=expression(paste('ng l'^-1)),
@@ -101,6 +101,5 @@
   plot(rdate[1313:(1325)],dissmehg$wc6[1313:(1325)], ylim=c(0,.3), xaxt='n',xlab='',ylab='',
        xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
   axis(side=1, at=rdate[1313:(1325)],'%d/%m/%Y', labels=rdate[1313:(1325)])
-  
-  
+  dev.off()
   
