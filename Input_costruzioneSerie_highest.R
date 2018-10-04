@@ -1,32 +1,65 @@
-setwd('G:/Il mio Drive/MERCURIO/Venezia')
-#dep<-read.table('atmo_input.txt', header=T)
-#riv<-read.table('riv_input.txt', header=T)
-#cit<-read.table('city_input.txt', header=T)
-#indus<-read.table('margh_input.txt', header=T)
 
-anno<-seq(1900,2100)
+years    <-seq(1900,2100)  # sequence of 200 elements (years)
+area     <-4.12E+08   # surface area of the site (m2)  - to compute rates 
+area_km2 <-4.12E+02   # surface area of the site (km2) - to compute rates 
 
-##  FUnzione che creas una serie di 100 elementi con decremento del 1.5% 
+
+## Function that creates a vector of 100 elements decreasing by 1.5% at each step
+## this is to simulate the decrease of atmospheric deposition observed in Europe from 1999 (Colette et al., 2016) 
+## starting from the value measured in the study area in 1999 (11.7 kg y-1,Rossini et al., 2005) 
+## and projecting the trend to the future (2100)
+
 n=rep(NA,101)   # preallocate
 n[1]=11.7
 for(i in 2:101){
   n[i] = n[i-1]-((n[i-1]*1.5)/100)
- }
-n
+}
 
-de<-c(rep(7.8,40), rep(9.4,10), rep(23.4, 10), rep(18.8, 30), seq(18,11.7, length.out = 10),n) 
-dep<-data.frame(anno[1:201],de)    
+de<-c(rep(7.8,40), rep(9.4,10), rep(23.4, 10), rep(30, 30), seq(30,11.7, length.out = 10),n) # create a series
+dep<-data.frame(years[1:201],de)    
+dep
 
-##  FUnzione che creas una serie di 100 elementi con decremento del 1.5% (dal 1999 al 2100)
+dep_g_km2_y<-de/area_km2*100
+
+##  Function that creates a vector of 100 elements decreasing by 1.5% at each step -
+#   this is for river load, based on analogy with atm. depo
+#   river load in Venice for 1999 is ~24 kg y-1 (Collavini et al., 2005)
+
 m=rep(NA,101)   # preallocate
 m[1]=24
 for(i in 2:101){
   m[i] = m[i-1]-((m[i-1]*1.5)/100)
 }
-m       
 
-ri<-c(rep(6.7,40), rep(6.7,10), seq(11,20, 1), rep(30, 30), seq(27,24, length.out = 10), m)
-riv<-data.frame(anno[1:201],ri)
+y<-seq(1999,2100,length.out = 101)
+
+data.frame(y,m)
+
+# 6.7 kg y-1 is calculated form background concentrations and SPM load
+
+ri<-c(rep(6.7,40), seq(7,30,length.out = 10), seq(31,200, length.out = 20),seq(200,180,5),seq(160,50, length.out = 15), 
+      seq(46.0,24, length.out = 10), m)
+riv<-data.frame(years[1:201],ri)
+
+
+  ri2<-c(rep(6.7,40), seq(7,30,length.out = 10), seq(31,200, length.out = 20), seq(200,160,length.out =5),
+       seq(150,50, length.out = 15), seq(46.0,24, length.out = 10), m)
+
+riv[90,]
+riv[101,]
+riv[102,]
+
+ef_1970 <-c(10,5,	14)
+ef_1980 <-c(5,7,2)
+ef_1990 <-c(2,2,3)
+ef_2000 <-c(1,1,2)
+ef_2008 <-c(1,1,1)
+
+
+plot(years[70:90],ri[70:90])
+
+riv[71,]
+riv[81,]
 
 f_box2<-0.458421978				
 f_box5<-0.062621404			
@@ -40,27 +73,51 @@ riv$BOX6 = riv$ri*f_box6 #0.34
 riv$BOX8 = riv$ri*f_box8 #0.14
 riv$BOX9 = riv$ri*f_box9 #0.11
 
-ci<-c(rep(2,40),rep(4,10), rep(6,10),rep(10,30), rep(12,16),rep(5,15), rep(0,80)) 
-cit<-data.frame(anno[1:201],ci)
+ci<-c(rep(3,40),rep(5,10), rep(7,10),rep(10,30), rep(12,16),rep(5,15), rep(3,80)) 
+cit<-data.frame(years[1:201],ci)
 str(cit)
 
+#ind<-c(rep(0,20), seq(21,60,length.out = 20), seq(60,200,length.out = 10),rep(600, 10), seq(500,300,length.out = 30),
+  #     seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
 
-ind<-c(rep(0,20), seq(21,40,1), rep(140, 10),rep(600, 10), seq(500,300,length.out = 30),
-         seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
-indus<-data.frame(anno[1:201],ind)
+ind<-c(rep(0,20), seq(21,60,length.out = 20), seq(63,200,length.out = 10),
+        seq(220,800,length.out = 10), seq(860,1000,length.out = 10),seq(1000,650,length.out = 10),
+        seq(640,100,length.out = 10), seq(95,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
 
 
- tt<- de+ri+ci+ind
- t_cum<-cumsum(tt)/1000
+indus<-data.frame(years[1:201],ind)
 
- tott<-data.frame(anno,de,ri,ci,ind, tt, t_cum)
- 
- plot(anno,de, type='l') 
- plot(anno,ri, type='l') 
- plot(anno,ci, type='l') 
- plot(anno,ind, type='l') 
- 
- 
+plot(years, ind, type='l')
+abline(h=36)
+tt<- de+ri+ci+ind2
+t_cum<-cumsum(tt)/1000
+
+tott<-data.frame(years,de,ri,ci,ind, tt, t_cum)
+tott[106,]
+
+plot(years[1:106],t_cum[1:106])
+plot(years,ri, type='l') 
+plot(years,ci, type='l') 
+plot(years,ind, type='l') 
+
+
+
+r<-c(1,2,15,25) #observational range for atmospheric deposition rate
+
+boxplot(r, ylim=c(1,26), col='#5273a866', ylab='', xlab='', main='Atmospheric deposition rate')
+par(new=T)
+plot(dep_g_km2_y, type='l', ylim=c(1,26),lwd=2,  xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+text(100,22,'range for marine areas')
+text(93,21, 'from global models')
+text(103,20,'ensamble (UNEP, 2013)')
+text(40,5,'input for \n the Venice lagoon')
+
+
+plot(years,ri2/20.947747, type='l', main='river load \n enrichment factor relative to 2008', ylim=c(0,15)) 
+par(new=T)
+boxplot(ef_1970,ef_1980,ef_1990,ef_2000,  ylim=c(0,15),xaxt='n', at=c(71,81,91,102), xlim=c(1,201), 
+        range = T, outline=T)
+
 #::::::::::::: ripartizione input fra i box :::::::::::::::::::::::::::::::::::::
 
 area <-4.119E+08
@@ -86,7 +143,7 @@ cit$BOX5<-cit$ci*0.33
 cit$BOX6<-cit$ci*0.33
 
 
-## mancano anno 1901; 1905(?)
+## mancano years 1901; 1905(?)
 
 mul_atm<-c(1.050000716,1.00454523,1.195454451,1.404547776,0.963636566,0.99545477,
            0.700000477,0.836363752,1.077272098,1.018182512,0.790908267,0.949999284)
@@ -202,7 +259,7 @@ dffff<-dep %>%
   rowwise() %>%                       # for each row
   mutate(x = list(de* mul_atm)) %>%    # multiply value in BOX1 with mul and save results as a list
   unnest()                            # unnest data
-  tot_depo<-as.numeric(as.character(unlist(dffff[13])))
+tot_depo<-as.numeric(as.character(unlist(dffff[13])))
 
 ##::::::::::::::::::::::::::::  RIVERS :::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -277,7 +334,7 @@ monthly_riv_mehg<-data.frame(ladataOK,monthly_riv[2:6]*5/(365*100))
 
 
 TOT<-tot_city+tot_depo+tot_ind+tot_riv
-  
+
 plot(ladata,TOT, type='l', ylim=c(0,700))
 par(new=T)
 plot(ladata,tot_city, type='l',col='orange', ylim=c(0,700))

@@ -4,9 +4,8 @@ setwd('C:\\Users\\gi\\Downloads')
 setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
-setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41m')
-setwd('C:/Users/Acer/Desktop/baba/buona')
+
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -62,9 +61,9 @@ box3<-c(mean(A3$mehg),mean(B3$mehg),mean(C3$mehg))
 box6<-c(mean(A6$mehg),mean(B6$mehg),mean(C6$mehg))
 box7<-c(mean(A7$mehg),mean(B7$mehg),mean(C7$mehg))
 
-png('profile_Mehg_datoModeo_boxpl_fin92b_mehg_ba20bbbbbm.png',width = 530*1.5, height = 1000*1.5,  
+png('profile_Mehg_datoModeo_boxpl_fin92b_mehg_______.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
-par(mfrow=c(3,2),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
+par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
 boxplot(A1$mehg,B1$mehg,C1$mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
         at=c(-2,-7, -15),boxwex=3.,yaxt='n',xaxt='n',
@@ -92,34 +91,46 @@ par(new=T)
 plot(box2,y,
      ylim=c(-20,0),xlim=c(0,2.5),col=1, 
      bg='#31369577',
-     type='p', lty=2, #xaxt='n',
+     type='p', lty=2,  xaxt='n',yaxt='n',
      ylab=' ', xlab=' ', cex=2, pch=19)
 par(new=T)
 plot(b2_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#4575b4',   type='b', pch=25)
-mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
+ #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
 mtext(side=3, text='box 2', font=2, cex=1.4, line=.5)
+
 #plot(box2,y,
  #    ylim=c(-40,0),xlim=c(0,2.5), col=1,bg='#4575b4',
 boxplot(A3$mehg,B3$mehg,C3$mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
-        at=c(-2,-7, -15),boxwex=3.,yaxt='n',xaxt='n',
+        at=c(-2,-7, -15),boxwex=3.,yaxt='n', xaxt='n',
         ylim=c(0,2.5),col='#DDF26B77',
         horizontal = T)
 par(new=T)
 plot(box3,y,
      ylim=c(-20,0),xlim=c(0,2.5),col=1, 
-     bg='#31369577',
+     bg='#31369577',yaxt='n',
      type='p', lty=2, #xaxt='n',
      ylab=' ', xlab=' ', cex=2, pch=19)
 par(new=T)
 plot(b3_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#DDF26B',   type='b', pch=25)
-mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
+
 #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
 mtext(side=3, text='box 3', font=2, cex=1.4, line=.5)
 #plot(box2,y,
 #    ylim=c(-40,0),xlim=c(0,2.5), col=1,bg='#4575b4',
+
+plot(b4_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
+     ylab=' ',xlab=' ',col='black',bg='#abd9e9',   type='b', pch=25)
+mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
+mtext(side=3, text='box 4', font=2, cex=1.4, line=.5)
+
+plot(b5_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
+     ylab=' ',xlab=' ',col='black',bg='#e5e572',   type='b', pch=25)
+mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
+mtext(side=3, text='box 5', font=2, cex=1.4, line=.5)
 
 
 boxplot(A6$mehg,B6$mehg,C6$mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
@@ -143,14 +154,25 @@ boxplot(A7$mehg,B7$mehg,C7$mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
         horizontal = T)
 par(new=T)
 plot(box7,y,
-     ylim=c(-20,0),xlim=c(0,2.5),col=1,  type='p', lty=2, #xaxt='n',
+     ylim=c(-20,0),xlim=c(0,2.5),col=1,  type='p', lty=2,yaxt='n', #xaxt='n',
      ylab=' ', xlab=' ', cex=2, pch=19)
 par(new=T)
 plot(b7_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#f79220',   type='b', pch=25)
-mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
+ #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
 mtext(side=3, text='box 7', font=2, cex=1.4, line=.5)
+
+plot(b8_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
+     ylab=' ',xlab=' ',col='black',bg='#f46d43',   type='b', pch=25)
+mtext(side=3, text='box 8', font=2, cex=1.4, line=.5)
+
+plot(b9_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
+     ylab=' ',xlab=' ',col='black',bg='#d73027',   type='b', pch=25)
+mtext(side=3, text='box 9', font=2, cex=1.4, line=.5)
+
+plot(b10_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
+     ylab=' ',xlab=' ',col='black',bg='#a50028',   type='b', pch=25)
+mtext(side=3, text='box 10', font=2, cex=1.4, line=.5)
 
 dev.off()
 
@@ -167,8 +189,21 @@ datsurfmehg<-c(median(A1$mehg),median(A2$mehg),median(A3$mehg),median(A6$mehg),m
 modsurfmehg<-c(b1_profile_mod[1],b2_profile_mod[1],
                b3_profile_mod[1],b6_profile_mod[1],b7_profile_mod[1])
 
+layerB_mehg<-c(median(B1$mehg),median(B2$mehg),median(B3$mehg),median(B6$mehg),median(B7$mehg))
+modlayerB_mehg<-c(b1_profile_mod[2],b2_profile_mod[2],
+               b3_profile_mod[2],b6_profile_mod[2],b7_profile_mod[2])
+
+layerC_mehg<-c(median(C1$mehg),median(C2$mehg),median(C3$mehg),median(C6$mehg),median(C7$mehg))
+modlayerC_mehg<-c(b1_profile_mod[3],b2_profile_mod[3],
+               b3_profile_mod[3],b6_profile_mod[3],b7_profile_mod[3])
+
 sedMehg<-data.frame(datsurfmehg, modsurfmehg)
+sedMehg2<-data.frame(layerB_mehg, modlayerB_mehg)
+sedMehg3<-data.frame(layerC_mehg, modlayerC_mehg)
+
 write.table(sedMehg, file='sedMehg_perTaylorD.txt')
+write.table(sedMehg2, file='sedMehg2_perTaylorD.txt')
+write.table(sedMehg3, file='sedMehg3_perTaylorD.txt')
 getwd()
 
 cor.test(datsurfmehg,modsurfmehg)

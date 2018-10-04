@@ -1,6 +1,9 @@
 setwd('C:/Users/gi/Dropbox/fin23')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
-setwd('C:/Users/Acer/Desktop/baba/buona/b')
+setwd('C:/Users/Acer/Desktop/baba/buona/met')
+setwd('C:/Users/Acer/Desktop/baba/fin87')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
+
 1900-2101
 2426/12
 # plot da 1920 a 2020

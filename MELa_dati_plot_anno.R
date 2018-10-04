@@ -1,5 +1,6 @@
 setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid17')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid21')  #zerores
+setwd('C:/Users/Acer/Desktop/baba/buona/met')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -52,6 +53,8 @@ plot(rdate1,nord_hg$w4,ylim=c(0,60),type='l',lwd=2,xlim=c(rdate2[7],rdate2[79]),
 par(new=T)
 #plot(Water_nord_df$Anno,Water_nord_df$Hg1,type='p', xaxt='n',xlab='')
 plot(jitter(Water_nord_df$Anno), Water_nord_df$Hg1,xlab='',xaxt='n',  xlim=c(2001.6,2008))
+
+
 
 plot(rdate1,centr_n_hg$w3,ylim=c(0,60),type='l',lwd=2,xlim=c(rdate2[7],rdate2[79]),
      yaxt='n',col='#DDF26B')

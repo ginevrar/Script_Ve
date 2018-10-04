@@ -1,7 +1,5 @@
-setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41m')
-setwd('C:/Users/Acer/Desktop/baba/buona')
- 
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
+
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
              'la1','la2','la3','la4','la5','la6','la7','la8','la9','la10',
@@ -45,8 +43,14 @@ layerD_mod<-c(mean(hg$ld1[1298:1309]),mean(hg$ld2[1298:1309]), mean(hg$ld3[1298:
 dfsurf<-data.frame(layerA,layerA_mod)
 dfsubsurf<-data.frame(layerB,layerB_mod)
 
+#subssd<-c(layerB, layerC)
+#subssM<-c(layerB_mod, layerC_mod)
+
+dfC<-data.frame(layerC,layerC_mod)
+
 write.table(dfsurf,'surf_sedhg_taylor.txt')
 write.table(dfsubsurf,'subsurf_sedhg_taylor.txt')
+write.table(dfC,'subsurf_laC_sedhg_taylor.txt')
 
 
 r1<-round(cor(layerA,layerA_mod), digits = 2)

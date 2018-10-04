@@ -1,6 +1,16 @@
-  setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
-  setwd('C:/Users/Acer/Desktop/baba/buona')
+setwd('C:/Users/Acer/Dropbox')
+corila<-read.table('Corila_dati_acque.txt', header=T,as.is=TRUE)
+str(corila)
+
+tmp <- as.Date(corila$data,format="%Y-%m-%d")
+tmp2<-format(tmp, "%d-%m-%Y")
   
+setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
+setwd('C:/Users/Acer/Desktop/baba/buona/met')
+setwd('C:/Users/Acer/Desktop/baba/fin87')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
+
+
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
   names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -38,12 +48,7 @@
                     'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
   
   
-  setwd('C:/Users/Acer/Dropbox')
-  corila<-read.table('Corila_dati_acque.txt', header=T,as.is=TRUE)
-  str(corila)
-  
-  tmp <- as.Date(corila$data,format="%Y-%m-%d")
-  tmp2<-format(tmp, "%d-%m-%Y")
+
   
   time.steps <- hgd[,1]
   
@@ -61,15 +66,47 @@
   plot(rdate[1322:(1333)],vol$wn3[1322:1333])
   plot(rdate[1322:(1333)],vol$wn4[1322:1333])
   
-  tmp2
-  disshg<-hgd + hgDOC
+  
   dissmehg<-mehgd + mehgDOC
+  disshg<-hgd + hgDOC 
   
   TEMPOd <-as.POSIXct(corila[,1], tz= "GMT",format="%d-%m-%Y")
   as.POSIXct(corila$data) 
   
   
-png('disss_hg_mehg_COrila.png')
+str(corila$HgII)
+str(disshg$wc6[1313:1324])  
+
+#magg09,lug09,ott09, nov09,gen10, mar10
+rdate[1324]
+
+hgD_mod<-c(disshg$wc6[1314],disshg$wc6[1316], disshg$wc6[1319], disshg$wc6[1320], disshg$wc6[1322],disshg$wc6[1324]) 
+
+m1<-median(corila$HgII[1],corila$HgII[7])
+m2<-median(corila$HgII[2], corila$HgII[8])
+m3<-median(corila$HgII[3],corila$HgII[9])
+m4<-median(corila$HgII[4],corila$HgII[10])
+m5<-median(corila$HgII[5],corila$HgII[11])
+m6<-median(corila$HgII[6],corila$HgII[12])                                                                                    
+
+mm1<-median(corila$MeHg[1],corila$MeHg[7])
+mm2<-median(corila$MeHg[2],corila$MeHg[8])
+mm3<-median(corila$MeHg[3])
+mm4<-median(corila$MeHg[10])
+mm5<-median(corila$MeHg[5],corila$MeHg[11])
+mm6<-median(corila$MeHg[12])  
+
+hgD_dat<-c(m1,m2,m3,m4,m5,m6)
+mehgD_dat<-c(mm1,mm2,mm3,mm5,mm6)
+mehgD_mod<-c(dissmehg$wc6[1314],dissmehg$wc6[1316], dissmehg$wc6[1319], dissmehg$wc6[1322],dissmehg$wc6[1324]) 
+
+corila_mehg<-data.frame(mehgD_dat, mehgD_mod)
+corila_hg<-data.frame(hgD_dat, hgD_mod)
+
+write.table(corila_hg, file = 'Corila_hg_perTaylorD.txt')
+write.table(corila_mehg, file = 'Corila_mehg_perTaylorD.txt')
+
+png('disss_hg_mehg_COrila2mwet.png')
   par(mfrow=c(1,2), mgp=c(2,1,0))
   plot(tmp,corila$HgII,ylim=c(0,8),pch='-',xaxt='n',type='p',cex=2,xlab='',
        ylab=expression(paste('ng l'^-1)),
@@ -81,12 +118,12 @@ png('disss_hg_mehg_COrila.png')
   segments(tmp[5],corila$HgII[5],tmp[5],corila$HgII[11])
   segments(tmp[6],corila$HgII[6],tmp[6],corila$HgII[12])
   par(new=T)
-  plot(rdate[1313:1325],(disshg$wc6[1313:1325]), ylim=c(0,8), xaxt='n',xlab='',ylab='',
+  plot(rdate[1313:1324],(disshg$wc6[1313:1324]), ylim=c(0,8), xaxt='n',xlab='',ylab='',
        xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
   #par(new=T)
   #plot(rdate[1313:(1325)],hg0$wc6[1313:(1325)],xaxt='n',type='l',
    #    xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
-  axis(side=1, at=rdate[1313:1325],'%d/%m/%Y', labels=rdate[1313:1325])
+  axis(side=1, at=rdate[1313:1324],'%d/%m/%Y', labels=rdate[1313:1324])
   
   plot(tmp,corila$MeHg,ylim=c(0,.3),pch='-',xaxt='n',type='p',cex=2,xlab='',
        ylab=expression(paste('ng l'^-1)),
@@ -98,8 +135,9 @@ png('disss_hg_mehg_COrila.png')
   segments(tmp[5],corila$MeHg[5],tmp[5],corila$MeHg[11])
   segments(tmp[6],corila$MeHg[6],tmp[6],corila$MeHg[12])
   par(new=T)
-  plot(rdate[1313:(1325)],dissmehg$wc6[1313:(1325)], ylim=c(0,.3), xaxt='n',xlab='',ylab='',
+  plot(rdate[1313:(1325)],dissmehg$wc6[1313:(1325)],  ylim=c(0,.3),xaxt='n',xlab='',ylab='',
        xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
   axis(side=1, at=rdate[1313:(1325)],'%d/%m/%Y', labels=rdate[1313:(1325)])
   dev.off()
   
+plot(mehgD_dat, mehgD_mod)

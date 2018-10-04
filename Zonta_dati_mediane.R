@@ -138,9 +138,8 @@ b10_profile<-c(box10_A_median,box10_B_median,box10_C_median,box10_D_median,box10
 b10_SD<-c(box10_A_sd,box10_B_sd,box10_C_sd,box10_D_sd,box10_E_sd)
 
 epsilon <- .7
-dev.new()
-#png('DAti_ZONTA3b.png',width = 1000*1.5, height = 530*1.5,  #provare mult*1.5 dimensioni plot
-#    units = "px")
+ 
+
 par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,5.5,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
 plot(b1_profile,y, xlim=c(0,1), ylim=c(-40,0), col='#313695', type='b', pch=19)
@@ -194,10 +193,10 @@ segments(b10_profile-b10_SD,y-epsilon,b10_profile-b10_SD,y+epsilon, col='#a50028
 segments(b10_profile+b10_SD,y-epsilon,b10_profile+b10_SD,y+epsilon, col='#a50028', lwd=1.8)
 
 
-dev.off()
 
 
-png('DAti_ZONTA4b.png', width = 1000*1.5, height = 530*1.5,  units = "px") #
+
+
 par(mfrow=c(1,1),mar=c(3,1,1,1), oma=c(0,5.5,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
 plot(b1_profile,y, xlim=c(0,1),lwd=2, ylim=c(-40,0), col='#313695', type='b', pch=1)
@@ -221,8 +220,7 @@ par(new=T)
 plot(b10_profile,y, xlim=c(0,1),lwd=2, ylim=c(-40,0), col='#a50028', type='b', pch=9)
 legend(0,-5,col=c('#313695','#4575b4','#DDF26B','#abd9e9','#e5e572','#fed976','#f79220','#f46d43','#d73027','#a50028'),
        pch=c(1,2,4,11,10,5,6,7,8,9), legend=c('box1','box2','box3','box4','box5','box6','box7','box8','box9','box10'))
-#dev.off()
-
+ 
 ## STAZIONI BOX1
 st7<-rbind(box1_A[1,1:16],box1_B[1,1:16],box1_C[1,1:16],box1_D[1,1:16],box1_E[1,1:16])
 st9<-rbind(box1_A[2,1:16],box1_B[2,1:16],box1_C[2,1:16],box1_D[2,1:16],box1_E[2,1:16])

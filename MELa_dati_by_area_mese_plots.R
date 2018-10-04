@@ -1,12 +1,26 @@
 setwd('C:/Users/gi/Dropbox/fin87')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41f')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
 
-hg<-read.csv('Total_Hg.csv', skip=1)
-names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+hgt<-read.csv('Total_Hg.csv', skip=1)
+names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
+hgp<-read.csv('Total_Sorbed_Divalent_Hg.csv', skip=1)
+names(hgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+mehgp<-read.csv('Total_Sorbed_Methyl_Hg.csv', skip=1)
+names(mehgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+hg= hgt-hgp-mehgp
 
 n1<-hg$wn1[1227:1238]       # 2002
 n2<-hg$wn1[1239:1250]  #2003
@@ -146,7 +160,7 @@ mesi<-seq(1:12)
 xx<-c(mesi,rev(mesi))
 ax<-c('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
 
-png('Hg_water_fin92b_31.png',width = 32, height = 18,res=400,units = "cm")
+png('Hg_water_buona.png',width = 32, height = 18,res=400,units = "cm")
 par(mfrow=c(2,2),mar=c(3,4.5,1,0), 
     oma=c(0,0,3,1), bty='n', mgp=c(3.5,1.5,0))
 #  plot(nord_year_mean, type='b', pch=19, ylim=c(0,60),xlim=c(0.7,12.3), lwd=2, col='#4575b4')
@@ -264,5 +278,5 @@ str(dS)
 plot(dN,nord_year_median)
 
 acque<-data.frame(datiw, modew)
-write.table(acque, file='acque_perTaylorD.txt')
+write.table(acque, file='acque_perTaylorD1.txt')
 getwd()

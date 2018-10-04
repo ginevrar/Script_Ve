@@ -5,7 +5,9 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
 setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41m')
-setwd('C:/Users/Acer/Desktop/baba/buona/b')
+setwd('C:/Users/Acer/Desktop/baba/buona/met')
+setwd('C:/Users/Acer/Desktop/baba/fin87')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
 
 
 hg<-read.csv('Total_Hg.csv', skip=1)
@@ -262,7 +264,7 @@ bb8<-data.frame(box8_A_hg,box8_B_hg,box8_C_hg,box8_D_hg, box8_D_hg)
 bb9<-data.frame(box9_A_hg,box9_B_hg,box9_C_hg,box9_D_hg, box9_D_hg)
 bb10<-data.frame(box10_A_hg,box10_B_hg,box10_C_hg,box10_D_hg, box10_D_hg)
 
-png('profile_ZONTA_datoModeo_boxpl_ba20bbbm.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_ZONTA_datoModeo_BUONA____.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
@@ -334,7 +336,7 @@ boxplot(bb6,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
         col='#fed97622',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b6_profile_mean*1000,y,xlim=c(0,3000),  cex=1.1, ylab=' ',xlab=' ',xaxt='n',
-     yaxt='n',ylim=c(-40,0),col='#fed976', pch=19)
+     ylim=c(-40,0),col='#fed976', pch=19)
 par(new=T)
 plot(b6_profile_mod,y,xlim=c(0,3000),yaxt='n',ylab=' ',xlab=' ',
      cex=1.6,ylim=c(-40,0), col='black', bg='#fed97677',  type='b', pch=25)
