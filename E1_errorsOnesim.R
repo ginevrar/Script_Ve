@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/g')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
 
 hgw<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA<-read.table('surf_sedhg_taylor.txt', header=T)
