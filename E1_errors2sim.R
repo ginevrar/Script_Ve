@@ -1,24 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
-
-hgw2<-read.table('acque_perTaylorD.txt', header=T)
-hgsedA2<-read.table('surf_sedhg_taylor.txt', header=T)
-hgsedB2<-read.table('subsurf_sedhg_taylor.txt', header=T)
-hgsedC2<-read.table('subsurf_laC_sedhg_taylor.txt', header=T)
-
-mehgsedA2<-read.table('sedMehg_perTaylorD.txt')
-mehgsedB2<-read.table('sedMehg2_perTaylorD.txt')
-mehgsedC2<-read.table('sedMehg3_perTaylorD.txt')
-PW_hg2<-read.table('PW_hg_perTaylorD.txt', header=T)
-PW_mehg2<-read.table('PW_mehg_perTaylorD.txt', header=T)
-corila_hg2<-read.table('corila_hg_perTaylorD.txt', header=T)
-corila_mehg2<-read.table('corila_mehg_perTaylorD.txt', header=T)
-
-SPM2<-read.table('SPM_perTaylorD.txt', header=T)
-POM2<-read.table('POM_perTaylorD.txt', header=T)
-SPM12 <- SPM2[complete.cases(SPM2), ]
-POM12 <- POM2[complete.cases(POM2), ]
-
-setwd('C:/Users/Acer/Desktop/baba/buona')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/')
 
 hgw<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA<-read.table('surf_sedhg_taylor.txt', header=T)
@@ -39,58 +19,25 @@ POM<-read.table('POM_perTaylorD.txt', header=T)
 SPM1 <- SPM[complete.cases(SPM), ]
 POM1 <- POM[complete.cases(POM), ]
 
-setwd('C:/Users/Acer/Desktop/baba/buona/met')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/b')
 
-hgw3<-read.table('acque_perTaylorD.txt', header=T)
-hgsedA3<-read.table('surf_sedhg_taylor.txt', header=T)
-hgsedB3<-read.table('subsurf_sedhg_taylor.txt', header=T)
-hgsedC3<-read.table('subsurf_laC_sedhg_taylor.txt', header=T)
+hgw2<-read.table('acque_perTaylorD.txt', header=T)
+hgsedA2<-read.table('surf_sedhg_taylor.txt', header=T)
+hgsedB2<-read.table('subsurf_sedhg_taylor.txt', header=T)
+hgsedC2<-read.table('subsurf_laC_sedhg_taylor.txt', header=T)
 
-mehgsedA3<-read.table('sedMehg_perTaylorD.txt')
-mehgsedB3<-read.table('sedMehg2_perTaylorD.txt')
-mehgsedC3<-read.table('sedMehg3_perTaylorD.txt')
-PW_hg3<-read.table('PW_hg_perTaylorD.txt', header=T)
-PW_mehg3<-read.table('PW_mehg_perTaylorD.txt', header=T)
-corila_hg3<-read.table('corila_hg_perTaylorD.txt', header=T)
-corila_mehg3<-read.table('corila_mehg_perTaylorD.txt', header=T)
+mehgsedA2<-read.table('sedMehg_perTaylorD.txt')
+mehgsedB2<-read.table('sedMehg2_perTaylorD.txt')
+mehgsedC2<-read.table('sedMehg3_perTaylorD.txt')
+PW_hg2<-read.table('PW_hg_perTaylorD.txt', header=T)
+PW_mehg2<-read.table('PW_mehg_perTaylorD.txt', header=T)
+corila_hg2<-read.table('corila_hg_perTaylorD.txt', header=T)
+corila_mehg2<-read.table('corila_mehg_perTaylorD.txt', header=T)
 
-SPM3<-read.table('SPM_perTaylorD.txt', header=T)
-POM3<-read.table('POM_perTaylorD.txt', header=T)
-SPM13 <- SPM3[complete.cases(SPM3), ]
-POM13 <- POM3[complete.cases(POM3), ]
-
-hgw3_err<-e1(hgw3$datiw, hgw3$modew)
-hgsedA3_err<-e1(hgsedA3$layerA,hgsedA3$layerA_mod)
-hgsedB3_err<-e1(hgsedB3$layerB,hgsedB3$layerB_mod)
-hgsedC3_err<-e1(hgsedC3$layerC,hgsedC3$layerC_mod)
-
-PW_mehg3_err<-e1(PW_mehg3$dd_mehg , PW_mehg3$mm_mehg)
-pw3_err<-e1(PW_hg3$dd,PW_hg3$mm)
-mehgsedA3_err<-e1(mehgsedA3$datsurfmehg,mehgsedA3$modsurfmehg)
-mehgsedB3_err<-e1(mehgsedB3$layerB_mehg,mehgsedB3$modlayerB_mehg)
-mehgsedC3_err<-e1(mehgsedC3$layerC_mehg,mehgsedC3$modlayerC_mehg)
-
-corila_hg3_err<-e1(corila_hg3$hgD_dat, corila_hg3$hgD_mod)
-corila_mehg3_err<-e1(corila_mehg3$mehgD_dat, corila_mehg3$mehgD_mod)
-SPM3_err<-e1(SPM13$dd_SPM,SPM13$mm_SPM)
-POM3_err<-e1(POM13$dd_POM,POM13$mm_POM)
-
-
-hwc3          <-cor(hgw3$datiw, hgw3$modew)
-hgsedA3c      <-cor(hgsedA3$layerA, hgsedA3$layerA_mod)
-hgsedB3c      <-cor(hgsedB3$layerB, hgsedB3$layerB_mod)
-hgsedC3c      <-cor(hgsedC3$layerC,hgsedC3$layerC_mod)
-PW_mehg3_c    <-cor(PW_mehg3$dd_mehg, PW_mehg3$mm_mehg)
-pw3_c         <-cor(PW_hg3$dd,PW_hg3$mm)
-mehgsedA3_c   <-cor(mehgsedA3$datsurfmehg,mehgsedA3$modsurfmehg)
-corila_hg3_c  <-cor(corila_hg3$hgD_dat, corila_hg3$hgD_mod)
-corila_mehg3_c<-cor(corila_mehg3$mehgD_dat, corila_mehg3$mehgD_mod)
-SPM3_c        <-cor(SPM13$dd_SPM,SPM13$mm_SPM)
-POM3_c        <-cor(POM13$dd_POM,POM13$mm_POM)
-mehgsedB3_c   <-cor(mehgsedB3$layerB_mehg,mehgsedB3$modlayerB_mehg)
-mehgsedC3_c   <-cor(mehgsedC3$layerC_mehg,mehgsedC3$modlayerC_mehg)
-
-
+SPM2<-read.table('SPM_perTaylorD.txt', header=T)
+POM2<-read.table('POM_perTaylorD.txt', header=T)
+SPM12 <- SPM2[complete.cases(SPM2), ]
+POM12 <- POM2[complete.cases(POM2), ]
 
 e1 <- function (obs, pred) {(1-
                                sum(abs(obs-pred)) / sum(abs(obs-mean(obs)))) 
@@ -161,68 +108,66 @@ POM2_c        <-cor(POM12$dd_POM,POM12$mm_POM)
 mehgsedB2_c   <-cor(mehgsedB2$layerB_mehg,mehgsedB2$modlayerB_mehg)
 mehgsedC2_c   <-cor(mehgsedC2$layerC_mehg,mehgsedC2$modlayerC_mehg)
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
 
-
-png('Accuracy_and_correlation4.png', height =21 , width = 21, units='cm',res=300)
+#png('Accuracy_and_correlation46_buonaf_buonaM.png', height =21 , width = 21, units='cm',res=300)
 par(mar=c(4.3,4.3,1,1), bty='n', mfrow=c(1,1))
 
-plot(hgsedAc,hgsedA_err, xlim=c(-1,1), ylim=c(-1,1), 
+plot(hgsedAc,hgsedA_err, xlim=c(-1,1), ylim=c(-1.5,1), 
      col='black', bg='#D5A22788', lwd=2, pch=2, cex=2, ylab='Coefficient of Efficiency (E1)', xlab='Pearson s Correlation (r)')
 abline(v=0,col='grey60',lty=3)
 abline(h=0,col='grey60',lty=3)
 par(new=T)
-plot(hgsedBc,hgsedB_err, xlim=c(-1,1), ylim=c(-1,1), col='black',bg='#FF8C0088', lwd=2, pch=3, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(hgsedBc,hgsedB_err, xlim=c(-1,1), ylim=c(-1.5,1), col='black',bg='#FF8C0088', lwd=2, pch=3, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(hgsedCc,hgsedC_err, xlim=c(-1,1), ylim=c(-1,1), col='black',  lwd=2, pch=22, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(hgsedCc,hgsedC_err, xlim=c(-1,1), ylim=c(-1.5,1), col='black',  lwd=2, pch=22, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(mehgsedA_c,mehgsedA_err, xlim=c(-1,1), ylim=c(-1,1), col=1,bg='#993f6c88', lwd=2, pch=6, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(mehgsedA_c,mehgsedA_err, xlim=c(-1,1), ylim=c(-1.5,1), col=1,bg='#993f6c88', lwd=2, pch=6, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(mehgsedB_c,mehgsedB_err, xlim=c(-1,1), ylim=c(-1,1), col=1, lwd=2, pch=4, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(mehgsedB_c,mehgsedB_err, xlim=c(-1,1), ylim=c(-1.5,1), col=1, lwd=2, pch=4, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(mehgsedC_c,mehgsedC_err, xlim=c(-1,1), ylim=c(-1,1), col=1,  lwd=2, pch=14, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(mehgsedC_c,mehgsedC_err, xlim=c(-1,1), ylim=c(-1.5,1), col=1,  lwd=2, pch=14, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(pw_c,pw_err, xlim=c(-1,1), ylim=c(-1,1), col=1, lwd=2, pch=23, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(pw_c,pw_err, xlim=c(-1,1), ylim=c(-1.5,1), col=1, lwd=2, pch=23, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(pw_mehg_c,pw_mehg_err, xlim=c(-1,1), ylim=c(-1,1), col=1,bg='#cc549088', lwd=2, pch=9, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(pw_mehg_c,pw_mehg_err, xlim=c(-1,1), ylim=c(-1.5,1), col=1,bg='#cc549088', lwd=2, pch=9, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(hwc,hgw_err, xlim=c(-1,1), ylim=c(-1,1), col='black',bg='#4040ff88', lwd=2, pch=1, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(hwc,hgw_err, xlim=c(-1,1), ylim=c(-1.5,1), col='black',bg='#4040ff88', lwd=2, pch=1, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(corila_hg_c,corila_hg_err, xlim=c(-1,1), ylim=c(-1,1), col=1,bg='#00666688', lwd=2, pch=8, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(corila_hg_c,corila_hg_err, xlim=c(-1,1), ylim=c(-1.5,1), col=1,bg='#00666688', lwd=2, pch=8, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(corila_mehg_c,corila_mehg_err, xlim=c(-1,1), ylim=c(-1,1), col=1,bg='#00cccc88', lwd=2, pch=13, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(corila_mehg_c,corila_mehg_err, xlim=c(-1,1), ylim=c(-1.5,1), col=1,bg='#00cccc88', lwd=2, pch=13, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(SPM_c,SPM_err, xlim=c(-1,1), ylim=c(-1,1), col=1,bg='#00cccc88', lwd=2, pch=16, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(SPM_c,SPM_err, xlim=c(-1,1), ylim=c(-1.5,1), col=1,bg='#00cccc88', lwd=2, pch=16, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(POM_c,POM_err, xlim=c(-1,1), ylim=c(-1,1), col=1,bg='#00cccc88', lwd=2, pch=18, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(POM_c,POM_err, xlim=c(-1,1), ylim=c(-1.5,1), col=1,bg='#00cccc88', lwd=2, pch=18, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 
 par(new=T)
-plot(hgsedA2c,hgsedA2_err, xlim=c(-1,1), ylim=c(-1,1), 
+plot(hgsedA2c,hgsedA2_err, xlim=c(-1,1), ylim=c(-1.5,1), 
      col=2, bg='#D5A22788', lwd=2, pch=2, cex=2, ylab='Coefficient of Efficiency (E1)', xlab='Pearson s Correlation (r)')
 par(new=T)
-plot(hgsedB2c,hgsedB2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,bg='#FF8C0088', lwd=2, pch=3, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(hgsedB2c,hgsedB2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,bg='#FF8C0088', lwd=2, pch=3, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(hgsedC2c,hgsedC2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,  lwd=2, pch=22, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(hgsedC2c,hgsedC2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,  lwd=2, pch=22, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(mehgsedA2_c,mehgsedA2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,bg='#993f6c88', lwd=2, pch=6, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(mehgsedA2_c,mehgsedA2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,bg='#993f6c88', lwd=2, pch=6, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(mehgsedB2_c,mehgsedB2_err, xlim=c(-1,1), ylim=c(-1,1), col=2, lwd=2, pch=4, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(mehgsedB2_c,mehgsedB2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2, lwd=2, pch=4, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(mehgsedC2_c,mehgsedC2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,  lwd=2, pch=14, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(mehgsedC2_c,mehgsedC2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,  lwd=2, pch=14, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(pw2_c,pw2_err, xlim=c(-1,1), ylim=c(-1,1), col=2, lwd=2, pch=23, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(pw2_c,pw2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2, lwd=2, pch=23, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(PW_mehg2_c,PW_mehg2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,bg='#cc549088', lwd=2, pch=9, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(PW_mehg2_c,PW_mehg2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,bg='#cc549088', lwd=2, pch=9, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(hwc2,hgw2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,bg='#4040ff88', lwd=2, pch=1, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(hwc2,hgw2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,bg='#4040ff88', lwd=2, pch=1, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(corila_hg2_c,corila_hg2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,bg='#00666688', lwd=2, pch=8, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(corila_hg2_c,corila_hg2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,bg='#00666688', lwd=2, pch=8, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(corila_mehg2_c,corila_mehg2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,bg='#00cccc88', lwd=2, pch=13, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(corila_mehg2_c,corila_mehg2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,bg='#00cccc88', lwd=2, pch=13, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(SPM2_c,SPM2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,bg='#00cccc88', lwd=2, pch=16, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(SPM2_c,SPM2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,bg='#00cccc88', lwd=2, pch=16, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 par(new=T)
-plot(POM2_c,POM2_err, xlim=c(-1,1), ylim=c(-1,1), col=2,bg='#00cccc88', lwd=2, pch=18, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
+plot(POM2_c,POM2_err, xlim=c(-1,1), ylim=c(-1.5,1), col=2,bg='#00cccc88', lwd=2, pch=18, cex=2, ylab='', xlab='', xaxt='n', yaxt='n')
 
 legend(-1.05,1, pch=c(2,3,22,6,4,14,23,9,1,8,13,16,18), legend=c('sediment Hg - layer A',
                                                                  'sediment Hg - layer B','sediment Hg - layer C','sediment MeHg - layer A', 
@@ -231,6 +176,6 @@ legend(-1.05,1, pch=c(2,3,22,6,4,14,23,9,1,8,13,16,18), legend=c('sediment Hg - 
 #legend(0.2,-.5, pch=c(), 
 ##    legend=c(,
 #    cex=1, bty='n')
-dev.off()
+#dev.off()
 
 

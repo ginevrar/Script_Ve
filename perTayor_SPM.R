@@ -1,9 +1,6 @@
-etwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid8')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid20')  #oksolid7
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41l')  #oksolid7
 #setwd('C:/Users/Acer/Desktop/fin92bold/oksolid6')
-setwd('C:/Users/Acer/Desktop/baba/buona/mr')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(tots)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -34,7 +31,7 @@ rdate<-as.Date(tots1$TEMPO, tz= "GMT", format="%Y")
 rdate1<-rdate[1226:1309]
 rdate2<-rdate[1220:1320]
 
-b1_y4<-filter(box1, box1$ANNO ==2002)
+b1_y1<-filter(box1, box1$ANNO ==2002)
 b1_y2<-filter(box1, box1$ANNO ==2003)
 b1_y3<-filter(box1, box1$ANNO ==2004)
 b1_y4<-filter(box1, box1$ANNO ==2005)
@@ -219,7 +216,7 @@ mont_mean_b7_y4<-c(mean(b7_y4$TSS[b7_y4$MESE == 1]),mean(b7_y4$TSS[b7_y4$MESE ==
                    mean(b7_y4$TSS[b7_y4$MESE == 9]),mean(b7_y4$TSS[b7_y4$MESE == 10]),
                    mean(b7_y4$TSS[b7_y4$MESE == 11]),mean(b7_y4$TSS[b7_y4$MESE == 12]))
 
-mont_mean_b8_y1<-c(mean(b8_y1$TSS[b1_y1$MESE == 1]),mean(b8_y1$TSS[b8_y1$MESE == 2]),mean(b8_y1$TSS[b8_y1$MESE == 3]),mean(b8_y1$TSS[b8_y1$MESE == 4]),
+mont_mean_b8_y1<-c(mean(b8_y1$TSS[b8_y1$MESE == 1]),mean(b8_y1$TSS[b8_y1$MESE == 2]),mean(b8_y1$TSS[b8_y1$MESE == 3]),mean(b8_y1$TSS[b8_y1$MESE == 4]),
                    mean(b8_y1$TSS[b8_y1$MESE == 5]),mean(b8_y1$TSS[b8_y1$MESE == 6]),mean(b8_y1$TSS[b8_y1$MESE == 7]),mean(b8_y1$TSS[b8_y1$MESE == 8]),
                    mean(b8_y1$TSS[b8_y1$MESE == 9]),mean(b8_y1$TSS[b8_y1$MESE == 10]),
                    mean(b8_y1$TSS[b8_y1$MESE == 11]),mean(b8_y1$TSS[b8_y1$MESE == 12]))

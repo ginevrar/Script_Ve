@@ -34,9 +34,7 @@ mehgsedA_c <-cor(mehgsedA$datsurfmehg,mehgsedA$modsurfmehg)
 corila_hg_c<-cor(corila_hg$hgD_dat, corila_hg$hgD_mod)
 corila_mehg_c<-cor(corila_mehg$mehgD_dat, corila_mehg$mehgD_mod)
 
-
-
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/e')
 
 hgw2<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA2<-read.table('surf_sedhg_taylor.txt', header=T)

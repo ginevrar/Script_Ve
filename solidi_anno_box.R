@@ -1,8 +1,6 @@
-setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41m')
-
 setwd('C:/Users/Acer/Desktop/baba/buona')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(tots)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -38,8 +36,8 @@ b2_y1<-filter(box2, box2$ANNO ==2002)
 b2_y2<-filter(box2, box2$ANNO ==2003)
 b2_y3<-filter(box2, box2$ANNO ==2004)
 b2_y4<-filter(box2, box2$ANNO ==2005)
-                     #.NO dati per 2008 (nessun box)
-                    # box 1,2,3,4,5,6,7,8, 9, 10 no dati 2006 -2007
+                                          #.NO dati per 2008 (nessun box)
+                                          # box 1,2,3,4,5,6,7,8, 9, 10 no dati 2006 -2007
 b3_y1<-filter(box3, box3$ANNO ==2002)
 b3_y2<-filter(box3, box3$ANNO ==2003)
 b3_y3<-filter(box3, box3$ANNO ==2004)

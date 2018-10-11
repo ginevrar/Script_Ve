@@ -1,6 +1,7 @@
 setwd('C:/Users/gi/Dropbox/fin87')
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41f')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
 
 hgt<-read.csv('Total_Hg.csv', skip=1)
 names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -21,7 +22,7 @@ names(mehgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws
               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 hg= hgt-hgp-mehgp
-
+rdate[1227:1238] 
 n1<-hg$wn1[1227:1238]       # 2002
 n2<-hg$wn1[1239:1250]  #2003
 n3<-hg$wn1[1251:1262]  # 2004
@@ -29,8 +30,6 @@ n4<-hg$wn1[1263:1274]    # 2005
 n5<-hg$wn1[1275:1286]   # 2006
 n6<-hg$wn1[1287:1298]   # 2007 
 n7<-hg$wn1[1299:1310]   #2008
-
-
 
 
 ai1<-silts$wn1[1227:1238]       # 2002

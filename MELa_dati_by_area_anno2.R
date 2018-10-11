@@ -1,5 +1,6 @@
 setwd('C:/Users/Acer/Desktop/baba/buona')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -188,7 +189,6 @@ par(new=T)
 plot(rdate[1299:1310],hg$wc6[1299:1310], type='l',ylab='', main=' ', col='royalblue', ylim=c(0,50), yaxt='n')
 par(new=T)
 plot(jitter(bcnord_y6$Mese), bcnord_y6$Hg1, pch=19, col='#e6c3d177',xlab='', ylab='',xaxt='n', ylim=c(0,50), yaxt='n')
-
 
 
 ####----------------Hg water centro sud -----------------------------------------------

@@ -1,8 +1,5 @@
-setwd('C:/Users/gi/Dropbox/fin23')
-setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
-setwd('C:/Users/Acer/Desktop/baba/buona/met')
-setwd('C:/Users/Acer/Desktop/baba/fin87')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
 
 1900-2101
 2426/12
