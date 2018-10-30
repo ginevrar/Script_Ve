@@ -3,8 +3,7 @@ setwd('C:\\Users\\gi\\Downloads')
 setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM99')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -114,6 +113,8 @@ par(new=T)
 plot(b3_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#DDF26B',   type='b', pch=25)
 
+
+
 #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
 mtext(side=3, text='box 3', font=2, cex=1.4, line=.5)
 #plot(box2,y,
@@ -206,3 +207,5 @@ write.table(sedMehg3, file='sedMehg3_perTaylorD.txt')
 getwd()
 
 cor.test(datsurfmehg,modsurfmehg)
+
+#________________________________ Fine plot Sediment mehg vs time ________________________________

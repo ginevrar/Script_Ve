@@ -5,8 +5,7 @@ str(corila)
 tmp <- as.Date(corila$data,format="%Y-%m-%d")
 tmp2<-format(tmp, "%d-%m-%Y")
   
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM99')
 
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
   names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -104,37 +103,45 @@ write.table(corila_hg, file = 'Corila_hg_perTaylorD.txt')
 write.table(corila_mehg, file = 'Corila_mehg_perTaylorD.txt')
 
 png('disss_hg_mehg_COrila2mwet.png')
-  par(mfrow=c(1,2), mgp=c(2,1,0))
-  plot(tmp,corila$HgII,ylim=c(0,8),pch='-',xaxt='n',type='p',cex=2,xlab='',
-       ylab=expression(paste('ng l'^-1)),
-       xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
-  segments(tmp[1],corila$HgII[1],tmp[1],corila$HgII[7])
-  segments(tmp[2],corila$HgII[2],tmp[2],corila$HgII[8])
-  segments(tmp[3],corila$HgII[3],tmp[3],corila$HgII[9])
-  segments(tmp[4],corila$HgII[4],tmp[4],corila$HgII[10])
-  segments(tmp[5],corila$HgII[5],tmp[5],corila$HgII[11])
-  segments(tmp[6],corila$HgII[6],tmp[6],corila$HgII[12])
-  par(new=T)
-  plot(rdate[1313:1324],(disshg$wc6[1313:1324]), ylim=c(0,8), xaxt='n',xlab='',ylab='',
-       xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
+par(mfrow=c(1,2), mgp=c(2,1,0))
+plot(tmp,corila$HgII,ylim=c(0,28),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     ylab=expression(paste('ng l'^-1)),
+     xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
+segments(tmp[1],corila$HgII[1],tmp[1],corila$HgII[7])
+segments(tmp[2],corila$HgII[2],tmp[2],corila$HgII[8])
+segments(tmp[3],corila$HgII[3],tmp[3],corila$HgII[9])
+segments(tmp[4],corila$HgII[4],tmp[4],corila$HgII[10])
+segments(tmp[5],corila$HgII[5],tmp[5],corila$HgII[11])
+segments(tmp[6],corila$HgII[6],tmp[6],corila$HgII[12])
+par(new=T)
+plot(rdate[1313:1324],(disshg$wc6[1313:1324]), ylim=c(0,28), xaxt='n',xlab='',ylab='',
+     xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
   #par(new=T)
   #plot(rdate[1313:(1325)],hg0$wc6[1313:(1325)],xaxt='n',type='l',
    #    xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
-  axis(side=1, at=rdate[1313:1324],'%d/%m/%Y', labels=rdate[1313:1324])
+axis(side=1, at=rdate[1313:1324],'%d/%m/%Y', labels=rdate[1313:1324])
   
-  plot(tmp,corila$MeHg,ylim=c(0,.3),pch='-',xaxt='n',type='p',cex=2,xlab='',
-       ylab=expression(paste('ng l'^-1)),
-       xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
-  segments(tmp[1],corila$MeHg[1],tmp[1],corila$MeHg[7])
-  segments(tmp[2],corila$MeHg[2],tmp[2],corila$MeHg[8])
-  segments(tmp[3],corila$MeHg[3],tmp[3],corila$MeHg[9])
-  segments(tmp[4],corila$MeHg[4],tmp[4],corila$MeHg[10])
-  segments(tmp[5],corila$MeHg[5],tmp[5],corila$MeHg[11])
-  segments(tmp[6],corila$MeHg[6],tmp[6],corila$MeHg[12])
-  par(new=T)
-  plot(rdate[1313:(1325)],dissmehg$wc6[1313:(1325)],  ylim=c(0,.3),xaxt='n',xlab='',ylab='',
-       xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
-  axis(side=1, at=rdate[1313:(1325)],'%d/%m/%Y', labels=rdate[1313:(1325)])
-  dev.off()
+plot(tmp,corila$MeHg,ylim=c(0,.3),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     ylab=expression(paste('ng l'^-1)),
+     xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
+segments(tmp[1],corila$MeHg[1],tmp[1],corila$MeHg[7])
+segments(tmp[2],corila$MeHg[2],tmp[2],corila$MeHg[8])
+segments(tmp[3],corila$MeHg[3],tmp[3],corila$MeHg[9])
+segments(tmp[4],corila$MeHg[4],tmp[4],corila$MeHg[10])
+segments(tmp[5],corila$MeHg[5],tmp[5],corila$MeHg[11])
+segments(tmp[6],corila$MeHg[6],tmp[6],corila$MeHg[12])
+par(new=T)
+plot(rdate[1313:(1325)],dissmehg$wc6[1313:(1325)],  ylim=c(0,.3),xaxt='n',xlab='',ylab='',
+     xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
+axis(side=1, at=rdate[1313:(1325)],'%d/%m/%Y', labels=rdate[1313:(1325)])
+dev.off()
   
 plot(mehgD_dat, mehgD_mod)
+
+#
+#
+#
+#######_____________________________ Fine plot Corila hgD ________________________________
+#
+#
+#

@@ -525,3 +525,5 @@ segments(xx-epsilon,box10_max_POM,xx+epsilon,box10_max_POM, col='#a50028', lwd=1
 
 dev.off()
 
+#________________________________ Sistemati dati SPM e POM ________________________________
+

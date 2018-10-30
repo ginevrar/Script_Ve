@@ -1,6 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/met')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM99')
 
 hgt<-read.csv('Total_Hg.csv', skip=1)
 names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -22,6 +20,9 @@ names(mehgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws
 
 hg= hgt-hgp-mehgp
 
+
+
+plot(hgt$wn1)
 
 rdate1<-rdate[1226:1237]
 rdate1<-rdate[1226:1309]

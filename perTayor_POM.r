@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM26')
 
 POM<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(POM)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -7,7 +7,7 @@ names(POM)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10
               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 #ACQUE modeled da 2001 a 2010  [1230:735] --> [1215:1250]  [1239:1332]
-
+library(dplyr)
 b1_y1<-filter(box1, box1$ANNO ==2002)
 b1_y2<-filter(box1, box1$ANNO ==2003)
 b1_y3<-filter(box1, box1$ANNO ==2004)
@@ -283,3 +283,5 @@ str(dd_POM)
 pom_dm<-cbind(dd_POM,mm_POM)
 
 write.table(pom_dm, file='POM_perTaylorD.txt')
+
+#________________________________ Fine POM corr ________________________________

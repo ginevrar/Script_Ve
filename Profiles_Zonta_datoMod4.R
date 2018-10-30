@@ -4,8 +4,7 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #dati<-read.table('QSEV_data.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM99')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -261,7 +260,7 @@ bb8<-data.frame(box8_A_hg,box8_B_hg,box8_C_hg,box8_D_hg, box8_D_hg)
 bb9<-data.frame(box9_A_hg,box9_B_hg,box9_C_hg,box9_D_hg, box9_D_hg)
 bb10<-data.frame(box10_A_hg,box10_B_hg,box10_C_hg,box10_D_hg, box10_D_hg)
 
-png('profile_ZONTA_datoModeo_BUONA___q2_.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_ZONTA_datoModeo_BUONA___q2__.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
@@ -392,3 +391,5 @@ mtext(side=3, text='box 10', font=2, cex=1.4, line=.5)
 
 dev.off()
 getwd()
+
+#________________________________ Fine plot profiles Sediment hg ________________________________

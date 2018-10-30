@@ -1,5 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM99')
 
 1900-2101
 2426/12
@@ -109,7 +108,7 @@ media6<-rowMeans(f); media7<-rowMeans(g); media8<-rowMeans(h); media9<-rowMeans(
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin92b_oks_buonab.png',
+png('Time_hg_sediment_fin92b_oks_buona48t.png',
     width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,1,1,1), 
@@ -392,4 +391,4 @@ dev.off()
 head(rdate[2: 1920])
 tail(rdate[2: 1920])
 
-#???
+#________________________________ Fine plot Sediment hg vs time ________________________________

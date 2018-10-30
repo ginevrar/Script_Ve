@@ -1,6 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM81')
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(tots)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -479,3 +477,4 @@ plot(jitter(b10_y4$MESE), b10_y4$POM, pch=19, col='#c4d1c677',xlab='', ylab='',x
 
 dev.off()
 
+#________________________________ Fine plot solidi anno x anno ________________________________

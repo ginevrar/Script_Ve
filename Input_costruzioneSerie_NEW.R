@@ -54,7 +54,7 @@ indus<-data.frame(anno[1:201],ind)
  t_cum<-cumsum(tt)/1000
 
  tott<-data.frame(anno,de,ri,ci,ind, tt, t_cum)
- 
+ t_cum[106]
  plot(anno,de, type='l') 
  plot(anno,ri, type='l') 
  plot(anno,ci, type='l') 

@@ -1,12 +1,28 @@
-setwd('C:/Users/Acer/Desktop/baba/buona')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/f/h')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM99')
 
-hg<-read.csv('Total_Hg.csv', skip=1)
-names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+hgt<-read.csv('Total_Hg.csv', skip=1)
+names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+hgp<-read.csv('Total_Sorbed_Divalent_Hg.csv', skip=1)
+names(hgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+mehgp<-read.csv('Total_Sorbed_Methyl_Hg.csv', skip=1)
+names(mehgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+hg= hgt-hgp-mehgp
+
+
+
+
 
 time.steps <- hg[,1]
 #time.steps2 <- trunc(time.steps, 0)
@@ -291,4 +307,6 @@ plot(jitter(bsud_y6$Mese), bsud_y6$Hg1, pch=19, col='#e6c3d177',xlab='', ylab=''
 
 dev.off()
 
+
+#________________________________ Fine plot hg water anno per anno ________________________________
 
