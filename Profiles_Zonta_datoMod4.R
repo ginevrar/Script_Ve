@@ -4,8 +4,7 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #dati<-read.table('QSEV_data.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM99')
-
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM156')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
              'la1','la2','la3','la4','la5','la6','la7','la8','la9','la10',

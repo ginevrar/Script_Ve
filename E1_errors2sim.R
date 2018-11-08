@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM96')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM155')
 
 hgw<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA<-read.table('surf_sedhg_taylor.txt', header=T)
@@ -16,10 +16,10 @@ corila_mehg<-read.table('Corila_mehg_perTaylorD.txt', header=T)
 
 SPM<-read.table('SPM_perTaylorD.txt', header=T)
 POM<-read.table('POM_perTaylorD.txt', header=T)
-SPM1 <- SPM[complete.cases(SPM), ]
-POM1 <- POM[complete.cases(POM), ]
+SPM1 <- SPM[complete.cases(SPM),]
+POM1 <- POM[complete.cases(POM),]
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM99')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM156')
  hgw2<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA2<-read.table('surf_sedhg_taylor.txt', header=T)
 hgsedB2<-read.table('subsurf_sedhg_taylor.txt', header=T)
@@ -39,8 +39,7 @@ SPM12 <- SPM2[complete.cases(SPM2), ]
 POM12 <- POM2[complete.cases(POM2), ]
 
 e1 <- function (obs, pred) {(1-
-                               sum(abs(obs-pred)) / sum(abs(obs-mean(obs)))) 
-}
+     sum(abs(obs-pred)) / sum(abs(obs-mean(obs))))}
 
 hgw_err<-e1(hgw$datiw, hgw$modew)
 hgsedA_err<-e1(hgsedA$layerA,hgsedA$layerA_mod)
@@ -169,7 +168,6 @@ legend(-1.05,1, cex=0.7,pch=c(2,3,22,6,4,14,23,9,1,8,13,16,18), legend=c('sedime
                                                                  'sediment Hg - layer B','sediment Hg - layer C','sediment MeHg - layer A', 
                                                                  'sediment MeHg - layer B', 'sediment MeHg - layer C', 'pore-water Hg - layers A, B, C',  
                                                                  'pore-water MeHg - layers A, B, C','water HgT','water HgD','water MeHgD', 'water SPM','water POM'), bty='n')
-#legend(0.2,-.5, pch=c(), 
-##    legend=c(,
+#legend(0.2,-.5, pch=c(),  legend=c(,
 #    cex=1, bty='n')
 #dev.off()

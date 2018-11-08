@@ -6,7 +6,7 @@
 ##92.4% of re-suspension (1.13 10^12 g year?1) 
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM99')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM152')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -462,7 +462,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dsn1[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$osn1[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$osn1[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc1[480:1440],col=c('#313695','grey60','black'),
        type='p', lwd=2, cex=2, 
@@ -472,7 +472,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dsn2[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$osn2[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$osn2[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc2[480:1440],col=c('#4575b4','grey60','black'),
        type='p', lwd=2, cex=2, 
@@ -482,7 +482,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dsn4[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$osn4[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$osn4[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc4[480:1440],col=c('#abd9e9','grey60','black'),
        type='p', lwd=2, cex=2, 
@@ -492,7 +492,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dsn3[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$osn3[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$osn3[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc3[480:1440],col=c('#DDF26B','grey60','black'),
        type='p', lwd=2, cex=2, 
@@ -502,7 +502,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dsn5[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$osn5[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$osn5[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc5[480:1440],col=c('#e5e572','grey60','black'),
        type='p', lwd=2, cex=2, 
@@ -512,7 +512,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dsc6[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$osc6[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$osc6[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc6[480:1440],col=c('#fed976','grey60','black'),
        type='p', lwd=2, cex=2, 
@@ -522,7 +522,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dsc7[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$osc7[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$osc7[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc7[480:1440],col=c('#f79220','grey60','black'),
        type='p', lwd=2, cex=2, 
@@ -532,7 +532,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dss8[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$oss8[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$oss8[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc8[480:1440],col=c('#f46d43','grey60','black'),
        type='p', lwd=2, cex=2, 
@@ -542,7 +542,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dss9[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$oss9[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$oss9[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc9[480:1440],col=c('#d73027','grey60','black'),
        type='p', lwd=2, cex=2, 
@@ -552,7 +552,7 @@ dev.off()
   par(new=T)
   plot(rdate[480:1440],POC_perc$dss10[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
   par(new=T)
-  plot(rdate[480:1440],POC_perc$oss10[480:1440],col='black',type='l', lwd=2, lty=2,ylim=c(0,10))
+  plot(rdate[480:1440],POC_perc$oss10[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
   par(new=T)
   plot(rdate[480:1440],poc10[480:1440],col=c('#a50028','grey60','black'),
        type='p', lwd=2, cex=2, 

@@ -346,7 +346,7 @@ par(new=T)
 plot(ladata,tot_riv, type='l',col='royalblue',ylab='',xlab='',  yaxt='n',xaxt='n',ylim=c(0,1500))
 legend(4900, 1500, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
        legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
-
+text(ladata[30],1500,'A', cex=2.5)
 
 #plot(ladata,TOT/TOT*100, type='l', ylim=c(0,100), xlab='',ylab='kg y-1', 
 #     )
@@ -364,26 +364,30 @@ plot(ladata,tot_riv/TOT*100, type='l',col='royalblue',ylab='',xlab='',
      yaxt='n',xaxt='n',ylim=c(0,100))
 #legend(4900, 100, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
  #      legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
+text(ladata[30],100,'B', cex=2.5)
 
 r<-c(1,2,15,25) #observational range for atmospheric deposition rate
-
-boxplot(r, ylim=c(1,26), col='grey80', ylab='', xlab='', 
-        boxwex=1.2, main='Atmospheric deposition rate')
-text(1,18,'range for marine surfaces \n from global models \n ensamble (UNEP, 2013)', cex=1.2)
-par(new=T)
-plot(ladata,dep_g_km2_y, type='l', ylim=c(1,26),lwd=2, col='cyan3', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-text(18,5,'input for \n the Venice lagoon', cex=1.2)
-
-#text(93,16, '', cex=1.2)
-#text(103,14,'', cex=1.2)
 
 
 plot(ladata,tot_riv/20.947747, type='l', col='#4169E1',
      main='River load \n enrichment factor relative to 2008', ylab='EF',ylim=c(0,15)) 
+text(ladata[30],15,'C', cex=2.5)
 par(new=T)
 boxplot(ef_1970,ef_1980,ef_1990,ef_2000,  ylim=c(0,15),xaxt='n',col='grey80',
         at=c(71,81,91,102), xlim=c(1,201), boxwex=3.5,
         range = T, outline=T)
+
+
+boxplot(r, ylim=c(1,26), col='grey80', ylab='', xlab='', 
+        boxwex=1.2, main='Atmospheric deposition rate')
+text(1,18,'range for marine areas \n from global models \n ensemble (UNEP, 2013)', cex=1.2)
+par(new=T)
+plot(ladata,dep_g_km2_y, type='l', ylim=c(1,26),lwd=2, col='cyan3', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+text(18,5,'input for \n the Venice lagoon', cex=1.2)
+text(ladata[30],26,'D', cex=2.5)
+
+#text(93,16, '', cex=1.2)
+#text(103,14,'', cex=1.2)
 dev.off()
 
 write.table(all_input,file='all_input_hgII.txt')

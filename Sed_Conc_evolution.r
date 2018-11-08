@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM85')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM153')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -61,7 +61,7 @@ str(rdate)
 
 POM_perc<-POMs/TOTs*100
 
-png('solids_sed_PERC_eeeeeEEt4.png',width = 21, height = 29,
+png('solids_sed_PERC_eeeeeEEtbis.png',width = 21, height = 29,
     units = "cm", res=400)
 
 par(mfrow=c(10,3),mar=c(1,1,1,1),
@@ -271,7 +271,7 @@ plot(rdate,TOTs$oss10/TOTs$oss10,col='black',type='l', lwd=2, lty=1,ylim=c(0,1))
 dev.off()
 
 
-png('solids_sed_conc_fin92b__oks6_eeeeeet4.png',width = 21, height = 29,
+png('solids_sed_conc_fin92b__oks6_eeeeeet4bis.png',width = 21, height = 29,
     units = "cm", res=400)
 par(mfrow=c(10,3),mar=c(1,1,1,1),
     oma=c(2.3,5.3,1.5,0), bty='n')
