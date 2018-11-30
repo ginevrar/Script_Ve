@@ -31,33 +31,33 @@ dep_g_km2_y<-de/area_km2*100
 
 ##  Function that creates a vector of 100 elements decreasing by 1.5% at each step -
 #   this is for river load, based on analogy with atm. depo
-#   river load in Venice for 1999 is ~24 kg y-1 (Collavini et al., 2005)
+#   river load in Venice for 2001 is ~13 kg y-1 (Bloom et al., 2004)
 
-m=rep(NA,101)   # preallocate
-m[1]=24
-for(i in 2:101){
+m=rep(NA,99)   # preallocate
+m[1]=13.2
+for(i in 2:99){
   m[i] = m[i-1]-((m[i-1]*1.5)/100)
 }
 
-y<-seq(1999,2100,length.out = 101)
-
+y<-seq(2001,2100,length.out = 99)
 data.frame(y,m)
 
 # 6.7 kg y-1 is calculated form background concentrations and SPM load
 
-ri<-c(rep(6.7,40), seq(7,30,length.out = 10), seq(31,200, length.out = 20),
-      seq(200,180,-5),seq(160,50, length.out = 15), 
-      seq(46.0,24, length.out = 10), m)
+ri<-c(rep(6.7,40), seq(7,30,length.out = 10), seq(31,140, length.out = 20),
+      seq(140,110,-5),seq(100,30, length.out = 15), 
+      seq(40,14, length.out = 12), m)
 riv<-data.frame(years[1:201],ri)
 
 
 ri2<-c(rep(6.7,40), seq(7,30,length.out = 10), seq(31,200, length.out = 20), seq(200,160,length.out =5),
        seq(150,50, length.out = 15), seq(46.0,24, length.out = 10), m)
 
-plot(ri, type='l')
+plot(years,ri, type='l')
 par(new=T)
 plot(ri, type='l', col=2, lty=2)
 
+riv[71,]
 riv[90,]
 riv[101,]
 riv[102,]
@@ -91,29 +91,20 @@ cit<-data.frame(years[1:201],ci)
 str(cit)
 
 #ind<-c(rep(0,20), seq(21,60,length.out = 20), seq(60,200,length.out = 10),rep(600, 10), seq(500,300,length.out = 30),
-  #     seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
+#     seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
 
 ind<-c(rep(0,20), seq(21,60,length.out = 20), seq(63,200,length.out = 10),
-        seq(220,800,length.out = 10), seq(860,1000,length.out = 10),seq(1000,650,length.out = 10),
-        seq(640,100,length.out = 10), seq(95,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
-ind2<-ind*1.085
-
-indus<-data.frame(years[1:201],ind2)
-
-ind_mehg<-ind2*1/100
-
-indus_mehg<-data.frame(years[1:201],ind_mehg)
-
-ind3<-ind2+ind_mehg
+       seq(220,800,length.out = 10), seq(860,1000,length.out = 10),seq(1000,650,length.out = 10),
+       seq(640,100,length.out = 10), seq(95,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
+indus<-data.frame(years[1:201],ind)
 
 plot(years, ind, type='l')
 abline(h=36)
-tt<- de+ri+ci+ind3
+tt<- de+ri+ci+ind
 t_cum<-cumsum(tt)/1000
 
-tott<-data.frame(years,de,ri2,ci,ind3, tt, t_cum)
-tott[100,]
-tott[71,]
+tott<-data.frame(years,de,ri2,ci,ind, tt, t_cum)
+tott[106,]
 
 plot(years[1:106],t_cum[1:106])
 plot(years,ri, type='l') 
@@ -159,20 +150,12 @@ cit_mult<-rep(1,12)
 
 if6<-indus %>%
   rowwise() %>%                       # for each row
-  mutate(x = list(ind2 * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
+  mutate(x = list(ind * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
   unnest()                            # unnest data
 yy<-as.numeric(as.character(unlist(if6[1])))
 b6i<-as.numeric(as.character(unlist(if6[3])))
 tot_ind = b6i
 
-
-if6_mehg<-indus_mehg %>%
-  rowwise() %>%                       # for each row
-  mutate(x = list(ind_mehg * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
-  unnest()                            # unnest data
-yy<-as.numeric(as.character(unlist(if6_mehg[1])))
-b6i_mehg<-as.numeric(as.character(unlist(if6_mehg[3])))
-tot_ind_mehg = b6i_mehg
 
 cf3<-cit %>%
   rowwise() %>%                       # for each row
@@ -324,6 +307,7 @@ write.table(monthly_dep,file='monthly_dep.txt')
 write.table(monthly_riv,file='monthly_riv.txt')
 write.table(monthly_cit,file='monthly_city.txt')
 
+
 in1 <-(monthly_dep$b1)/365   # kg / y to kg/d
 in2 <-(monthly_dep$b2 + monthly_riv$b2r)/365
 in3 <-(monthly_dep$b3 + monthly_cit$b3c)/365
@@ -339,12 +323,11 @@ ladata<-seq(as.Date('1900-01-01'),by='months',length=2412)
 ladataOK<-format(ladata, "%m-%d-%Y")
 
 all_input<-data.frame(ladataOK,in1,in2,in3,in4,in5,in6,in7,in8,in9,in10)
+
 monthly_riv_mehg<-data.frame(ladataOK,monthly_riv[2:6]*1.7/(365*100))
-monthly_riv_mehg$b6r<-monthly_riv_mehg$b6r+(b6i_mehg/365)
 
 dep_g_km2_y<-tot_depo/area_km2*100
 
-plot(monthly_riv_mehg$b6r, type='l')
 
 TOT<-tot_city+tot_depo+tot_ind+tot_riv
 
@@ -380,19 +363,20 @@ par(new=T)
 plot(ladata,tot_riv/TOT*100, type='l',col='royalblue',ylab='',xlab='', 
      yaxt='n',xaxt='n',ylim=c(0,100))
 #legend(4900, 100, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
- #      legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
+#      legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
 text(ladata[30],100,'B', cex=2.5)
 
 r<-c(1,2,15,25) #observational range for atmospheric deposition rate
 
 
-plot(ladata,tot_riv/20.947747, type='l', col='#4169E1',
-     main='River load \n enrichment factor relative to 2008', ylab='EF',ylim=c(0,15)) 
-text(ladata[30],15,'C', cex=2.5)
+plot(ladata,tot_riv/14, type='l', col='#4169E1',
+     main='River load \n enrichment factor relative to 2008', ylab='EF',ylim=c(0,20)) 
+text(ladata[30],20,'C', cex=2.5)
 par(new=T)
-boxplot(ef_1970,ef_1980,ef_1990,ef_2000,  ylim=c(0,15),xaxt='n',col='grey80',
+boxplot(ef_1970,ef_1980,ef_1990,ef_2000,  ylim=c(0,20),xaxt='n',col='grey80',
         at=c(71,81,91,102), xlim=c(1,201), boxwex=3.5,
         range = T, outline=T)
+
 
 boxplot(r, ylim=c(1,26), col='grey80', ylab='', xlab='', 
         boxwex=1.2, main='Atmospheric deposition rate')
@@ -402,6 +386,8 @@ plot(ladata,dep_g_km2_y, type='l', ylim=c(1,26),lwd=2, col='cyan3', xlab='year',
 text(18,5,'input for \n the Venice lagoon', cex=1.2)
 text(ladata[30],26,'D', cex=2.5)
 
+#text(93,16, '', cex=1.2)
+#text(103,14,'', cex=1.2)
 dev.off()
 
 write.table(all_input,file='all_input_hgII.txt')

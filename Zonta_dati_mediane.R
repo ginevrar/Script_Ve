@@ -21,6 +21,8 @@ box8_A<-filter(box8,sed_layer=='A'); box8_B<-filter(box8,sed_layer=='B');box8_C<
 box9_A<-filter(box9,sed_layer=='A'); box9_B<-filter(box9,sed_layer=='B');box9_C<-filter(box9,sed_layer=='C');box9_D<-filter(box9,sed_layer=='D');box9_E<-filter(box9,sed_layer=='E')
 box10_A<-filter(box10,sed_layer=='A'); box10_B<-filter(box10,sed_layer=='B');box10_C<-filter(box10,sed_layer=='C');box10_D<-filter(box10,sed_layer=='D');box10_E<-filter(box10,sed_layer=='E')
 
+
+
 box1_A_hg<-select(box1_A,Hg)*1000; box1_B_hg<-select(box1_B,Hg)*1000;box1_C_hg<-select(box1_C,Hg)*1000;box1_D_hg<-select(box1_D,Hg)*1000;box1_E_hg<-select(box1_E,Hg)*1000
 box2_A_hg<-select(box2_A,Hg)*1000; box2_B_hg<-select(box2_B,Hg)*1000;box2_C_hg<-select(box2_C,Hg)*1000;box2_D_hg<-select(box2_D,Hg)*1000;box2_E_hg<-select(box2_E,Hg)*1000
 box3_A_hg<-select(box3_A,Hg)*1000; box3_B_hg<-select(box3_B,Hg)*1000;   box3_C_hg<-select(box3_C,Hg)*1000;box3_D_hg<-select(box3_D,Hg)*1000;box3_E_hg<-select(box3_E,Hg)*1000

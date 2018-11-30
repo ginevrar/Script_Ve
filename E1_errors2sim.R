@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM155')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM164')
 
 hgw<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA<-read.table('surf_sedhg_taylor.txt', header=T)
@@ -19,7 +19,7 @@ POM<-read.table('POM_perTaylorD.txt', header=T)
 SPM1 <- SPM[complete.cases(SPM),]
 POM1 <- POM[complete.cases(POM),]
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM156')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM164e')
  hgw2<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA2<-read.table('surf_sedhg_taylor.txt', header=T)
 hgsedB2<-read.table('subsurf_sedhg_taylor.txt', header=T)
