@@ -1,7 +1,7 @@
 setwd('G:/il mio Drive/MERCURIO/Hg_Literature_observtions')
 hg0d<-read.table('hg0Conc_MEdsea.txt',header=T)      
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM164e')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN7')
 Vol3<-read.csv("Volatilization_Loss_rate.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(Vol3)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                   'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 

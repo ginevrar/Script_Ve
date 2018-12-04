@@ -106,6 +106,8 @@ indus_mehg<-data.frame(years[1:201],ind_mehg)
 
 ind3<-ind2+ind_mehg
 
+ind_mehg/ind3*100
+
 plot(years, ind, type='l')
 abline(h=36)
 tt<- de+ri+ci+ind3

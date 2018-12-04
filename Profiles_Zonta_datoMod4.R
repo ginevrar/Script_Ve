@@ -4,15 +4,23 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #dati<-read.table('QSEV_data.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM164e')
-hg<-read.csv('Total_Hg.csv', skip=1)
-names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
+hgp<-read.csv('Total_Sorbed_Divalent_Hg_Solids.csv', skip=1)
+names(hgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
              'la1','la2','la3','la4','la5','la6','la7','la8','la9','la10',
              'lb1','lb2','lb3','lb4','lb5','lb6','lb7','lb8','lb9','lb10',
              'lc1','lc2','lc3','lc4','lc5','lc6','lc7','lc8','lc9','lc10',
              'ld1','ld2','ld3','ld4','ld5','ld6','ld7','ld8','ld9','ld10')
 
-hg<-hg-hgD-mehgD
+mehgp<-read.csv('Total_Sorbed_Methyl_Hg_Solids.csv', skip=1)
+names(mehgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+             'la1','la2','la3','la4','la5','la6','la7','la8','la9','la10',
+             'lb1','lb2','lb3','lb4','lb5','lb6','lb7','lb8','lb9','lb10',
+             'lc1','lc2','lc3','lc4','lc5','lc6','lc7','lc8','lc9','lc10',
+             'ld1','ld2','ld3','ld4','ld5','ld6','ld7','ld8','ld9','ld10')
+
+
+hg<-hgp+mehgp
 #hgD<-hgdiss+hgDOC; mehgD<-mehgdiss+mehgDOC
 #mehgt<-mehgD+mehgP; hgIIt<-hgD+hgP
 
@@ -259,7 +267,7 @@ bb8<-data.frame(box8_A_hg,box8_B_hg,box8_C_hg,box8_D_hg, box8_D_hg)
 bb9<-data.frame(box9_A_hg,box9_B_hg,box9_C_hg,box9_D_hg, box9_D_hg)
 bb10<-data.frame(box10_A_hg,box10_B_hg,box10_C_hg,box10_D_hg, box10_D_hg)
 
-png('profile_ZONTA_datoModeo_BUONA___q2__.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_ZONTA_datoModeo_BUONA___q23__.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
