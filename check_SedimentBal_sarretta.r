@@ -7,6 +7,7 @@
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
+setwd('C:/Users/Gi/Desktop/NNN43')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -398,29 +399,29 @@ b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
 
 png('DEPO_kgm2y_fin92b__oksMMM9.png',width = 30, height = 20, units = "cm", res=300)
 par(mfrow=c(2,5), bty='n', cex.lab=1.5, cex.axis=1.5)
-plot(rdate, depo1_kg_y/a1, type='l',ylim=c(0,900), ylab='kg m-2 y-1', xlab='',  col='grey70')     # 1989 - 1990: 114 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
-plot(rdate,depo2_kg_y/a2, type='l', ylim=c(0,900), ylab='kg m-2 y-1', xlab='', col='grey70') 
-plot(rdate,depo3_kg_y/a3, type='l', ylim=c(0,900), ylab='kg m-2 y-1', xlab='', col='grey70') 
+plot(rdate, depo1_kg_y/a1, type='l',ylim=c(0,1000), ylab='kg m-2 y-1', xlab='',  col='grey70')     # 1989 - 1990: 114 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
+plot(rdate,depo2_kg_y/a2, type='l', ylim=c(0,1000), ylab='kg m-2 y-1', xlab='', col='grey70') 
+plot(rdate,depo3_kg_y/a3, type='l', ylim=c(0,1000), ylab='kg m-2 y-1', xlab='', col='grey70') 
 
-plot(rdate,depo4_kg_y/a4, type='l',ylim=c(0,900), ylab='kg m-2 y-1', xlab='',  col='grey70') 
-plot(rdate,depo5_kg_y/a5, type='l',ylim=c(0,900), ylab='kg m-2 y-1', xlab='',  col='grey70') 
+plot(rdate,depo4_kg_y/a4, type='l',ylim=c(0,1000), ylab='kg m-2 y-1', xlab='',  col='grey70') 
+plot(rdate,depo5_kg_y/a5, type='l',ylim=c(0,1000), ylab='kg m-2 y-1', xlab='',  col='grey70') 
 par(new=T)
 boxplot(b5_depo_2014, xaxt='n',
         xlim=c(rdate[1],rdate[2428]),at=c(rdate[1380]),
-        boxwex=2200, ylim=c(0,900))
-plot(rdate,depo6_kg_y/a6, ylim=c(0,900), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
+        boxwex=2200, ylim=c(0,1000))
+plot(rdate,depo6_kg_y/a6, ylim=c(0,1000), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
 par(new=T)
 boxplot(b6_depo_1989,b6_depo_1999,b6_depo_2014, xaxt='n',
         xlim=c(rdate[1],rdate[2428]),at=c(rdate[1072],rdate[1197],rdate[1380]),
-        boxwex=2200, ylim=c(0,900))
+        boxwex=2200, ylim=c(0,1000))
 
-plot(rdate,depo7_kg_y/a7, ylim=c(0,900), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
+plot(rdate,depo7_kg_y/a7, ylim=c(0,1000), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
 par(new=T)
 boxplot(b7_depo_1989,b7_depo_1999, xaxt='n', xlim=c(rdate[1],rdate[2428]),at=c(rdate[1072],rdate[1197]),
-        boxwex=2200, ylim=c(0,900))
-plot(rdate,depo8_kg_y/a8, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,900)) 
-plot(rdate,depo9_kg_y/a9, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,900)) 
-plot(rdate,depo10_kg_y/a10, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,900)) 
+        boxwex=2200, ylim=c(0,1000))
+plot(rdate,depo8_kg_y/a8, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1000)) 
+plot(rdate,depo9_kg_y/a9, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1000)) 
+plot(rdate,depo10_kg_y/a10, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1000)) 
 dev.off()
 
   sar_b1<-c(-0.3125, 0.3125)
@@ -438,126 +439,6 @@ dev.off()
   POC_perc<-POM_perc/1.77
   
   plot(POC_perc$sn1)
-  
-  poc1 <-rep('NA',length(rdate));poc2 <-rep('NA',length(rdate))
-  poc3 <-rep('NA',length(rdate)); poc4 <-rep('NA',length(rdate))
-  poc5 <-rep('NA',length(rdate)); poc6 <-rep('NA',length(rdate))
-  poc7 <-rep('NA',length(rdate));poc8 <-rep('NA',length(rdate))
-  poc9 <-rep('NA',length(rdate)); poc10 <-rep('NA',length(rdate))
-  
-  poc1[1306:1308]<-c(2.1, 1.9, 2.5)
-  poc2[1306:1308]<-c(2.7, 3.0, 3.0)
-  poc3[1306:1308]<-c(1, 1.8, 1.6)
-  poc4[1306:1308]<-c(1.6, 1.5, 1.6)
-  poc5[1306:1308]<-c(1.5, 1.8, 1.8)
-  poc6[1306:1308]<-c(1.7, 1.9, 2.0)
-  poc7[1306:1308]<-c(1.8,2.2,2.9)
-  poc8[1306:1308]<-c(7.2,7.4,8.5)
-  poc9[1306:1308]<-c(1.7,2.0,1.8)
-  poc10[1306:1308]<-c(1.6,1.6,1.4)
-  
-  png('POC_perc_fin92b__oksMMM9.png',width = 30, height = 20, units = "cm", res=300)
-  par(mfrow=c(2,5))
-  plot(rdate[480:1440],POC_perc$sn1[480:1440],col='#313695',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dsn1[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$osn1[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc1[480:1440],col=c('#313695','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  
-  plot(rdate[480:1440],POC_perc$sn2[480:1440],col='#4575b4',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dsn2[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$osn2[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc2[480:1440],col=c('#4575b4','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  
-  plot(rdate[480:1440],POC_perc$sn4[480:1440],col='#abd9e9',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dsn4[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$osn4[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc4[480:1440],col=c('#abd9e9','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  
-  plot(rdate[480:1440],POC_perc$sn3[480:1440],col='#DDF26B',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dsn3[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$osn3[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc3[480:1440],col=c('#DDF26B','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  
-  plot(rdate[480:1440],POC_perc$sn5[480:1440],col='#e5e572',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dsn5[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$osn5[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc5[480:1440],col=c('#e5e572','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  
-  plot(rdate[480:1440],POC_perc$sc6[480:1440],col='#fed976',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dsc6[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$osc6[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc6[480:1440],col=c('#fed976','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  
-  plot(rdate[480:1440],POC_perc$sc7[480:1440],col='#f79220',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dsc7[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$osc7[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc7[480:1440],col=c('#f79220','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  
-  plot(rdate[480:1440],POC_perc$ss8[480:1440],col='#f46d43',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dss8[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$oss8[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc8[480:1440],col=c('#f46d43','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  
-  plot(rdate[480:1440],POC_perc$ss9[480:1440],col='#d73027',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dss9[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$oss9[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc9[480:1440],col=c('#d73027','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  
-  plot(rdate[480:1440],POC_perc$ss10[480:1440],col='#a50028',type='l', lwd=2, ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$dss10[480:1440],col='grey60',type='l', lwd=2, lty=2,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],POC_perc$oss10[480:1440],col='black',type='l', lwd=2, lty=3,ylim=c(0,10))
-  par(new=T)
-  plot(rdate[480:1440],poc10[480:1440],col=c('#a50028','grey60','black'),
-       type='p', lwd=2, cex=2, 
-       lty=2,ylim=c(0,10))
-  dev.off()
   
   png('DEPO_vs_Sarretta_fin92b__oksMMM9.png',width = 30, height = 20, units = "cm", res=300)
   par(mfrow=c(2,5))

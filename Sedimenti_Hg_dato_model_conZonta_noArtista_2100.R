@@ -1,4 +1,5 @@
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN9')
+setwd('C:/Users/Gi/Desktop/NNN30')
 
 1900-2101
 2426/12

@@ -1,7 +1,5 @@
 setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41n')
-setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')
-setwd('C:/Users/gi/Desktop/ba5')
-
+setwd('C:/Users/Gi/Desktop/NNN44')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

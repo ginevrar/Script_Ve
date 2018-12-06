@@ -1,5 +1,6 @@
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
-2
+setwd('C:/Users/gi/Desktop/NNN44')
+
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                  'la1','la2','la3','la4','la5','la6','la7','la8','la9','la10',

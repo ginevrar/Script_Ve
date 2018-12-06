@@ -1,4 +1,5 @@
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN17')
+setwd('C:/Users/Gi/Desktop/NNN35')
 
 hgw<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA<-read.table('surf_sedhg_taylor.txt', header=T)
@@ -20,6 +21,8 @@ SPM1 <- SPM[complete.cases(SPM),]
 POM1 <- POM[complete.cases(POM),]
 
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
+setwd('C:/Users/Gi/Desktop/NNN43')
+
  hgw2<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA2<-read.table('surf_sedhg_taylor.txt', header=T)
 hgsedB2<-read.table('subsurf_sedhg_taylor.txt', header=T)
@@ -103,7 +106,7 @@ POM2_c        <-cor(POM12$dd_POM,POM12$mm_POM)
 mehgsedB2_c   <-cor(mehgsedB2$layerB_mehg,mehgsedB2$modlayerB_mehg)
 mehgsedC2_c   <-cor(mehgsedC2$layerC_mehg,mehgsedC2$modlayerC_mehg)
 
-
+dev.new()
 #png('Accuracy_and_correlation46_buonaf_buonaM.png', height =21 , width = 21, units='cm',res=300)
 par(mar=c(4.3,4.3,1,1), bty='n', mfrow=c(1,1))
 

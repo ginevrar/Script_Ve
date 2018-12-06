@@ -1,4 +1,5 @@
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
+setwd('C:/Users/Gi/Desktop/NNN44')
 
 hgt<-read.csv('Total_Hg.csv', skip=1)
 names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -54,10 +55,7 @@ mod_sud_mean<-rowMeans(sud_hgt); mod_sud_min<-apply(sud_hgt,1,FUN=min); mod_sud_
 NN<-c(mod_nord_min,rev(mod_nord_max)); CC<-c(mod_cent_min,rev(mod_cent_max));SS<-c(mod_sud_min,rev(mod_sud_max))
 xx<-c(rdate[1214:1285],rev(rdate[1214:1285]))
 
-
-
-
-png('Acque_Bloom_d.png',width = 21, height = 26,
+png('Acque_Bloom_n.png',width = 21, height = 26,
     units = "cm", res=400)
 
 par(mfrow=c(2,3))
@@ -77,7 +75,6 @@ plot(rdate[1225],nord_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=
      xlim=as.Date(c("2001-01-01", "2006-12-31")),
      ylab=expression(paste('ng l'^-1)))        
 segments(rdate[1225],nord_bloom_max_hgt,rdate[1225],nord_bloom_min_hgt)
-
 
 plot(rdate[1214:1285], mod_cent_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#d1740c99',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
