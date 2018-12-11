@@ -1,4 +1,5 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN51');setwd('C:/Users/Gi/Desktop/NNN44')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN51');
+setwd('C:/Users/Gi/Desktop/NNN59')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -256,12 +257,16 @@ segments(rdate[1225],south_bloom_max_mhgd,rdate[1225],south_bloom_min_mhgd)
 dev.off()
 
 #___________________________fine HgD acque bloom _____________________________________________
-
-plot(rdate2[36:48], mod_sud_mean_mhgd_D[36:48], type='l')
 plot(rdate2[36:48], mod_nord_mean_mhgd_D[36:48], type='l')
+plot(rdate2[36:48], mod_cent_mean_mhgd_D[36:48], type='l')
+plot(rdate2[36:48], mod_sud_mean_mhgd_D[36:48], type='l')
+
 plot(rdate2[36:48], mod_cent_mean_mhgt[36:48], type='l')
 plot(rdate2[36:48], mod_nord_mean_D[36:48], type='l')
-plot(rdate2[36:48], mod_nord_mean_D[36:48], type='l')
+plot(rdate2[36:48], mod_cent_mean_D[36:48], type='l')
 plot(rdate2[36:48], mod_nord_mean[36:48], type='l')
 
 plot(rdate2[36:48], mod_cent_mean_mhgd_D[36:48], type='l')
+par(new=T)
+ plot(mul_atm, type='b')
+ 
