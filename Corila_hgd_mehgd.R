@@ -7,7 +7,7 @@ tmp <- as.Date(corila$data,format="%Y-%m-%d")
 tmp2<-format(tmp, "%d-%m-%Y")
   
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN50')
-setwd('C:/Users/Gi/Desktop/NNN43')
+setwd('C:/Users/Gi/Desktop/NNN59')
 
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
   names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
