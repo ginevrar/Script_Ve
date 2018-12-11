@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN35')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN43')
 setwd('C:/Users/Gi/Desktop/NNN35')
 
 hgw<-read.table('acque_perTaylorD.txt', header=T)
@@ -20,7 +20,7 @@ POM<-read.table('POM_perTaylorD.txt', header=T)
 SPM1 <- SPM[complete.cases(SPM),]
 POM1 <- POM[complete.cases(POM),]
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN44')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN48')
 setwd('C:/Users/Gi/Desktop/NNN43')
 
  hgw2<-read.table('acque_perTaylorD.txt', header=T)

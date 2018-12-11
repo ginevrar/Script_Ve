@@ -1,7 +1,7 @@
 setwd('G:/il mio Drive/MERCURIO/Hg_Literature_observtions')
 hg0d<-read.table('hg0Conc_MEdsea.txt',header=T)      
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN7')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN50')
 Vol3<-read.csv("Volatilization_Loss_rate.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(Vol3)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                   'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -74,7 +74,7 @@ mod_vol_cnord<-c(b3_vol,b5_vol,b6_vol)
 mod_vol_csud<-c(b7_vol)
 mod_vol_sud<-c(b8_vol,b9_vol,b10_vol)
 
-png('elemental_hg_conc_andFluxes.png', width =56, height = 30 , res=300, units='cm')
+png('elemental_hg_conc_andFluxesb.png', width =56, height = 30 , res=300, units='cm')
   par(mfrow=c(2,1), bty='n', cex.axis=1.3, cex.lab=1.3)
 boxplot(Wmed$Hg0_pgL, Tirreno$Hg0_pgL, sicily$Hg0_pgL, ionio$Hg0_pgL,Emed$Hg0_pgL, Otr$Hg0_pgL,
         Ad$Hg0_pgL,Nad$Hg0_pgL,Arcachon_Bay$Hg0_pgL,MGL$Hg0_pgL,Thau_Lagoon$Hg0_pgL,
