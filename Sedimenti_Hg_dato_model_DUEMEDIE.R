@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN43')
 
 1900-2101
 2426/12

@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/MMM157')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN49')
 
 hgt<-read.csv('Total_Hg.csv', skip=1)
 names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -411,13 +411,16 @@ vv<-seq(36,71)
 vv2<-seq(84,107)
 
 
-win.graph()
-par(mfrow=c(2,2))
-  plot(rdate[1202:1333],hgd_nord_min[1202:1333], type='l', ylim=c(0,80), col='cyan')
+ #win.graph()
+png('Hg_Disciolto_MAV_.png', width = 23, height = 18,
+    units = "cm", res=400)
+par(mfrow=c(2,2),bty='n', mar=c(3,3,3,3))
+  plot(rdate[1224:1309],hgd_nord_min[1224:1309], type='l', ylim=c(0,100), col='cyan',xlab=' ',
+       ylab=expression(paste('ng l'^-1)), main=expression(paste('Hg'[D]~'in northern lagoon water')))
   par(new=T)
-  plot(rdate[1202:1333],hgd_nord_max[1202:1333], type='l', ylim=c(0,80), col='cyan')
+  plot(rdate[1224:1309],hgd_nord_max[1224:1309], type='l', xaxt='n', yaxt='n',ylab='',xlab=' ',ylim=c(0,100), col='cyan')
   par(new=T)
-  plot(rdate[1202:1333],hgd_nord_mean[1202:1333], type='l', col='cyan4', ylim=c(0,80))
+  plot(rdate[1224:1309],hgd_nord_mean[1224:1309], type='l', xaxt='n',yaxt='n' ,ylab='',xlab=' ',col='cyan4', ylim=c(0,100))
   par(new=T)
   boxplot(bnord_y2_m1$Hg1, bnord_y2_m2$Hg1, bnord_y2_m3$Hg1, bnord_y2_m4$Hg1, bnord_y2_m5$Hg1, bnord_y2_m6$Hg1, 
           bnord_y2_m7$Hg1, bnord_y2_m8$Hg1, bnord_y2_m9$Hg1, bnord_y2_m10$Hg1,
@@ -432,15 +435,18 @@ par(mfrow=c(2,2))
           bnord_y6_m11$Hg1, bnord_y6_m12$Hg1,
           bnord_y7_m1$Hg1, bnord_y7_m2$Hg1, bnord_y7_m3$Hg1, bnord_y7_m4$Hg1, bnord_y7_m5$Hg1, bnord_y7_m6$Hg1, 
           bnord_y7_m7$Hg1, bnord_y7_m8$Hg1, bnord_y7_m9$Hg1, bnord_y7_m10$Hg1,
-          bnord_y7_m11$Hg1, bnord_y7_m12$Hg1,
-          ylim=c(0,80),at=c(vv,vv2), xaxt='n',xlim=c(1,131))      
+          bnord_y7_m11$Hg1, bnord_y7_m12$Hg1,yaxt='n',ylab='',
+          ylim=c(0,100),at=c(vv,vv2), xaxt='n',xlab=' ',xlim=c(1,131))      
           
          # at=c(1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237),
-  plot(rdate[1202:1333],hgd_cnord_min[1202:1333], type='l', ylim=c(0,80), col='cyan')
+  plot(rdate[1224:1309],hgd_cnord_min[1224:1309], type='l', ylim=c(0,100), col='cyan',
+        ylab=expression(paste('ng l'^-1)),xlab='',main=expression(paste('Hg'[D]~'in central-northern lagoon water')))
   par(new=T)
-  plot(rdate[1202:1333],hgd_cnord_max[1202:1333], type='l', ylim=c(0,80), col='cyan')
+  plot(rdate[1224:1309],hgd_cnord_max[1224:1309], type='l',
+       xaxt='n', yaxt='n',ylab='',xlab=' ',ylim=c(0,100), col='cyan')
   par(new=T)
-  plot(rdate[1202:1333],hgd_cnord_mean[1202:1333], type='l', col='cyan4', ylim=c(0,80))
+  plot(rdate[1224:1309],hgd_cnord_mean[1224:1309], type='l', col='cyan4', 
+       xaxt='n', yaxt='n',ylab='',xlab=' ',ylim=c(0,100))
   par(new=T)
   boxplot(bcnord_y2_m1$Hg1, bcnord_y2_m2$Hg1, bcnord_y2_m3$Hg1, bcnord_y2_m4$Hg1, bcnord_y2_m5$Hg1, bcnord_y2_m6$Hg1, 
           bcnord_y2_m7$Hg1, bcnord_y2_m8$Hg1, bcnord_y2_m9$Hg1, bcnord_y2_m10$Hg1,
@@ -455,14 +461,17 @@ par(mfrow=c(2,2))
           bcnord_y6_m11$Hg1, bcnord_y6_m12$Hg1,
           bcnord_y7_m1$Hg1, bcnord_y7_m2$Hg1, bcnord_y7_m3$Hg1, bcnord_y7_m4$Hg1, bcnord_y7_m5$Hg1, bcnord_y7_m6$Hg1, 
           bcnord_y7_m7$Hg1, bcnord_y7_m8$Hg1, bcnord_y7_m9$Hg1, bcnord_y7_m10$Hg1,
-          bcnord_y7_m11$Hg1, bcnord_y7_m12$Hg1,
-          ylim=c(0,80),at=c(vv,vv2), xaxt='n',xlim=c(1,131))      
+          bcnord_y7_m11$Hg1, bcnord_y7_m12$Hg1, yaxt='n',ylab='',xlab=' ',
+          ylim=c(0,100),at=c(vv,vv2), xaxt='n',xlim=c(1,131))      
 
-  plot(rdate[1202:1333],hgd_csud_min[1202:1333], type='l', ylim=c(0,50), col='cyan')
+  plot(rdate[1224:1309],hgd_csud_min[1224:1309], type='l', ylim=c(0,50), col='cyan',
+       ylab=expression(paste('ng l'^-1)),xlab=' ', main=expression(paste('Hg'[D]~'in central-southern lagoon water')))
   par(new=T)
-  plot(rdate[1202:1333],hgd_csud_max[1202:1333], type='l', ylim=c(0,50), col='cyan')
+  plot(rdate[1224:1309],hgd_csud_max[1224:1309], type='l', ylim=c(0,50), 
+       xaxt='n', yaxt='n',ylab='',xlab=' ', col='cyan')
   par(new=T)
-  plot(rdate[1202:1333],hgd_csud_mean[1202:1333], type='l', col='cyan4', ylim=c(0,50))
+  plot(rdate[1224:1309],hgd_csud_mean[1224:1309], type='l', col='cyan4', 
+       xaxt='n', yaxt='n',ylab='',xlab=' ', ylim=c(0,50))
   par(new=T)
   boxplot(bcsud_y2_m1$Hg1, bcsud_y2_m2$Hg1, bcsud_y2_m3$Hg1, bcsud_y2_m4$Hg1, bcsud_y2_m5$Hg1, bcsud_y2_m6$Hg1, 
           bcsud_y2_m7$Hg1, bcsud_y2_m8$Hg1, bcsud_y2_m9$Hg1, bcsud_y2_m10$Hg1,
@@ -478,13 +487,16 @@ par(mfrow=c(2,2))
           bcsud_y7_m1$Hg1, bcsud_y7_m2$Hg1, bcsud_y7_m3$Hg1, bcsud_y7_m4$Hg1, bcsud_y7_m5$Hg1, bcsud_y7_m6$Hg1, 
           bcsud_y7_m7$Hg1, bcsud_y7_m8$Hg1, bcsud_y7_m9$Hg1, bcsud_y7_m10$Hg1,
           bcsud_y7_m11$Hg1, bcsud_y7_m12$Hg1,
-          ylim=c(0,50),at=c(vv,vv2), xaxt='n',xlim=c(1,131))  
+          ylim=c(0,50),at=c(vv,vv2),xaxt='n', yaxt='n',ylab='',xlab=' ',xlim=c(1,131))  
   
-  plot(rdate[1202:1333],hgd_sud_min[1202:1333], type='l', ylim=c(0,50), col='cyan')
+  plot(rdate[1224:1309],hgd_sud_min[1224:1309], type='l', ylim=c(0,50), 
+       ylab=expression(paste('ng l'^-1)),xlab=' ',col='cyan',main=expression(paste('Hg'[D]~'in southern lagoon water')))
   par(new=T)
-  plot(rdate[1202:1333],hgd_sud_max[1202:1333], type='l', ylim=c(0,50), col='cyan')
+  plot(rdate[1224:1309],hgd_sud_max[1224:1309], type='l', ylim=c(0,50),
+       xaxt='n', yaxt='n',ylab='',xlab=' ',col='cyan')
   par(new=T)
-  plot(rdate[1202:1333],hgd_sud_mean[1202:1333], type='l', col='cyan4', ylim=c(0,50))
+  plot(rdate[1224:1309],hgd_sud_mean[1224:1309], type='l', col='cyan4', 
+       xaxt='n', yaxt='n',ylab='',xlab=' ',ylim=c(0,50))
   par(new=T)
   boxplot(bsud_y2_m1$Hg1, bsud_y2_m2$Hg1, bsud_y2_m3$Hg1, bsud_y2_m4$Hg1, bsud_y2_m5$Hg1, bsud_y2_m6$Hg1, 
           bsud_y2_m7$Hg1, bsud_y2_m8$Hg1, bsud_y2_m9$Hg1, bsud_y2_m10$Hg1,
@@ -500,5 +512,7 @@ par(mfrow=c(2,2))
           bsud_y7_m1$Hg1, bsud_y7_m2$Hg1, bsud_y7_m3$Hg1, bsud_y7_m4$Hg1, bsud_y7_m5$Hg1, bsud_y7_m6$Hg1, 
           bsud_y7_m7$Hg1, bsud_y7_m8$Hg1, bsud_y7_m9$Hg1, bsud_y7_m10$Hg1,
           bsud_y7_m11$Hg1, bsud_y7_m12$Hg1,
-          ylim=c(0,50),at=c(vv,vv2), xaxt='n',xlim=c(1,131))      
+          ylim=c(0,50),at=c(vv,vv2), xaxt='n', yaxt='n',ylab='',xlab=' ',xlim=c(1,131))      
+dev.off()
+  
   

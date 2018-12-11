@@ -3,7 +3,7 @@ setwd('C:\\Users\\gi\\Downloads')
 setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN43')
 setwd('C:/Users/gi/Desktop/NNN44')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
@@ -38,16 +38,23 @@ A3<-filter(layerA,box==3); B3<-filter(layerB,box==3); C3<-filter(layerC,box==3)
 A6<-filter(layerA,box==6); B6<-filter(layerB,box==6); C6<-filter(layerC,box==6)
 A7<-filter(layerA,box==7); B7<-filter(layerB,box==7); C7<-filter(layerC,box==7)
 
+rdate[1298:1309]
 
 #hgD<-hgdiss+hgDOC; mehgD<-mehgdiss+mehgDOC
 #mehgt<-mehgD+mehgP; hgIIt<-hgD+hgP
 b1_profile_mod<-c(mean(mehg$la1[1298:1309]), mean(mehg$lb1[1298:1309]),mean(mehg$lc1[1298:1309]),mean(mehg$ld1[1298:1309]), NA)
 b2_profile_mod<-c(mean(mehg$la2[1298:1309]), mean(mehg$lb2[1298:1309]),mean(mehg$lc2[1298:1309]), mean(mehg$ld2[1298:1309]), NA)
+
+
 b3_profile_mod<-c(mean(mehg$la3[1298:1309]), mean(mehg$lb3[1298:1309]),mean(mehg$lc3[1298:1309]),mean(mehg$ld3[1298:1309]), NA)
 b4_profile_mod<-c(mean(mehg$la4[1298:1309]), mean(mehg$lb4[1298:1309]),mean(mehg$lc4[1298:1309]),mean(mehg$ld4[1298:1309]), NA)
 b5_profile_mod<-c(mean(mehg$la5[1298:1309]), mean(mehg$lb5[1298:1309]),mean(mehg$lc5[1298:1309]),mean(mehg$ld5[1298:1309]), NA)
-b6_profile_mod<-c(mean(mehg$la6[1298:1309]), mean(mehg$lb6[1298:1309]),mean(mehg$lc6[1298:1309]),mean(mehg$ld6[1298:1309]), NA)
-b7_profile_mod<-c(mean(mehg$la7[1298:1309]), mean(mehg$lb7[1298:1309]),mean(mehg$lc7[1298:1309]),mean(mehg$ld7[1298:1309]), NA)
+
+rdate[1262:1273]
+
+b6_profile_mod<-c(mean(mehg$la6[1262:1273]), mean(mehg$lb6[1262:1273]),mean(mehg$lc6[1262:1273]),mean(mehg$ld6[1262:1273]), NA)
+b7_profile_mod<-c(mean(mehg$la7[1262:1273]), mean(mehg$lb7[1262:1273]),mean(mehg$lc7[1262:1273]),mean(mehg$ld7[1262:1273]), NA)
+
 b8_profile_mod<-c(mean(mehg$la8[1298:1309]), mean(mehg$lb8[1298:1309]),mean(mehg$lc8[1298:1309]),mean(mehg$ld8[1298:1309]), NA)
 b9_profile_mod<-c(mean(mehg$la9[1298:1309]), mean(mehg$lb9[1298:1309]),mean(mehg$lc9[1298:1309]),mean(mehg$ld9[1298:1309]), NA)
 b10_profile_mod<-c(mean(mehg$la10[1298:1309]), mean(mehg$lb10[1298:1309]),mean(mehg$lc10[1298:1309]),mean(mehg$ld10[1298:1309]), NA)
@@ -60,7 +67,7 @@ box3<-c(mean(A3$mehg),mean(B3$mehg),mean(C3$mehg))
 box6<-c(mean(A6$mehg),mean(B6$mehg),mean(C6$mehg))
 box7<-c(mean(A7$mehg),mean(B7$mehg),mean(C7$mehg))
 
-png('profile_Mehg_datoModeo_boxpl_fin92b_mehg_d.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_Mehg_datoModeo_boxpl_fin92b_mehgmmmmMMM.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
@@ -132,7 +139,9 @@ plot(b5_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
 mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
 #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
 mtext(side=3, text='box 5', font=2, cex=1.4, line=.5)
-
+text(2,-2, 'layer A', cex=1, col='grey30')
+text(2,-7, 'layer B', cex=1, col='grey30')
+text(2,-15, 'layer C', cex=1, col='grey30')
 
 boxplot(A6$mehg,B6$mehg,C6$mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
         at=c(-2,-7, -15),boxwex=3.,yaxt='n',xaxt='n',
@@ -174,6 +183,10 @@ mtext(side=3, text='box 9', font=2, cex=1.4, line=.5)
 plot(b10_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#a50028',   type='b', pch=25)
 mtext(side=3, text='box 10', font=2, cex=1.4, line=.5)
+text(2,-2, 'layer A', cex=1, col='grey30')
+text(2,-7, 'layer B', cex=1, col='grey30')
+text(2,-15, 'layer C', cex=1, col='grey30')
+
 
 dev.off()
 

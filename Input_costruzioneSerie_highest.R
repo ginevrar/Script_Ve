@@ -114,15 +114,13 @@ tt<- de+ri+ci+ind3
 t_cum<-cumsum(tt)/1000
 
 tott<-data.frame(years,de,ri2,ci,ind3, tt, t_cum)
-tott[100,]
+tott[102,]
 tott[71,]
 
 plot(years[1:106],t_cum[1:106])
 plot(years,ri, type='l') 
 plot(years,ci, type='l') 
 plot(years,ind, type='l') 
-
-
 
 #::::::::::::: ripartizione input fra i box :::::::::::::::::::::::::::::::::::::
 

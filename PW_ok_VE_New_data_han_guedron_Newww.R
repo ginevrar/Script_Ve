@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN44')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN50')
 setwd('C:/Users/gi/Desktop/NNN44')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
@@ -114,16 +114,16 @@ plot(hgD$la1[1262:1321])
 b1_profile_mod<-c(mean(hgD$la1[1262:1321]), mean(hgD$lb1[1262:1321]),mean(hgD$lc1[1262:1321]))
 b2_profile_mod<-c(mean(hgD$la2[1262:1321]), mean(hgD$lb2[1262:1321]),mean(hgD$lc2[1262:1321]))
 b4_profile_mod<-c(mean(hgD$la4[1262:1321]), mean(hgD$lb4[1262:1321]),mean(hgD$lc4[1262:1321]))
-b6_profile_mod<-c(mean(hgD$la6[1262:1321]), mean(hgD$lb6[1262:1321]),mean(hgD$lc6[1262:1321]))
-b7_profile_mod<-c(mean(hgD$la7[1262:1321]), mean(hgD$lb7[1262:1321]),mean(hgD$lc7[1262:1321]))
+b6_profile_mod<-c(mean(hgD$la6[1262:1273]), mean(hgD$lb6[1262:1273]),mean(hgD$lc6[1262:1273]))
+b7_profile_mod<-c(mean(hgD$la7[1262:1273]), mean(hgD$lb7[1262:1273]),mean(hgD$lc7[1262:1273]))
 
 b1_profile_mod_mhg<-c(mean(mehgD$la1[1262:1321]), mean(mehgD$lb1[1262:1321]),mean(mehgD$lc1[1262:1321]))
 b2_profile_mod_mhg<-c(mean(mehgD$la2[1262:1321]), mean(mehgD$lb2[1262:1321]),mean(mehgD$lc2[1262:1321]))
 b4_profile_mod_mhg<-c(mean(mehgD$la4[1262:1321]), mean(mehgD$lb4[1262:1321]),mean(mehgD$lc4[1262:1321]))
-b6_profile_mod_mhg<-c(mean(mehgD$la6[1262:1321]), mean(mehgD$lb6[1262:1321]),mean(mehgD$lc6[1262:1321]))
-b7_profile_mod_mhg<-c(mean(mehgD$la7[1262:1321]), mean(mehgD$lb7[1262:1321]),mean(mehgD$lc7[1262:1321]))
+b6_profile_mod_mhg<-c(mean(mehgD$la6[1262:1273]), mean(mehgD$lb6[1262:1273]),mean(mehgD$lc6[1262:1273]))
+b7_profile_mod_mhg<-c(mean(mehgD$la7[1262:1273]), mean(mehgD$lb7[1262:1273]),mean(mehgD$lc7[1262:1273]))
 
-
+rdate[1262:1273]
 mm<-c(b1_profile_mod, b2_profile_mod, b6_profile_mod[2:3], b7_profile_mod)
 dd<-c(box1,box2,box6[2:3],box7)
 
@@ -140,89 +140,103 @@ write.table(df, file = 'pw_hg_perTaylorD.txt')
 write.table(df2, file = 'pw_mehg_perTaylorD.txt')
 
 
-png('PoreWaaatyter.png',width = 530*1.5, height = 1000*1.5,  
+png('PoreWaaatyter4mM.png', width =1000*1.5, height =630*1.5,
     units = "px")
-par(mfrow=c(4,2),mar=c(3,0,1,0.5), oma=c(0,7,3,.7),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
+par(mfrow=c(2,4),mar=c(3,0,5,0.5), oma=c(1,3.5,0,.7),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
-boxplot(b1_layerA_pw,b1_layerB_pw,b1_layerC_pw, xlim=c(-20,0),cex=2.6, range = F,outline = F,
+boxplot(b1_layerA_pw,b1_layerB_pw,b1_layerC_pw, xlim=c(-20,0),cex=1.5, range = T,outline = T,
         at=c(-2,-7, -15),boxwex=3.,ylim=c(0,100),   yaxt='n',xaxt='n',
         col='#31369577', horizontal = T)
 par(new=T)
 plot(b1_profile_mod[1:3],y, xlim=c(0,100), cex=1.6, ylim=c(-20,0), #yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#313695',   type='b', pch=25)
 mtext(side=2, text='depth (cm)',  cex=1.6, line=2.5)
-mtext(side=2, text='box1',  cex=1.6, line=4.5, las=2, font=2)
+mtext(side=3, text='box1',  cex=1.6, line=.5,  font=2)
+mtext(side=3, text='box1',  cex=1.6, line=.5,  font=2)
+mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
 
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='Hg pore-water', font=2, cex=1.4, line=.5)
-
-boxplot(b1_layerA_pw_mehg ,b1_layerB_pw_mehg,b1_layerC_pw_mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
-        at=c(-2,-7, -15),boxwex=3.,ylim=c(0,4),  yaxt='n',xaxt='n',
-        col='#31369577', horizontal = T)
-par(new=T)
-plot(b1_profile_mod_mhg[1:3],y, xlim=c(0,4), cex=1.6, ylim=c(-20,0), yaxt='n',
-     ylab=' ',xlab=' ',col='black',bg='#313695',   type='b', pch=25)
-mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='MeHg pore-water', font=2, cex=1.4, line=.5)
-
-
-
-boxplot(b2_layerA_pw,b2_layerB_pw,b2_layerC_pw, xlim=c(-20,0),cex=2.6, range = F,outline = F,
+boxplot(b2_layerA_pw,b2_layerB_pw,b2_layerC_pw, xlim=c(-20,0),cex=1.5, range = T,outline = T,
         at=c(-2,-7, -15),boxwex=3.,ylim=c(0,100),    yaxt='n',xaxt='n',
         col='#4575b477', horizontal = T)
 par(new=T)
-plot(b2_profile_mod[1:3],y, xlim=c(0,100), cex=1.6, ylim=c(-20,0), 
+plot(b2_profile_mod[1:3],y, xlim=c(0,100), cex=1.6, ylim=c(-20,0),  yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#4575b4',   type='b', pch=25)
-mtext(side=2, text='depth (cm)',  cex=1.6, line=2.5)
-mtext(side=2, text='box2',  cex=1.6, line=4.5, las=2, font=2)
+mtext(side=3, text='box2',  cex=1.6, line=.5,  font=2)
+mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
+mtext(side=3, text=expression(paste('Hg'[D]~'pore-water')), font=2, cex=1.7,line=1.6,at=100, outer=F)
+                              
 
-boxplot(b2_layerA_pw_mehg,b2_layerB_pw_mehg,b2_layerC_pw_mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
+boxplot(b6_layerA_pw,b6_layerB_pw,b6_layerC_pw, xlim=c(-20,0),cex=1.5, range = T,outline = T,
+        at=c(-2,-7, -15),boxwex=3.,ylim=c(0,100), yaxt='n',xaxt='n',
+        col='#fed97677', horizontal = T)
+par(new=T)
+plot(b6_profile_mod[1:3],y, xlim=c(0,100), cex=1.6, ylim=c(-20,0),  yaxt='n',
+     ylab=' ',xlab=' ',col='black',bg='#fed976',   type='b', pch=25)
+mtext(side=3, text='box6',  cex=1.6, line=0.5, font=2)
+mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
+
+boxplot(b7_layerA_pw,b7_layerB_pw,b7_layerC_pw, xlim=c(-20,0),cex=1.5, range = T,outline = T,
+        at=c(-2,-7, -15),boxwex=3.,ylim=c(0,100), yaxt='n',xaxt='n',
+        col='#f7922077', horizontal = T)
+par(new=T)
+plot(b7_profile_mod[1:3],y, xlim=c(0,100), cex=1.6, ylim=c(-20,0),  yaxt='n',
+     ylab=' ',xlab=' ',col='black',bg='#f79220',   type='b', pch=25)
+mtext(side=3, text='box7',  cex=1.6, line=0.5, font=2)
+mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
+
+text(80,-2, 'layer A', cex=1, col='grey30')
+text(80,-7, 'layer B', cex=1, col='grey30')
+text(80,-15, 'layer C', cex=1, col='grey30')
+text(80,-25, 'layer D', cex=1, col='grey30')
+text(80,-40, 'layer E', cex=1, col='grey30')
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
+
+boxplot(b1_layerA_pw_mehg ,b1_layerB_pw_mehg,b1_layerC_pw_mehg, xlim=c(-20,0),cex=1.5, range = T,outline = T,
+        at=c(-2,-7, -15),boxwex=3.,ylim=c(0,4),  yaxt='n',xaxt='n',
+        col='#31369577', horizontal = T)
+par(new=T)
+plot(b1_profile_mod_mhg[1:3],y, xlim=c(0,4), cex=1.6, ylim=c(-20,0), 
+     ylab=' ',xlab=' ',col='black',bg='#313695',   type='b', pch=25)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
+mtext(side=3, text='box1',  cex=1.6, line=.5,  font=2)
+mtext(side=2, text='depth (cm)',  cex=1.6, line=2.5)
+mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
+
+boxplot(b2_layerA_pw_mehg,b2_layerB_pw_mehg,b2_layerC_pw_mehg, xlim=c(-20,0),cex=1.5, range = T,outline = T,
         at=c(-2,-7, -15),boxwex=3.,ylim=c(0,4),  yaxt='n',xaxt='n',
         col='#4575b477', horizontal = T)
 par(new=T)
 plot(b2_profile_mod_mhg[1:3],y, xlim=c(0,4), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#4575b4',   type='b', pch=25)
+mtext(side=3, text='box2',  cex=1.6, line=.5,  font=2)
+mtext(side=3, text=expression(paste('MeHg'[D]~'pore-water')), font=2, cex=1.7,line=1.6,at=4, outer=F)
+mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
 
-
-
-boxplot(b6_layerA_pw,b6_layerB_pw,b6_layerC_pw, xlim=c(-20,0),cex=2.6, range = F,outline = F,
-        at=c(-2,-7, -15),boxwex=3.,ylim=c(0,100), yaxt='n',xaxt='n',
-        col='#fed97677', horizontal = T)
-par(new=T)
-plot(b6_profile_mod[1:3],y, xlim=c(0,100), cex=1.6, ylim=c(-20,0), 
-     ylab=' ',xlab=' ',col='black',bg='#fed976',   type='b', pch=25)
-mtext(side=2, text='depth (cm)',  cex=1.6, line=2.5)
-mtext(side=2, text='box6',  cex=1.6, line=4.5, las=2, font=2)
-
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 6', font=2, cex=1.4, line=.5)
-
-boxplot(b6_layerA_pw_mehg,b6_layerB_pw_mehg,b6_layerC_pw_mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
+boxplot(b6_layerA_pw_mehg,b6_layerB_pw_mehg,b6_layerC_pw_mehg, xlim=c(-20,0),cex=1.5, range = T,outline = T,
         at=c(-2,-7, -15),boxwex=3.,ylim=c(0,4), yaxt='n',xaxt='n',
         col='#fed97677', horizontal = T)
 par(new=T)
 plot(b6_profile_mod_mhg[1:3],y, xlim=c(0,4), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#fed976',   type='b', pch=25)
 #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
- 
+mtext(side=3, text='box6',  cex=1.6, line=.5,  font=2)
+mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
 
-boxplot(b7_layerA_pw,b7_layerB_pw,b7_layerC_pw, xlim=c(-20,0),cex=2.6, range = F,outline = F,
-        at=c(-2,-7, -15),boxwex=3.,ylim=c(0,100), yaxt='n',xaxt='n',
-        col='#f7922077', horizontal = T)
-par(new=T)
-plot(b7_profile_mod[1:3],y, xlim=c(0,100), cex=1.6, ylim=c(-20,0), 
-     ylab=' ',xlab=' ',col='black',bg='#f79220',   type='b', pch=25)
-mtext(side=2, text='depth (cm)',  cex=1.6, line=2.5)
-mtext(side=2, text='box7',  cex=1.6, line=4.5, las=2, font=2)
-
-boxplot(b7_layerA_pw_mehg,b7_layerB_pw_mehg,b7_layerC_pw_mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
+boxplot(b7_layerA_pw_mehg,b7_layerB_pw_mehg,b7_layerC_pw_mehg, xlim=c(-20,0),cex=1.5, range = T,outline = T,
         at=c(-2,-7, -15),boxwex=3.,ylim=c(0,4), yaxt='n',xaxt='n',
         col='#f7922077', horizontal = T)
 par(new=T)
 plot(b7_profile_mod_mhg[1:3],y, xlim=c(0,4), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#f79220',   type='b', pch=25)
  #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
+mtext(side=3, text='box7',  cex=1.6, line=.5,  font=2)
+mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
+
+text(3,-2, 'layer A', cex=1, col='grey30')
+text(3,-7, 'layer B', cex=1, col='grey30')
+text(3,-15, 'layer C', cex=1, col='grey30')
+text(3,-25, 'layer D', cex=1, col='grey30')
+text(3,-40, 'layer E', cex=1, col='grey30')
  dev.off()
 
 

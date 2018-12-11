@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN44')
 setwd('C:/Users/gi/Desktop/NNN44')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
@@ -79,6 +79,8 @@ text(840,160,paste('r =', r3, ' p<0.05'),col='indianred4', font=2)
 dev.off()
 
 bo<-cor.test(layerA,layerA_mod)
+bo<-cor.test(layerD,layerD_mod)
+bo
 str(bo)
 bo$p.value
 bo$estimate

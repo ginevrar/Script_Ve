@@ -27,7 +27,7 @@ box8_A_OC<-select(box8_A,OC) ; box8_B_OC<-select(box8_B,OC) ;box8_C_OC<-select(b
 box9_A_OC<-select(box9_A,OC) ; box9_B_OC<-select(box9_B,OC) ;box9_C_OC<-select(box9_C,OC) ;box9_D_OC<-select(box9_D,OC) ;box9_E_OC<-select(box9_E,OC) 
 box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC) ;box10_C_OC<-select(box10_C,OC) ;box10_D_OC<-select(box10_D,OC) ;box10_E_OC<-select(box10_E,OC) 
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN43')
 setwd('C:/Users/Gi/Desktop/NNN43')
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")

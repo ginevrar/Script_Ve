@@ -6,7 +6,7 @@
 ##92.4% of re-suspension (1.13 10^12 g year?1) 
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN43')
 setwd('C:/Users/Gi/Desktop/NNN43')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
@@ -399,29 +399,29 @@ b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
 
 png('DEPO_kgm2y_fin92b__oksMMM9.png',width = 30, height = 20, units = "cm", res=300)
 par(mfrow=c(2,5), bty='n', cex.lab=1.5, cex.axis=1.5)
-plot(rdate, depo1_kg_y/a1, type='l',ylim=c(0,1000), ylab='kg m-2 y-1', xlab='',  col='grey70')     # 1989 - 1990: 114 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
-plot(rdate,depo2_kg_y/a2, type='l', ylim=c(0,1000), ylab='kg m-2 y-1', xlab='', col='grey70') 
-plot(rdate,depo3_kg_y/a3, type='l', ylim=c(0,1000), ylab='kg m-2 y-1', xlab='', col='grey70') 
+plot(rdate, depo1_kg_y/a1, type='l',ylim=c(0,1300), ylab='kg m-2 y-1', xlab='',  col='grey70')     # 1989 - 1990: 114 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
+plot(rdate,depo2_kg_y/a2, type='l', ylim=c(0,1300), ylab='kg m-2 y-1', xlab='', col='grey70') 
+plot(rdate,depo3_kg_y/a3, type='l', ylim=c(0,1300), ylab='kg m-2 y-1', xlab='', col='grey70') 
 
-plot(rdate,depo4_kg_y/a4, type='l',ylim=c(0,1000), ylab='kg m-2 y-1', xlab='',  col='grey70') 
-plot(rdate,depo5_kg_y/a5, type='l',ylim=c(0,1000), ylab='kg m-2 y-1', xlab='',  col='grey70') 
+plot(rdate,depo4_kg_y/a4, type='l',ylim=c(0,1300), ylab='kg m-2 y-1', xlab='',  col='grey70') 
+plot(rdate,depo5_kg_y/a5, type='l',ylim=c(0,1300), ylab='kg m-2 y-1', xlab='',  col='grey70') 
 par(new=T)
 boxplot(b5_depo_2014, xaxt='n',
         xlim=c(rdate[1],rdate[2428]),at=c(rdate[1380]),
-        boxwex=2200, ylim=c(0,1000))
-plot(rdate,depo6_kg_y/a6, ylim=c(0,1000), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
+        boxwex=2200, ylim=c(0,1300))
+plot(rdate,depo6_kg_y/a6, ylim=c(0,1300), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
 par(new=T)
 boxplot(b6_depo_1989,b6_depo_1999,b6_depo_2014, xaxt='n',
         xlim=c(rdate[1],rdate[2428]),at=c(rdate[1072],rdate[1197],rdate[1380]),
-        boxwex=2200, ylim=c(0,1000))
+        boxwex=2200, ylim=c(0,1300))
 
-plot(rdate,depo7_kg_y/a7, ylim=c(0,1000), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
+plot(rdate,depo7_kg_y/a7, ylim=c(0,1300), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
 par(new=T)
 boxplot(b7_depo_1989,b7_depo_1999, xaxt='n', xlim=c(rdate[1],rdate[2428]),at=c(rdate[1072],rdate[1197]),
-        boxwex=2200, ylim=c(0,1000))
-plot(rdate,depo8_kg_y/a8, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1000)) 
-plot(rdate,depo9_kg_y/a9, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1000)) 
-plot(rdate,depo10_kg_y/a10, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1000)) 
+        boxwex=2200, ylim=c(0,1300))
+plot(rdate,depo8_kg_y/a8, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1300)) 
+plot(rdate,depo9_kg_y/a9, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1300)) 
+plot(rdate,depo10_kg_y/a10, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1300)) 
 dev.off()
 
   sar_b1<-c(-0.3125, 0.3125)
@@ -486,10 +486,6 @@ dev.off()
 TOTs<-POMs+silts+sands
 POM_perc<-POMs/TOTs*100
 
-
-POC_perc<-POM_perc/1.88
-
-
 poc1 <-rep('NA',length(rdate));poc2 <-rep('NA',length(rdate))
 poc3 <-rep('NA',length(rdate)); poc4 <-rep('NA',length(rdate))
 poc5 <-rep('NA',length(rdate)); poc6 <-rep('NA',length(rdate))
@@ -549,60 +545,119 @@ poc10[1306:1308]<-c(1.6,1.6,1.4)
   png('DEPO_NET_fin92b__oksMMM9.png',
       width = 30, height = 20, units = "cm", res=300)
   par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
-  plot(rdate[241:1467], netdepo_sed1[241:1467], type='l',ylim=c(-0.3,0.6),
+  plot(rdate[241:1467], netdepo_sed1[241:1467], type='l',ylim=c(-1,0.4),
        ylab='', cex.axis=1.6,main='Box 1',
        col='#313695', lwd=2)
   abline(h=0, lty=3)
   #abline(v=rdate[1080], lty=3)
   mtext('cm/y', side = 2, line=2.6, cex=1.2)
   
-  plot(rdate[241:1467],netdepo_sed2[241:1467], ylim=c(-0.3,0.6),
+  plot(rdate[241:1467],netdepo_sed2[241:1467], ylim=c(-1,0.4),
        type='l', col='#4575b4', lwd=2,
        ylab='', cex.axis=1.6,main='Box 2')
   abline(h=0, lty=3)
   
   plot(rdate[241:1467],netdepo_sed4[241:1467],
-       ylim=c(-0.3,0.6),  type='l', 
+       ylim=c(-1,0.4),  type='l', 
        ylab='', cex.axis=1.6,main='Box 4',
        col='#abd9e9', lwd=2)
   abline(h=0, lty=3)
   
   plot(rdate[241:1467],netdepo_sed3[241:1467],
        ylab='', cex.axis=1.6,main='Box 3',
-       ylim=c(-0.3,0.6), type='l', col='#DDF26B', lwd=2)
+       ylim=c(-1,0.4), type='l', col='#DDF26B', lwd=2)
   abline(h=0, lty=3)
   
   plot(rdate[241:1467],netdepo_sed5[241:1467],
-       ylim=c(-0.3,0.6), type='l', col='#e5e572', 
+       ylim=c(-1,0.4), type='l', col='#e5e572', 
        ylab='', cex.axis=1.6,main='Box 5',lwd=2)
   abline(h=0, lty=3)
   
   plot(rdate[241:1467],netdepo_sed6[241:1467], type='l', 
-       ylim=c(-0.3,0.6), col='#fed976', lwd=2,
+       ylim=c(-1,0.4), col='#fed976', lwd=2,
        ylab='', cex.axis=1.6,main='Box 6')
   abline(h=0, lty=3)
   mtext('cm/y', side = 2, line=2.6, cex=1.2)
   
   plot(rdate[241:1467],netdepo_sed7[241:1467],
-       ylim=c(-0.3,0.6),type='l', col='#f79220',
+       ylim=c(-1,0.4),type='l', col='#f79220',
        ylab='', cex.axis=1.6,main='Box 7',lwd=2)
   abline(h=0, lty=3)
   
-  plot(rdate[241:1467],netdepo_sed8[241:1467],ylim=c(-0.3,0.6),
+  plot(rdate[241:1467],netdepo_sed8[241:1467],ylim=c(-1,0.4),
        type='l', col='#f46d43', lwd=2,
        ylab='', cex.axis=1.6,main='Box 8')
   abline(h=0, lty=3)
   
   plot(rdate[241:1467],netdepo_sed9[241:1467],
-       ylim=c(-0.3,0.6),type='l', col='#d73027', 
+       ylim=c(-1,0.4),type='l', col='#d73027', 
        ylab='', cex.axis=1.6,main='Box 9',lwd=2)
   abline(h=0, lty=3)
   
   plot(rdate[241:1467],netdepo_sed10[241:1467],
-       ylim=c(-0.3,0.6), type='l', col='#a50028',
+       ylim=c(-1,0.4), type='l', col='#a50028',
        ylab='', cex.axis=1.6,main='Box 10',lwd=2)
   abline(h=0, lty=3)
   dev.off()
+  
+  png('DEPO_NET_fin92b__oksMMM9.png',
+      width = 30, height = 20, units = "cm", res=300)
+  par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
+  plot(rdate, netdepo_sed1, type='l',ylim=c(-1,0.4),
+       ylab='', cex.axis=1.6,main='Box 1',
+       col='#313695', lwd=2)
+  abline(h=0, lty=3)
+  #abline(v=rdate[1080], lty=3)
+  mtext('cm/y', side = 2, line=2.6, cex=1.2)
+  
+  plot(rdate,netdepo_sed2, ylim=c(-1,0.4),
+       type='l', col='#4575b4', lwd=2,
+       ylab='', cex.axis=1.6,main='Box 2')
+  abline(h=0, lty=3)
+  
+  plot(rdate,netdepo_sed4,
+       ylim=c(-1,0.4),  type='l', 
+       ylab='', cex.axis=1.6,main='Box 4',
+       col='#abd9e9', lwd=2)
+  abline(h=0, lty=3)
+  
+  plot(rdate,netdepo_sed3,
+       ylab='', cex.axis=1.6,main='Box 3',
+       ylim=c(-1,0.4), type='l', col='#DDF26B', lwd=2)
+  abline(h=0, lty=3)
+  
+  plot(rdate,netdepo_sed5,
+       ylim=c(-1,0.4), type='l', col='#e5e572', 
+       ylab='', cex.axis=1.6,main='Box 5',lwd=2)
+  abline(h=0, lty=3)
+  
+  plot(rdate,netdepo_sed6, type='l', 
+       ylim=c(-1,0.4), col='#fed976', lwd=2,
+       ylab='', cex.axis=1.6,main='Box 6')
+  abline(h=0, lty=3)
+  mtext('cm/y', side = 2, line=2.6, cex=1.2)
+  
+  plot(rdate,netdepo_sed7,
+       ylim=c(-1,0.4),type='l', col='#f79220',
+       ylab='', cex.axis=1.6,main='Box 7',lwd=2)
+  abline(h=0, lty=3)
+  
+  plot(rdate,netdepo_sed8,ylim=c(-1,0.4),
+       type='l', col='#f46d43', lwd=2,
+       ylab='', cex.axis=1.6,main='Box 8')
+  abline(h=0, lty=3)
+  
+  plot(rdate,netdepo_sed9,
+       ylim=c(-1,0.4),type='l', col='#d73027', 
+       ylab='', cex.axis=1.6,main='Box 9',lwd=2)
+  abline(h=0, lty=3)
+  
+  plot(rdate,netdepo_sed10,
+       ylim=c(-1,0.4), type='l', col='#a50028',
+       ylab='', cex.axis=1.6,main='Box 10',lwd=2)
+  abline(h=0, lty=3)
+  dev.off()
+  
   
   
   
