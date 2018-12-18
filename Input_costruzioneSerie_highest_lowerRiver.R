@@ -353,6 +353,7 @@ dep_g_km2_y<-tot_depo/area_km2*100
 mmr<-(tot_riv*0.017)
 
 TOT<-tot_city+tot_depo+tot_ind+tot_riv+mmr
+All_in_long<-cbind(ladataOK, TOT,tot_city,tot_depo,tot_ind,tot_riv,mmr)
 
 png('Hg_input_VE_.png', units='cm', height = 31,  width = 31, res=300)
 
@@ -413,11 +414,14 @@ text(ladata[30],26,'D', cex=2.5)
 #text(103,14,'', cex=1.2)
 dev.off()
 
+Total_IN_short<-cbind(years,tt,ci,de,ind3,ri,riv_mehg)
+
 write.table(all_input,file='all_input_hgII__.txt')
 write.table(monthly_riv_mehg,file='mehg_IN.txt')
-write.table(Total_IN,file='Total_IN.txt')
+write.table(Total_IN_short,file='Total_IN_short.txt')
+write.table(All_in_long,file='Total_IN_long.txt')
 
-Total_IN<-cbind(ladataOK,TOT,tot_city,tot_depo,tot_ind,tot_riv)
+
 
 getwd()
 str(tot_city)

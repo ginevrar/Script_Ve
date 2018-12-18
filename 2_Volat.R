@@ -1,5 +1,4 @@
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/noRES')
-setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -18,12 +17,18 @@ names(evasion)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07; a4<-8.90E+06; a5<-2.22E+07
-a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
-
+# aree boxes
+a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07; a4<-8.90E+06; a5<-2.22E+07;a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
+# depths boxes
 d1=1.26;d2=0.78;d3=3.35;d4=0.64;d5=1.03;d6=1.64;d7=1.84; d8=0.89;d9=0.69;d10=1.71
 
+
+time.steps <- hg[,1]
+time.steps3 <- time.steps*24*3600
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+TEMPO[1:10]
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
+tail(rdate)
 
 #VOLATILIZZAZIONE
 H<-7.1*10^-3     # Henry's Law constant  
@@ -33,6 +38,7 @@ divisore<-H/(R*Tk)
 
 kvol_1_day<-evasion[,2:11]  # kvol tutti i water box
 hg0_w<-hg0[,2:11]           # hg0 ngL water box
+plot(rdate[1:13],kvol_1_day$wn1[1:13], type='l')
 
 pr<-kvol_1_day*hg0_w    #ug m3 d
 str(hg0_w)
@@ -40,9 +46,9 @@ plot(hg0_w$wn5)
 mean(hg0_w$wn5[1431:1443])#ng/L   0.12 - 0.9 adriatco 
 mean(hg0_w$wc6[1431:1443])         #kotnik
 mean(hg0_w$wc7[1431:1443])
-head(hg0_w$wc7)
+(hg0_w$wc7[1431:1443])
 
-plot((hg0_w$wc6[2:2428]/hg$wc6)*100)
+plot((hg0_w$wc6[2:2428]/hg$wc6)*100, type='l')
 plot((hg0_w$wn1[2:2428]/hg$wn1)*100)
 
 str(hg$wn5)
@@ -94,12 +100,6 @@ vvol2_kg_y<-rowSums(vvol2_g_day*365)*tot_vol_m3/1000
 mean(volat_g_y[1000:2414]/1000); #kg y 
 mean(vvol_kg_y[1000:2414]);  #kg y 
 mean(vvol2_g_y[1000:2414]/1000) #kg y 
-
-
-
-head(VV$v1)
-head(VV$v2)
-head(VV$v3)
 
 kvol1_1_day<-evasion$wn1  # kvol ogni sim
 kvol2_1_day<-evasion$wn2  # kvol ogni sim
@@ -184,11 +184,11 @@ VV[1431:1443,]
 write.table(VV$vola,'volat.txt')
 write.table((mean(VV$vola[1431:1443])),'volat_2017_kgy.txt')
 
-# circa 20 kg/y = 100 mol/y
-# MGL circa 14 mol/y
+# circa 20 kg/y = 100 mol/y # MGL circa 14 mol/y
 
 mean(VV$vola[1431:1443])
 8.2/200.59*1000
 50/area
 14/area_MGL
 
+plot(vola, type='l')

@@ -6,7 +6,7 @@ str(corila)
 tmp <- as.Date(corila$data,format="%Y-%m-%d")
 tmp2<-format(tmp, "%d-%m-%Y")
   
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN50')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN68')
 setwd('C:/Users/Gi/Desktop/NNN59')
 
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)

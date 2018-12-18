@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN50')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 setwd('C:/Users/gi/Desktop/NNN59')
 
 hg<-read.csv('Total_Hg.csv', skip=1)

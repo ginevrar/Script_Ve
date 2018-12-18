@@ -407,14 +407,13 @@ hgd_sud_max<-apply(hgd_sud, 1, FUN=max)
 #plot(rdate,hgt_nord_max, type='l', ylim=c(0,40), col='grey',lty=2)
 ##par(new=T)
 #plot(rdate,hgt_nord_mean, type='l', ylim=c(0,40))
-vv<-seq(36,71)
-vv2<-seq(84,107)
+vv<-seq(1,84)
 
 
  #win.graph()
-png('Hg_Disciolto_MAV_OLO.png', width = 23, height = 18,
+png('Hg_Disciolto_MAV_.png', width = 26, height = 18,
     units = "cm", res=400)
-par(mfrow=c(2,2),bty='n', mar=c(3,3,3,3))
+par(mfrow=c(2,2),bty='n', mar=c(3,3,3,.1))
   plot(rdate[1224:1309],hgd_nord_min[1224:1309], type='l', ylim=c(0,100), col='cyan',xlab=' ',
        ylab=expression(paste('ng l'^-1)), main=expression(paste('Hg'[D]~'in northern lagoon water')))
   par(new=T)
@@ -422,21 +421,24 @@ par(mfrow=c(2,2),bty='n', mar=c(3,3,3,3))
   par(new=T)
   plot(rdate[1224:1309],hgd_nord_mean[1224:1309], type='l', xaxt='n',yaxt='n' ,ylab='',xlab=' ',col='cyan4', ylim=c(0,100))
   par(new=T)
-  boxplot(bnord_y2_m1$Hg1, bnord_y2_m2$Hg1, bnord_y2_m3$Hg1, bnord_y2_m4$Hg1, bnord_y2_m5$Hg1, bnord_y2_m6$Hg1, 
+  boxplot(bnord_y1_m1$Hg1, bnord_y1_m2$Hg1, bnord_y1_m3$Hg1, bnord_y1_m4$Hg1, bnord_y1_m5$Hg1, bnord_y1_m6$Hg1, 
+          bnord_y1_m7$Hg1, bnord_y1_m8$Hg1, bnord_y1_m9$Hg1, bnord_y1_m10$Hg1,
+          bnord_y1_m11$Hg1, bnord_y1_m12$Hg1,
+          bnord_y2_m1$Hg1, bnord_y2_m2$Hg1, bnord_y2_m3$Hg1, bnord_y2_m4$Hg1, bnord_y2_m5$Hg1, bnord_y2_m6$Hg1, 
           bnord_y2_m7$Hg1, bnord_y2_m8$Hg1, bnord_y2_m9$Hg1, bnord_y2_m10$Hg1,
-          bnord_y2_m11$Hg1, bnord_y2_m12$Hg1, bnord_y3_m1$Hg1, bnord_y3_m2$Hg1, bnord_y3_m3$Hg1, bnord_y3_m4$Hg1, bnord_y3_m5$Hg1, bnord_y3_m6$Hg1, 
-          bnord_y3_m7$Hg1, bnord_y3_m8$Hg1, bnord_y3_m9$Hg1, bnord_y3_m10$Hg1,
-          bnord_y3_m11$Hg1, bnord_y3_m12$Hg1,
-          bnord_y4_m1$Hg1, bnord_y4_m2$Hg1, bnord_y4_m3$Hg1, bnord_y4_m4$Hg1, bnord_y4_m5$Hg1, bnord_y4_m6$Hg1, 
-          bnord_y4_m7$Hg1, bnord_y4_m8$Hg1, bnord_y4_m9$Hg1, bnord_y4_m10$Hg1,
-          bnord_y4_m11$Hg1, bnord_y4_m12$Hg1,
-          bnord_y6_m1$Hg1, bnord_y6_m2$Hg1, bnord_y6_m3$Hg1, bnord_y6_m4$Hg1, bnord_y6_m5$Hg1, bnord_y6_m6$Hg1, 
-          bnord_y6_m7$Hg1, bnord_y6_m8$Hg1, bnord_y6_m9$Hg1, bnord_y6_m10$Hg1,
-          bnord_y6_m11$Hg1, bnord_y6_m12$Hg1,
-          bnord_y7_m1$Hg1, bnord_y7_m2$Hg1, bnord_y7_m3$Hg1, bnord_y7_m4$Hg1, bnord_y7_m5$Hg1, bnord_y7_m6$Hg1, 
-          bnord_y7_m7$Hg1, bnord_y7_m8$Hg1, bnord_y7_m9$Hg1, bnord_y7_m10$Hg1,
-          bnord_y7_m11$Hg1, bnord_y7_m12$Hg1,yaxt='n',ylab='',
-          ylim=c(0,100),at=c(vv,vv2), xaxt='n',xlab=' ',xlim=c(1,131))      
+          bnord_y2_m11$Hg1, bnord_y2_m12$Hg1, NA, bnord_y3_m2$Hg1,NA, bnord_y3_m4$Hg1,NA, bnord_y3_m6$Hg1, 
+          bnord_y3_m7$Hg1, bnord_y3_m8$Hg1, NA, NA,
+          bnord_y3_m11$Hg1, NA,
+          NA, bnord_y4_m2$Hg1,NA, bnord_y4_m4$Hg1, NA, bnord_y4_m6$Hg1,NA,
+          bnord_y4_m8$Hg1, NA, bnord_y4_m10$Hg1,NA, NA, 
+          NA, NA,NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
+          NA,NA, bnord_y6_m3$Hg1,NA, NA,bnord_y6_m6$Hg1, 
+          NA, NA, bnord_y6_m9$Hg1,NA,
+          NA,bnord_y6_m12$Hg1,
+          NA, bnord_y7_m2$Hg1, NA,NA, bnord_y7_m5$Hg1,NA,
+          NA, bnord_y7_m8$Hg1, NA, NA,
+          bnord_y7_m11$Hg1, NA,yaxt='n',ylab='',boxwex=1.,varwidth = F,
+          ylim=c(0,100),at=c(vv), xaxt='n',xlab=' ',xlim=c(1,84))      
           
          # at=c(1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237),
   plot(rdate[1224:1309],hgd_cnord_min[1224:1309], type='l', ylim=c(0,100), col='cyan',
@@ -448,21 +450,22 @@ par(mfrow=c(2,2),bty='n', mar=c(3,3,3,3))
   plot(rdate[1224:1309],hgd_cnord_mean[1224:1309], type='l', col='cyan4', 
        xaxt='n', yaxt='n',ylab='',xlab=' ',ylim=c(0,100))
   par(new=T)
-  boxplot(bcnord_y2_m1$Hg1, bcnord_y2_m2$Hg1, bcnord_y2_m3$Hg1, bcnord_y2_m4$Hg1, bcnord_y2_m5$Hg1, bcnord_y2_m6$Hg1, 
+  boxplot(bcnord_y1_m1$Hg1, bcnord_y1_m2$Hg1, bcnord_y1_m3$Hg1, bcnord_y1_m4$Hg1, bcnord_y1_m5$Hg1, bcnord_y1_m6$Hg1, 
+          bcnord_y1_m7$Hg1, bcnord_y1_m8$Hg1, bcnord_y1_m9$Hg1, bcnord_y1_m10$Hg1,
+          bcnord_y1_m11$Hg1, bcnord_y1_m12$Hg1,
+          bcnord_y2_m1$Hg1, bcnord_y2_m2$Hg1, bcnord_y2_m3$Hg1, bcnord_y2_m4$Hg1, bcnord_y2_m5$Hg1, bcnord_y2_m6$Hg1,
           bcnord_y2_m7$Hg1, bcnord_y2_m8$Hg1, bcnord_y2_m9$Hg1, bcnord_y2_m10$Hg1,
-          bcnord_y2_m11$Hg1, bcnord_y2_m12$Hg1, bcnord_y3_m1$Hg1, bcnord_y3_m2$Hg1, bcnord_y3_m3$Hg1, bcnord_y3_m4$Hg1, bcnord_y3_m5$Hg1, bcnord_y3_m6$Hg1, 
-          bcnord_y3_m7$Hg1, bcnord_y3_m8$Hg1, bcnord_y3_m9$Hg1, bcnord_y3_m10$Hg1,
-          bcnord_y3_m11$Hg1, bcnord_y3_m12$Hg1,
-          bcnord_y4_m1$Hg1, bcnord_y4_m2$Hg1, bcnord_y4_m3$Hg1, bcnord_y4_m4$Hg1, bcnord_y4_m5$Hg1, bcnord_y4_m6$Hg1, 
-          bcnord_y4_m7$Hg1, bcnord_y4_m8$Hg1, bcnord_y4_m9$Hg1, bcnord_y4_m10$Hg1,
-          bcnord_y4_m11$Hg1, bcnord_y4_m12$Hg1,
-          bcnord_y6_m1$Hg1, bcnord_y6_m2$Hg1, bcnord_y6_m3$Hg1, bcnord_y6_m4$Hg1, bcnord_y6_m5$Hg1, bcnord_y6_m6$Hg1, 
-          bcnord_y6_m7$Hg1, bcnord_y6_m8$Hg1, bcnord_y6_m9$Hg1, bcnord_y6_m10$Hg1,
-          bcnord_y6_m11$Hg1, bcnord_y6_m12$Hg1,
-          bcnord_y7_m1$Hg1, bcnord_y7_m2$Hg1, bcnord_y7_m3$Hg1, bcnord_y7_m4$Hg1, bcnord_y7_m5$Hg1, bcnord_y7_m6$Hg1, 
-          bcnord_y7_m7$Hg1, bcnord_y7_m8$Hg1, bcnord_y7_m9$Hg1, bcnord_y7_m10$Hg1,
-          bcnord_y7_m11$Hg1, bcnord_y7_m12$Hg1, yaxt='n',ylab='',xlab=' ',
-          ylim=c(0,100),at=c(vv,vv2), xaxt='n',xlim=c(1,131))      
+          bcnord_y2_m11$Hg1, bcnord_y2_m12$Hg1, NA, bcnord_y3_m2$Hg1, NA, bcnord_y3_m4$Hg1, NA, 
+          bcnord_y3_m6$Hg1, NA, bcnord_y3_m8$Hg1, NA,NA,bcnord_y3_m11$Hg1, NA,
+          NA, bcnord_y4_m2$Hg1, NA, bcnord_y4_m4$Hg1, NA,bcnord_y4_m6$Hg1, 
+          NA, bcnord_y4_m8$Hg1, NA, bcnord_y4_m10$Hg1, NA, NA,
+          NA, NA,NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
+          NA,NA,bcnord_y6_m3$Hg1, NA, NA,bcnord_y6_m6$Hg1, 
+          NA, NA, bcnord_y6_m9$Hg1, NA,NA,bcnord_y6_m12$Hg1,
+          NA, bcnord_y7_m2$Hg1, NA, NA, bcnord_y7_m5$Hg1, NA, 
+          NA, bcnord_y7_m8$Hg1, NA, NA,boxwex=1.,varwidth = F,
+          bcnord_y7_m11$Hg1, NA, yaxt='n',ylab='',xlab=' ',
+          ylim=c(0,100),at=c(vv), xaxt='n',xlim=c(1,84))      
 
   plot(rdate[1224:1309],hgd_csud_min[1224:1309], type='l', ylim=c(0,50), col='cyan',
        ylab=expression(paste('ng l'^-1)),xlab=' ', main=expression(paste('Hg'[D]~'in central-southern lagoon water')))
@@ -473,21 +476,25 @@ par(mfrow=c(2,2),bty='n', mar=c(3,3,3,3))
   plot(rdate[1224:1309],hgd_csud_mean[1224:1309], type='l', col='cyan4', 
        xaxt='n', yaxt='n',ylab='',xlab=' ', ylim=c(0,50))
   par(new=T)
-  boxplot(bcsud_y2_m1$Hg1, bcsud_y2_m2$Hg1, bcsud_y2_m3$Hg1, bcsud_y2_m4$Hg1, bcsud_y2_m5$Hg1, bcsud_y2_m6$Hg1, 
+  boxplot(bcsud_y1_m1$Hg1, bcsud_y1_m2$Hg1, bcsud_y1_m3$Hg1, bcsud_y1_m4$Hg1, bcsud_y1_m5$Hg1, bcsud_y1_m6$Hg1, 
+          bcsud_y1_m7$Hg1, bcsud_y1_m8$Hg1, bcsud_y1_m9$Hg1, bcsud_y1_m10$Hg1,
+          bcsud_y1_m11$Hg1, bcsud_y1_m12$Hg1, 
+          bcsud_y2_m1$Hg1, bcsud_y2_m2$Hg1, bcsud_y2_m3$Hg1, bcsud_y2_m4$Hg1, bcsud_y2_m5$Hg1, bcsud_y2_m6$Hg1, 
           bcsud_y2_m7$Hg1, bcsud_y2_m8$Hg1, bcsud_y2_m9$Hg1, bcsud_y2_m10$Hg1,
-          bcsud_y2_m11$Hg1, bcsud_y2_m12$Hg1, bcsud_y3_m1$Hg1, bcsud_y3_m2$Hg1, bcsud_y3_m3$Hg1, bcsud_y3_m4$Hg1, bcsud_y3_m5$Hg1, bcsud_y3_m6$Hg1, 
+          bcsud_y2_m11$Hg1, bcsud_y2_m12$Hg1, 
+          bcsud_y3_m1$Hg1, bcsud_y3_m2$Hg1, bcsud_y3_m3$Hg1, bcsud_y3_m4$Hg1, bcsud_y3_m5$Hg1, bcsud_y3_m6$Hg1, 
           bcsud_y3_m7$Hg1, bcsud_y3_m8$Hg1, bcsud_y3_m9$Hg1, bcsud_y3_m10$Hg1,
           bcsud_y3_m11$Hg1, bcsud_y3_m12$Hg1,
           bcsud_y4_m1$Hg1, bcsud_y4_m2$Hg1, bcsud_y4_m3$Hg1, bcsud_y4_m4$Hg1, bcsud_y4_m5$Hg1, bcsud_y4_m6$Hg1, 
           bcsud_y4_m7$Hg1, bcsud_y4_m8$Hg1, bcsud_y4_m9$Hg1, bcsud_y4_m10$Hg1,
-          bcsud_y4_m11$Hg1, bcsud_y4_m12$Hg1,
+          bcsud_y4_m11$Hg1, bcsud_y4_m12$Hg1,NA, NA,NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
           bcsud_y6_m1$Hg1, bcsud_y6_m2$Hg1, bcsud_y6_m3$Hg1, bcsud_y6_m4$Hg1, bcsud_y6_m5$Hg1, bcsud_y6_m6$Hg1, 
           bcsud_y6_m7$Hg1, bcsud_y6_m8$Hg1, bcsud_y6_m9$Hg1, bcsud_y6_m10$Hg1,
           bcsud_y6_m11$Hg1, bcsud_y6_m12$Hg1,
           bcsud_y7_m1$Hg1, bcsud_y7_m2$Hg1, bcsud_y7_m3$Hg1, bcsud_y7_m4$Hg1, bcsud_y7_m5$Hg1, bcsud_y7_m6$Hg1, 
           bcsud_y7_m7$Hg1, bcsud_y7_m8$Hg1, bcsud_y7_m9$Hg1, bcsud_y7_m10$Hg1,
-          bcsud_y7_m11$Hg1, bcsud_y7_m12$Hg1,
-          ylim=c(0,50),at=c(vv,vv2),xaxt='n', yaxt='n',ylab='',xlab=' ',xlim=c(1,131))  
+          bcsud_y7_m11$Hg1, bcsud_y7_m12$Hg1,boxwex=1.,varwidth = F,
+          ylim=c(0,50),at=c(vv),xaxt='n', yaxt='n',ylab='',xlab=' ',xlim=c(1,84))  
   
   plot(rdate[1224:1309],hgd_sud_min[1224:1309], type='l', ylim=c(0,50), 
        ylab=expression(paste('ng l'^-1)),xlab=' ',col='cyan',main=expression(paste('Hg'[D]~'in southern lagoon water')))
@@ -498,21 +505,24 @@ par(mfrow=c(2,2),bty='n', mar=c(3,3,3,3))
   plot(rdate[1224:1309],hgd_sud_mean[1224:1309], type='l', col='cyan4', 
        xaxt='n', yaxt='n',ylab='',xlab=' ',ylim=c(0,50))
   par(new=T)
-  boxplot(bsud_y2_m1$Hg1, bsud_y2_m2$Hg1, bsud_y2_m3$Hg1, bsud_y2_m4$Hg1, bsud_y2_m5$Hg1, bsud_y2_m6$Hg1, 
+  boxplot(bsud_y1_m1$Hg1, bsud_y1_m2$Hg1, bsud_y1_m3$Hg1, bsud_y1_m4$Hg1, bsud_y1_m5$Hg1, bsud_y1_m6$Hg1, 
+          bsud_y1_m7$Hg1, bsud_y1_m8$Hg1, bsud_y1_m9$Hg1, bsud_y1_m10$Hg1,
+          bsud_y1_m11$Hg1, bsud_y1_m12$Hg1,
+          bsud_y2_m1$Hg1, bsud_y2_m2$Hg1, bsud_y2_m3$Hg1, bsud_y2_m4$Hg1, bsud_y2_m5$Hg1, bsud_y2_m6$Hg1, 
           bsud_y2_m7$Hg1, bsud_y2_m8$Hg1, bsud_y2_m9$Hg1, bsud_y2_m10$Hg1,
           bsud_y2_m11$Hg1, bsud_y2_m12$Hg1, bsud_y3_m1$Hg1, bsud_y3_m2$Hg1, bsud_y3_m3$Hg1, bsud_y3_m4$Hg1, bsud_y3_m5$Hg1, bsud_y3_m6$Hg1, 
           bsud_y3_m7$Hg1, bsud_y3_m8$Hg1, bsud_y3_m9$Hg1, bsud_y3_m10$Hg1,
           bsud_y3_m11$Hg1, bsud_y3_m12$Hg1,
           bsud_y4_m1$Hg1, bsud_y4_m2$Hg1, bsud_y4_m3$Hg1, bsud_y4_m4$Hg1, bsud_y4_m5$Hg1, bsud_y4_m6$Hg1, 
           bsud_y4_m7$Hg1, bsud_y4_m8$Hg1, bsud_y4_m9$Hg1, bsud_y4_m10$Hg1,
-          bsud_y4_m11$Hg1, bsud_y4_m12$Hg1,
+          bsud_y4_m11$Hg1, bsud_y4_m12$Hg1,NA, NA,NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, 
           bsud_y6_m1$Hg1, bsud_y6_m2$Hg1, bsud_y6_m3$Hg1, bsud_y6_m4$Hg1, bsud_y6_m5$Hg1, bsud_y6_m6$Hg1, 
           bsud_y6_m7$Hg1, bsud_y6_m8$Hg1, bsud_y6_m9$Hg1, bsud_y6_m10$Hg1,
           bsud_y6_m11$Hg1, bsud_y6_m12$Hg1,
           bsud_y7_m1$Hg1, bsud_y7_m2$Hg1, bsud_y7_m3$Hg1, bsud_y7_m4$Hg1, bsud_y7_m5$Hg1, bsud_y7_m6$Hg1, 
           bsud_y7_m7$Hg1, bsud_y7_m8$Hg1, bsud_y7_m9$Hg1, bsud_y7_m10$Hg1,
-          bsud_y7_m11$Hg1, bsud_y7_m12$Hg1,
-          ylim=c(0,50),at=c(vv,vv2), xaxt='n', yaxt='n',ylab='',xlab=' ',xlim=c(1,131))      
+          bsud_y7_m11$Hg1, bsud_y7_m12$Hg1,boxwex=1.,varwidth = F,
+          ylim=c(0,50),at=c(vv), xaxt='n', yaxt='n',ylab='',xlab=' ',xlim=c(1,84))      
 dev.off()
   
   

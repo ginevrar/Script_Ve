@@ -2,10 +2,11 @@
 # runs 63d/63e 
 # 1997        [1167:1178]; # 2010        [1323:1334]
 # 2050        [1804:1815]; # 2001 - 2003 [1215:1250]
-# 2017 [1431:1443]
+# 2017 [1430:1441]
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g919')
-setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
+#setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g919')
+#setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -105,22 +106,22 @@ Hg_sed_df_ngg<-data.frame(SEDhg_sed1,SEDhg_sed2,SEDhg_sed3,SEDhg_sed4,SEDhg_sed5
 BURIAL_cmy<-data.frame(burial_sed1,burial_sed2,burial_sed3,burial_sed4, burial_sed5,
                        burial_sed6, burial_sed7,burial_sed8,burial_sed9, burial_sed10)  
 
-# net depo* soilds 10-2 m/y * g/m3 ->10-2g/m2y 
+# net depo* soilds 10-2   m/y * g/m3 ->10-2g/m2y 
 #Depo_sed_g_m2y<- (NET_DEPO_cmy_df*Solidi_df)/10^2
 
-Depo1_sed_g_m2y<-(netdepo_sed1*solids_sed1)/10^2
-Depo2_sed_g_m2y<-(netdepo_sed2*solids_sed2)/10^2
-Depo3_sed_g_m2y<-(netdepo_sed3*solids_sed3)/10^2
-Depo4_sed_g_m2y<-(netdepo_sed4*solids_sed4)/10^2
-Depo5_sed_g_m2y<-(netdepo_sed5*solids_sed5)/10^2
-Depo6_sed_g_m2y<-(netdepo_sed6*solids_sed6)/10^2
-Depo7_sed_g_m2y<-(netdepo_sed7*solids_sed7)/10^2
-Depo8_sed_g_m2y<-(netdepo_sed8*solids_sed8)/10^2
-Depo9_sed_g_m2y<-(netdepo_sed9*solids_sed9)/10^2
-Depo10_sed_g_m2y<-(netdepo_sed10*solids_sed10)/10^2
+Depo1_sed_g_m2y<-(netdepo_sed1/10^2*solids_sed1)
+Depo2_sed_g_m2y<-(netdepo_sed2/10^2*solids_sed2) 
+Depo3_sed_g_m2y<-(netdepo_sed3/10^2*solids_sed3) 
+Depo4_sed_g_m2y<-(netdepo_sed4/10^2*solids_sed4)
+Depo5_sed_g_m2y<-(netdepo_sed5/10^2*solids_sed5)
+Depo6_sed_g_m2y<-(netdepo_sed6/10^2*solids_sed6)
+Depo7_sed_g_m2y<-(netdepo_sed7/10^2*solids_sed7)
+Depo8_sed_g_m2y<-(netdepo_sed8/10^2*solids_sed8)
+Depo9_sed_g_m2y<-(netdepo_sed9/10^2*solids_sed9)
+Depo10_sed_g_m2y<-(netdepo_sed10/10^2*solids_sed10)
 
 
-Hg_depo1_kg_y<-(Depo1_sed_g_m2y*SEDhg_sed1)*a1/10^12
+Hg_depo1_kg_y<-(Depo1_sed_g_m2y*SEDhg_sed1)*a1/10^12     #g m-2 y-1(sed)*ng g *m2 -->ng/y/10^12--> kg/y
 plot(Hg_depo1_kg_y)
 Hg_depo2_kg_y<-(Depo2_sed_g_m2y*SEDhg_sed2)*a2/10^12
 Hg_depo3_kg_y<-(Depo3_sed_g_m2y*SEDhg_sed3)*a3/10^12
@@ -135,21 +136,21 @@ Hg_depo10_kg_y<-(Depo10_sed_g_m2y*SEDhg_sed10)*a10/10^12
 Hg_depo_ng_m2_y<-Depo_sed_g_m2y*Hg_sed_df_ngg
 # 2001: 1227
 
-a<-mean(Hg_depo1_kg_y[1431:1443])
-b<-mean(Hg_depo2_kg_y[1431:1443])
-c<-mean(Hg_depo3_kg_y[1431:1443])
-d<-mean(Hg_depo4_kg_y[1431:1443])
-e<-mean(Hg_depo5_kg_y[1431:1443])
-ff<-mean(Hg_depo6_kg_y[1431:1443])
-g<-mean(Hg_depo7_kg_y[1431:1443])
-h<-mean(Hg_depo8_kg_y[1431:1443])
-i<-mean(Hg_depo9_kg_y[1431:1443])
-l<-mean(Hg_depo10_kg_y[1431:1443])
+a<-mean(Hg_depo1_kg_y[1430:1441])
+b<-mean(Hg_depo2_kg_y[1430:1441])
+c<-mean(Hg_depo3_kg_y[1430:1441])
+d<-mean(Hg_depo4_kg_y[1430:1441])
+e<-mean(Hg_depo5_kg_y[1430:1441])
+ff<-mean(Hg_depo6_kg_y[1430:1441])
+g<-mean(Hg_depo7_kg_y[1430:1441])
+h<-mean(Hg_depo8_kg_y[1430:1441])
+i<-mean(Hg_depo9_kg_y[1430:1441])
+l<-mean(Hg_depo10_kg_y[1430:1441])
 
 a+b+c+d+e+ff+g+h+i+l
 
-depo_tot_2014<-cbind(a,b,c,d,e,ff,g,h,i)
-depo_tutto_2014<-cbind(rowSums(depo_tot_2014),depo_tot_2014)
+depo_tot_2019<-cbind(a,b,c,d,e,ff,g,h,i)
+depo_tutto_2019<-cbind(rowSums(depo_tot_2019),depo_tot_2019)
 depo_tutto_Hg<-cbind(Hg_depo1_kg_y, Hg_depo2_kg_y, Hg_depo3_kg_y,Hg_depo4_kg_y,
                   Hg_depo5_kg_y,Hg_depo6_kg_y,Hg_depo7_kg_y,Hg_depo8_kg_y,
                   Hg_depo9_kg_y,Hg_depo10_kg_y)
@@ -159,10 +160,11 @@ depo_tutto_sed_ty<-cbind((Depo1_sed_g_m2y*a1/10^6),(Depo2_sed_g_m2y*a2/10^6),
                       (Depo5_sed_g_m2y*a5/10^6),(Depo6_sed_g_m2y*a6/10^6),
                       (Depo7_sed_g_m2y*a7/10^6),(Depo8_sed_g_m2y*a8/10^6),
                       (Depo9_sed_g_m2y*a9/10^6),(Depo10_sed_g_m2y*a10/10^6))
+
 plot((Depo7_sed_g_m2y*a1/10^6))
 
 sed_bal<-data.frame(depo_tutto_Hg)
 
 write.table(sed_bal,'sed_balHg.txt')
-write.table(depo_tutto_2014,'depo2014.txt')
+write.table(depo_tutto_2014,'depo2019.txt')
 write.table(depo_tutto_sed_ty,'sedBal.txt')

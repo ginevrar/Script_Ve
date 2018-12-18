@@ -2,8 +2,8 @@ setwd('C:/Users/gi/Dropbox/2017_Venice')
 input<-read.csv('input103_1900.csv', header=TRUE, sep=';')
 str(input)
 
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g921')
-setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
+#setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g921');setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 
 sed_bal<-read.table("sed_balHg.txt", header=TRUE)
 sed_bal<-sed_bal[13:2428,]

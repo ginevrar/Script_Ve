@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN51');
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN68');
 setwd('C:/Users/Gi/Desktop/NNN59')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
@@ -269,4 +269,8 @@ plot(rdate2[36:48], mod_nord_mean[36:48], type='l')
 plot(rdate2[36:48], mod_cent_mean_mhgd_D[36:48], type='l')
 par(new=T)
  plot(mul_atm, type='b')
+ 
+ 
+plot(rdate2[13:24], mod_nord_mean_mhgd_D[13:24], type='b')
+ 
  

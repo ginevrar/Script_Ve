@@ -1,5 +1,3 @@
-
-
 waterV1<-1.30E+06    #m3
 waterV2<-1.06E+06
 waterV3<-9.39E+05
@@ -14,6 +12,8 @@ waterV10<-1.22E+06
 area<-411900000  #m2
 
 siltOL<-silt$Oxic1/10^6
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
+
 POMOL<-POM$Oxic1/10^6
 
 fDOChg2   <-DOChg$Oxic1/(DOChg$Oxic1+hg$Oxic1+Phg$Oxic1); mean(fDOChg, na.rm=TRUE);plot(fDOChg*100)

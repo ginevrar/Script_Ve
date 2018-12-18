@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN43')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 setwd('C:/Users/Gi/Desktop/NNN47')
 setwd('D:\\varie\\NNN49')
 
@@ -21,9 +21,9 @@ POM<-read.table('POM_perTaylorD.txt', header=T)
 SPM1 <- SPM[complete.cases(SPM),]
 POM1 <- POM[complete.cases(POM),]
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN48')
-setwd('C:/Users/Gi/Desktop/NNN59')
-#setwd('D:\\varie\\NNN58')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN68')
+#setwd('C:/Users/Gi/Desktop/NNN59')
+#setwd('I:\\varie\\NNN60')
  hgw2<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA2<-read.table('surf_sedhg_taylor.txt', header=T)
 hgsedB2<-read.table('subsurf_sedhg_taylor.txt', header=T)

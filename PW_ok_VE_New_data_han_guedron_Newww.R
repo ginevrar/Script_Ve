@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN50')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN67')
 setwd('C:/Users/gi/Desktop/NNN59')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)

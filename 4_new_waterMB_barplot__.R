@@ -1,33 +1,23 @@
 #setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 
-input<-read.table('Total_IN.txt', header=TRUE)
-sed_bal<-read.table("sed_balHg.txt", header=TRUE)
-input_long<-read.table('Total_IN_long.txt')
-input_short<-read.table('Total_IN.txt')
+sed_bal<-read.table("sed_balHg.txt", header=TRUE);input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
 
-sed_bal<-sed_bal[13:2428,]
 
-uu<-(sed_bal$Hg_depo6_kg_y)
-vv<-sed_bal$Hg_depo7_kg_y
-zz<-(sed_bal$Hg_depo10_kg_y)
-neg<-cbind(uu,vv,zz)
-
-apa<-(sed_bal$Hg_depo1_kg_y)
-abi<-(sed_bal$Hg_depo2_kg_y)
-aczi<-(sed_bal$Hg_depo3_kg_y)
-ace<-(sed_bal$Hg_depo4_kg_y)
-ado<-(sed_bal$Hg_depo5_kg_y)
+apa<-(sed_bal$Hg_depo1_kg_y);abi<-(sed_bal$Hg_depo2_kg_y)
+aczi<-(sed_bal$Hg_depo3_kg_y);ace<-(sed_bal$Hg_depo4_kg_y)
+ado<-(sed_bal$Hg_depo5_kg_y);uu<-(sed_bal$Hg_depo6_kg_y)
+vv<-sed_bal$Hg_depo7_kg_y;zz<-(sed_bal$Hg_depo10_kg_y)
 
 sed_bal_pos<-sed_bal[(sed_bal>0),]
 sed_bal_neg<-rowSums(neg)
-
+View(sed_bal_pos)
 plot((sed_bal_neg))
 (summary(sed_bal))
 
 volat<-read.table('volat.txt', header=T); str(volat)
 names(volat)<-'vol'
-
+plot(volat$vol)
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -65,7 +55,7 @@ netDepo1_kg_y 		<-rowSums(sed_bal)
 #depo_Phg_kg_y 		<-sed_bal$Hg_depo_tot
 #res_Phg_kg_y 		  <-sed_bal$Hg_res_tot
 evasione_kg_y     <-volat$vol
-
+plot(evasione_kg_y)
 ## ------------ bound mc/s -> mc/y --------------------
 bound3  <-	(-7) *60*60*24 *365  
 bound10 <-	(-25)*60*60*24 *365  
@@ -74,7 +64,6 @@ bound7  <-	(-15) *60*60*24 *365
  #8.4 10^10 m3 year acque nord 
 # 6.9 10^8 bound 3 + 7
 # 6.9 10^8 bound 3 + 7
-bound3+bound7; bound10
 water3<-hg$wn3; solids3<-TOTs$wn3  #Lido       
 water7<-hg$wc7; solids7<-TOTs$wc7  #Malamocco     1.5768e+08
 water10<-hg$ws10; solids10<-TOTs$ws10  #chioggia  9.77616e+08
@@ -94,7 +83,7 @@ plot(hg_outflow_kg_y)
 outflow_solids<-(bound3*solids3)+(bound10*solids10)+(bound7*solids7)
 str(Marghera)
 ## _______________________________
-str(evasione_kg_y)
+str(evasione_kg_y); tail(rdate[1:2412])
 
 evasione_kg_y<-evasione_kg_y[1:2412]
 depo_Phg_kg_y<-depo_Phg_kg_y[1:2412]
@@ -124,17 +113,15 @@ Output_terms<-as.numeric(evasione_kg_y_media + depo_Phg_kg_y_media +
 
 #____________SOMMA DEI TERMINI DI INPUT delle ACQUE
 
-str(input)
+str(input_long)
 
-Marghera<-input$ind3
-river_hg<-input$ri+riv_mehg
-atm_hg<-input$de
-veCity<-input$ci
-anno<-input$years
-TOT_in<-input$tt
+Marghera<-input_long$tot_ind
+river_hg<-input_long$tot_riv+input_long$mmr
+atm_hg<-input_long$tot_depo
+veCity<-input_long$tot_city
+anno<-input_long$years
+TOT_in<-input_long$TOT
 
-str(anno)
-plot(anno)
 Marghera_kg_y_media<-tapply(Marghera, 
                             rep(1:(length(Marghera)/12),each = 12),mean)
 
@@ -207,28 +194,25 @@ M_2017/T_in_17*100
 Ve_2017/T_in_17
 atm_2017/T_in_17
 
-bilancio_hg95<-c(T_in_95, M_95, F_95, atm_95,Ve_95, 
-               T_ou_95, -ev_95,dp_95, outf_95)
-names(bilancio_hg95)<-c('Carichi totali','Marghera',
-                      'Fiumi','Atmosfera','Citta',
-                      'Output','Evasione',
+bilancio_hg95<-c(T_in_95, M_95, F_95, atm_95,V_95, 
+                 -T_ou_95, -ev_95,dp_95, outf_95)
+names(bilancio_hg95)<-c('Carichi totali','Marghera','Fiumi','Atmosfera','Citta','Output','Evasione',
                       'Deposizione','Outflow')
 
-bilancio_hg2017<-c(T_in_17, M_2017, F_2017, atm_2017,Ve_2017, 
+bilancio_hg2017<-c(T_in_17, M_2017, F_2017, atm_2017,V_2017, 
                    -T_ou_17, -ev_17,-dp_17, outf_17)
-names(bilancio_hg2017)<-c('Input','Marghera',
-                      'Fiumi','Atmosfera','Citta',
-                      'Output','Evasione',
+names(bilancio_hg2017)<-c('Input','Marghera','Fiumi','Atmosfera','Citta','Output','Evasione',
                       'Deposizione','Outflow')
 
-bilancio_hg_70<-c(T_in_70, M_70, F_70, atm_70,Ve_70, 
+bilancio_hg_70<-c(T_in_70, M_70, F_70, atm_70,V_70, 
                    -T_ou_70, -ev_70,-dp_70, outf_70)
-names(bilancio_hg_70)<-c('Carichi totali','Marghera',
-                          'Fiumi','Atmosfera','Citta',
-                          'Output','Evasione',
-                          'Deposizione','Outflow')
-bilancio_hg
-bilancio_hg_70
+names(bilancio_hg_70)<-c('Carichi totali','Marghera','Fiumi','Atmosfera','Citta',
+                          'Output','Evasione','Deposizione','Outflow')
+
+bilancio_hg_10<-c(T_in_10, M_10, F_10, atm_10,V_10, 
+                  -T_ou_10, -ev_10,-dp_10, outf_10)
+names(bilancio_hg_10)<-c('Carichi totali','Marghera','Fiumi','Atmosfera','Citta',
+                         'Output','Evasione','Deposizione','Outflow')
 
 png('Bilanc1.png',height = 13, width=18,
     units = 'cm',res=300)
@@ -264,9 +248,18 @@ barplot(bilancio_hg2017, horiz = F, cex.names=0.6,ylab='kg/y',
                               'darkblue'))
 dev.off()
 
-png('TUTTI_Bilancis2.png',height = 13, width=22,
+
+
+png('TUTTI_Bilancis2q.png',height = 13, width=22,
     units = 'cm',res=300)
 par(mfrow=c(2,2), bty=T)
+barplot(bilancio_hg_10,horiz =T, ylab='kg/y',
+        main='Bilancio del Hg \n (1910)',
+        xlim=c(-400,400),cex.names = .6,
+        col=c('grey60','grey40','chartreuse3',
+              'cyan3','wheat',
+              'grey80','cyan4','darkorange',
+              'darkblue'))
 barplot(bilancio_hg_70,horiz =T, ylab='kg/y',
         main='Bilancio del Hg \n (1970)',
         xlim=c(-400,400),cex.names = .6,
@@ -281,7 +274,7 @@ barplot(bilancio_hg95, horiz = T,ylab='kg/y',
               'grey80','cyan4','darkorange',
               'darkblue'))
 barplot(bilancio_hg2017, horiz = T, cex.names=0.6,ylab='kg/y',
-        xlim = c(-400,400),main='Bilancio del Hg \n (2017)',
+        xlim = c(-400,400),main='Bilancio del Hg \n (2018)',
         col=c('grey60','grey40','chartreuse3',
               'cyan3','wheat',
               'grey80','cyan4','darkorange',

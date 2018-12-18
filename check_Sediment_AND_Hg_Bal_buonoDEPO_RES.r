@@ -6,6 +6,7 @@
 # 2001 - 2003 [1215:1250]
 
 setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/buonav6')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -356,7 +357,7 @@ res_media9<- POM_res$ss9 #
 res_media10<-POM_res$ss10 # 
 
 res1_g_m2_d<-res_media1 * solids_sed1      #m/day * g/m3 --> gm2d
-res1_g_d <-(res1_g_m2_d*a1)/1000; head(res1_g_d)
+res1_g_y <-(res1_g_m2_d*a1)*365; head(res1_g_d)
 
 Hgres1_g_d <-(res1_g_d*SEDhg$sn1)/10^9  #g d-1*ng g ->ngd-1/10^9
 head(Hgres1_g_d)
@@ -459,10 +460,7 @@ Hg_depo_tot<-(depo1_Phg_kg_y+depo2_Phg_kg_y+depo3_Phg_kg_y+depo4_Phg_kg_y+depo5_
               	  
 Hg_depo_tot2<-(Hg_depo1_kg_y +Hg_depo2_kg_y+Hg_depo3_kg_y+Hg_depo4_kg_y+Hg_depo5_kg_y+
 			  Hg_depo6_kg_y+Hg_depo7_kg_y+Hg_depo8_kg_y+Hg_depo9_kg_y+Hg_depo10_kg_y)
-			  
-head(depo1_Phg_kg_y)
-head(depo2_Phg_kg_y)
-head(depo3_Phg_kg_y)
+
 
 Hg_res_tot<-(res1_Phg_kg_y+res2_Phg_kg_y+res3_Phg_kg_y+res4_Phg_kg_y+res5_Phg_kg_y+
                  res6_Phg_kg_y+res7_Phg_kg_y+res8_Phg_kg_y+res9_Phg_kg_y+res10_Phg_kg_y)
@@ -475,10 +473,8 @@ sed_bal<-data.frame(Hg_res_tot2, kg_Phg_depoTOT,Hg_depo_tot2)
 s_bal<-data.frame(Hg_res_tot,kg_Phg_depoTOT, burial1_cmy)
 write.table(sed_bal,'sed_bal4.txt')
 
-head(Hg_res4_kg_y)
-
-
-tail(kg_Phg_depoTOT)
+plot(Hg_depo_tot2)
+plot(kg_Phg_depoTOT)
 
 png('depores_iniz_kgy.png')
 par(mfrow=c(2,1))

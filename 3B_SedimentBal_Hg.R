@@ -6,9 +6,8 @@
 ##92.4% of re-suspension (1.13 10^12 g year?1) 
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN63')
-setwd('C:/Users/Gi/Desktop/NNN43')
-
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
+ 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -81,51 +80,18 @@ names(silt_res)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9',
                    'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                    'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
-#fraction of POM
-fPOM  <-POMs/TOTs
-fsilt <-silts/TOTs
+#fraction of POM and silt
+fPOM  <-POMs/TOTs; fsilt <-silts/TOTs
+POM_perc<-fPOM*100
 
-str(POMs)
-
-POM_perc<-POMs/TOTs*100
-
-time.steps <- hg$time
-time.steps3 <- time.steps*24*3600
+time.steps <- hg$time;  time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
-TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 rdate
 str(rdate)
 
-png('ALL_POM_fraction__oksMMM92.png')
-plot(fPOM$sn1[241:1467], ylim=c(0,0.2),col=1, type = 'l', lty=1,lwd=2)
-par(new=T)
-plot(fPOM$sn2[241:1467], ylim=c(0,0.2),col=2, type = 'l', lty=2,lwd=1.9)
-par(new=T)
-plot(fPOM$sn3[241:1467], ylim=c(0,0.2),col=3,type = 'l', lty=3,lwd=2)
-par(new=T)
-plot(fPOM$sn4[241:1467], ylim=c(0,0.2),col=4,type = 'l', lty=4,lwd=1.5)
-par(new=T)
-plot(fPOM$sn5[241:1467], ylim=c(0,0.2),col=5,type = 'l', lty=5,lwd=2)
-par(new=T)
-plot(fPOM$sc6[241:1467], ylim=c(0,0.2),col=6,type = 'l', lty=2,lwd=1.6)
-par(new=T)
-plot(fPOM$sc7[241:1467], ylim=c(0,0.2),col=7,type = 'l', lty=1,lwd=2)
-par(new=T)
-plot(fPOM$ss8[241:1467], ylim=c(0,0.2),col=8,type = 'l', lty=3,lwd=1.3)
-par(new=T)
-plot(fPOM$ss9[241:1467], ylim=c(0,0.2),col=9,type = 'l', lty=4,lwd=1.7)
-par(new=T)
-plot(fPOM$ss10[241:1467], ylim=c(0,0.2),col=10,type = 'l', lty=5,lwd=1.8)
-legend(10,0.2,  legend = c('b1','b2','b3','b4','b5','b6','b7','b8','b9','b10'),
-       col=c(1,2,3,4,5,6,7,8,9,10),pch=19)
-dev.off()
-
-
 #area ans depths
-a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07
-a9<-2.95E+07;a10<-4.06E+07
-
+a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07; a9<-2.95E+07;a10<-4.06E+07
 d1<-1.26; d2<-0.78; d3<-3.35; d4<-0.64; d5<-1.03; d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71		
 
   solids_sed1  <-TOTs$sn1;   solids_dsed1  <-TOTs$dsn1;    
@@ -357,7 +323,15 @@ res9_Phg_kg_y<-res9_kg_y*SEDhg$ss9/10^6
 res10_g_m2_d<-res_media10 * solids_sed10      #1/day * g/m3
 res10_g_y <-(res10_g_m2_d*a10)*365
 res10_kg_y <-res10_g_y/1000
-res10_Phg_kg_y<-res10_kg_y*SEDhg$ss10/10^6 
+res10_Phg_kg_y<-res10_kg_y*SEDhg$ss10/10^6  # kg y-1 * ng g
+
+
+plot(depo1_Phg_kg_y-res1_Phg_kg_y)
+plot(depo10_Phg_kg_y-res10_Phg_kg_y)
+plot(depo10_Phg_kg_y-res10_Phg_kg_y)
+plot(depo10_Phg_kg_y-res10_Phg_kg_y)
+plot(depo10_Phg_kg_y-res10_Phg_kg_y)
+plot(depo10_Phg_kg_y-res10_Phg_kg_y)
 
 ##92.4% of re-suspension (1.13 10^12 g year?1) 
 # o13urs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
@@ -424,18 +398,6 @@ plot(rdate,depo9_kg_y/a9, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1300
 plot(rdate,depo10_kg_y/a10, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1300)) 
 dev.off()
 
-  sar_b1<-c(-0.3125, 0.3125)
-  sar_b2<-c(-0.3125, 0.3125)
-  sar_b3<-c(-0.3125, 0.3125)
-  sar_b4<-c(-0.3125, 0.3125)
-  sar_b5<-c(-0.3125, 0.3125)
-  sar_b6<-c(-1.5625,-0.3125)
-  sar_b7<-c(-1.5625,-0.3125)
-  sar_b8<-c(-0.3125, 0.3125)
-  sar_b9<-c(-0.3125, 0.3125)
-  sar_b10<-c(-1.5625,-0.3125)
-  
-  
   POC_perc<-POM_perc/1.77
   
   plot(POC_perc$sn1)

@@ -3,7 +3,7 @@ setwd('C:\\Users\\gi\\Downloads')
 setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN50')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN68')
 setwd('C:/Users/gi/Desktop/NNN59')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
