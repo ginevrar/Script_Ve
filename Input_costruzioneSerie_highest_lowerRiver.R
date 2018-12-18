@@ -1,4 +1,3 @@
-
 years    <-seq(1900,2100)  # sequence of 200 elements (years)
 area     <-4.12E+08   # surface area of the site (m2)  - to compute rates 
 area_km2 <-4.12E+02   # surface area of the site (km2) - to compute rates 
@@ -167,6 +166,8 @@ riv_mult<-c(1.021276596,0.805920444,0.782608696, 1.184458834,0.919148936,1.01350
 
 cit_mult<-rep(1,12)
 
+library(tidyverse)
+
 if6<-indus %>%
   rowwise() %>%                       # for each row
   mutate(x = list(ind2 * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
@@ -204,9 +205,6 @@ dum<-cit %>%
   mutate(x = list(ci * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
   unnest()                            # unnest data
 tot_city<-as.numeric(as.character(unlist(dum[5])))
-
-
-library(tidyverse)
 
 df1<-dep %>%
   rowwise() %>%                       # for each row
@@ -326,7 +324,6 @@ monthy_ind<-data.frame(yy,b6i)
 write.table(monthly_dep,file='monthly_dep.txt')
 write.table(monthly_riv,file='monthly_riv.txt')
 write.table(monthly_cit,file='monthly_city.txt')
-
 
 in1 <-(monthly_dep$b1)/365   # kg / y to kg/d
 in2 <-(monthly_dep$b2 + monthly_riv$b2r)/365

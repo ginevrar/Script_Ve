@@ -1,20 +1,8 @@
 #setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 
-sed_bal<-read.table("sed_balHg.txt", header=TRUE);input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
-
-
-apa<-(sed_bal$Hg_depo1_kg_y);abi<-(sed_bal$Hg_depo2_kg_y)
-aczi<-(sed_bal$Hg_depo3_kg_y);ace<-(sed_bal$Hg_depo4_kg_y)
-ado<-(sed_bal$Hg_depo5_kg_y);uu<-(sed_bal$Hg_depo6_kg_y)
-vv<-sed_bal$Hg_depo7_kg_y;zz<-(sed_bal$Hg_depo10_kg_y)
-
-sed_bal_pos<-sed_bal[(sed_bal>0),]
-sed_bal_neg<-rowSums(neg)
-View(sed_bal_pos)
-plot((sed_bal_neg))
-(summary(sed_bal))
-
+sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
+input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
 volat<-read.table('volat.txt', header=T); str(volat)
 names(volat)<-'vol'
 plot(volat$vol)
@@ -214,12 +202,13 @@ bilancio_hg_10<-c(T_in_10, M_10, F_10, atm_10,V_10,
 names(bilancio_hg_10)<-c('Carichi totali','Marghera','Fiumi','Atmosfera','Citta',
                          'Output','Evasione','Deposizione','Outflow')
 
+
 png('Bilanc1.png',height = 13, width=18,
     units = 'cm',res=300)
 par(mfrow=c(1,1), bty=T)
 barplot(bilancio_hg_70,horiz = F, ylab='kg/y',
         main='Bilancio del Hg \n (1970)',
-        ylim=c(-400,400),cex.names = .6,
+        ylim=c(-200,200),cex.names = .6,
         col=c('grey60','grey40','chartreuse3',
               'cyan3','wheat',
               'grey80','cyan4','darkorange',
@@ -250,31 +239,31 @@ dev.off()
 
 
 
-png('TUTTI_Bilancis2q.png',height = 13, width=22,
+png('TUTTI_Bilancis2z.png',height = 13, width=22,
     units = 'cm',res=300)
 par(mfrow=c(2,2), bty=T)
 barplot(bilancio_hg_10,horiz =T, ylab='kg/y',
         main='Bilancio del Hg \n (1910)',
-        xlim=c(-400,400),cex.names = .6,
+        xlim=c(-20,20),cex.names = .6,
         col=c('grey60','grey40','chartreuse3',
               'cyan3','wheat',
               'grey80','cyan4','darkorange',
               'darkblue'))
 barplot(bilancio_hg_70,horiz =T, ylab='kg/y',
         main='Bilancio del Hg \n (1970)',
-        xlim=c(-400,400),cex.names = .6,
+        xlim=c(-1500,1500),cex.names = .6,
         col=c('grey60','grey40','chartreuse3',
               'cyan3','wheat',
               'grey80','cyan4','darkorange',
               'darkblue'))
 barplot(bilancio_hg95, horiz = T,ylab='kg/y',
-        main='Bilancio del Hg \n (1995)',cex.names=0.6,xlim=c(-400,400),
+        main='Bilancio del Hg \n (1995)',cex.names=0.6,xlim=c(-200,200),
         col=c('grey60','grey40','chartreuse3',
               'cyan3','wheat',
               'grey80','cyan4','darkorange',
               'darkblue'))
 barplot(bilancio_hg2017, horiz = T, cex.names=0.6,ylab='kg/y',
-        xlim = c(-400,400),main='Bilancio del Hg \n (2018)',
+        xlim = c(-100,100),main='Bilancio del Hg \n (2018)',
         col=c('grey60','grey40','chartreuse3',
               'cyan3','wheat',
               'grey80','cyan4','darkorange',
