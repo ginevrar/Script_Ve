@@ -202,7 +202,6 @@ bilancio_hg_10<-c(T_in_10, M_10, F_10, atm_10,V_10,
 names(bilancio_hg_10)<-c('Carichi totali','Marghera','Fiumi','Atmosfera','Citta',
                          'Output','Evasione','Deposizione','Outflow')
 
-
 png('Bilanc1.png',height = 13, width=18,
     units = 'cm',res=300)
 par(mfrow=c(1,1), bty=T)

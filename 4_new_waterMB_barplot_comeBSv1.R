@@ -1,11 +1,14 @@
-setwd('C:/Users/gi/Dropbox/NNN61')
+setwd('C:/Users/gi/Dropbox/NNN61/annuale')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 
-sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
+#sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
+sed_bal_ugd<-read.table("hgbal.txt", header=TRUE);
 input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
 volat<-read.table('volat.txt', header=T); str(volat)
 names(volat)<-'vol'
 plot(volat$vol)
+
+cumsum(input_short[1:11,])
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -56,17 +59,24 @@ outflow_solids<-(bound3*solids3)+(bound10*solids10)+(bound7*solids7)
 ## _______________________________
 
 evasione_kg_y<-evasione_kg_y[1:2412]
-depo_Phg_kg_y<-netDepo1_kg_y[1:2412]
 hg_outflow_kg_y<-hg_outflow_kg_y[1:2412]
 
 evasione_kg_y_media<-tapply(evasione_kg_y, 
                             rep(1:(length(evasione_kg_y)/12),each = 12),mean)
-depo_Phg_kg_y_media<-tapply(netDepo1_kg_y[1:2412], 
-                            rep(1:(length(netDepo1_kg_y[1:2412])/12),each = 12),mean)
 
-plot(depo_Phg_kg_y_media)
+depo_Phg_ug_d_media<-tapply(sed_bal_ugd[1:2412,], 
+                            rep(1:(length(sed_bal_ugd[1:2412,])/12),each = 12),mean)
 
-str(hg_outflow_kg_y)
+depo_Phg_ug_d_somma<-tapply(sed_bal_ugd[1:2412,], 
+                            rep(1:(length(sed_bal_ugd[1:2412,])/12),each = 12),sum)
+
+
+depo_Phg_kg_y_media<-depo_Phg_ug_d_media*365/10^9
+depo_Phg_kg_y_somma<-depo_Phg_ug_d_somma*365/10^9
+
+#sed_bal_ugd*365/10^9
+#                           rep(1:(length(sed_bal_ugd[1:2412,])/12),each = 12),mean)
+
 hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y, rep(1:(length(hg_outflow_kg_y)/12),each = 12),mean)
 
 #diffusion_kg_y_media<-tapply(diffusion_kg_y, rep(1:(length(diffusion_kg_y)/12),each = 12),mean)
