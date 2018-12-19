@@ -2,8 +2,7 @@
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
-setwd('C:/Users/gi/Dropbox/NNN61/annuale')
-
+setwd('C:/Users/gi/Dropbox/NNN61/annuale_piuRES')
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -139,33 +138,51 @@ fhgPOM<-(kdPOM/kdtot); fhgsilt<-(kdsilt/kdtot); fhgsand<-(kdsand/kdtot)
 
 ##aggiun
 hgpom_dep1 <-POM_depo1_1_day *Phgs$wn1*fhgPOM*d1 #1/day *ug/m3*m = ug/m2d
-hgpom_dep1b <-POM_depo1_1_day *POMs$wn1*SEDhg$wn1*fhgPOM*d1/1000 #m/day *ng/m3*m*g/m3  = ng/m2d/1000
 
 plot(hgpom_dep1)
 plot(hgpom_dep1b)
-
 hgpom_dep2<- POM_depo2_1_day *Phgs$wn2*fhgPOM*d2
-hgpom_dep2b<- POM_depo2_1_day *POMs$wn2*SEDhg$wn2*fhgPOM*d2/1000
-
 hgpom_dep3<- POM_depo3_1_day *Phgs$wn3*fhgPOM*d3 
-hgpom_dep3b<- POM_depo3_1_day *POMs$wn3*SEDhg$wn3*fhgPOM*d3/1000
-
 hgpom_dep4<- POM_depo4_1_day *Phgs$wn4*fhgPOM*d4
-hgpom_dep4b<- POM_depo3_1_day *POMs$wn4*SEDhg$wn4*fhgPOM*d4/1000
-
 hgpom_dep5<- POM_depo5_1_day *Phgs$wn5*fhgPOM*d5
-hgpom_dep5b<- POM_depo5_1_day *POMs$wn5*SEDhg$wn5*fhgPOM*d5/1000
-
 hgpom_dep6<- POM_depo6_1_day *Phgs$wc6*fhgPOM*d6 
-hgpom_dep6b<- POM_depo6_1_day *POMs$wc6*SEDhg$wc6*fhgPOM*d6/1000 
-
 hgpom_dep7<- POM_depo7_1_day *Phgs$wc7*fhgPOM*d7 
-hgpom_dep7b<- POM_depo7_1_day *POMs$wc7*SEDhg$wc7*fhgPOM*d7/1000 
-
-hgpom_dep8<- POM_depo8_1_day *Phgs$ws8*fhgPOM*d8
 hgpom_dep8<- POM_depo8_1_day *Phgs$ws8*fhgPOM*d8
 hgpom_dep9<- POM_depo9_1_day *Phgs$ws9*fhgPOM*d9 
 hgpom_dep10<- POM_depo10_1_day *Phgs$ws10*fhgPOM*d10
+
+hgpom_dep1b <-POM_depo1_1_day *POMs$wn1*SEDhg$wn1*fhgPOM*d1/1000 #m/day *ng/m3*m*g/m3  = ng/m2d/1000
+hgpom_dep2b<- POM_depo2_1_day *POMs$wn2*SEDhg$wn2*fhgPOM*d2/1000
+hgpom_dep3b<- POM_depo3_1_day *POMs$wn3*SEDhg$wn3*fhgPOM*d3/1000
+hgpom_dep4b<- POM_depo3_1_day *POMs$wn4*SEDhg$wn4*fhgPOM*d4/1000
+hgpom_dep5b<- POM_depo5_1_day *POMs$wn5*SEDhg$wn5*fhgPOM*d5/1000
+hgpom_dep6b<- POM_depo6_1_day *POMs$wc6*SEDhg$wc6*fhgPOM*d6/1000 
+hgpom_dep7b<- POM_depo7_1_day *POMs$wc7*SEDhg$wc7*fhgPOM*d7/1000 
+hgpom_dep8b<- POM_depo8_1_day *POMs$ws8*SEDhg$ws8*fhgPOM*d8/1000 
+hgpom_dep9b<- POM_depo9_1_day *POMs$ws9*SEDhg$ws9*fhgPOM*d9/1000 
+hgpom_dep10b<- POM_depo10_1_day *POMs$ws10*SEDhg$ws10*fhgPOM*d10/1000 
+
+hgsilt_dep1b <-silt_depo1_1_day *silts$wn1*SEDhg$wn1*fhgsilt*d1/1000 #m/day *ng/m3*m*g/m3  = ng/m2d/1000
+hgsilt_dep2b<- silt_depo2_1_day *silts$wn2*SEDhg$wn2*fhgsilt*d2/1000
+hgsilt_dep3b<- silt_depo3_1_day *silts$wn3*SEDhg$wn3*fhgsilt*d3/1000
+hgsilt_dep4b<- silt_depo3_1_day *silts$wn4*SEDhg$wn4*fhgsilt*d4/1000
+hgsilt_dep5b<- silt_depo5_1_day *silts$wn5*SEDhg$wn5*fhgsilt*d5/1000
+hgsilt_dep6b<- silt_depo6_1_day *silts$wc6*SEDhg$wc6*fhgsilt*d6/1000 
+hgsilt_dep7b<- silt_depo7_1_day *silts$wc7*SEDhg$wc7*fhgsilt*d7/1000 
+hgsilt_dep8b<- silt_depo8_1_day *silts$ws8*SEDhg$ws8*fhgsilt*d8/1000 
+hgsilt_dep9b<- silt_depo9_1_day *silts$ws9*SEDhg$ws9*fhgsilt*d9/1000 
+hgsilt_dep10b<- silt_depo10_1_day *silts$ws10*SEDhg$ws10*fhgsilt*d10/1000 
+
+hgsand_dep1b <-sand_depo1_1_day *sands$wn1*SEDhg$wn1*fhgsand*d1/1000 #m/day *ng/m3*m*g/m3  = ng/m2d/1000
+hgsand_dep2b<- sand_depo2_1_day *sands$wn2*SEDhg$wn2*fhgsand*d2/1000
+hgsand_dep3b<- sand_depo3_1_day *sands$wn3*SEDhg$wn3*fhgsand*d3/1000
+hgsand_dep4b<- sand_depo3_1_day *sands$wn4*SEDhg$wn4*fhgsand*d4/1000
+hgsand_dep5b<- sand_depo5_1_day *sands$wn5*SEDhg$wn5*fhgsand*d5/1000
+hgsand_dep6b<- sand_depo6_1_day *sands$wc6*SEDhg$wc6*fhgsand*d6/1000 
+hgsand_dep7b<- sand_depo7_1_day *sands$wc7*SEDhg$wc7*fhgsand*d7/1000 
+hgsand_dep8b<- sand_depo8_1_day *sands$ws8*SEDhg$ws8*fhgsand*d8/1000 
+hgsand_dep9b<- sand_depo9_1_day *sands$ws9*SEDhg$ws9*fhgsand*d9/1000 
+hgsand_dep10b<- sand_depo10_1_day *sands$ws10*SEDhg$ws10*fhgsand*d10/1000 
 
 hgsand_dep1 <-sand_depo1_1_day *Phgs$wn1*fhgsand*d1 #1/day *ug/m3*m = ug/m2d
 hgsand_dep2<- sand_depo2_1_day *Phgs$wn2*fhgsand*d2
@@ -182,7 +199,7 @@ head(silt_depo1_1_day*Phgs$wn1*fhgsilt*d1*365/10^9*a1)
 #----------  RAtes
 hgsilt_dep1<-silt_depo1_1_day *Phgs$wn1*fhgsilt*d1 #1/day *ug/m3*m = ug/m2d
 hgsilt_dep1b<-silt_depo1_1_day *Phgs$wn1*fsilt$wn1*d1 #1/day *ug/m3*m = ug/m2d
-head(hgsilt_dep1)
+head(silts$wn1)
 head(hgsilt_dep1b)
 
 hgsilt_dep2<- silt_depo2_1_day *Phgs$wn2*fhgsilt*d2 
@@ -276,9 +293,40 @@ hgbal_10 <-(hgpom_dep10-hgpom_res10) + (hgsilt_dep10-hgsilt_res10)+(hgsand_dep10
 hgbal<- (hgbal_1*a1)+(hgbal_2*a2)+(hgbal_3*a3)+(hgbal_4*a4)+(hgbal_5*a5)+(hgbal_6*a6)+
         (hgbal_7*a7)+(hgbal_8+a8)+(hgbal_9*a9)+(hgbal_10*a10)
 
-hgbal_kgy<-hgbal/10^9*365
+#depo ug/m2d  - res ug/m2d
+hgbal_1b <-(hgpom_dep1b-hgpom_res1) + (hgsilt_dep1b-hgsilt_res1)+(hgsand_dep1b-hgsand_res1)#ug/m2d
+hgbal_2b <-(hgpom_dep2b-hgpom_res2) + (hgsilt_dep2b-hgsilt_res2)+(hgsand_dep2b-hgsand_res2)#ug/m2d
+hgbal_3b <-(hgpom_dep3b-hgpom_res3) + (hgsilt_dep3b-hgsilt_res3)+(hgsand_dep3b-hgsand_res3)#ug/m2d
+hgbal_4b <-(hgpom_dep4b-hgpom_res4) + (hgsilt_dep4b-hgsilt_res4)+(hgsand_dep4b-hgsand_res4)#ug/m2d
+hgbal_5b <-(hgpom_dep5b-hgpom_res5) + (hgsilt_dep5b-hgsilt_res5)+(hgsand_dep5b-hgsand_res5)#ug/m2d
+hgbal_6b <-(hgpom_dep6b-hgpom_res6) + (hgsilt_dep6b-hgsilt_res6)+(hgsand_dep6b-hgsand_res6)#ug/m2d
+hgbal_7b <-(hgpom_dep7b-hgpom_res7) + (hgsilt_dep7b-hgsilt_res7)+(hgsand_dep7b-hgsand_res7)#ug/m2d
+hgbal_8b <-(hgpom_dep8b-hgpom_res8) + (hgsilt_dep8b-hgsilt_res8)+(hgsand_dep8b-hgsand_res8)#ug/m2d
+hgbal_9b <-(hgpom_dep9b-hgpom_res9) + (hgsilt_dep9b-hgsilt_res9)+(hgsand_dep9b-hgsand_res9)#ug/m2d
+hgbal_10b <-(hgpom_dep10b-hgpom_res10) + (hgsilt_dep10b-hgsilt_res10)+(hgsand_dep10b-hgsand_res10)#ug/m2d
+
+
+# hgbal_n [ug m2d] * [m2] = hgbal [ug d-1]
+hgbalb<- ((hgbal_1b*a1)+(hgbal_2b*a2)+(hgbal_3b*a3)+(hgbal_4*a4)+
+          (hgbal_5b*a5)+(hgbal_6b*a6)+
+  (hgbal_7b*a7)+(hgbal_8b+a8)+(hgbal_9b*a9)+(hgbal_10b*a10))*30
+
+# hgbal [ug d-1] sum every year [ugy-1]
+bilancio_hgugy<-tapply(hgbalb[2:2413], 
+       rep(1:(length(hgbalb[1:2413])/12),each = 12),sum)
+
+bilancio_hg<-bilancio_hgugy/10^9 #[ugy-1]/10^9 kgy-1
+head(bilancio_hg)
+
+hgbal_kgyb<-hgbalb/10^9*365
 
 plot(hgbal_kgy/area*10^3)  # meno di un g/ m2 y in media
+
+plot(hgbal_kgyb, type='l')  # meno di un g/ m2 y in media
+
+str(hgbal_kgyb)
+head(hgbal_kgyb)
+(hgbal_kgyb)
 
 plot(evasione_kg_y_media/area*10^3)
 
