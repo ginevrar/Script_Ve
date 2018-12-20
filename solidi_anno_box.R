@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN48')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 setwd('C:/Users/Gi/Desktop/NNN56')
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
