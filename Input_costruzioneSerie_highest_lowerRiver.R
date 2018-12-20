@@ -1,3 +1,4 @@
+setwd('C:/Users/Acer/Desktop/');library(dplyr)
 years    <-seq(1900,2100)  # sequence of 200 elements (years)
 area     <-4.12E+08   # surface area of the site (m2)  - to compute rates 
 area_km2 <-4.12E+02   # surface area of the site (km2) - to compute rates 
@@ -358,21 +359,21 @@ par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(2,2), cex.main=1.4)
 plot(ladata,TOT, type='l', ylim=c(0,1500), xlab='',ylab='kg y-1', 
      main='Hg inputs to the Venice Lagoon')
 par(new=T)
-plot(ladata,tot_city, type='l',col='orange',ylab='',xlab='', yaxt='n',xaxt='n', ylim=c(0,1500))
+plot(ladata,tot_city, type='l',col='#ECC16F',ylab='',xlab='', yaxt='n',xaxt='n', ylim=c(0,1500))
 par(new=T)
 plot(ladata,tot_depo, type='l',col='cyan3',ylab='',xlab='', yaxt='n',xaxt='n', ylim=c(0,1500))
 par(new=T)
 plot(ladata,tot_ind, type='l',col='grey40', ylab='',xlab='', yaxt='n',xaxt='n',ylim=c(0,1500))
 par(new=T)
 plot(ladata,tot_riv, type='l',col='royalblue',ylab='',xlab='',  yaxt='n',xaxt='n',ylim=c(0,1500))
-legend(4900, 1500, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
+legend(4900, 1500, col=c(1,'grey40', 'royalblue','cyan3','#ECC16F'),pch=19, bty='n',cex=1.4,
        legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
 text(ladata[30],1500,'A', cex=2.5)
 
 #plot(ladata,TOT/TOT*100, type='l', ylim=c(0,100), xlab='',ylab='kg y-1', 
 #     )
 #par(new=T)
-plot(ladata,tot_city/TOT*100, type='l',col='orange',ylab='%',xlab='', 
+plot(ladata,tot_city/TOT*100, type='l',col='#ECC16F',ylab='%',xlab='', 
      ylim=c(0,100), main='Hg inputs to the Venice Lagoon')
 par(new=T)
 plot(ladata,tot_depo/TOT*100, type='l',col='cyan3',ylab='',xlab='', yaxt='n',
