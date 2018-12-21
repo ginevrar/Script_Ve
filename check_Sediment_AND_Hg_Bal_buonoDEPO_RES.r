@@ -7,6 +7,7 @@
 
 setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/buonav6')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/0.01')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -33,6 +34,8 @@ names(SEDhg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')   #ng/g
 
+head(SEDhg)
+
 burial<-read.csv("Sediment_Burial_Velocity.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(burial)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -47,7 +50,6 @@ silts<-read.csv("Silts_Fines.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(silts)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
-head(silts)  
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -73,6 +75,7 @@ silt_res<-read.csv("Silt_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec="."
 names(silt_res)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                    'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                    'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')				 
+head(silt_res)  
 
 #aree e profonditÃ boxes	
 a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07;a4<-8.90E+06; a5<-2.22E+07; 
@@ -460,6 +463,9 @@ Hg_depo_tot<-(depo1_Phg_kg_y+depo2_Phg_kg_y+depo3_Phg_kg_y+depo4_Phg_kg_y+depo5_
               	  
 Hg_depo_tot2<-(Hg_depo1_kg_y +Hg_depo2_kg_y+Hg_depo3_kg_y+Hg_depo4_kg_y+Hg_depo5_kg_y+
 			  Hg_depo6_kg_y+Hg_depo7_kg_y+Hg_depo8_kg_y+Hg_depo9_kg_y+Hg_depo10_kg_y)
+
+head(Hg_depo_tot)
+head(Hg_depo_tot2)
 
 
 Hg_res_tot<-(res1_Phg_kg_y+res2_Phg_kg_y+res3_Phg_kg_y+res4_Phg_kg_y+res5_Phg_kg_y+

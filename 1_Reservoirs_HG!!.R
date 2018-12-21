@@ -101,7 +101,7 @@ reservoir_hg_w8<-a8*d8*hg$ws8/10^9
 reservoir_hg_w9<-a9*d9*hg$ws9/10^9
 reservoir_hg_w10<-a10*d10*hg$ws10/10^9
 
-reservoir_hg_s1<-a1*d1*hg$sn1/10^9
+reservoir_hg_s1<-a1*d1*hg$sn1/10^9    #yg m-3 * m3/10^9 = kg
 reservoir_hg_s2<-a2*d2*hg$sn2/10^9
 reservoir_hg_s3<-a3*d3*hg$sn3/10^9
 reservoir_hg_s4<-a4*d4*hg$sn4/10^9
@@ -125,6 +125,10 @@ total_reservoir_Sed_media<-tapply(total_reservoir_Sed[1:2412],
 
 total_reservoir_W_media<-tapply(total_reservoir_W[1:2412], 
                                   rep(1:(length(total_reservoir_W[1:2412])/12),each = 12),mean)
+
+
+write.table(total_reservoir_W, file='total_reservoir_W.txt')
+write.table(total_reservoir_Sed, file='total_reservoir_Sed.txt')
 
 dep_net<-(input_short$tt-Output_terms-total_reservoir_Sed_media-total_reservoir_W_media)
 total_reservoir_Sed_media

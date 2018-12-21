@@ -1,4 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN68');
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61');
 setwd('C:/Users/Gi/Desktop/NNN59')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
@@ -257,6 +257,8 @@ segments(rdate[1225],south_bloom_max_mhgd,rdate[1225],south_bloom_min_mhgd)
 dev.off()
 
 #___________________________fine HgD acque bloom _____________________________________________
+par(mfrow=c(1,1))
+
 plot(rdate2[36:48], mod_nord_mean_mhgd_D[36:48], type='l')
 plot(rdate2[36:48], mod_cent_mean_mhgd_D[36:48], type='l')
 plot(rdate2[36:48], mod_sud_mean_mhgd_D[36:48], type='l')
