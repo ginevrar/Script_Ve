@@ -4,7 +4,7 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #dati<-read.table('QSEV_data.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/NOsand')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/piuresIN')
 setwd('C:/Users/gi/Desktop/NNN59')
 
 hgp<-read.csv('Total_Sorbed_Divalent_Hg_Solids.csv', skip=1)
