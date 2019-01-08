@@ -199,16 +199,16 @@ reservoir_hgp_s8<-a8*d8*Phgs$ss8/10^9
 reservoir_hgp_s9<-a9*d9*Phgs$ss9/10^9
 reservoir_hgp_s10<-a10*d10*Phgs$ss10/10^9
 
-reservoir_hg_s1<-a1*d1*hg$sn1*TOTs$sn1/10^9     # ng/g *g/m3(w+s)*vol(m3)/10^9 = kg(hg)
-reservoir_hg_s2<-a2*d2*hg$sn2*TOTs$sn2/10^9
-reservoir_hg_s3<-a3*d3*hg$sn3*TOTs$sn3/10^9
-reservoir_hg_s4<-a4*d4*hg$sn4*TOTs$sn4/10^9
-reservoir_hg_s5<-a5*d5*hg$sn5*TOTs$sn5/10^9
-reservoir_hg_s6<-a6*d6*hg$sc6*TOTs$sc6/10^9
-reservoir_hg_s7<-a7*d7*hg$sc7*TOTs$sc7/10^9
-reservoir_hg_s8<-a8*d8*hg$ss8*TOTs$ss8/10^9
-reservoir_hg_s9<-a9*d9*hg$ss9*TOTs$ss9/10^9
-reservoir_hg_s10<-a10*d10*hg$ss10*TOTs$ss10/10^9
+reservoir_hg_s1<-a1*d1*hg$sn1*TOTs$sn1/10^12     # ng/g *g/m3(w+s)*vol(m3)/10^12 = kg(hg)
+reservoir_hg_s2<-a2*d2*hg$sn2*TOTs$sn2/10^12
+reservoir_hg_s3<-a3*d3*hg$sn3*TOTs$sn3/10^12
+reservoir_hg_s4<-a4*d4*hg$sn4*TOTs$sn4/10^12
+reservoir_hg_s5<-a5*d5*hg$sn5*TOTs$sn5/10^12
+reservoir_hg_s6<-a6*d6*hg$sc6*TOTs$sc6/10^12
+reservoir_hg_s7<-a7*d7*hg$sc7*TOTs$sc7/10^12
+reservoir_hg_s8<-a8*d8*hg$ss8*TOTs$ss8/10^12
+reservoir_hg_s9<-a9*d9*hg$ss9*TOTs$ss9/10^12
+reservoir_hg_s10<-a10*d10*hg$ss10*TOTs$ss10/10^12
 
 hgsilt_s1<-reservoir_hg_s1*fsilt$sn1
 hgsilt_s2<-reservoir_hg_s2*fsilt$sn2
@@ -221,16 +221,16 @@ hgsilt_s8<-reservoir_hg_s8*fsilt$ss8
 hgsilt_s9<-reservoir_hg_s9*fsilt$ss9
 hgsilt_s10<-reservoir_hg_s10*fsilt$ss10
 
-hgom_s1<-reservoir_hg_s1*fpom$sn1
-hgom_s2<-reservoir_hg_s2*fpom$sn2
-hgom_s3<-reservoir_hg_s3*fpom$sn3
-hgom_s4<-reservoir_hg_s4*fpom$sn4
-hgom_s5<-reservoir_hg_s5*fpom$sn5
-hgom_s6<-reservoir_hg_s6*fpom$sc6
-hgom_s7<-reservoir_hg_s7*fpom$sc7
-hgom_s8<-reservoir_hg_s8*fpom$ss8
-hgom_s9<-reservoir_hg_s9*fpom$ss9
-hgom_s10<-reservoir_hg_s10*fpom$ss10
+hgpom_s1<-reservoir_hg_s1*fpom$sn1
+hgpom_s2<-reservoir_hg_s2*fpom$sn2
+hgpom_s3<-reservoir_hg_s3*fpom$sn3
+hgpom_s4<-reservoir_hg_s4*fpom$sn4
+hgpom_s5<-reservoir_hg_s5*fpom$sn5
+hgpom_s6<-reservoir_hg_s6*fpom$sc6
+hgpom_s7<-reservoir_hg_s7*fpom$sc7
+hgpom_s8<-reservoir_hg_s8*fpom$ss8
+hgpom_s9<-reservoir_hg_s9*fpom$ss9
+hgpom_s10<-reservoir_hg_s10*fpom$ss10
 
 hgsand_s1<-reservoir_hg_s1*fsand$sn1
 hgsand_s2<-reservoir_hg_s2*fsand$sn2
@@ -292,6 +292,9 @@ TotR<-R1+R2+R3+R4+R5+R6+R7+R8+R9+R10
 
 head(TotD)
 head(TotR)
+
+NEt<-TotD-TotR
+plot(NEt)
 
 plot(TotD,ylim=c(0,15000))
 par(new=T)
