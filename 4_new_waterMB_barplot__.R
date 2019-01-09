@@ -1,44 +1,43 @@
 #setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
-
-sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
-input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
-volat<-read.table('volat.txt', header=T); str(volat)
-names(volat)<-'vol'
-plot(volat$vol)
-
-hg<-read.csv('Total_Hg.csv', skip=1)
-names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')				 
-hg<-hg[1:2412,]
-
-temp<-read.csv('Segment_temperature.csv', skip=1)
-names(temp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+  
+  sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
+  input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
+  volat<-read.table('volat.txt', header=T); str(volat)
+  names(volat)<-'vol'
+  plot(volat$vol)
+  
+  hg<-read.csv('Total_Hg.csv', skip=1)
+  names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
- temp<-temp[1:2412,]
-
- TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
- names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')				 
- TOTs<-TOTs[1:2412,]
- 
-time.steps <- temp[,1]
-time.steps3 <- time.steps*24*3600
-TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1901-01-01")
-TEMPO[1:10]
-rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
-rdate
-diss_hg<-hgD+DOChg+hg0; str(diss_hg);
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')				 
+  hg<-hg[1:2412,]
+  
+  temp<-read.csv('Segment_temperature.csv', skip=1)
+  names(temp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10')
+   temp<-temp[1:2412,]
+  
+   TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+   names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')				 
+   TOTs<-TOTs[1:2412,]
+   
+  time.steps <- temp[,1]
+  time.steps3 <- time.steps*24*3600
+  TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1901-01-01")
+  TEMPO[1:10]
+  rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
 2416/151
 151*16
 
-netDepo1_kg_y 		<-rowSums(sed_bal)
+str(sed_bal)
+netDepo1_kg_y 		<-sed_bal$x
 #burial2_kg_y 			<-sed_bal$TOT_buried
 #depo_Phg_kg_y 		<-sed_bal$Hg_depo_tot
 #res_Phg_kg_y 		  <-sed_bal$Hg_res_tot
@@ -74,19 +73,19 @@ str(Marghera)
 str(evasione_kg_y); tail(rdate[1:2412])
 
 evasione_kg_y<-evasione_kg_y[1:2412]
-depo_Phg_kg_y<-depo_Phg_kg_y[1:2412]
-res_Phg_kg_y<-res_Phg_kg_y[1:2412]
+Net_depo_Phg_kg_y<-sed_bal$x[1:2412]
+#res_Phg_kg_y<-res_Phg_kg_y[1:2412]
 hg_inflow_kg_y<-hg_inflow_kg_y[1:2412]
 hg_outflow_kg_y<-hg_outflow_kg_y[1:2412]
-diffusion_kg_y<-diffusion_kg_y [1:2412]
-burial2_kg_y <-burial2_kg_y[1:2412]
+#diffusion_kg_y<-diffusion_kg_y [1:2412]
+#burial2_kg_y <-burial2_kg_y[1:2412]
 
 evasione_kg_y_media<-tapply(evasione_kg_y, 
                             rep(1:(length(evasione_kg_y)/12),each = 12),mean)
 depo_Phg_kg_y_media<-tapply(netDepo1_kg_y[1:2412], 
                             rep(1:(length(netDepo1_kg_y[1:2412])/12),each = 12),mean)
 
-plot(depo_Phg_kg_y_media)
+plot(depo_Phg_kg_y_media/1000)
 
 str(hg_outflow_kg_y)
 hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y, rep(1:(length(hg_outflow_kg_y)/12),each = 12),mean)
@@ -113,6 +112,7 @@ TOT_in<-input_long$TOT
 Marghera_kg_y_media<-tapply(Marghera, 
                             rep(1:(length(Marghera)/12),each = 12),mean)
 
+hg_inflow_kg_y_media=rep(NA,2412)
 str(veCity)
 Input_terms<-(river_hg+atm_hg+hg_inflow_kg_y_media+Marghera+
               +veCity); str(Input_terms); 
@@ -179,7 +179,7 @@ T_in_17=M_2017+F_2017+atm_2017+V_2017
 
 F_2017/T_in_17
 M_2017/T_in_17*100
-Ve_2017/T_in_17
+V_2017/T_in_17
 atm_2017/T_in_17
 
 bilancio_hg95<-c(T_in_95, M_95, F_95, atm_95,V_95, 
@@ -204,7 +204,7 @@ names(bilancio_hg_10)<-c('Carichi totali','Marghera','Fiumi','Atmosfera','Citta'
 
 png('Bilanc1.png',height = 13, width=18,
     units = 'cm',res=300)
-par(mfrow=c(1,1), bty=T)
+par(mfrow=c(1,1), bty='n')
 barplot(bilancio_hg_70,horiz = F, ylab='kg/y',
         main='Bilancio del Hg \n (1970)',
         ylim=c(-200,200),cex.names = .6,
