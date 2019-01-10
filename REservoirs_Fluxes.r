@@ -1,12 +1,12 @@
-  setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/bedT_5')
-  
+  setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
+
   hg<-read.csv('Total_Hg.csv', skip=1)
   names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
   hg<-hg[1:2412,]
-  
+
   time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
   TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
   rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
@@ -103,11 +103,12 @@ fsandp <-fsand/(fsilt+fpom+fsand)
 
 fsiltp+fpomp+fsandp
 
-head(fsilt$wn1)
-head(fsand$wn1)
+head(hg$wn1)
+
+head(reservoir_hgp_w1)
 head(fpom$wn1)
 
-reservoir_hg_w1 <- a1*d1 * hg$wn1      # ug/m3(w+s) *vol(m3) = ug(hg)  = kg(hg)
+reservoir_hg_w1 <- a1*d1 * hg$wn1      # ug/m3(w+s) *vol(m3) = ug(hg)
 reservoir_hg_w2 <- a2*d2 * hg$wn2
 reservoir_hg_w3 <- a3*d3 * hg$wn3
 reservoir_hg_w4 <- a4*d4 * hg$wn4
@@ -171,7 +172,7 @@ plot(rr/10^9, ylim=c(0,5), col=2, type='l',lty=2)
 
 rdate[700]
 
-hgaq_w1<-reservoir_hg_w1*faq$wn1  ##kg(hg)  adsorbito a sabbie
+hgaq_w1<-reservoir_hg_w1*faq$wn1  ##ug(hg)  adsorbito a sabbie
 hgaq_w2<-reservoir_hg_w2*faq$wn2
 hgaq_w3<-reservoir_hg_w3*faq$wn3
 hgaq_w4<-reservoir_hg_w4*faq$wn4
@@ -182,7 +183,7 @@ hgaq_w8<-reservoir_hg_w8*faq$ws8
 hgaq_w9<-reservoir_hg_w9*faq$ws9
 hgaq_w10<-reservoir_hg_w10*faq$ws10
 
-hgdoc_w1<-reservoir_hg_w1*fdoc$wn1    ##kg(hg)  adsorbito a sabbie
+hgdoc_w1<-reservoir_hg_w1*fdoc$wn1    ##ug(hg)  adsorbito a sabbie
 hgdoc_w2<-reservoir_hg_w2*fdoc$wn2
 hgdoc_w3<-reservoir_hg_w3*fdoc$wn3
 hgdoc_w4<-reservoir_hg_w4*fdoc$wn4
@@ -230,27 +231,29 @@ Fdp8 <-hgpom_w8* (DEPO_POM$ws8/d8)/86400
 Fdp9 <-hgpom_w9* (DEPO_POM$ws9/d9)/86400
 Fdp10<-hgpom_w10* (DEPO_POM$ws10/d10)/86400
 
-reservoir_hgp_s1<-a1*0.05*Phgs$sn1/10^9     # ng/L(w+s) or ug/m3(w+s)*vol(m3)/10^9 = kg(hg)
-reservoir_hgp_s2<-a2*0.05*Phgs$sn2/10^9
-reservoir_hgp_s3<-a3*0.05*Phgs$sn3/10^9
-reservoir_hgp_s4<-a4*0.05*Phgs$sn4/10^9
-reservoir_hgp_s5<-a5*0.05*Phgs$sn5/10^9
-reservoir_hgp_s6<-a6*0.05*Phgs$sc6/10^9
-reservoir_hgp_s7<-a7*0.05*Phgs$sc7/10^9
-reservoir_hgp_s8<-a8*0.05*Phgs$ss8/10^9
-reservoir_hgp_s9<-a9*0.05*Phgs$ss9/10^9
-reservoir_hgp_s10<-a10*0.05*Phgs$ss10/10^9
+reservoir_hgp_s1<-a1*0.05*Phgs$sn1       # ug/m3(w+s)*vol(m3)/10^3 = ug(hg)
+reservoir_hgp_s2<-a2*0.05*Phgs$sn2
+reservoir_hgp_s3<-a3*0.05*Phgs$sn3
+reservoir_hgp_s4<-a4*0.05*Phgs$sn4
+reservoir_hgp_s5<-a5*0.05*Phgs$sn5
+reservoir_hgp_s6<-a6*0.05*Phgs$sc6
+reservoir_hgp_s7<-a7*0.05*Phgs$sc7
+reservoir_hgp_s8<-a8*0.05*Phgs$ss8
+reservoir_hgp_s9<-a9*0.05*Phgs$ss9
+reservoir_hgp_s10<-a10*0.05*Phgs$ss10
 
-reservoir_hg_s1 <- a1*0.05 * hg$sn1 *TOTs$sn1/10^12  #ng(hg)/g(s) *g(s)/m3(w+s)*vol(m3) = ng(hg)/10^12 = kg(hg)
-reservoir_hg_s2 <- a2*0.05 * hg$sn2 *TOTs$sn2/10^12
-reservoir_hg_s3 <- a3*0.05 * hg$sn3 *TOTs$sn3/10^12
-reservoir_hg_s4 <- a4*0.05* hg$sn4 *TOTs$sn4/10^12
-reservoir_hg_s5 <- a5*0.05 * hg$sn5 *TOTs$sn5/10^12
-reservoir_hg_s6 <- a6*0.05 * hg$sc6 *TOTs$sc6/10^12
-reservoir_hg_s7 <- a7*0.05 * hg$sc7 *TOTs$sc7/10^12
-reservoir_hg_s8 <- a8*0.05 * hg$ss8 *TOTs$ss8/10^12
-reservoir_hg_s9 <- a9*0.05 * hg$ss9 *TOTs$ss9/10^12
-reservoir_hg_s10<-a10*0.05* hg$ss10*TOTs$ss10/10^12
+head(reservoir_hgp_s1); head(reservoir_hgp_w1)
+
+reservoir_hg_s1 <- a1*0.05 * hg$sn1 *TOTs$sn1/10^3       #ng(hg)/g(s) *g(s)/m3(w+s)*vol(m3) = ng(hg)/10^3 = ug(hg)
+reservoir_hg_s2 <- a2*0.05 * hg$sn2 *TOTs$sn2/10^3
+reservoir_hg_s3 <- a3*0.05 * hg$sn3 *TOTs$sn3/10^3
+reservoir_hg_s4 <- a4*0.05 * hg$sn4 *TOTs$sn4/10^3
+reservoir_hg_s5 <- a5*0.05 * hg$sn5 *TOTs$sn5/10^3
+reservoir_hg_s6 <- a6*0.05 * hg$sc6 *TOTs$sc6/10^3
+reservoir_hg_s7 <- a7*0.05 * hg$sc7 *TOTs$sc7/10^3
+reservoir_hg_s8 <- a8*0.05 * hg$ss8 *TOTs$ss8/10^3
+reservoir_hg_s9 <- a9*0.05 * hg$ss9 *TOTs$ss9/10^3
+reservoir_hg_s10<-a10*0.05* hg$ss10 *TOTs$ss10/10^3
 
 hgsilt_s1 <-reservoir_hgp_s1 * fsiltp$sn1     # ug(hg-silt) in sediment
 hgsilt_s2 <-reservoir_hgp_s2 * fsiltp$sn2
@@ -284,11 +287,6 @@ hgsand_s7 <-reservoir_hgp_s7 * fsandp$sc7
 hgsand_s8 <-reservoir_hgp_s8 * fsandp$ss8
 hgsand_s9 <-reservoir_hgp_s9 * fsandp$ss9
 hgsand_s10<-reservoir_hgp_s10* fsandp$ss10
-
-rr<-hgsilt_s1+hgsand_s1+hgpom_s1
-plot(reservoir_hgp_s1/10^12, ylim=c(0,50), type='l')
-par(new=T)
-plot(rr/10^12,ylim=c(0,50), col=2, type='l',lty=2)
 
 hgaq_s1 <-reservoir_hg_s1 * faq$sn1
 hgaq_s2 <-reservoir_hg_s2 * faq$sn2
@@ -333,11 +331,17 @@ hg_sand_sed_tot<-rowSums(hg_sand_sed); hg_sand_wat_tot<-rowSums(hg_sand_wat)
 hg_doc_sed_tot <-rowSums(hg_doc_sed) ; hg_doc_wat_tot <-rowSums(hg_doc_wat)
 hg_aq_sed_tot<-rowSums(hg_aq_sed);hg_aq_wat_tot<-rowSums(hg_aq_wat)
 
-hg_reserv_s<-reservoir_hg_s1+reservoir_hg_s2+reservoir_hg_s3+reservoir_hg_s4+reservoir_hg_s5+
-reservoir_hg_s6+reservoir_hg_s7+reservoir_hg_s8+reservoir_hg_s9+reservoir_hg_s10
+w_reser<-cbind(reservoir_hg_w1,reservoir_hg_w2,reservoir_hg_w3,reservoir_hg_w4,reservoir_hg_w5,
+               reservoir_hg_w6,reservoir_hg_w7, reservoir_hg_w8, reservoir_hg_w9, reservoir_hg_w10)
 
-head(hg_sed_reservoir/1000)
-head(hg_wat_reservoir)
+s_reser<-cbind(reservoir_hg_s1,reservoir_hg_s2,reservoir_hg_s3,reservoir_hg_s4,reservoir_hg_s5,
+               reservoir_hg_s6,reservoir_hg_s7, reservoir_hg_s8, reservoir_hg_s9, reservoir_hg_s10)
+
+tot_w_reser<-rowSums(w_reser/10^9)
+tot_s_reser<-rowSums(s_reser/10^9)
+
+head(hg_sed_reservoir/10^9)
+head(tot_s_reser)
 plot(hg_wat_reservoir)
 plot(hg_reserv_s)
 
@@ -432,18 +436,19 @@ plot(net_tot_sand_mean, type='l',col=2)
 dd<-(Fdsilt_tot+Fdsand_tot+Fdpom_tot)*86400                                  #ug s-1  -> ug d-1
 rr<-(Frsilt_tot+Frsand_tot+Frpom_tot)*86400                                  #ug s-1  -> ug d-1
 
-nn<-(net_tot_sand_mean+net_tot_silt_mean+net_tot_pom_mean)*86400 #ug s-1  -> ug d-1
+nn<-(net_tot_sand_mean+net_tot_silt_mean+net_tot_pom_mean)*86400              #ug s-1  -> ug d-1
+
+rr_tot_mean <-tapply(rr, rep(1:(length(rr)/12),each = 12),mean)
+dd_tot_mean <-tapply(dd, rep(1:(length(dd)/12),each = 12),mean)
 
 
-plot(nn/10^9*365,col=1,type='l', ylim=c(0,300000))
-par(new=T)                  # ug d-1  -> kg d-1
-plot(rr/10^9*365,col=2,type='l', ylim=c(0,300000))
-par(new=T)                  # ug d-1  -> kg d-1
-plot(dd/10^9*365,col=3,type='l', ylim=c(0,300000))
+plot(nn/10^9*365,col=1,type='l', ylim=c(-1200,9000)) # ug d-1  -> kg y-1
+par(new=T)
+plot(rr_tot_mean/10^9*365,col=2,ylim=c(-1200,9000),type='l')
+par(new=T)
+plot(dd_tot_mean/10^9*365,col=3,type='l', ylim=c(-1200,9000))
 
-head(nn/10^9)
-head(rr/10^9)
-head(dd/10^9)
+head(nn/10^9); head(rr/10^9); head(dd/10^9)
 
 str(nn)
 str(rr)
@@ -496,7 +501,7 @@ hg_sed_reservoir<-hg_silt_sed_tot+hg_pom_sed_tot+hg_sand_sed_tot+hg_doc_sed_tot+
 hg_wat_reservoir<-hg_silt_wat_tot+hg_pom_wat_tot+hg_sand_wat_tot+hg_doc_wat_tot+hg_aq_wat_tot
 
 head(TotD*365)
-head(hg_wat_reservoir)
+head(hg_sed_reservoir/10^9)
 head(TotR*365)
 
 NEt<-(TotD-TotR)*86400/10^9     #kg d
@@ -509,6 +514,7 @@ Net_kgy<-NEt*365
 head(hg_wat_reservoir/10^9)
 head(NEt,12)
 head(Net_kgy)
+
 write.table(Net_kgy,"Net_hgSed_kgy.txt");
 
 head(Net_kgy)

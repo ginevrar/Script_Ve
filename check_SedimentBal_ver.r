@@ -6,7 +6,7 @@
 # 2001 - 2003 [1215:1250]
 
 setwd('C:/Users/gi/Dropbox/2017_Venice/113')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/piuresIN')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -98,20 +98,29 @@ NET_DEPO_cmy<-data.frame(netdepo_sed1,netdepo_sed2,netdepo_sed3,netdepo_sed4,net
 BURIAL_cmy<-data.frame(burial_sed1,burial_sed2,burial_sed3,burial_sed4, burial_sed5,
 						burial_sed6, burial_sed7,burial_sed8,burial_sed9, burial_sed10)
 
-netdepo_sed1<-burial_sed1 * TOTs$sn1 *a1   #m/y * g/m3 --> g/m2y
-netdepo_sed2<-burial_sed2 * TOTs$sn2 *a2 #m/y * g/m3 --> g/m2y
-netdepo_sed3<-burial_sed3 * TOTs$sn3 *a3   #m/y * g/m3 --> g/m2y
-netdepo_sed4<-burial_sed4 * TOTs$sn4 *a4   #m/y * g/m3 --> g/m2y
-netdepo_sed5<-burial_sed5 * TOTs$sn5 *a5   #m/y * g/m3 --> g/m2y
-netdepo_sed6<-burial_sed6 * TOTs$sc6 *a6 #m/y * g/m3 --> g/m2y
-netdepo_sed7<-burial_sed7 * TOTs$sc7 *a7   #m/y * g/m3 --> g/m2y
-netdepo_sed8<-burial_sed8 * TOTs$ss8 *a8 #m/y * g/m3 --> g/m2y
-netdepo_sed9<-burial_sed9 * TOTs$ss9 *a9   #m/y * g/m3 --> g/m2y
-netdepo_sed10<-burial_sed10* TOTs$ss10*a10   #m/y * g/m3 --> g/m2y
+netdepo_sed1<-burial_sed1 * TOTs$sn1 *a1   #m/y * g/m3 * m2 --> g/y
+netdepo_sed2<-burial_sed2 * TOTs$sn2 *a2 
+netdepo_sed3<-burial_sed3 * TOTs$sn3 *a3   
+netdepo_sed4<-burial_sed4 * TOTs$sn4 *a4    
+netdepo_sed5<-burial_sed5 * TOTs$sn5 *a5    
+netdepo_sed6<-burial_sed6 * TOTs$sc6 *a6  
+netdepo_sed7<-burial_sed7 * TOTs$sc7 *a7   
+netdepo_sed8<-burial_sed8 * TOTs$ss8 *a8  
+netdepo_sed9<-burial_sed9 * TOTs$ss9 *a9    
+netdepo_sed10<-burial_sed10* TOTs$ss10*a10   
 
+plot(rdate,netdepo_sed1, type='l')
+plot(rdate,netdepo_sed2, type='l')
+plot(rdate,netdepo_sed3, type='l')
+plot(rdate,netdepo_sed4, type='l')
+plot(rdate,netdepo_sed5, type='l')
+plot(rdate,netdepo_sed6, type='l')
+plot(rdate,netdepo_sed7, type='l')
+plot(rdate,netdepo_sed8, type='l')
+plot(rdate,netdepo_sed9, type='l')
+plot(rdate,netdepo_sed10, type='l')
 
-
-
+netdepo_sed1*hg$w
 
 
 
@@ -338,8 +347,8 @@ res_tot*10^3-depo_tot*10^3
 
 depo_tot[2:1167]
 
-plot(depo_tot[1200:1334])
-plot(res_tot[1200:1334])
+plot(depo_tot[1:1334])
+plot(res_tot[1:1334])
 bal1<-depo1_kg_y-res1_kg_y
 
 par(mfrow=c(2,5))

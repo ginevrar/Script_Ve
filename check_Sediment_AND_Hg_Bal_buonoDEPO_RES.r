@@ -7,7 +7,7 @@
 
 setwd('C:/Users/gi/Dropbox/2017_Venice/114/Buona/buonav6')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/0.01')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -81,7 +81,7 @@ head(silt_res)
 a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07;a4<-8.90E+06; a5<-2.22E+07; 
 a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
 
-area<-cbind(0,a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
+area<-cbind(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
 
 d1<-1.26; d2<-0.78; d3<-3.35; d4<-0.64; d5<-1.03; 
 d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71		
@@ -262,7 +262,7 @@ Hg_depo1_kg_y <-Hg_depo1_ng_y/10^12
 
 depo2_g_m3_d<-depo_media2 * TOTs$wn2       #1/day * g/m3
 depo2_g_y <-(depo2_g_m3_d*a2*d2)*365
-depo2_kg_y <-depo2_kg_y/1000
+depo2_kg_y <-depo2_g_y/1000
 depo2_Phg_ug_y<-depo2_kg_y* SEDhg$wn2 
 depo2_Phg_kg_y<-depo2_Phg_ug_y/10^9
 
