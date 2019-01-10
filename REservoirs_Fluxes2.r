@@ -109,35 +109,35 @@ head(hg$wn1)
 head(reservoir_hgp_w1)
 head(fpom$wn1)
 
-reservoir_hg_w1 <- a1*d1 * hg$wn1      # ug/m3(w+s) *vol(m3) = ug(hg)
-reservoir_hg_w2 <- a2*d2 * hg$wn2
-reservoir_hg_w3 <- a3*d3 * hg$wn3
-reservoir_hg_w4 <- a4*d4 * hg$wn4
-reservoir_hg_w5 <- a5*d5 * hg$wn5
-reservoir_hg_w6 <- a6*d6 * hg$wc6
-reservoir_hg_w7 <- a7*d7 * hg$wc7
-reservoir_hg_w8 <- a8*d8 * hg$ws8
-reservoir_hg_w9 <- a9*d9 * hg$ws9
-reservoir_hg_w10<- a10*d10* hg$ws10
+reservoir_hg_w1 <- a1*d1 * hg$wn1 /10^6     # ug/m3(w+s) *vol(m3) = ug(hg)/10^6 = g(hg)
+reservoir_hg_w2 <- a2*d2 * hg$wn2 /10^6
+reservoir_hg_w3 <- a3*d3 * hg$wn3 /10^6
+reservoir_hg_w4 <- a4*d4 * hg$wn4 /10^6
+reservoir_hg_w5 <- a5*d5 * hg$wn5 /10^6
+reservoir_hg_w6 <- a6*d6 * hg$wc6 /10^6
+reservoir_hg_w7 <- a7*d7 * hg$wc7 /10^6
+reservoir_hg_w8 <- a8*d8 * hg$ws8 /10^6
+reservoir_hg_w9 <- a9*d9 * hg$ws9 /10^6
+reservoir_hg_w10<- a10*d10* hg$ws10/10^6
 
 tail(hg$ws10)
 
-reservoir_hgp_w1 <- a1*d1 *Phgs$wn1    # ug/m3(w+s) *vol(m3) = ug(hg)
-reservoir_hgp_w2 <- a2*d2 *Phgs$wn2
-reservoir_hgp_w3 <- a3*d3 *Phgs$wn3
-reservoir_hgp_w4 <- a4*d4 *Phgs$wn4
-reservoir_hgp_w5 <- a5*d5 *Phgs$wn5
-reservoir_hgp_w6 <- a6*d6 *Phgs$wc6
-reservoir_hgp_w7 <- a7*d7 *Phgs$wc7
-reservoir_hgp_w8 <- a8*d8 *Phgs$ws8
-reservoir_hgp_w9 <- a9*d9 *Phgs$ws9
-reservoir_hgp_w10<- a10*d10 *Phgs$ws10
+reservoir_hgp_w1 <- a1*d1 *Phgs$wn1/10^6    # ug/m3(w+s) *vol(m3) = ug(hg)/10^6 = g(hg)
+reservoir_hgp_w2 <- a2*d2 *Phgs$wn2/10^6
+reservoir_hgp_w3 <- a3*d3 *Phgs$wn3/10^6
+reservoir_hgp_w4 <- a4*d4 *Phgs$wn4/10^6
+reservoir_hgp_w5 <- a5*d5 *Phgs$wn5/10^6
+reservoir_hgp_w6 <- a6*d6 *Phgs$wc6/10^6
+reservoir_hgp_w7 <- a7*d7 *Phgs$wc7/10^6
+reservoir_hgp_w8 <- a8*d8 *Phgs$ws8/10^6
+reservoir_hgp_w9 <- a9*d9 *Phgs$ws9/10^6
+reservoir_hgp_w10<- a10*d10 *Phgs$ws10/10^6
 
 head(hg$wn1)
 head(Phgs$wn1)
 head(reservoir_hgp_w10)
 
-hgsilt_w1<-reservoir_hgp_w1*fsiltp$wn1    ##  ug(hg) adsorbito al silt
+hgsilt_w1<-reservoir_hgp_w1*fsiltp$wn1    ##  g(hg) adsorbito al silt
 hgsilt_w2<-reservoir_hgp_w2*fsiltp$wn2
 hgsilt_w3<-reservoir_hgp_w3*fsiltp$wn3
 hgsilt_w4<-reservoir_hgp_w4*fsiltp$wn4
@@ -148,7 +148,7 @@ hgsilt_w8<-reservoir_hgp_w8*fsiltp$ws8
 hgsilt_w9<-reservoir_hgp_w9*fsiltp$ws9
 hgsilt_w10<-reservoir_hgp_w10*fsiltp$ws10
 
-hgpom_w1<-reservoir_hgp_w1*fpomp$wn1      ## ug(hg) adsorbito al pom
+hgpom_w1<-reservoir_hgp_w1*fpomp$wn1      ## g(hg) adsorbito al pom
 hgpom_w2<-reservoir_hgp_w2*fpomp$wn2
 hgpom_w3<-reservoir_hgp_w3*fpomp$wn3
 hgpom_w4<-reservoir_hgp_w4*fpomp$wn4
@@ -159,7 +159,7 @@ hgpom_w8<-reservoir_hgp_w8*fpomp$ws8
 hgpom_w9<-reservoir_hgp_w9*fpomp$ws9
 hgpom_w10<-reservoir_hgp_w10*fpomp$ws10
 
-hgsand_w1<-reservoir_hgp_w1*fsandp$wn1    ## ug(hg)  adsorbito a sabbie
+hgsand_w1<-reservoir_hgp_w1*fsandp$wn1    ## g(hg)  adsorbito a sabbie
 hgsand_w2<-reservoir_hgp_w2*fsandp$wn2
 hgsand_w3<-reservoir_hgp_w3*fsandp$wn3
 hgsand_w4<-reservoir_hgp_w4*fsandp$wn4
@@ -175,7 +175,7 @@ plot(rdate, reservoir_hgp_w1/10^9, ylim=c(0,5), type='l')
 par(new=T)
 plot(rdate, rr/10^9, ylim=c(0,5), col=2, type='l',lty=2)
 
-hgaq_w1<-reservoir_hg_w1*faq$wn1  ##ug(hg)  adsorbito a sabbie
+hgaq_w1<-reservoir_hg_w1*faq$wn1  ##g(hg)  adsorbito a sabbie
 hgaq_w2<-reservoir_hg_w2*faq$wn2
 hgaq_w3<-reservoir_hg_w3*faq$wn3
 hgaq_w4<-reservoir_hg_w4*faq$wn4
@@ -186,7 +186,7 @@ hgaq_w8<-reservoir_hg_w8*faq$ws8
 hgaq_w9<-reservoir_hg_w9*faq$ws9
 hgaq_w10<-reservoir_hg_w10*faq$ws10
 
-hgdoc_w1<-reservoir_hg_w1*fdoc$wn1    ##ug(hg)  adsorbito a sabbie
+hgdoc_w1<-reservoir_hg_w1*fdoc$wn1    ##g(hg)  adsorbito a sabbie
 hgdoc_w2<-reservoir_hg_w2*fdoc$wn2
 hgdoc_w3<-reservoir_hg_w3*fdoc$wn3
 hgdoc_w4<-reservoir_hg_w4*fdoc$wn4
@@ -198,49 +198,58 @@ hgdoc_w9<-reservoir_hg_w9*fdoc$ws9
 hgdoc_w10<-reservoir_hg_w10*fdoc$ws10
 
 # Deposition rate Deposition for Hg in silt
-Fds1 <- hgsilt_w1 * (DEPO_silt$wn1/d1)/(86400)     # ug(hg) * 1 d-1 --> ug d-1/86400 == ug s-1
+# g(hg) * 1 d-1 --> ug d-1
 
-plot(rdate, hgsilt_w1, ylim=c(0,3*10^9), type='l')
+plot(rdate, hgsilt_w1, ylim=c(0,3*10^3), type='l')
 par(new=T)
-plot(rdate, hgaq_w10, ylim=c(0,3*10^9), col=2, type='l',lty=2)
+plot(rdate, hgaq_w10, ylim=c(0,3*10^3), col=2, type='l',lty=2)
 
 head(hgsilt_w1)
-head(hgsilt_w1)*27
 head(DEPO_silt$wn1)
                       #depo silt = 27 m/d
 head((DEPO_silt$wn2/d2))   #m/d scende di 27 m/d, 1/d
+head(Fds1)   ##reservoir da 0 a 2.5 kg(hg) in box 1 nel tempo
 
+win.graph()
+plot(hgsilt_w1, type='l')   ##reservoir da 0 a 2.5 kg(hg) in box 1 nel tempo
+plot(Fds1, type='l')   ##reservoir da 0 a 2.5 kg(hg) in box 1 nel tempo
 
+# Flussi deposizione in [g d-1]  || Emili et al. 1.3 - 2.7 [mg m-2 y-1] at MGL 
+Fds1 <- hgsilt_w1 * (DEPO_silt$wn1/d1)        # g d-1   
+Fds1b<- (hg$wn1 * DEPO_silt$wn1*a1)/10^6       # ug m-3* m d-1 *m2/10^6 g/d   
 
-head(Fds1)
+fd1_mg_m2y<-Fds1b*365/(1000*a1)
+win.graph()
+plot(fd1_mg_m2y)
 
-Fds2 <- hgsilt_w2 * (DEPO_silt$wn2)/(86400)
-Fds3 <- hgsilt_w3 * (DEPO_silt$wn3/d3)/(86400)
-Fds4 <- hgsilt_w4 * (DEPO_silt$wn4/d4)/(86400)
-Fds5 <- hgsilt_w5 * (DEPO_silt$wn5/d5)/(86400)
-Fds6 <- hgsilt_w6 * (DEPO_silt$wc6/d6)/(86400)
-Fds7 <- hgsilt_w7 * (DEPO_silt$wc7/d7)/(86400)
-Fds8 <- hgsilt_w8 * (DEPO_silt$ws8/d8)/(86400)
-Fds9 <- hgsilt_w9 * (DEPO_silt$ws9/d9)/(86400)
-Fds10<- hgsilt_w10* (DEPO_silt$ws10/d10)/(86400)
+Fds2 <- hgsilt_w2 * (DEPO_silt$wn2)        
+Fds3 <- hgsilt_w3 * (DEPO_silt$wn3)         
+Fds4 <- hgsilt_w4 * (DEPO_silt$wn4)
+Fds5 <- hgsilt_w5 * (DEPO_silt$wn5)
+Fds6 <- hgsilt_w6 * (DEPO_silt$wc6)
+Fds7 <- hgsilt_w7 * (DEPO_silt$wc7)
+Fds8 <- hgsilt_w8 * (DEPO_silt$ws8)
+Fds9 <- hgsilt_w9 * (DEPO_silt$ws9)
+Fds10<- hgsilt_w10* (DEPO_silt$ws10)
 
 # Deposition rate for Hg in sand
-Fdsa1 <-hgsand_w1 * (DEPO_sand$wn1/d1)/86400   #ug(hg) * 1 d-1 --> ug d-1/86400 == ug s-1
-Fdsa2 <-hgsand_w2 * (DEPO_sand$wn2/d2)/86400
-Fdsa3 <-hgsand_w3 * (DEPO_sand$wn3/d3)/86400
-Fdsa4 <-hgsand_w4 * (DEPO_sand$wn4/d4)/86400
-Fdsa5 <-hgsand_w5 * (DEPO_sand$wn5/d5)/86400
-Fdsa6 <-hgsand_w6 * (DEPO_sand$wc6/d6)/86400
-Fdsa7 <-hgsand_w7 * (DEPO_sand$wc7/d7)/86400
-Fdsa8 <-hgsand_w8 * (DEPO_sand$ws8/d8)/86400
-Fdsa9 <-hgsand_w9 * (DEPO_sand$ws9/d9)/86400
-Fdsa10<-hgsand_w10* (DEPO_sand$ws10/d10)/86400
+## DA TRASFORMARE IN  g m2d
+Fdsa1 <-hgsand_w1 * (DEPO_sand$wn1) #g(hg) * 1 d-1 --> g d-1/86400 == g s-1
+Fdsa2 <-hgsand_w2 * (DEPO_sand$wn2)
+Fdsa3 <-hgsand_w3 * (DEPO_sand$wn3)
+Fdsa4 <-hgsand_w4 * (DEPO_sand$wn4)
+Fdsa5 <-hgsand_w5 * (DEPO_sand$wn5)
+Fdsa6 <-hgsand_w6 * (DEPO_sand$wc6)
+Fdsa7 <-hgsand_w7 * (DEPO_sand$wc7)
+Fdsa8 <-hgsand_w8 * (DEPO_sand$ws8)
+Fdsa9 <-hgsand_w9 * (DEPO_sand$ws9)
+Fdsa10<-hgsand_w10* (DEPO_sand$ws10)
 
-# Deposition rate kg(hg-pom)
-Fdp1 <-hgpom_w1* (DEPO_POM$wn1/d1)/86400
-Fdp2 <-hgpom_w2* (DEPO_POM$wn2/d2)/86400
-Fdp3 <-hgpom_w3* (DEPO_POM$wn3/d3)/86400    #ug(hg) * 1 d-1 --> ug d-1/86400 == ug s-1
-Fdp4 <-hgpom_w4* (DEPO_POM$wn4/d4)/86400
+# Deposition rate kg(hg-pom) ## DA TRASFORMARE IN  
+Fdp1 <-hgpom_w1* (DEPO_POM$wn1) #g d
+Fdp2 <-hgpom_w2* (DEPO_POM$wn2)
+Fdp3 <-hgpom_w3* (DEPO_POM$wn3)    #ug(hg) * 1 d-1 --> ug d-1/86400 == ug s-1
+Fdp4 <-hgpom_w4* (DEPO_POM$wn4)
 Fdp5 <-hgpom_w5* (DEPO_POM$wn5/d5)/86400
 Fdp6 <-hgpom_w6* (DEPO_POM$wc6/d6)/86400
 Fdp7 <-hgpom_w7* (DEPO_POM$wc7/d7)/86400
@@ -248,31 +257,34 @@ Fdp8 <-hgpom_w8* (DEPO_POM$ws8/d8)/86400
 Fdp9 <-hgpom_w9* (DEPO_POM$ws9/d9)/86400
 Fdp10<-hgpom_w10* (DEPO_POM$ws10/d10)/86400
 
-reservoir_hgp_s1<-a1*0.05*Phgs$sn1       # ug/m3(w+s)*vol(m3)/10^3 = ug(hg)
-reservoir_hgp_s2<-a2*0.05*Phgs$sn2
-reservoir_hgp_s3<-a3*0.05*Phgs$sn3
-reservoir_hgp_s4<-a4*0.05*Phgs$sn4
-reservoir_hgp_s5<-a5*0.05*Phgs$sn5
-reservoir_hgp_s6<-a6*0.05*Phgs$sc6
-reservoir_hgp_s7<-a7*0.05*Phgs$sc7
-reservoir_hgp_s8<-a8*0.05*Phgs$ss8
-reservoir_hgp_s9<-a9*0.05*Phgs$ss9
-reservoir_hgp_s10<-a10*0.05*Phgs$ss10
 
-head(reservoir_hgp_s1); head(reservoir_hgp_w1)
+## DA TRASFORMARE IN  g m2d
 
-reservoir_hg_s1 <- a1*0.05 * hg$sn1 *TOTs$sn1/10^3       #ng(hg)/g(s) *g(s)/m3(w+s)*vol(m3) = ng(hg)/10^3 = ug(hg)
-reservoir_hg_s2 <- a2*0.05 * hg$sn2 *TOTs$sn2/10^3
-reservoir_hg_s3 <- a3*0.05 * hg$sn3 *TOTs$sn3/10^3
-reservoir_hg_s4 <- a4*0.05 * hg$sn4 *TOTs$sn4/10^3
-reservoir_hg_s5 <- a5*0.05 * hg$sn5 *TOTs$sn5/10^3
-reservoir_hg_s6 <- a6*0.05 * hg$sc6 *TOTs$sc6/10^3
-reservoir_hg_s7 <- a7*0.05 * hg$sc7 *TOTs$sc7/10^3
-reservoir_hg_s8 <- a8*0.05 * hg$ss8 *TOTs$ss8/10^3
-reservoir_hg_s9 <- a9*0.05 * hg$ss9 *TOTs$ss9/10^3
-reservoir_hg_s10<-a10*0.05* hg$ss10 *TOTs$ss10/10^3
+reservoir_hgp_s1<-a1*0.05*Phgs$sn1/10^6       # ug/m3(w+s)*vol(m3)/10^6 = g(hg)
+reservoir_hgp_s2<-a2*0.05*Phgs$sn2/10^6
+reservoir_hgp_s3<-a3*0.05*Phgs$sn3/10^6
+reservoir_hgp_s4<-a4*0.05*Phgs$sn4/10^6
+reservoir_hgp_s5<-a5*0.05*Phgs$sn5/10^6
+reservoir_hgp_s6<-a6*0.05*Phgs$sc6/10^6
+reservoir_hgp_s7<-a7*0.05*Phgs$sc7/10^6
+reservoir_hgp_s8<-a8*0.05*Phgs$ss8/10^6
+reservoir_hgp_s9<-a9*0.05*Phgs$ss9/10^6
+reservoir_hgp_s10<-a10*0.05*Phgs$ss10/10^6
 
-hgsilt_s1 <-reservoir_hgp_s1 * fsiltp$sn1     # ug(hg-silt) in sediment
+head(reservoir_hgp_s1); head(reservoir_hg_s1)
+
+reservoir_hg_s1 <- a1*0.05 * hg$sn1 *TOTs$sn1/10^9   #ng(hg)/g(s) *g(s)/m3(w+s)*vol(m3) = ng(hg)/10^9 = g(hg)
+reservoir_hg_s2 <- a2*0.05 * hg$sn2 *TOTs$sn2/10^9
+reservoir_hg_s3 <- a3*0.05 * hg$sn3 *TOTs$sn3/10^9
+reservoir_hg_s4 <- a4*0.05 * hg$sn4 *TOTs$sn4/10^9
+reservoir_hg_s5 <- a5*0.05 * hg$sn5 *TOTs$sn5/10^9
+reservoir_hg_s6 <- a6*0.05 * hg$sc6 *TOTs$sc6/10^9
+reservoir_hg_s7 <- a7*0.05 * hg$sc7 *TOTs$sc7/10^9
+reservoir_hg_s8 <- a8*0.05 * hg$ss8 *TOTs$ss8/10^9
+reservoir_hg_s9 <- a9*0.05 * hg$ss9 *TOTs$ss9/10^9
+reservoir_hg_s10<- a10*0.05* hg$ss10 *TOTs$ss10/10^9
+
+hgsilt_s1 <-reservoir_hgp_s1 * fsiltp$sn1   # g(hg-silt) in sediment
 hgsilt_s2 <-reservoir_hgp_s2 * fsiltp$sn2
 hgsilt_s3 <-reservoir_hgp_s3 * fsiltp$sn3
 hgsilt_s4 <-reservoir_hgp_s4 * fsiltp$sn4
@@ -294,6 +306,9 @@ hgpom_s8 <-reservoir_hgp_s8 * fpomp$ss8
 hgpom_s9 <-reservoir_hgp_s9 * fpomp$ss9
 hgpom_s10<-reservoir_hgp_s10* fpomp$ss10
 
+4.094147e-07   # fsand pos [997]
+1060857.5      #hg
+1060857.5*4.094147e-07
 hgsand_s1 <-reservoir_hgp_s1 * fsandp$sn1
 hgsand_s2 <-reservoir_hgp_s2 * fsandp$sn2
 hgsand_s3 <-reservoir_hgp_s3 * fsandp$sn3

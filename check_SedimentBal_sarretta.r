@@ -7,7 +7,7 @@
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep')
-setwd('C:/Users/Gi/Desktop/NNN43')
+setwd('C:/Users/Gi/Dropbox/NNN61/MenoDep3')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
