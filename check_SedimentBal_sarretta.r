@@ -7,7 +7,7 @@
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep')
-setwd('C:/Users/Gi/Dropbox/NNN61/MenoDep3')
+setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/b')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -33,6 +33,7 @@ names(burial)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','w
                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
+plot(burial$ss9)
 sands<-read.csv("Sands.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(sands)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -359,13 +360,35 @@ res10_g_y <-(res10_g_m2_d*a10)*365
 res10_kg_y <-res10_g_y/1000
 res10_Phg_kg_y<-res10_kg_y*SEDhg$ss10/10^6 
 
-##92.4% of re-suspension (1.13 10^12 g year?1) 
-# o13urs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
+##92.4% of re-suspension (1.13 10^12 g year) 
+# o13urs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year).
+
+depo_tot_nor<-depo1_kg_y+depo2_kg_y+depo3_kg_y+depo4_kg_y+depo5_kg_y+depo6_kg_y
+depo_tot_sud<-depo8_kg_y+depo9_kg_y+depo10_kg_y+depo7_kg_y
+
 
 depo_tot<-depo1_kg_y+depo2_kg_y+depo3_kg_y+depo4_kg_y+depo5_kg_y+depo6_kg_y+depo7_kg_y+depo8_kg_y+depo9_kg_y+depo10_kg_y
-res_tot<-res1_kg_y+res2_kg_y+res3_kg_y+res4_kg_y+res5_kg_y+res6_kg_y+res7_kg_y+res8_kg_y+res9_kg_y+res10_kg_y
 
+res_tot<-res1_kg_y+res2_kg_y+res3_kg_y+res4_kg_y+res5_kg_y+res6_kg_y+res7_kg_y+res8_kg_y+res9_kg_y+res10_kg_y
 res_tot*10^3-depo_tot*10^3
+
+res_tot_nor<-res1_kg_y+res2_kg_y+res3_kg_y+res4_kg_y+res5_kg_y+res6_kg_y+res7_kg_y
+res_tot_sud<-res8_kg_y+res9_kg_y+res10_kg_y
+
+summary(res_tot_nor*1000)
+summary(res_tot_sud*1000)
+
+plot(res_tot_nor*1000)
+plot(res_tot_sud*1000)
+res_tot_sud[1250]*1000
+res_tot_nor[1250]*1000
+
+summary(depo_tot_nor*1000)
+summary(depo_tot_sud*1000)
+plot(depo_tot_nor*1000)
+plot(depo_tot_sud*1000)
+depo_tot_sud[1250]*1000
+rdate[1200]
 
 depo_tot[2:1167]
 
@@ -397,7 +420,7 @@ b5_depo_2014 <-b5_depo_2014_gm2d*365/1000   #kg DW m2y
 b6_depo_2014_gm2d<-c(667,147,1584)   #kg DW m2y
 b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
 
-png('DEPO_kgm2y_fin92b__oksMMM9.png',width = 30, height = 20, units = "cm", res=300)
+png('DEPO_kgm2y_fin92b__oksMMM9_.png',width = 30, height = 20, units = "cm", res=300)
 par(mfrow=c(2,5), bty='n', cex.lab=1.5, cex.axis=1.5)
 plot(rdate, depo1_kg_y/a1, type='l',ylim=c(0,1300), ylab='kg m-2 y-1', xlab='',  col='grey70')     # 1989 - 1990: 114 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
 plot(rdate,depo2_kg_y/a2, type='l', ylim=c(0,1300), ylab='kg m-2 y-1', xlab='', col='grey70') 
@@ -440,7 +463,7 @@ dev.off()
   
   plot(POC_perc$sn1)
   
-  png('DEPO_vs_Sarretta_fin92b__oksMMM9.png',width = 30, height = 20, units = "cm", res=300)
+  png('DEPO_vs_Sarretta_fin92b__oksMMM9_.png',width = 30, height = 20, units = "cm", res=300)
   par(mfrow=c(2,5))
   plot(rdate,netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
   par(new=T)
@@ -542,7 +565,7 @@ poc10[1306:1308]<-c(1.6,1.6,1.4)
   
   summary(BURIAL_cmy)
 
-  png('DEPO_NET_fin92b__oksMMM9.png',
+  png('DEPO_NET_fin92b__oksMMM9_.png',
       width = 30, height = 20, units = "cm", res=300)
   par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
   plot(rdate[241:1467], netdepo_sed1[241:1467], type='l',ylim=c(-1,0.4),

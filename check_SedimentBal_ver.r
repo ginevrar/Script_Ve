@@ -122,7 +122,20 @@ plot(rdate,netdepo_sed10, type='l')
 
 netdepo_sed1*hg$w
 
+POM_depo1g_m2_day<-1 * POMs$wn2
 
+head(POMs$wn2)
+head(POM_depo1g_m2_day)
+head(POMs$wn2*a2*d2)  
+head(POM_depo1g_m2_day*a2) 
+
+
+POM_depo1g_m2_day<-15 * POMs$wn1
+
+head(POMs$wn2)
+head(POM_depo1g_m2_day)
+head(POMs$wn2*a1*d1)  
+head(POM_depo1g_m2_day*a1)  
 
 
 summary(BURIAL_cmy);str(NET_DEPO_cmy)
