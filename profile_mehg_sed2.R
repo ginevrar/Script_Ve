@@ -4,8 +4,9 @@ setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/NOsand')
-setwd('C:/Users/gi/Desktop/NNN59')
+setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes6')
 
+ 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
                'la1','la2','la3','la4','la5','la6','la7','la8','la9','la10',

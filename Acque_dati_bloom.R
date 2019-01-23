@@ -1,6 +1,4 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN68')
-setwd('C:/Users/Gi/Desktop/NNN59')
-setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4')
+setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes7')
 
 hgt<-read.csv('Total_Hg.csv', skip=1)
 names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

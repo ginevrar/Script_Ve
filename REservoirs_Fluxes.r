@@ -1,12 +1,13 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
-setwd('C:/Users/gi/Dropbox/NNN61/')
-setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\MenoDep4\\b')
+#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
+#setwd('C:/Users/gi/Dropbox/NNN61/')
+setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12')
+#setwd('C:/Users/Acer/Desktop/baba/Buona/double_in/NNN68')
 
-  hg<-read.csv('Total_Hg.csv', skip=1)
-  names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
-               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
-               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+hg<-read.csv('Total_Hg.csv', skip=1)
+names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
   hg<-hg[1:2412,]
 
   time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
@@ -86,8 +87,14 @@ v6_s<-Volume$sc6; v7_s<-Volume$sc7; v8_s<-Volume$ss8; v9_s<-Volume$ss9; v10_s<-V
 
 a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07; a9<-2.95E+07;a10<-4.06E+07
 area<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
-d1<-1.26; d2<-0.78; d3<-3.35; d4<-0.64; d5<-1.03; d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71
 
+AT<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
+
+d1<-1.26;  d3<-3.35;d5<-1.03; d6<-1.64; d7<-1.84;   d10<-1.71
+d2<-1 #d2<-0.78;
+d4<-1 # d4<-0.64; 
+d8<-1 #d8<-0.89;
+d9<-1 #d9<-0.69;
 #fsilt=silts/TOTs;fPOM=POMs/TOTs;fsand=sands/TOTs
 
 ksilt<-1.5*10^5; kpom<-2*10^5; kdoc<-10000
@@ -107,7 +114,12 @@ fsiltp+fpomp+fsandp
 
 head(hg$wn1)
 
-head(reservoir_hgp_w1)
+head(reservoir_hgp_w1/10^6, 250)
+     )
+plot(head(reservoir_hgp_w1/10^6, 250),type='l')
+
+
+
 head(fpom$wn1)
 
 reservoir_hg_w1 <- a1*d1 * hg$wn1      # ug/m3(w+s) *vol(m3) = ug(hg)
@@ -199,7 +211,7 @@ hgdoc_w9<-reservoir_hg_w9*fdoc$ws9
 hgdoc_w10<-reservoir_hg_w10*fdoc$ws10
 
 # Deposition rate Deposition for Hg in silt
-Fds1 <- hgsilt_w1 * (DEPO_silt$wn1/d1)/(86400)     # ug(hg) * 1 d-1 --> ug *m* d-1
+Fds1 <- hgsilt_w1 * (DEPO_silt$wn1/d1)/(86400)     # ug(hg) * 1 d-1 --> ug s-1
 Fds2 <- hgsilt_w2 * (DEPO_silt$wn2/d2)/(86400)
 Fds3 <- hgsilt_w3 * (DEPO_silt$wn3/d3)/(86400)
 Fds4 <- hgsilt_w4 * (DEPO_silt$wn4/d4)/(86400)
@@ -232,9 +244,7 @@ Fds10<- hgsilt_w10* (DEPO_silt$ws10/d10)/(86400)
 #head(hgsilt_w1)*27
 #head(DEPO_silt$wn1)
 #depo silt = 27 m/d
-#head((DEPO_silt$wn2/d2))   #m/d scende di 27 m/d, 1/d
-
-
+#head((DEPO_silt$wn2/d2))   #m/d scende di 27 m/d, 1/
 
 #head(Fds1)
 
@@ -250,6 +260,9 @@ Fdsa8 <-hgsand_w8 * (DEPO_sand$ws8/d8)/86400
 Fdsa9 <-hgsand_w9 * (DEPO_sand$ws9/d9)/86400
 Fdsa10<-hgsand_w10* (DEPO_sand$ws10/d10)/86400
 
+head(hgpom_w1/10^6)
+
+Fdp1
 # Deposition rate kg(hg-pom)
 Fdp1 <-hgpom_w1* (DEPO_POM$wn1/d1)/86400
 Fdp2 <-hgpom_w2* (DEPO_POM$wn2/d2)/86400
@@ -284,7 +297,7 @@ reservoir_hg_s6 <- a6*0.05 * hg$sc6 *TOTs$sc6/10^3
 reservoir_hg_s7 <- a7*0.05 * hg$sc7 *TOTs$sc7/10^3
 reservoir_hg_s8 <- a8*0.05 * hg$ss8 *TOTs$ss8/10^3
 reservoir_hg_s9 <- a9*0.05 * hg$ss9 *TOTs$ss9/10^3
-reservoir_hg_s10<-a10*0.05 *hg$ss10 *TOTs$ss10/10^3
+reservoir_hg_s10<-a10*0.05 * hg$ss10 *TOTs$ss10/10^3
 
 hgsilt_s1 <-reservoir_hgp_s1 * fsiltp$sn1     # ug(hg-silt) in sediment
 hgsilt_s2 <-reservoir_hgp_s2 * fsiltp$sn2
@@ -383,37 +396,35 @@ tot_w_reser*(2/1.2)          # kg y-1
 
 png('Hg_reservoirs_part2.png')
 par(mfrow=c(1,2))
-plot(rdate,hg_silt_wat_tot/10^12, ylim=c(0,0.05),type='l',lwd=2, col='brown', ylab='t(hg)',
+plot(rdate,hg_silt_wat_tot/10^9, ylim=c(0,60),type='l',lwd=2, col='brown', ylab='kg(hg)',
      main='Hg partitioning in water')
 par(new=T)
-plot(rdate,hg_pom_wat_tot/10^12, ylim=c(0,.05),type='l',lwd=2, col='darkgreen',ylab='')
+plot(rdate,tot_w_reser, ylim=c(0,60),type='l',lwd=1.5, col='black',ylab='')
 par(new=T)
-plot(rdate,hg_sand_wat_tot/10^12, ylim=c(0,.05),type='l',lwd=2, col='yellow',ylab='')
+plot(rdate,hg_pom_wat_tot/10^9, ylim=c(0,60),type='l',lwd=2, col='darkgreen',ylab='')
 par(new=T)
-plot(rdate,hg_aq_wat_tot/10^12, ylim=c(0,.05),type='l',lwd=2, col='cyan',ylab='',lty=2)
+plot(rdate,hg_sand_wat_tot/10^9, ylim=c(0,60),type='l',lwd=2, col='yellow',ylab='')
 par(new=T)
-plot(rdate,hg_doc_wat_tot/10^12, ylim=c(0,.05),type='l',lwd=2, col='cyan3',ylab='',lty=4)
+plot(rdate,hg_aq_wat_tot/10^9, ylim=c(0,60),type='l',lwd=2, col='cyan',ylab='',lty=2)
+par(new=T)
+plot(rdate,hg_doc_wat_tot/10^9, ylim=c(0,60),type='l',lwd=2, col='cyan3',ylab='',lty=4)
 
-plot(rdate,hg_silt_sed_tot/10^12, ylim=c(0,5*10^2),type='l',lwd=2, col='brown', ylab='t(hg)',
+plot(rdate,hg_silt_sed_tot/10^9, ylim=c(0,3*10^4),type='l',lwd=2, col='brown', ylab='kg(hg)',
      main='Hg partitioning in sediment')
 par(new=T)
-plot(rdate,hg_pom_sed_tot/10^12, ylim=c(0,5*10^2),type='l',lwd=2, col='darkgreen',ylab='')
+plot(rdate,tot_s_reser, ylim=c(0,3*10^4),type='l',lwd=2, col='black',ylab='')
 par(new=T)
-plot(rdate,hg_sand_sed_tot/10^12, ylim=c(0,5*10^2),type='l',lwd=2, col='yellow',ylab='')
+plot(rdate,hg_pom_sed_tot/10^9, ylim=c(0,3*10^4),type='l',lwd=2, col='darkgreen',ylab='')
 par(new=T)
-plot(rdate,hg_aq_sed_tot/10^12, ylim=c(0,5*10^2),type='l',lwd=2, col='cyan',ylab='',lty=2)
+plot(rdate,hg_sand_sed_tot/10^9, ylim=c(0,3*10^4),type='l',lwd=2, col='yellow',ylab='')
 par(new=T)
-plot(rdate,hg_doc_sed_tot/10^12, ylim=c(0,5*10^2),type='l',lwd=2, col='cyan3',ylab='',lty=4)
+plot(rdate,hg_aq_sed_tot/10^9, ylim=c(0,3*10^4),type='l',lwd=2, col='cyan',ylab='',lty=2)
+par(new=T)
+plot(rdate,hg_doc_sed_tot/10^9, ylim=c(0,3*10^4),type='l',lwd=2, col='cyan3',ylab='',lty=4)
 dev.off()
 
 # Resuspension of Hg in silt
 Frs1 <-hgsilt_s1*RESUS_silt$sn1/0.05/86400   # ug * m d-1 /m --> ug d-1 /86400 = ug s-1
-
-
-
-## define the integrated function
-
-
 Frs2 <-hgsilt_s2*RESUS_silt$sn2/0.05/86400
 Frs3 <-hgsilt_s3*RESUS_silt$sn3/0.05/86400
 Frs4 <-hgsilt_s4*RESUS_silt$sn4/0.05/86400
@@ -425,30 +436,27 @@ Frs9 <-hgsilt_s9*RESUS_silt$ss9/0.05/86400
 Frs10<-hgsilt_s10*RESUS_silt$ss10/0.05/86400
 
 Frsa1<-hgsand_s1*RESUS_sand$sn1/0.05/86400        #   # ug * m d-1 /m --> ug d-1 /86400 = ug s-1
-Frsa2<-hgsand_s2*RESUS_sand$sn2/0.05/86400        #
-Frsa3<-hgsand_s3*RESUS_sand$sn3/0.05/86400        #
-Frsa4<-hgsand_s4*RESUS_sand$sn4/0.05/86400        #
-Frsa5<-hgsand_s5*RESUS_sand$sn5/0.05/86400        #
-Frsa6<-hgsand_s6*RESUS_sand$sc6/0.05/86400        #
-Frsa7<-hgsand_s7*RESUS_sand$sc7/0.05/86400        #
-Frsa8<-hgsand_s8*RESUS_sand$ss8/0.05/86400        #
-Frsa9<-hgsand_s9*RESUS_sand$ss9/0.05/86400        #
+Frsa2<-hgsand_s2*RESUS_sand$sn2/0.05/86400        
+Frsa3<-hgsand_s3*RESUS_sand$sn3/0.05/86400        
+Frsa4<-hgsand_s4*RESUS_sand$sn4/0.05/86400        
+Frsa5<-hgsand_s5*RESUS_sand$sn5/0.05/86400        
+Frsa6<-hgsand_s6*RESUS_sand$sc6/0.05/86400        
+Frsa7<-hgsand_s7*RESUS_sand$sc7/0.05/86400        
+Frsa8<-hgsand_s8*RESUS_sand$ss8/0.05/86400        
+Frsa9<-hgsand_s9*RESUS_sand$ss9/0.05/86400         
 Frsa10<-hgsand_s10*RESUS_sand$ss10/0.05/86400
 
 # Flux for Hg in POM
 Frp1 <-hgpom_s1*RESUS_POM$sn1/0.05/86400        #   ug * m d-1/m/86400 --> ug s-1
-
-
-
 Frp2 <-hgpom_s2*RESUS_POM$sn2/0.05/86400
 Frp3 <-hgpom_s3*RESUS_POM$sn3/0.05/86400
 Frp4 <-hgpom_s4*RESUS_POM$sn4/0.05/86400
-Frp5 <-hgpom_s5*RESUS_POM$sn5/0.05/86400        #
-Frp6 <-hgpom_s6*RESUS_POM$sc6/0.05/86400        #
-Frp7 <-hgpom_s7*RESUS_POM$sc7/0.05/86400        #
-Frp8 <-hgpom_s8*RESUS_POM$ss8/0.05/86400        #
-Frp9 <-hgpom_s9*RESUS_POM$ss9/0.05/86400        #
-Frp10<-hgpom_s10*RESUS_POM$ss10/0.05/86400     #
+Frp5 <-hgpom_s5*RESUS_POM$sn5/0.05/86400        
+Frp6 <-hgpom_s6*RESUS_POM$sc6/0.05/86400      
+Frp7 <-hgpom_s7*RESUS_POM$sc7/0.05/86400        
+Frp8 <-hgpom_s8*RESUS_POM$ss8/0.05/86400        
+Frp9 <-hgpom_s9*RESUS_POM$ss9/0.05/86400        
+Frp10<-hgpom_s10*RESUS_POM$ss10/0.05/86400     
 
 Fdsilt=cbind(Fds1,Fds2,Fds3,Fds4,Fds5,Fds6,Fds7,Fds8,Fds9,Fds10)
 Fdsand=cbind(Fdsa1,Fdsa2,Fdsa3,Fdsa4,Fdsa5,Fdsa6,Fdsa7,Fdsa8,Fdsa9,Fdsa10)
@@ -460,9 +468,6 @@ Frpom=cbind(Frp1,Frp2,Frp3,Frp4,Frp5,Frp6,Frp7,Frp8,Frp9,Frp10)
 
 Fdsilt_tot=rowSums(Fdsilt);Fdsand_tot=rowSums(Fdsand);Fdpom_tot=rowSums(Fdpom)
 Frsilt_tot=rowSums(Frsilt);Frsand_tot=rowSums(Frsand);Frpom_tot=rowSums(Frpom)
-
-
-
 
 net_tot_silt=Fdsilt_tot-Frsilt_tot    #ug s-1
 net_tot_sand=Fdsand_tot-Frsand_tot    #ug s-1
@@ -491,17 +496,24 @@ nn<-(net_tot_sand_mean+net_tot_silt_mean+net_tot_pom_mean)*86400              #u
 
 rr_tot_mean <-tapply(rr, rep(1:(length(rr)/12),each = 12),mean)
 dd_tot_mean <-tapply(dd, rep(1:(length(dd)/12),each = 12),mean)
+ 
 
-
-plot((nn/10^9)*365,col=1,type='l', ylim=c(-4000,12000)) # ug d-1  -> kg y-1
+plot((nn/10^9)*365,col=1,type='l', ylim=c(-15000,15000)) # ug d-1  -> kg y-1
 par(new=T)
-plot(rr_tot_mean/10^9*365,col=2,ylim=c(-4000,12000),type='l')
+plot(rr_tot_mean/10^9*365,col=2,ylim=c(-15000,15000),type='l')
 par(new=T)
-plot(dd_tot_mean/10^9*365,col=3,type='l', ylim=c(-4000,16000))
+plot(dd_tot_mean/10^9*365,col=3,type='l', ylim=c(-15000,15000))
 
-head(nn/10^9,35)   #kg d-1
-head(rr/10^9,35)
-head(dd/10^9,35)
+
+head(rr_tot_mean/10^9*365)
+head(dd_tot_mean/10^9*365) #kg y-1
+head(nn/10^9*365,30)
+ 
+
+diff1<-tot_w_reser_m[2]-tot_w_reser_m[1];head(diff1)
+
+179.891031/AT
+
 
 rese
 head(tot_w_reser,35) #kg
@@ -557,6 +569,30 @@ Ntot<-(N1+N2+N3+N4+N5+N6+N7+N8+N9+N10)*86400/10^9
 hg_sed_reservoir<-hg_silt_sed_tot+hg_pom_sed_tot+hg_sand_sed_tot+hg_doc_sed_tot+hg_aq_sed_tot
 hg_wat_reservoir<-hg_silt_wat_tot+hg_pom_wat_tot+hg_sand_wat_tot+hg_doc_wat_tot+hg_aq_wat_tot
 
+
+hg_sed_reservoir_media<-tapply(hg_sed_reservoir, rep(1:(length(hg_sed_reservoir)/12),each = 12),mean)
+hg_wat_reservoir_media<-tapply(hg_wat_reservoir, rep(1:(length(hg_wat_reservoir)/12),each = 12),mean)
+
+rr_tot_mean
+
+
+RR_m<-(rr_tot_mean/10^9)*365
+DD_m<-(dd_tot_mean/10^9)*365
+
+tot_w_reser_m<-tapply(tot_w_reser, rep(1:(length(tot_w_reser)/12),each = 12),mean)
+tot_s_reser_m<-tapply(tot_s_reser, rep(1:(length(tot_s_reser)/12),each = 12),mean)
+Net_kgy<-(nn/10^9)*365
+
+reserv_flux<-cbind(RR_m,DD_m,Net_kgy,tot_s_reser_m,tot_w_reser_m)
+write.table(reserv_flux, file='reserv_flux.txt')
+
+head(Net_kgy, 60)
+head(RR_m, 60)
+head(DD_m, 60)
+head(Net_kgy, 60)
+head(Net_kgy2)
+
+
 head(TotD*365)
 head(hg_sed_reservoir/10^9)
 head(TotR*365)
@@ -566,24 +602,35 @@ plot(rdate,NEt)
 par(new=T)
 plot(rdate,Ntot)
 
-Net_kgy<-NEt*365
+
+head(NEt)
+
+head(Ntot)
+
+Net_kgy2<-NEt*365
 plot(Net_kgy)
+plot(Net_kgy2)
+
+str(Net_kgy)
+str(Net_kgy2)
+
+summary(Net_kgy)
+
+
 head(hg_wat_reservoir/10^9)
 head(NEt,12)
 head(Net_kgy)
 
 write.table(Net_kgy,"Net_hgSed_kgy.txt");
+write.table(Net_kgy2,"Net_hgSed_kgy_long.txt");
 
 head(Net_kgy)
 
-plot(TotD,ylim=c(0,1000), type='l')
+plot(TotD,ylim=c(0,100000), type='l')
 par(new=T)
-plot(TotR,ylim=c(0,1000), type='l',col=2)
+plot(TotR,ylim=c(0,100000), type='l',col=2)
+
 
 plot(TotD[1:20]*365,ylim=c(0,1000), type='b')
 
 
-plot(Fds1-Frs1)
-plot(Fds6-Frs6)
-plot(Fds7-Frs7)
-plot(Fdp6-Frp6)

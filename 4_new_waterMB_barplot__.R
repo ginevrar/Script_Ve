@@ -1,8 +1,10 @@
 #setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
-  
+input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
+
+setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\MenoDep4\\c')
+
   sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
-  input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
   volat<-read.table('volat.txt', header=T); str(volat)
   names(volat)<-'vol'
   plot(volat$vol)

@@ -244,7 +244,7 @@ depo10_g_y <-(depo10_g_m3_d*a10*d10)*365
 depo10_kg_y <-depo10_g_y/1000
 
 POM_res1_m_day<-POM_res$sn1      #
-silt_res1_m_day<-silt_res$sn1 #...Ã.. 
+silt_res1_m_day<-silt_res$sn1 #...C.. 
 POM_res2_m_day<-POM_res$sn2  
 silt_res2_m_day<-silt_res$sn2 # 
 POM_res3_m_day<-POM_res$sn3  #res m/day * depth(m) --> 1/day (0.003 /d)
@@ -346,6 +346,10 @@ depo_tot[2:1167]
 plot(depo_tot[1200:1334])
 plot(res_tot[1200:1334])
 bal1<-depo1_kg_y-res1_kg_y
+
+
+plot(depo_tot-res_tot)
+plot(res_tot)
 
 par(mfrow=c(2,5))
 plot(res1_kg_y[1200:1334])

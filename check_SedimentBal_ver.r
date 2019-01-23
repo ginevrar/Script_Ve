@@ -7,6 +7,7 @@
 
 setwd('C:/Users/gi/Dropbox/2017_Venice/113')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
+setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/c')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

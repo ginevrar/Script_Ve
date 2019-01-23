@@ -1,13 +1,20 @@
 setwd('C:/Users/gi/Dropbox/NNN61')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
+#setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\MenoDep4\\c')
+#setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes4')
 
-sed_bal_ugdm2<-read.table('Net_ugm2d.txt')
-sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
+#sed_bal_ugdm2<-read.table('Net_ugm2d.txt')
+#sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
+
+
+sed_bal<-read.table("net_Dep_prova.txt", header=F);
 
 input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
 volat<-read.table('volat.txt', header=T); str(volat)
 names(volat)<-'vol'
 plot(volat$vol)
+
+setwd('C:/Users/Acer/Dropbox/NNN61')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -28,7 +35,7 @@ time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1901-01-01")
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
-netDepo1_kg_y 		<-rowSums(sed_bal)
+netDepo1_kg_y 		<-sed_bal
 #burial2_kg_y 			<-sed_bal$TOT_buried
 #depo_Phg_kg_y 		<-sed_bal$Hg_depo_tot
 #res_Phg_kg_y 		  <-sed_bal$Hg_res_tot
@@ -57,20 +64,15 @@ outflow_solids<-(bound3*solids3)+(bound10*solids10)+(bound7*solids7)
 ## _______________________________
 
 evasione_kg_y<-evasione_kg_y[1:2412]
- 
 hg_outflow_kg_y<-hg_outflow_kg_y[1:2412]
 
-evasione_kg_y_media<-tapply(evasione_kg_y, 
-                            rep(1:(length(evasione_kg_y)/12),each = 12),mean)
-depo_Phg_kg_y_media1<-tapply(sed_bal_ugdm2[1:2412,], 
-                            rep(1:(length(sed_bal_ugdm2[1:2412,])/12),each = 12),mean)
-
-depo_Phg_kg_y_media<-depo_Phg_kg_y_media1*area*365/10^9
-
+depo_Phg_kg_y_media1<-sed_bal
+depo_Phg_kg_y_media<-sed_bal
 plot(depo_Phg_kg_y_media)
 
 str(hg_outflow_kg_y)
 hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y, rep(1:(length(hg_outflow_kg_y)/12),each = 12),mean)
+evasione_kg_y_media<-tapply(evasione_kg_y, rep(1:(length(evasione_kg_y)/12),each = 12),mean)
 
 #diffusion_kg_y_media<-tapply(diffusion_kg_y, rep(1:(length(diffusion_kg_y)/12),each = 12),mean)
 #burial2_kg_y_media<-tapply(burial2_kg_y, rep(1:(length(burial2_kg_y)/12),each = 12),mean)
@@ -104,15 +106,15 @@ ax2<-(seq(1900,2100, by=1))
 
 OUt<-cbind(ax2,evasione_kg_y_media, depo_Phg_kg_y_media, 
            hg_outflow_kg_y_media,Output_terms) 
-
+ax2[100]
 # output 1910 
 ev_10<-mean(evasione_kg_y_media[11])
 dp_10<-mean(depo_Phg_kg_y_media[11])
 outf_10<-mean(hg_outflow_kg_y_media[11])
-
-ev_95<-mean(evasione_kg_y_media[96])
-dp_95<-mean(depo_Phg_kg_y_media[96])
-outf_95<-mean(hg_outflow_kg_y_media[96])
+ 
+ev_95<-mean(evasione_kg_y_media[100])
+dp_95<-mean(depo_Phg_kg_y_media[100])
+outf_95<-mean(hg_outflow_kg_y_media[100])
 
 ev_70<-mean(evasione_kg_y_media[71])
 dp_70<-mean(depo_Phg_kg_y_media[71])
@@ -124,7 +126,7 @@ dp_19<-mean(depo_Phg_kg_y_media[120])
 outf_19<-mean(hg_outflow_kg_y_media[120])
 
 plot(ax2,depo_Phg_kg_y_media)
- abline(v=1995)
+ abline(v=1999)
 
 T_ou_10<-ev_10+dp_10+outf_10
 T_ou_95<-ev_95+dp_95+outf_95
@@ -133,19 +135,19 @@ T_ou_19<-ev_19+dp_19+outf_19
 
 # input from Marghera 
 M_10<-input_short$ind3[11];M_70<-input_short$ind3[71]
-M_95<-input_short$ind3[96];M_19<-input_short$ind3[120]
+M_95<-input_short$ind3[100];M_19<-input_short$ind3[120]
 
 # input from River 
 F_10<-input_short$ri[11]+input_short$riv_mehg[11]; F_70  <-input_short$ri[71]+input_short$riv_mehg[71]
-F_95<-input_short$ri[96]+input_short$riv_mehg[96]; F_19<-input_short$riv_mehg[120]
+F_95<-input_short$ri[100]+input_short$riv_mehg[100]; F_19<-input_short$riv_mehg[120]
 
 # input from atmosph. 
 atm_10<-input_short$de[11]; atm_70  <-input_short$de[71] 
-atm_95<-input_short$de[96]; atm_19<-input_short$de[120] 
+atm_95<-input_short$de[100]; atm_19<-input_short$de[120] 
 
 # input from city 
 V_10<-input_short$ci[11]; V_70  <-input_short$ci[71] 
-V_95<-input_short$ci[96]; V_19<-input_short$ci[120] 
+V_95<-input_short$ci[100]; V_19<-input_short$ci[120] 
 
 All_out_10=c(NA,-ev_10,-dp_10,outf_10)
 All_out_70=c(NA,-ev_70,-dp_70,outf_70)
@@ -164,209 +166,113 @@ T_in_19=M_19+F_19+atm_19+V_19
 
 M_70/T_in_70*100; M_95/T_in_95*100;M_2019/T_in_19*100
 
-tiff('Barplot_Hg_1910.tiff', height=25, width=23, units='cm', 
-      compression="lzw", res=300)
-par(mar=c(0.5, 3, 2.5, 1), mfrow=c(1,1))  #bottom-left-top-right
-plot.new()
-plot.window(xlim=c(-20, 20), ylim=c(-1, 4.5))
-ticks <- seq(-20,20,10)
-y <- c(0.5,1.5,2.5,3.5) # posizione barre
-h <- 0.15
-### aggiungere produzione interna e degradazione  m
-lines(rep(0, 2), c(0, 4), col="grey")
-segments(-22, y, 22, y, lty="dotted", col="grey")  #linee orizzontali 
-
-#out ev_10,dp_10,outf_10 
-rect(All_out_10, y-h, 0, y+h, col=c('black','cyan3','orange','royalblue'))
-text(-12,3.5, expression("Outflow"), cex=.7)
-text(-12,2.5, expression("Hg"[p]*~"Deposition"), cex=.7)
-text(-12,1.5, expression("Hg"^0*~"Evasion"), cex=.7)
-
-rect(0, y-h, All_in_10, y+h, col=c('black',"lightcyan2","lightcyan2",
-                              "lightcyan2","lightcyan2",
-                              "lightcyan2"))
-text(13,1.5, expression("Hg"[T]*~"River"), cex=.7)
-text(13,2.5, expression("Hg"[p]*~"Atmospheric Deposition"), cex=.7)
-text(13,3.5, expression("Venice City"), cex=.7)
-
-plot.window(xlim=c(-20, 20), ylim=c(-1, 4.5))
-ticks <- seq(-20,20,10)
-y <- c(0.5,1.5,2.5,3.5) # posizione barre
-h <- 0.15
-### aggiungere produzione interna e degradazione  m
-lines(rep(0, 2), c(0, 4), col="grey")
-segments(-22, y, 22, y, lty="dotted", col="grey")  #linee orizzontali 
-dev.off()
-
-tiff('Barplot_Hg_1970.tiff', height=25, width=23, units='cm', 
-     compression="lzw", res=300)
-par(mar=c(0.5, 3, 2.5, 1), mfrow=c(1,1))  #bottom-left-top-right
-plot.new()
-plot.window(xlim=c(-500, 1100), ylim=c(-1, 4.5))
-ticks <- seq(-500,1100,50)
-y <- c(0.5,1.5,2.5,3.5) # posizione barre
-h <- 0.15
-### aggiungere produzione interna e degradazione  m
-lines(rep(0, 2), c(0, 4), col="grey")
-segments(-500, y, 1100, y, lty="dotted", col="grey")  #linee orizzontali 
-
-#out ev_10,dp_10,outf_10 
-rect(All_out_70, y-h, 0, y+h, col=c('black','cyan3','orange','royalblue'))
-text(-32,3.5, expression("Outflow"), cex=.7)
-text(-32,2.5, expression("Hg"[p]*~"Deposition"), cex=.7)
-text(-32,1.5, expression("Hg"^0*~"Evasion"), cex=.7)
-
-rect(0, y-h, All_in_70, y+h, col=c('darkgray',"lightcyan2","lightcyan2",
-                                   "lightcyan2","lightcyan2",
-                                   "lightcyan2"))
-text(130,1.5, expression("Hg"[T]*~"River"), cex=.7)
-text(130,2.5, expression("Hg"[p]*~"Atmospheric Deposition"), cex=.7)
-text(130,3.5, expression("Venice City"), cex=.7)
-dev.off()
-
-tiff('Barplot_Hg_1995.tiff', height=25, width=23, units='cm', 
-     compression="lzw", res=300)
-par(mar=c(0.5, 3, 2.5, 1), mfrow=c(1,1))  #bottom-left-top-right
-plot.new()
-plot.window(xlim=c(-20, 20), ylim=c(-1, 4.5))
-ticks <- seq(-20,20,10)
-y <- c(0.5,1.5,2.5,3.5) # posizione barre
-h <- 0.15
-### aggiungere produzione interna e degradazione  m
-lines(rep(0, 2), c(0, 4), col="grey")
-segments(-22, y, 22, y, lty="dotted", col="grey")  #linee orizzontali 
-rect(All_out_95, y-h, 0, y+h, col=c('black','cyan3','orange','royalblue'))
-text(-12,3.5, expression("Outflow"), cex=.7)
-text(-12,2.5, expression("Hg"[p]*~"Deposition"), cex=.7)
-text(-12,1.5, expression("Hg"^0*~"Evasion"), cex=.7)
-
-rect(0, y-h, All_in_95, y+h, col=c('darkgray',"lightcyan2","lightcyan2",
-                                   "lightcyan2","lightcyan2",
-                                   "lightcyan2"))
-text(13,1.5, expression("Hg"[T]*~"River"), cex=.7)
-text(13,2.5, expression("Hg"[p]*~"Atmospheric Deposition"), cex=.7)
-text(13,3.5, expression("Venice City"), cex=.7)
-dev.off()
-
-
-
-tiff('Barplot_Hg_1995.tiff', height=25, width=23, units='cm', 
-     compression="lzw", res=300)
-par(mar=c(0.5, 3, 2.5, 1), mfrow=c(1,1))  #bottom-left-top-right
-plot.new()
-plot.window(xlim=c(-80, 80), ylim=c(-1, 4.5))
-
-ticks <- seq(-80,80,20)
-y <- c(0.5,1.5,2.5,3.5) # posizione barre
-h <- 0.15
-### aggiungere produzione interna e degradazione  m
-lines(rep(0, 2), c(0, 4), col="grey")
-segments(-80, y, 80, y, lty="dotted", col="grey")  #linee orizzontali 
-
-rect(All_out_95, y-h, 0, y+h, col=c('black','cyan3','orange','royalblue'))
-text(-12,3.5, expression("Outflow"), cex=.7)
-text(-12,2.5, expression("Hg"[p]*~"Deposition"), cex=.7)
-text(-12,1.5, expression("Hg"^0*~"Evasion"), cex=.7)
-
-rect(0, y-h, All_in_95, y+h, col=c('darkgray',"lightcyan2","lightcyan2",
-                                   "lightcyan2","lightcyan2",
-                                   "lightcyan2"))
-text(13,1.5, expression("Hg"[T]*~"River"), cex=.7)
-text(13,2.5, expression("Hg"[p]*~"Atmospheric Deposition"), cex=.7)
-text(13,3.5, expression("Venice City"), cex=.7)
-dev.off()
-
-
 atm_10 + F_10+ V_10+M_10
 outf_10+dp_10+ev_10
 
-bilancio_hg_10<-c(outf_10,-dp_10,-ev_10,atm_10, F_10, V_10,M_10)
+depo10<-sum(All_in_10)+outf_10-ev_10-diff10
+
+bilancio_hg_10<-c(outf_10,-depo10,-ev_10,atm_10, F_10, V_10,M_10)
 names(bilancio_hg_10)<-c('Outflow','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
 
-bilancio_hg_70<-c(outf_70,-dp_70,-ev_10,atm_70, F_70, V_70,M_70) 
+sum(bilancio_hg_10)
+sum(All_in_10)
+
+diff10<-tot_w_reser_m[12]-tot_w_reser_m[11]
+
+sum(All_in_70)
+outf_70-depo70-ev_10
+sum(bilancio_hg_70)
+diff70<-tot_w_reser_m[72]-tot_w_reser_m[71]
+depo70<-sum(All_in_70)+outf_70-ev_70-diff70
+bilancio_hg_70<-c(outf_70,-depo70,-ev_70,atm_70, F_70, V_70,M_70) 
 names(bilancio_hg_70)<-c('Outflow','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
 
-bilancio_hg95<-c(outf_95,-dp_95,-ev_95,atm_95, F_95, V_95,M_95) 
+bilancio_hg95<-c(outf_95,-depo95,-ev_95,atm_95, F_95, V_95,M_95) 
 names(bilancio_hg95)<-c('Outflow','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
 
-bilancio_hg2019<-c(outf_19,-dp_19,-ev_19, atm_19,F_19, V_19,M_19) 
+sum(bilancio_hg95)
+ 
+diff95<-as.numeric(tot_w_reser_m[97]-tot_w_reser_m[96])
+depo95<-36.83413
+depo95<-sum(All_in_95)+outf_95-ev_95-diff95
+sum(bilancio_hg95)
+
+#sum(All_in_95)+outf_95-ev_70-diff95 
+ 
+bilancio_hg2019<-c(outf_19,-depo19,-ev_19, atm_19,F_19, V_19,M_19) 
 names(bilancio_hg2019)<-c('Outflow','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
 
+sum(bilancio_hg2019)
+diff19<-tot_w_reser_m[121]-tot_w_reser_m[120]
+depo19<-sum(All_in_19)+outf_19-ev_19-diff19
 
 
-png('TUTTI_Bilancis2z3.png',height = 15, width=22,
+png('TUTTI_Bilancis2z3__bb__2__.png',height = 15, width=22,
     units = 'cm',res=300)
 par(mfrow=c(2,2),cex.axis=1.4, bty='n', mgp=c(2.3, 1, 0), 
     mar=c(4,1,2,1))
 barplot(bilancio_hg_10,horiz =T, xlab='kg/y',
-        main='Bilancio del Hg \n (1910)',
-        axisnames=F,border='grey',
-        xlim=c(-10,10),cex.names = .6,las=1,
-        col=c('darkblue',
-              'darkorange',
-              '#008B8B',
-              '#00cccc','royalblue','#ECC16F',
-              'grey60'))
+        main='Hg Budget in Lagoon Water  \n (1910)',
+        axisnames=F,border='darkgrey',
+        xlim=c(-20,20),cex.names = .6,las=1,
+        col=c('darkblue','darkorange',
+              '#008B8B','#00cccc','royalblue','#ECC16F','grey60'))
 #axis(side=2,at=c(1.2,2.3,3.4,4.5,5.6,7,8),las=2,col='white',
   #   line=-6,  labels = names(bilancio_hg_10), cex=.5)
-text(-10,8.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.7)
-text(-10,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
-text(-10,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
-text(-10,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
-text(10,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
-text(10,2.1, expression("Hg"[P]*~"Exchange Sed.-Wat. "),adj=1, cex=.7)
-text(10,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
-
+text(-20,8.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.7)
+text(-20,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
+text(-20,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
+text(-20,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
+text(20,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
+text(20,2.1, expression("Hg"[T]*~"Water-Sediment Exchange"),adj=1, cex=.7)
+text(20,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
+mtext(side=1, 'Input', at=20,line=2, font=2)
+mtext(side=1, 'Onput', at=-20,line=2, font=2)
 
 barplot(bilancio_hg_70,horiz =T, xlab='kg/y',
         main='Hg Budget in Lagoon Water  \n (1970)',names.arg = F,
-        xlim=c(-1100,1100),cex.names = .6,border='grey',
+        xlim=c(-1100,1100),cex.names = .6,border='darkgrey',
         axisnames=F,
-        col=c('darkblue',
-              'darkorange',
-              '#008B8B',
-              '#00cccc','royalblue','#ECC16F',
-              'grey60'))
+        col=c('darkblue','darkorange','#008B8B','#00cccc','royalblue','#ECC16F','grey60'))
 text(-1000,8.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.7)
 text(-1000,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
 text(-1000,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
 text(-1000,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
 text(1000,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
-text(1000,2.1, expression("Hg"[P]*~"Exchange Sed.-Wat. "),adj=1, cex=.7)
+text(1000,2.1, expression("Hg"[T]*~"Water-Sediment Exchange"),adj=1, cex=.7)
 text(1000,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
+mtext(side=1, 'Input', at=1000,line=2, font=2)
+mtext(side=1, 'Onput', at=-1000,line=2, font=2)
+
 
 barplot(bilancio_hg95, horiz = T,xlab='kg/y',
-        main='Bilancio del Hg \n (1995)',
-        cex.names=0.6,xlim=c(-100,100),border='grey',
+        main='Hg Budget in Lagoon Water  \n (1995)',
+        cex.names=0.6,xlim=c(-100,100),border='darkgrey',
         axisnames=F,las=1,
-        col=c('darkblue',
-              'darkorange',
-              '#008B8B',
-              '#00cccc','royalblue','#ECC16F',
-              'grey60'))
+        col=c('darkblue','darkorange','#008B8B','#00cccc','royalblue','#ECC16F','grey60'))
 text(-100,8.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.7)
 text(-100,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
 text(-100,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
 text(-100,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
 text(100,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
-text(100,2.1, expression("Hg"[P]*~"Exchange Sed.-Wat. "),adj=1, cex=.7)
+text(100,2.1, expression("Hg"[T]*~"Water-Sediment Exchange"),adj=1, cex=.7)
 text(100,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
+mtext(side=1, 'Input', at=100,line=2, font=2)
+mtext(side=1, 'Onput', at=-100,line=2, font=2)
 
 
 barplot(bilancio_hg2019, horiz = T, cex.names=0.6,
-        xlab='kg/y',axisnames=F,las=1,border='grey',
-        xlim = c(-13,13),main='Bilancio del Hg \n (2019)',
-        col=c('darkblue',
-              'darkorange',
-              '#008B8B',
-              '#00cccc','royalblue','#ECC16F',
-              'grey60'))
-text(-13,8.1, expression("Hg"[T]*~"Industrial"),adj=0, cex=.7)
-text(-13,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
-text(-13,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
-text(-13,4.3, expression("Hg"[P]*~"Atmospheric Deposition"), adj=1,cex=.7)
-text(10,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
-text(10,2.1, expression("Hg"[P]*~"Exchange Sed.-Wat. "),adj=1, cex=.7)
-text(10,.851, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
+        xlab='kg/y',axisnames=F,las=1,border='darkgrey',
+        xlim = c(-20,20),main='Hg Budget in Lagoon Water  \n (2019)',
+        col=c('darkblue','darkorange','#008B8B','#00cccc','royalblue','#ECC16F','grey60'))
+text(-20,8.1, expression("Hg"[T]*~"Industrial"),adj=0, cex=.7)
+text(-20,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
+text(-20,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
+text(-20,4.3, expression("Hg"[P]*~"Atmospheric Deposition"), adj=1,cex=.7)
+text(20,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
+text(20,2.1, expression("Hg"[T]*~"Water-Sediment Exchange"),adj=1, cex=.7)
+text(20,.851, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
+mtext(side=1, 'Input', at=20,line=2, font=2)
+mtext(side=1, 'Onput', at=-20,line=2, font=2)
 
 dev.off()

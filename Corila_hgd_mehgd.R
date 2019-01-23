@@ -8,6 +8,7 @@ tmp2<-format(tmp, "%d-%m-%Y")
   
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN68')
 setwd('C:/Users/Gi/Desktop/NNN59')
+setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes5')
 
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
   names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

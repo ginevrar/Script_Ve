@@ -126,7 +126,11 @@ plot(years, ind_mehg, type='l')
 tt<- de+ri+ci+ind3+riv_mehg
 t_cum<-cumsum(tt)/1000
 
-tott<-data.frame(years,de,ri,riv_mehg,ci,ind3, tt, t_cum)
+tott<-data.frame(as.numeric(years),de,ri,riv_mehg,ci,ind3, tt, t_cum)
+str(tott)
+
+write.table(tott, file='tot_input_short.txt')
+
 
 tott[100,]
 tott[106,]
@@ -423,6 +427,22 @@ write.table(monthly_riv_mehg,file='monthly_riv_mehg_noSeason.txt')
 
 getwd()
 
+all_input_mean<-tapply(all_input[1:2412,], rep(1:(length(all_input[1:2412,1])/12), each=12), mean)
+
+
+b1inM<-tapply(all_input[1:2412,2], rep(1:(2412/12),each = 12),mean)
+b2inM<-tapply(all_input[1:2412,3], rep(1:(2412/12),each = 12),mean)
+b3inM<-tapply(all_input[1:2412,4], rep(1:(2412/12),each = 12),mean)
+b4inM<-tapply(all_input[1:2412,5], rep(1:(2412/12),each = 12),mean)
+b5inM<-tapply(all_input[1:2412,6], rep(1:(2412/12),each = 12),mean)
+b6inM<-tapply(all_input[1:2412,7], rep(1:(2412/12),each = 12),mean)
+b7inM<-tapply(all_input[1:2412,8], rep(1:(2412/12),each = 12),mean)
+b8inM<-tapply(all_input[1:2412,9], rep(1:(2412/12),each = 12),mean)
+b9inM<-tapply(all_input[1:2412,10], rep(1:(2412/12),each = 12),mean)
+b10inM<-tapply(all_input[1:2412,11], rep(1:(2412/12),each = 12),mean)
+
+in_short_hgII<-cbind(b1inM,b2inM,b3inM,b4inM,b5inM,b6inM,b7inM,b8inM,b9inM,b10inM)
+write.table(in_short_hgII, file='in_short_hgII.txt')
 
 tot_in<-data.frame(ladataOK,cumsum(TOT/12))
 names(tot_in)<-c('data','tot')

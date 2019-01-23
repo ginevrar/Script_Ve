@@ -1,5 +1,5 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
-setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep3')
+setwd('C:/Users/Acer/Dropbox/NNN61/')
 
   hg<-read.csv('Total_Hg.csv', skip=1)
   names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -222,7 +222,29 @@ head(hgsilt_w1)
 head(Fds1)
 
 
-fd1_mg_m2y<-Fds1*365/(1000*a1)                 #flussi nostri bassi 10^-4
+fds1_mg_m2y<-Fds1*365*1000/a1                 #flussi nostri alti 10 - 800 mg/m2y
+fdp1_mg_m2y<-Fdp1*365*1000/a1                  
+fd1<-fdp1_mg_m2y+fds1_mg_m2y
+summary(fd1)
+
+fds2_mg_m2y<-Fds2*365*1000/a2                 
+fdp2_mg_m2y<-Fdp2*365*1000/a2                 
+fd2<-fdp2_mg_m2y+fds2_mg_m2y
+summary(fd2)
+
+fds3_mg_m2y<-Fds3*365*1000/a3                 
+fdp3_mg_m2y<-Fdp3*365*1000/a3                  
+fd3<-fdp3_mg_m2y+fds3_mg_m2y
+summary(fd3)
+
+fds4_mg_m2y<-Fds4*365*1000/a4                 
+fdp4_mg_m2y<-Fdp4*365*1000/a4               
+fd4<-fdp4_mg_m2y+fds4_mg_m2y
+summary(fd4)
+
+
+fd1[1300]
+rdate[1300]
 win.graph()
 plot(fd1_mg_m2y)
 
@@ -254,12 +276,12 @@ Fdp1 <-hgpom_w1* (DEPO_POM$wn1) #g d
 Fdp2 <-hgpom_w2* (DEPO_POM$wn2)
 Fdp3 <-hgpom_w3* (DEPO_POM$wn3)    #ug(hg) * 1 d-1 --> ug d-1/86400 == ug s-1
 Fdp4 <-hgpom_w4* (DEPO_POM$wn4)
-Fdp5 <-hgpom_w5* (DEPO_POM$wn5/d5)/86400
-Fdp6 <-hgpom_w6* (DEPO_POM$wc6/d6)/86400
-Fdp7 <-hgpom_w7* (DEPO_POM$wc7/d7)/86400
-Fdp8 <-hgpom_w8* (DEPO_POM$ws8/d8)/86400
-Fdp9 <-hgpom_w9* (DEPO_POM$ws9/d9)/86400
-Fdp10<-hgpom_w10* (DEPO_POM$ws10/d10)/86400
+Fdp5 <-hgpom_w5* (DEPO_POM$wn5/d5) 
+Fdp6 <-hgpom_w6* (DEPO_POM$wc6/d6) 
+Fdp7 <-hgpom_w7* (DEPO_POM$wc7/d7) 
+Fdp8 <-hgpom_w8* (DEPO_POM$ws8/d8) 
+Fdp9 <-hgpom_w9* (DEPO_POM$ws9/d9) 
+Fdp10<-hgpom_w10* (DEPO_POM$ws10/d10) 
 
 
 ## DA TRASFORMARE IN  g m2d

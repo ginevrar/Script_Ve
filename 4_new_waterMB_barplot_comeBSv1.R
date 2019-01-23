@@ -1,9 +1,11 @@
 setwd('C:/Users/gi/Dropbox/NNN61/annuale')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
-
-#sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
-sed_bal_ugd<-read.table("hgbal.txt", header=TRUE);
 input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
+
+setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\MenoDep4\\bo')
+
+sed_bal<-read.table("net_Dep_prova.txt", header=F);
+#sed_bal_ugd<-read.table("hgbal.txt", header=TRUE);
 volat<-read.table('volat.txt', header=T); str(volat)
 names(volat)<-'vol'
 plot(volat$vol)
@@ -30,7 +32,7 @@ TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1901-01-01")
 TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
-netDepo1_kg_y 		<-rowSums(sed_bal)
+netDepo1_kg_y 		<-sed_bal
 #burial2_kg_y 			<-sed_bal$TOT_buried
 #depo_Phg_kg_y 		<-sed_bal$Hg_depo_tot
 #res_Phg_kg_y 		  <-sed_bal$Hg_res_tot
@@ -64,14 +66,14 @@ hg_outflow_kg_y<-hg_outflow_kg_y[1:2412]
 evasione_kg_y_media<-tapply(evasione_kg_y, 
                             rep(1:(length(evasione_kg_y)/12),each = 12),mean)
 
-depo_Phg_ug_d_media<-tapply(sed_bal_ugd[1:2412,], 
-                            rep(1:(length(sed_bal_ugd[1:2412,])/12),each = 12),mean)
+#depo_Phg_ug_d_media<-tapply(sed_bal_ugd[1:2412,], 
+#                            rep(1:(length(sed_bal_ugd[1:2412,])/12),each = 12),mean)
 
-depo_Phg_ug_d_somma<-tapply(sed_bal_ugd[1:2412,], 
-                            rep(1:(length(sed_bal_ugd[1:2412,])/12),each = 12),sum)
+#depo_Phg_ug_d_somma<-tapply(sed_bal_ugd[1:2412,], 
+        #                    rep(1:(length(sed_bal_ugd[1:2412,])/12),each = 12),sum)
 
 
-depo_Phg_kg_y_media<-depo_Phg_ug_d_media*365/10^9
+depo_Phg_kg_y_media<-sed_bal
 depo_Phg_kg_y_somma<-depo_Phg_ug_d_somma*365/10^9
 
 #sed_bal_ugd*365/10^9
@@ -109,29 +111,33 @@ abline(h=0, col='red')
 
 ax2<-(seq(1900,2100, by=1))
 
-OUt<-cbind(ax2,evasione_kg_y_media, depo_Phg_kg_y_media, 
+OUt<-bind(ax2,evasione_kg_y_media, depo_Phg_kg_y_media, 
            hg_outflow_kg_y_media,Output_terms) 
 
 # output 1910 
 ev_10<-mean(evasione_kg_y_media[11])
-dp_10<-mean(depo_Phg_kg_y_media[11])
+dp_10<-mean(depo_Phg_kg_y_media[11,])
 outf_10<-mean(hg_outflow_kg_y_media[11])
 
+ev_70<-mean(evasione_kg_y_media[71])
+dp_70<-mean(depo_Phg_kg_y_media[71,])
+outf_70<-mean(hg_outflow_kg_y_media[71])
+
 ev_95<-mean(evasione_kg_y_media[96])
-dp_95<-mean(depo_Phg_kg_y_media[96])
+dp_95<-mean(depo_Phg_kg_y_media[96,])
 outf_95<-mean(hg_outflow_kg_y_media[96])
 
-ev_70<-mean(evasione_kg_y_media[71])
-dp_70<-mean(depo_Phg_kg_y_media[71])
-outf_70<-mean(hg_outflow_kg_y_media[71])
 
 # output 2019 
 ev_19<-mean(evasione_kg_y_media[120])
-dp_19<-mean(depo_Phg_kg_y_media[120])
+dp_19<-mean(depo_Phg_kg_y_media[120,])
 outf_19<-mean(hg_outflow_kg_y_media[120])
 
-plot(ax2,depo_Phg_kg_y_media)
+ax1=seq(1:200)
+  plot(ax1,depo_Phg_kg_y_media)
  abline(v=1995)
+ 
+dp_10;dp_70;dp_95;dp_19
 
 T_ou_10<-ev_10+dp_10+outf_10
 T_ou_95<-ev_95+dp_95+outf_95
@@ -154,10 +160,10 @@ atm_95<-input_short$de[96]; atm_19<-input_short$de[120]
 V_10<-input_short$ci[11]; V_70  <-input_short$ci[71] 
 V_95<-input_short$ci[96]; V_19<-input_short$ci[120] 
 
-All_out_10=c(NA,-ev_10,-dp_10,outf_10)
-All_out_70=c(NA,-ev_70,-dp_70,outf_70)
-All_out_95=c(NA,-ev_95,-dp_95,outf_95)
-All_out_19=c(NA,-ev_17,-dp_17,outf_17)
+All_out_10=c(NA,-ev_10,dp_10,outf_10)
+All_out_70=c(NA,-ev_70,dp_70,outf_70)
+All_out_95=c(NA,-ev_95,dp_95,outf_95)
+All_out_19=c(NA,-ev_19,dp_19,outf_19)
 
 All_in_10=c(M_10,F_10,atm_10,V_10)
 All_in_70=c(M_70,F_70,atm_70,V_70)
@@ -169,7 +175,7 @@ T_in_70=M_70+F_70+atm_70+V_70
 T_in_95=M_95+F_95+atm_95+V_95
 T_in_19=M_19+F_19+atm_19+V_19
 
-M_70/T_in_70*100; M_95/T_in_95*100;M_2019/T_in_19*100
+M_70/T_in_70*100; M_95/T_in_95*100;M_19/T_in_19*100
 
 tiff('Barplot_Hg_1910.tiff', height=25, width=23, units='cm', 
       compression="lzw", res=300)
@@ -256,58 +262,83 @@ text(13,3.5, expression("Venice City"), cex=.9)
 dev.off()
 
 
+png('TUTTI_Bilancis2z3.png',height = 15, width=22,
+    units = 'cm',res=300)
+par(mfrow=c(2,2),cex.axis=1.4, bty='n', mgp=c(2.3, 1, 0), 
+    mar=c(4,1,2,1))
+barplot(bilancio_hg_10,horiz =T, xlab='kg/y',
+        main='Bilancio del Hg \n (1910)',
+        axisnames=F,border='grey',
+        xlim=c(-30,30),cex.names = .6,las=1,
+        col=c('darkblue',
+              'darkorange',
+              '#008B8B',
+              '#00cccc','royalblue','#ECC16F',
+              'grey60'))
+#axis(side=2,at=c(1.2,2.3,3.4,4.5,5.6,7,8),las=2,col='white',
+#   line=-6,  labels = names(bilancio_hg_10), cex=.5)
+text(-10,8.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.7)
+text(-10,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
+text(-10,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
+text(-10,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
+text(10,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
+text(10,2.1, expression("Hg"[P]*~"Exchange Sed.-Wat. "),adj=1, cex=.7)
+text(10,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
 
-tiff('Barplot_Hg_1995.tiff', height=25, width=23, units='cm', 
-     compression="lzw", res=300)
-par(mar=c(0.5, 3, 2.5, 1), mfrow=c(1,1))  #bottom-left-top-right
-plot.new()
-plot.window(xlim=c(-80, 80), ylim=c(-1, 4.5))
 
-ticks <- seq(-80,80,20)
-y <- c(0.5,1.5,2.5,3.5) # posizione barre
-h <- 0.15
-### aggiungere produzione interna e degradazione  m
-lines(rep(0, 2), c(0, 4), col="grey")
-segments(-80, y, 80, y, lty="dotted", col="grey")  #linee orizzontali 
+barplot(bilancio_hg_70,horiz =T, xlab='kg/y',
+        main='Hg Budget in Lagoon Water  \n (1970)',names.arg = F,
+        xlim=c(-1100,1100),cex.names = .6,border='grey',
+        axisnames=F,
+        col=c('darkblue',
+              'darkorange',
+              '#008B8B',
+              '#00cccc','royalblue','#ECC16F',
+              'grey60'))
+text(-1000,8.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.7)
+text(-1000,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
+text(-1000,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
+text(-1000,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
+text(1000,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
+text(1000,2.1, expression("Hg"[P]*~"Exchange Sed.-Wat. "),adj=1, cex=.7)
+text(1000,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
 
-rect(All_out_95, y-h, 0, y+h, col=c('black','cyan3','orange','royalblue'))
-text(-12,3.5, expression("Outflow"), cex=.9)
-text(-12,2.5, expression("Hg"[p]*~"Deposition"), cex=.9)
-text(-12,1.5, expression("Hg"^0*~"Evasion"), cex=.9)
+barplot(bilancio_hg95, horiz = T,xlab='kg/y',
+        main='Bilancio del Hg \n (1995)',
+        cex.names=0.6,xlim=c(-800,800),border='grey',
+        axisnames=F,las=1,
+        col=c('darkblue',
+              'darkorange',
+              '#008B8B',
+              '#00cccc','royalblue','#ECC16F',
+              'grey60'))
+text(-100,8.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.7)
+text(-100,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
+text(-100,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
+text(-100,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
+text(100,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
+text(100,2.1, expression("Hg"[P]*~"Exchange Sed.-Wat. "),adj=1, cex=.7)
+text(100,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
 
-rect(0, y-h, All_in_95, y+h, col=c('darkgray',"lightcyan2","lightcyan2",
-                                   "lightcyan2","lightcyan2",
-                                   "lightcyan2"))
-text(13,1.5, expression("Hg"[T]*~"River"), cex=.9)
-text(13,2.5, expression("Hg"[p]*~"Atmospheric Deposition"), cex=.9)
-text(13,3.5, expression("Venice City"), cex=.9)
+
+barplot(bilancio_hg2019, horiz = T, cex.names=0.6,
+        xlab='kg/y',axisnames=F,las=1,border='grey',
+        xlim = c(-70,70),main='Bilancio del Hg \n (2019)',
+        col=c('darkblue',
+              'darkorange',
+              '#008B8B',
+              '#00cccc','royalblue','#ECC16F',
+              'grey60'))
+text(-13,8.1, expression("Hg"[T]*~"Industrial"),adj=0, cex=.7)
+text(-13,6.9, expression("Hg"[T]*~"Venice City"),adj=0, cex=.7)
+text(-13,5.5, expression("Hg"[T]*~"River Load"), adj=0,cex=.7)
+text(-13,4.3, expression("Hg"[P]*~"Atmospheric Deposition"), adj=1,cex=.7)
+text(10,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
+text(10,2.1, expression("Hg"[P]*~"Exchange Sed.-Wat. "),adj=1, cex=.7)
+text(10,.851, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
+
 dev.off()
 
-
-
-
-
-
-bilancio_hg_10<-c(M_10, F_10, atm_10,V_10, 
-                 -ev_10,-dp_10, outf_10)
-names(bilancio_hg_10)<-c('Marghera','Fiumi','Atmosfera','Citta',
-                         'Evasione','Deposizione','Outflow')
-
-bilancio_hg95<-c( M_95, F_95, atm_95,V_95, 
-                 -ev_95,dp_95, outf_95)
-names(bilancio_hg95)<-c('Marghera','Fiumi','Atmosfera',
-                        'Citta','Evasione',
-                      'Deposizione','Outflow')
-
-bilancio_hg2019<-c(M_19, F_19, atm_19,V_19, 
-                    -ev_19,dp_19, outf_19)
-names(bilancio_hg2019)<-c('Marghera','Fiumi','Atmo','Citta','Output','Evasione',
-                      'Deposizione')
-
-bilancio_hg_70<-c( M_70, F_70, atm_70,V_70, 
-                    -ev_70,-dp_70, outf_70)
-names(bilancio_hg_70)<-c('Marghera','Fiumi','Atmosfera','Citta',
-                         'Evasione','Deposizione','Outflow')
 
 png('TUTTI_Bilancis2z.png',height = 13, width=22,
     units = 'cm',res=300)
@@ -315,7 +346,7 @@ par(mfrow=c(2,2),cex.axis=1.4, bty='n', mgp=c(2.3, 1, 0))
 barplot(bilancio_hg_10,horiz =T, xlab='kg/y',
         main='Bilancio del Hg \n (1910)',
         axisnames=F,
-        xlim=c(-10,10),cex.names = .6,las=1,
+        xlim=c(-30,30),cex.names = .6,las=1,
         col=c('grey40','chartreuse3',
               'cyan3','wheat',
               'cyan4','darkorange',
@@ -348,7 +379,7 @@ text(-1000,1.1, expression("Hg"[T]*~"Industrial"), cex=.9,adj=0)
 
 barplot(bilancio_hg95, horiz = T,ylab='kg/y',
         main='Bilancio del Hg \n (1995)',
-        cex.names=0.6,xlim=c(-100,100),
+        cex.names=0.6,xlim=c(-800,800),
         axisnames=F,
         col=c('grey60','grey40','chartreuse3',
               'cyan3','wheat',
@@ -365,7 +396,7 @@ text(-100,1.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.9)
 
 barplot(bilancio_hg2019, horiz = T, cex.names=0.6,
         ylab='kg/y',axisnames=F,
-        xlim = c(-20,20),main='Bilancio del Hg \n (2019)',
+        xlim = c(-70,70),main='Bilancio del Hg \n (2019)',
         col=c('grey40','chartreuse3',
               'cyan3','wheat',
               'cyan4','darkorange',

@@ -1,5 +1,6 @@
 # total output from run 1900-2100 ---> 1:2427
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep')
+setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep/bobo')
+setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo')
 
 # reading output concentrations - hg and solids
 hg<-read.csv('Total_Hg.csv', skip=1)
@@ -67,42 +68,93 @@ names(RESUS_sand)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9
 a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07; a4<-8.90E+06; a5<-2.22E+07; a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
 aree<-c(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
 #---------- Rapporto tra le Kd e hg-----------------
-kdsilt<-1.5*10^5; kdPOM<-2*10^5; kdsand<-1
-kdtot<-kdPOM+kdsilt+kdsand
-fhgPOM<-(kdPOM/kdtot); fhgsilt<-(kdsilt/kdtot); fhgsand<-(kdsand/kdtot)
+kdsilt<-1.5*10^5; kdPOM<-2*10^5; kdsand<-1; kdoc<-10000
+partden1=1+0.000001*((ksilt*silts)+(sands)+(kpom*POMs)+(kdoc*3.19))
+faq=1./partden1
+fsilt=(0.000001*ksilt*silts)/partden1
+fsand=(0.000001*1*sands)/partden1
+fpom= (0.000001*kpom*POMs)/partden1
+fdoc=(0.000001*kdoc*3.19)/partden1
+head(fsilt+fpom+fsand+faq+fdoc)
 
-p<-POMs$wn1*SEDhg$wn1
-s<-silts$wn1*SEDhg$wn1
-z<-p+s
-w<-TOTs$wn1*SEDhg$wn1
+fsiltp <-fsilt/(fsilt+fpom+fsand)
+fpomp <- fpom /(fsilt+fpom+fsand)
+fsandp <-fsand/(fsilt+fpom+fsand)
 
-plot(z, type='l')
-par(new=T)
-plot(w, type='l', col='red',lty=2)
-
-# POM DEPOSITION [m d-1]*[g m-3] --> [g m-2 d]
-POM_dep1 <-DEPO_POM$wn1*POMs$wn1;     #POM_dep1b<-(DEPO_POM$wn1)*POMs$wn1*5.46E+7/1.2600;
+# POM DEPOSITION  [g m-2 d]  --> [m d-1]*[g m-3]
+POM_dep1 <-DEPO_POM$wn1*POMs$wn1[1:289];     #POM_dep1b<-(DEPO_POM$wn1)*POMs$wn1*5.46E+7/1.2600;
 POM_dep2<-DEPO_POM$wn2*POMs$wn2; POM_dep3<-DEPO_POM$wn3*POMs$wn3; POM_dep4<-DEPO_POM$wn4*POMs$wn4;POM_dep5<-DEPO_POM$wn5*POMs$wn5
 POM_dep6<-DEPO_POM$wc6*POMs$wc6; POM_dep7<-DEPO_POM$wc7*POMs$wc7; POM_dep8<-DEPO_POM$ws8*POMs$ws8;POM_dep9<-DEPO_POM$ws9*POMs$ws9; POM_dep10<-DEPO_POM$ws10*POMs$ws10
-# silt DEPOSITION [m d-1]*[g m-3] --> [g m-2 d]
+# silt DEPOSITION  [g m-2 d] --> [m d-1]*[g m-3]
 silt_dep1<-DEPO_silt$wn1*silts$wn1; silt_dep2<-DEPO_silt$wn2*silts$wn2; silt_dep3<-DEPO_silt$wn3*silts$wn3; silt_dep4<-DEPO_silt$wn4*silts$wn4;silt_dep5<-DEPO_silt$wn5*silts$wn5
 silt_dep6<-DEPO_silt$wc6*silts$wc6; silt_dep7<-DEPO_silt$wc7*silts$wc7; silt_dep8<-DEPO_silt$ws8*silts$ws8;silt_dep9<-DEPO_silt$ws9*silts$ws9; silt_dep10<-DEPO_silt$ws10*silts$ws10
-# sand DEPOSITION [m d-1]*[g m-3] --> [g m-2 d]
+# sand DEPOSITION [g m-2 d] --> [m d-1]*[g m-3]
 sand_dep1<-DEPO_sand$wn1*sands$wn1; sand_dep2<-DEPO_sand$wn2*sands$wn2; sand_dep3<-DEPO_sand$wn3*sands$wn3; sand_dep4<-DEPO_sand$wn4*sands$wn4; sand_dep5<-DEPO_sand$wn5*sands$wn5
 sand_dep6<-DEPO_sand$wc6*sands$wc6; sand_dep7<-DEPO_sand$wc7*sands$wc7; sand_dep8<-DEPO_sand$ws8*sands$ws8; sand_dep9<-DEPO_sand$ws9*sands$ws9; sand_dep10<-DEPO_sand$ws10*sands$ws10
-# POM RESUSPENSION [m d-1]*[g m-3] --> [g m-2 d]
+# POM RESUSPENSION [g m-2 d] --> [m d-1]*[g m-3]
 POM_res1<-RESUS_POM$sn1*POMs$sn1; POM_res2<-RESUS_POM$sn2*POMs$sn2; POM_res3<-RESUS_POM$sn3*POMs$sn3; POM_res4<-RESUS_POM$sn4*POMs$sn4;POM_res5<-RESUS_POM$sn5*POMs$sn5
 POM_res6<-RESUS_POM$sc6*POMs$sc6; POM_res7<-RESUS_POM$sc7*POMs$sc7; POM_res8<-RESUS_POM$ss8*POMs$ss8; POM_res9<-RESUS_POM$ss9*POMs$ss9; POM_res10<-RESUS_POM$ss10*POMs$ss10
-# silt RESUSPENSION [m d-1]*[g m-3] --> [g m-2 d]
+# silt RESUSPENSION [g m-2 d] --> [m d-1]*[g m-3]
 silt_res1<-RESUS_silt$sn1*silts$sn1; silt_res2<-RESUS_silt$sn2*silts$sn2; silt_res3<-RESUS_silt$sn3*silts$sn3; silt_res4<-RESUS_silt$sn4*silts$sn4;silt_res5<-RESUS_silt$sn5*silts$sn5
 silt_res6<-RESUS_silt$sc6*silts$sc6;silt_res7<-RESUS_silt$sc7*silts$sc7; silt_res8<-RESUS_silt$ss8*silts$ss8;silt_res9<-RESUS_silt$ss9*silts$ss9; silt_res10<-RESUS_silt$ss10*silts$ss10
-# sand RESUSPENSION [m d-1]*[g m-3] --> [g m-2 d]
+# sand RESUSPENSION [g m-2 d] --> [m d-1]*[g m-3]
 sand_res1<-RESUS_sand$sn1*sands$sn1; sand_res2<-RESUS_sand$sn2*sands$sn2; sand_res3<-RESUS_sand$sn3*sands$sn3; sand_res4<-RESUS_sand$sn4*sands$sn4;sand_res5<-RESUS_sand$sn5*sands$sn5
 sand_res6<-RESUS_sand$sc6*sands$sc6;sand_res7<-RESUS_sand$sc7*sands$sc7; sand_res8<-RESUS_sand$ss8*sands$ss8;sand_res9<-RESUS_sand$ss9*sands$ss9; sand_res10<-RESUS_sand$ss10*sands$ss10
 
-plot(POM_dep1, ylim=c(0,200), type='l')
+plot(POM_dep1, ylim=c(0,200), type='l')  #[g m-2 d]
 par(new=T)
 plot(POM_res1,ylim=c(0,200), type='l',col=2,lty=2)
+
+plot(silt_dep1, ylim=c(0,200), type='l')  #[g m-2 d]
+par(new=T)
+plot(silt_res1,ylim=c(0,200), type='l',col=2,lty=2)
+
+head(POMs$wn1[1:289])    #g/m3
+head(POMs$wn1*d1*a1)    #g/m2
+head(POM_dep1*a1)
+
+head(DEPO_POM$wn1)   #[g m-2 d]
+
+b1<- function(x,y) {z=x*y
+  print(z)}
+
+x=DEPO_POM$wn1 ;y=POMs$wn1
+
+f1(x,y)
+integrate(b1, lower = a1, upper =  0, y=POMs$wn1)
+
+
+
+function(a,b) {a^2 + a*b^2}
+integrate(f, lower = 0, upper = 1, b = 5)
+
+
+
+integrate(fff(x=DEPO_POM$wn1,y=POMs$wn1),lower=0, upper=a1)
+
+plot(fff())
+
+#?????integrate(FF(x,y), lower = 1, upper = a1, x=DEPO_POM$wn1, y=POMs$wn1)
+x=DEPO_POM$wn1 ;y=POMs$wn1
+
+b2<-integrate(fff,lower=0, upper=a1)
+
+
+DEPO_POM$wn1*POMs$wn1*a1
+
+43106194
+2160000.00
+
+integrate(function(x) rep(1, length(x)), 0, 1)
+
+
+integrate(G, 0, 10, s=10, mu=50)
+plot(f)
+
+head(POMs$wn1*a1*d1/1000)  #kg 
+
+head(POM_dep1*a1/1000)  #kg d-1
+
 
 plot(POMs$wn2, type='l')
 head(DEPO_silt$wn1)
@@ -121,13 +173,8 @@ plot(head(silts$osn1,35),pch=19, ylim=c(830142.9,834142.9))
 head(silt_dep1)
 head(silt_res1)
 
-
-plot(silt_dep6)
-plot(silt_res6)
-
-head(POMs$wn1)
-head(DEPO_POM$wn1)
-head(POM_dep1)
+head(POMs$wn1*a1*d1)  #g m3  --> g
+head(POM_dep1*a1)
 head(POM_res1)
 
 # Hg-POM DEPOSITION [g m-2 d]*[ng g-1]*m2  --> [ng d]

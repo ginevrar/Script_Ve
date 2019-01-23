@@ -15,20 +15,19 @@ box8_A<-filter(box8,sed_layer=='A'); box8_B<-filter(box8,sed_layer=='B');box8_C<
 box9_A<-filter(box9,sed_layer=='A'); box9_B<-filter(box9,sed_layer=='B');box9_C<-filter(box9,sed_layer=='C');box9_D<-filter(box9,sed_layer=='D');box9_E<-filter(box9,sed_layer=='E')
 box10_A<-filter(box10,sed_layer=='A'); box10_B<-filter(box10,sed_layer=='B');box10_C<-filter(box10,sed_layer=='C');box10_D<-filter(box10,sed_layer=='D');box10_E<-filter(box10,sed_layer=='E')
 
+box1_A_OC<-select(box1_A,OC) ; box1_B_OC<-select(box1_B,OC);   box1_C_OC<-select(box1_C,OC) ;box1_D_OC<-select(box1_D,OC) ;box1_E_OC<-select(box1_E,OC) 
+box2_A_OC<-select(box2_A,OC) ; box2_B_OC<-select(box2_B,OC);   box2_C_OC<-select(box2_C,OC) ;box2_D_OC<-select(box2_D,OC) ;box2_E_OC<-select(box2_E,OC) 
+box3_A_OC<-select(box3_A,OC) ; box3_B_OC<-select(box3_B,OC);   box3_C_OC<-select(box3_C,OC) ;box3_D_OC<-select(box3_D,OC) ;box3_E_OC<-select(box3_E,OC) 
+box4_A_OC<-select(box4_A,OC) ; box4_B_OC<-select(box4_B,OC);   box4_C_OC<-select(box4_C,OC) ;box4_D_OC<-select(box4_D,OC) ;box4_E_OC<-select(box4_E,OC) 
+box5_A_OC<-select(box5_A,OC) ; box5_B_OC<-select(box5_B,OC);   box5_C_OC<-select(box5_C,OC) ;box5_D_OC<-select(box5_D,OC) ;box5_E_OC<-select(box5_E,OC) 
+box6_A_OC<-select(box6_A,OC) ; box6_B_OC<-select(box6_B,OC);   box6_C_OC<-select(box6_C,OC) ;box6_D_OC<-select(box6_D,OC) ;box6_E_OC<-select(box6_E,OC) 
+box7_A_OC<-select(box7_A,OC) ; box7_B_OC<-select(box7_B,OC);   box7_C_OC<-select(box7_C,OC) ;box7_D_OC<-select(box7_D,OC) ;box7_E_OC<-select(box7_E,OC) 
+box8_A_OC<-select(box8_A,OC) ; box8_B_OC<-select(box8_B,OC);   box8_C_OC<-select(box8_C,OC) ;box8_D_OC<-select(box8_D,OC) ;box8_E_OC<-select(box8_E,OC) 
+box9_A_OC<-select(box9_A,OC) ; box9_B_OC<-select(box9_B,OC);   box9_C_OC<-select(box9_C,OC) ;box9_D_OC<-select(box9_D,OC) ;box9_E_OC<-select(box9_E,OC) 
+box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC);box10_C_OC<-select(box10_C,OC) ;box10_D_OC<-select(box10_D,OC) ;box10_E_OC<-select(box10_E,OC) 
 
-box1_A_OC<-select(box1_A,OC) ; box1_B_OC<-select(box1_B,OC) ;box1_C_OC<-select(box1_C,OC) ;box1_D_OC<-select(box1_D,OC) ;box1_E_OC<-select(box1_E,OC) 
-box2_A_OC<-select(box2_A,OC) ; box2_B_OC<-select(box2_B,OC) ;box2_C_OC<-select(box2_C,OC) ;box2_D_OC<-select(box2_D,OC) ;box2_E_OC<-select(box2_E,OC) 
-box3_A_OC<-select(box3_A,OC) ; box3_B_OC<-select(box3_B,OC) ;   box3_C_OC<-select(box3_C,OC) ;box3_D_OC<-select(box3_D,OC) ;box3_E_OC<-select(box3_E,OC) 
-box4_A_OC<-select(box4_A,OC) ; box4_B_OC<-select(box4_B,OC) ;   box4_C_OC<-select(box4_C,OC) ;box4_D_OC<-select(box4_D,OC) ;box4_E_OC<-select(box4_E,OC) 
-box5_A_OC<-select(box5_A,OC) ; box5_B_OC<-select(box5_B,OC) ;   box5_C_OC<-select(box5_C,OC) ;box5_D_OC<-select(box5_D,OC) ;box5_E_OC<-select(box5_E,OC) 
-box6_A_OC<-select(box6_A,OC) ; box6_B_OC<-select(box6_B,OC) ;   box6_C_OC<-select(box6_C,OC) ;box6_D_OC<-select(box6_D,OC) ;box6_E_OC<-select(box6_E,OC) 
-box7_A_OC<-select(box7_A,OC) ; box7_B_OC<-select(box7_B,OC) ;   box7_C_OC<-select(box7_C,OC) ;box7_D_OC<-select(box7_D,OC) ;box7_E_OC<-select(box7_E,OC) 
-box8_A_OC<-select(box8_A,OC) ; box8_B_OC<-select(box8_B,OC) ;box8_C_OC<-select(box8_C,OC) ;box8_D_OC<-select(box8_D,OC) ;box8_E_OC<-select(box8_E,OC) 
-box9_A_OC<-select(box9_A,OC) ; box9_B_OC<-select(box9_B,OC) ;box9_C_OC<-select(box9_C,OC) ;box9_D_OC<-select(box9_D,OC) ;box9_E_OC<-select(box9_E,OC) 
-box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC) ;box10_C_OC<-select(box10_C,OC) ;box10_D_OC<-select(box10_D,OC) ;box10_E_OC<-select(box10_E,OC) 
-
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
-setwd('C:/Users/Gi/Desktop/NNN41')
+ 
+setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -157,5 +156,7 @@ plot(rdate[480:1440],OC10[480:1440],col=c('#a50028'),
      type='p', lwd=2, cex=2, xaxt='n',yaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box10_A_OC),rdate[1306], min(box10_A_OC),col='#a50028')
-
 dev.off()
+
+
+
