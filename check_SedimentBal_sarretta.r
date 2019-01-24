@@ -9,6 +9,11 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep')
 setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes12/b')
 
+setwd('C:/Users/Acer/Dropbox/NNN61/b')
+#setwd('C:/Users/Acer/Desktop/PiuSILT5d')
+#setwd('C:/Users/Acer/Desktop/N615b/c')
+setwd('C:/Users/Acer/Dropbox/NewVenice')
+
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 

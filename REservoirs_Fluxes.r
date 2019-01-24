@@ -2,6 +2,7 @@
 #setwd('C:/Users/gi/Dropbox/NNN61/')
 setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12')
 #setwd('C:/Users/Acer/Desktop/baba/Buona/double_in/NNN68')
+setwd('C:/Users/Acer/Desktop/N615b/c')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -105,6 +106,9 @@ fsand=(0.000001*1*sands)/partden1
 fpom= (0.000001*kpom*POMs)/partden1
 fdoc=(0.000001*kdoc*3.19)/partden1
 head(fsilt+fpom+fsand+faq+fdoc)
+
+
+fsilt+fpom+fsand+faq+fdoc
 
 fsiltp <-fsilt/(fsilt+fpom+fsand)
 fpomp <- fpom /(fsilt+fpom+fsand)

@@ -1,6 +1,11 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/NOsand')
 #setwd('C:/Users/Gi/Desktop/NNN59')
 setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes12/b')
+setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo3')
+#setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\b')
+#setwd('C:/Users/Acer/Desktop/PiuSILT5b')
+setwd('C:/Users/Acer/Desktop/PiuSILT5d')
+setwd('C:/Users/Acer/Desktop/N615b/c')
 
 1900-2101
 2426/12

@@ -4,8 +4,9 @@
 #da output n n 242 strano (21^ anno)
 
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
-setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo')
-setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12\\d')    #')annuale
+#setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo')
+#setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12\\d')    #')annuale
+ setwd('C:/Users/Acer/Dropbox/NewVenice')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -438,7 +439,6 @@ par(new=T)
 plot(hgbalb, col=2)
 
 
-
 hgbal_kgy<-(hgbal/10^9)*365
 hgbalb_kgy<-(hgbalb/10^9)*365
 
@@ -455,8 +455,6 @@ plot(hgbal_kgy_mean[1:200], type='l')
 head(hgbal_kgy_mean,80)
 
 abline(v=21, col=2)
-
-20*12
 dev.off()
 
 
