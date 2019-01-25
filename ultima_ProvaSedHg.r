@@ -4,6 +4,7 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes4')
 setwd('C:/Users/Acer/Desktop/PiuSILT5c')
+setwd('C:/Users/Acer/Dropbox/NewVenice4')
 
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)

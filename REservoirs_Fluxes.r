@@ -1,9 +1,16 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
 #setwd('C:/Users/gi/Dropbox/NNN61/')
-setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12')
+#('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12')
 #setwd('C:/Users/Acer/Desktop/baba/Buona/double_in/NNN68')
-setwd('C:/Users/Acer/Desktop/N615b/c')
+#setwd('C:/Users/Acer/Desktop/N615b/c')
 
+1000/365
+  area                 
+
+(2.739726*10^12)/area    #ng m-2d
+
+  
+setwd('C:\\Users\\Acer\\Dropbox\\NewVenice10')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -119,7 +126,14 @@ fsiltp+fpomp+fsandp
 head(hg$wn1)
 
 head(reservoir_hgp_w1/10^6, 250)
-     )
+rdate[1190]
+silts[4,]
+silts[1190,]
+POMs[1,]
+silts[1190,]
+
+head(silts)
+
 plot(head(reservoir_hgp_w1/10^6, 250),type='l')
 
 
@@ -501,7 +515,7 @@ nn<-(net_tot_sand_mean+net_tot_silt_mean+net_tot_pom_mean)*86400              #u
 rr_tot_mean <-tapply(rr, rep(1:(length(rr)/12),each = 12),mean)
 dd_tot_mean <-tapply(dd, rep(1:(length(dd)/12),each = 12),mean)
  
-
+par(mfrow=c(1,1))
 plot((nn/10^9)*365,col=1,type='l', ylim=c(-15000,15000)) # ug d-1  -> kg y-1
 par(new=T)
 plot(rr_tot_mean/10^9*365,col=2,ylim=c(-15000,15000),type='l')
@@ -513,6 +527,9 @@ head(rr_tot_mean/10^9*365)
 head(dd_tot_mean/10^9*365) #kg y-1
 head(nn/10^9*365,30)
  
+res_kgy<-rr_tot_mean/10^9*365
+dep_kgy<-dd_tot_mean/10^9*365
+dep_kgy-res_kgy
 
 diff1<-tot_w_reser_m[2]-tot_w_reser_m[1];head(diff1)
 
