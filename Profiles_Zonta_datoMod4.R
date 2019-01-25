@@ -10,7 +10,7 @@ setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep')
 ##setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo2')
 #setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\b')
 setwd('C:/Users/Acer/Desktop/N615b/c')
-setwd('C:/Users/Acer/Dropbox/NNN61/b')
+setwd('C:/Users/Acer/Dropbox/NewVenice8')
 
 hgp<-read.csv('Total_Sorbed_Divalent_Hg_Solids.csv', skip=1)
 names(hgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

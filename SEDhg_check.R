@@ -1,5 +1,13 @@
 setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\f')
-setwd('C:/Users/Acer/Dropbox/NNN61/')
+setwd('C:/Users/Acer/Dropbox/NEWVenice6/')
+
+RESUS_silt<-read.csv("Silt_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+names(RESUS_silt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+                      'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+RESUS_POM<-read.csv("POM_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+names(RESUS_POM)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+                     'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 
 #setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\g')
@@ -10,6 +18,7 @@ setwd('C:/Users/Acer/Dropbox/NNN61/')
 #G:\Il mio Drive\MERCURIO\Venezia\2017_Venice\fin87
 #setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\2017_Venice\\fin87')
 #setwd('C:/Users/Acer/Desktop/N615b')
+setwd('C:/Users/Acer/Dropbox/NEWVenice9/')
 
 DEPO_silt2<-read.csv("Silt_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_silt2)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -57,6 +66,13 @@ plot(, ylim=c(0,100))
 par(new=T)
 plot(silts$wn1[2:50], ylim=c(0,100))
 
+par(mfrow=c(1,1))
+plot(RESUS_POM2$ss8, type='l', ylim=c(0,0.005))
+par(new=T)
+plot(RESUS_POM2$ss9, type='l', col=2, ylim=c(0,0.005))
+
+
+
 
 head(silts)
 
@@ -83,14 +99,11 @@ Vb_Si_box10<-Vb_Si$ss10
 plot(Vb_Si_box1)      #net sediment depo in g m-2 y
 plot(Vb_Si_box7)      #net sediment depo in g m-2 y
 
+plot(burial$sn4)
 
 plot(SEDhg2$wn1, type='l', ylim=c(0,2000))
 par(new=T)
 plot(SEDhg2$sn1, type='l',col=2, ylim=c(0,2000))
-
-plot(SEDhg$wn1, type='l', ylim=c(0,2000))
-par(new=T)
-plot(SEDhg$sn1, type='l',col=2, ylim=c(0,2000))
 
 plot(SEDhg2$wn2, type='l', ylim=c(0,2000))
 par(new=T)
@@ -122,9 +135,18 @@ plot(SEDhg2$ws8, type='l', ylim=c(0,2000))
 par(new=T)
 plot(SEDhg2$ss8, type='l',col=2, ylim=c(0,2000))
 
+plot(SEDhg2$ws9, type='l', ylim=c(0,2000))
+par(new=T)
+plot(SEDhg2$ss9, type='l',col=2, ylim=c(0,2000))
+
+plot(SEDhg2$ws10, type='l', ylim=c(0,2000))
+par(new=T)
+plot(SEDhg2$ss10, type='l',col=2, ylim=c(0,2000))
 
 
 plot(SEDhg$wc6, type='l', ylim=c(0,8000))
+
+
 par(new=T)
 plot(SEDhg2$wc6, type='l', col=2, ylim=c(0,8000))
 

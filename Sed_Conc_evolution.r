@@ -2,7 +2,7 @@
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes12/d')
 #setwd('C:/Users/Acer/Desktop/PiuSILT5d')
 setwd('C:/Users/Acer/Desktop/N615b/c')
-setwd('C:/Users/Acer/Dropbox/NNN61/b')
+setwd('C:/Users/Acer/Dropbox/NewVenice10')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -60,8 +60,43 @@ time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
-rdate
+
 str(rdate)
+
+rdate[1083]
+
+silts[1150,]
+POMs[1150,]
+POMs[1083,]
+rdate[1099]
+
+rdate[1090]
+POMs[1099,]
+silts[1099,]
+
+rdate[1238]
+POMs[1238,]
+silts[1238,]
+
+
+silts$wn2[1099]
+
+  rdate[1238]
+POMs[1238,]
+silts[1238,]
+
+plot(silts$wn1)
+#plot(silts$sn1[1083:1095])
+plot(silts$wn2)
+plot(silts$wn3)
+plot(silts$wn4)
+plot(silts$wn5)
+plot(silts$wc6)
+plot(silts$wc7)
+plot(silts$ws8)
+plot(silts$ws9)
+plot(silts$ws10)
+
 
 POM_perc<-POMs/TOTs*100
 

@@ -27,7 +27,8 @@ box9_A_OC<-select(box9_A,OC) ; box9_B_OC<-select(box9_B,OC);   box9_C_OC<-select
 box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC);box10_C_OC<-select(box10_C,OC) ;box10_D_OC<-select(box10_D,OC) ;box10_E_OC<-select(box10_E,OC) 
 
  
-setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
+#setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
+setwd('C:/Users/Acer/Dropbox/NewVenice10')
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
