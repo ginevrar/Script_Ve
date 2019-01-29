@@ -18,7 +18,7 @@ names(RESUS_POM)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9'
 #G:\Il mio Drive\MERCURIO\Venezia\2017_Venice\fin87
 #setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\2017_Venice\\fin87')
 #setwd('C:/Users/Acer/Desktop/N615b')
-setwd('C:/Users/Acer/Dropbox/NEWVenice9/')
+setwd('C:/Users/Acer/Dropbox/NEWVenice27/b')
 
 DEPO_silt2<-read.csv("Silt_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_silt2)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -145,8 +145,6 @@ plot(SEDhg2$ss10, type='l',col=2, ylim=c(0,2000))
 
 
 plot(SEDhg$wc6, type='l', ylim=c(0,8000))
-
-
 par(new=T)
 plot(SEDhg2$wc6, type='l', col=2, ylim=c(0,8000))
 
@@ -166,25 +164,25 @@ plot(RESUS_POM$sc6, type='l', ylim=c(0,.0008000))
 
 
 
-plot(RESUS_POM2$sn1, type='l', col=3, ylim=c(0,.000008000))
+plot(RESUS_POM2$sn1, type='l', col=3, ylim=c(0,.008000))
 par(new=T)
-plot(RESUS_POM2$sn2, type='l', col=4, ylim=c(0,.000008000))
+plot(RESUS_POM2$sn2, type='l', col=4, ylim=c(0,.008000))
 par(new=T)
-plot(RESUS_POM2$sn3, type='l', col=6, ylim=c(0,.000008000))
+plot(RESUS_POM2$sn3, type='l', col='pink', ylim=c(0,.008000))
 par(new=T)
-plot(RESUS_POM2$sn4, type='l', col=5, ylim=c(0,.000008000))
+plot(RESUS_POM2$sn4, type='l', col='cyan',lty=2, ylim=c(0,.008000))
 par(new=T)
-plot(RESUS_POM2$sn5, type='l', col=7, ylim=c(0,.000008000))
+plot(RESUS_POM2$sn5, type='l', col=7, ylim=c(0,.008000))
 par(new=T)
-plot(RESUS_POM2$sc6, type='l', col=2, ylim=c(0,.000008000))
+plot(RESUS_POM2$sc6, type='l', col=2, ylim=c(0,.008000))
 par(new=T)
-plot(RESUS_POM2$sc7, type='l', col=1, ylim=c(0,.000008000)); max(RESUS_POM2$sc7)
+plot(RESUS_POM2$sc7, type='l', col=1, ylim=c(0,.008000)); max(RESUS_POM2$sc7)
 par(new=T)
-plot(RESUS_POM2$ss8, type='l', col=9, ylim=c(0,.000008000))
+plot(RESUS_POM2$ss8, type='l', col='royalblue', ylim=c(0,.008000))
 par(new=T)
-plot(RESUS_POM2$ss9, type='l', col=8, ylim=c(0,.000008000))
+plot(RESUS_POM2$ss9, type='l', col='grey', ylim=c(0,.008000))
 par(new=T)
-plot(RESUS_POM2$ss10, type='l', col=8, ylim=c(0,.000008000))
+plot(RESUS_POM2$ss10, type='l', col='yellow', ylim=c(0,.008000))
 
 
 plot(RESUS_silt2$sn1, type='l', col=1, ylim=c(0,.0001000))
@@ -197,9 +195,9 @@ plot(RESUS_silt2$sn4, type='l', col=4, ylim=c(0,.0001000))
 par(new=T)
 plot(RESUS_silt2$sn5, type='l', col=5, ylim=c(0,.0001000)); max(RESUS_silt2$sn5)
 par(new=T)
-plot(RESUS_silt2$sc6, type='l', col=6, ylim=c(0,.00010000)); max(RESUS_silt2$sc6)
+plot(RESUS_silt2$sc6, type='l', col=6, ylim=c(0,.0010000)); max(RESUS_silt2$sc6)
 par(new=T)
-plot(RESUS_silt2$sc7, type='l', col=7, ylim=c(0,.0001000)); max(RESUS_silt2$sc7)
+plot(RESUS_silt2$sc7, type='l', col=7, ylim=c(0,.001000)); max(RESUS_silt2$sc7)
 par(new=T)
 plot(RESUS_silt2$ss8, type='l', col=8, ylim=c(0,.0001000))
 par(new=T)
