@@ -10,7 +10,9 @@
 (2.739726*10^12)/area    #ng m-2d
 
   
-setwd('C:\\Users\\Acer\\Dropbox\\NewVenice10')
+setwd('C:\\Users\\Acer\\Dropbox\\NewVenice18')
+setwd('C:/Users/Acer/Dropbox/NewVenice20/h')
+
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -81,28 +83,17 @@ names(RESUS_sand)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9
                # aree box
 RESUS_sand<-RESUS_sand[1:2412,]
 
-Volume<-read.csv("Segment_Volume.csv", header=FALSE, skip = 1,sep = ",", dec=".")
-names(Volume)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',	'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
-               	  	'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-Volume<-Volume[1:2412,]
-
-#Volumi
-v1_w<-Volume$wn1; v2_w<-Volume$wn2; v3_w<-Volume$wn3; v4_w<-Volume$wn4; v5_w<-Volume$wn5;
-v6_w<-Volume$wc6; v7_w<-Volume$wc7; v8_w<-Volume$ws8; v9_w<-Volume$ws9; v10_w<-Volume$ws10
-
-v1_s<-Volume$sn1; v2_s<-Volume$sn2; v3_s<-Volume$sn3; v4_s<-Volume$sn4; v5_s<-Volume$sn5;
-v6_s<-Volume$sc6; v7_s<-Volume$sc7; v8_s<-Volume$ss8; v9_s<-Volume$ss9; v10_s<-Volume$ss10
 
 a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07; a9<-2.95E+07;a10<-4.06E+07
 area<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
 
 AT<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
 
-d1<-1.26;  d3<-3.35;d5<-1.03; d6<-1.64; d7<-1.84;   d10<-1.71
-d2<-1 #d2<-0.78;
-d4<-1 # d4<-0.64; 
-d8<-1 #d8<-0.89;
-d9<-1 #d9<-0.69;
+#d1<-1.26;  d3<-3.35;d5<-1.03; d6<-1.64; d7<-1.84;   d10<-1.71
+# d2<-0.78; d4<-0.64; d8<-1 #d8<-0.89;d9<-1 #d9<-0.69;
+
+d1<-1; d2<-1; d3<-1; d4<-1; d5<-1; d6<-1; d7<-1; d8<-1; d9<-1; d10<-1
+
 #fsilt=silts/TOTs;fPOM=POMs/TOTs;fsand=sands/TOTs
 
 ksilt<-1.5*10^5; kpom<-2*10^5; kdoc<-10000
@@ -523,6 +514,8 @@ par(new=T)
 plot(dd_tot_mean/10^9*365,col=3,type='l', ylim=c(-15000,15000))
 
 
+
+
 head(rr_tot_mean/10^9*365)
 head(dd_tot_mean/10^9*365) #kg y-1
 head(nn/10^9*365,30)
@@ -546,16 +539,16 @@ str(dd)
 
 
 diffes=(Fdsilt-Frsilt)    #Deposizione netta hg-silt,  in ug s-1
-plot(diffes[,1])
-plot(diffes[,2])
-plot(diffes[,3])
-plot(diffes[,4])
-plot(diffes[,5])
-plot(diffes[,6])
-plot(diffes[,7])
-plot(diffes[,8])
-plot(diffes[,9])
-plot(diffes[,10])
+#plot(diffes[,1])
+#plot(diffes[,2])
+#plot(diffes[,3])
+#plot(diffes[,4])
+##plot(diffes[,5])
+#plot(diffes[,6])
+#plot(diffes[,7])
+#plot(diffes[,8])
+#plot(diffes[,9])
+#plot(diffes[,10])
 
 D1 = Fds1 + Fdsa1 + Fdp1
 D2 = Fds2 + Fdsa2 + Fdp2
@@ -593,6 +586,10 @@ hg_wat_reservoir<-hg_silt_wat_tot+hg_pom_wat_tot+hg_sand_wat_tot+hg_doc_wat_tot+
 
 hg_sed_reservoir_media<-tapply(hg_sed_reservoir, rep(1:(length(hg_sed_reservoir)/12),each = 12),mean)
 hg_wat_reservoir_media<-tapply(hg_wat_reservoir, rep(1:(length(hg_wat_reservoir)/12),each = 12),mean)
+
+
+plot(hg_wat_reservoir_media)
+
 
 rr_tot_mean
 
@@ -642,10 +639,18 @@ head(hg_wat_reservoir/10^9)
 head(NEt,12)
 head(Net_kgy)
 
-write.table(Net_kgy,"Net_hgSed_kgy.txt");
-write.table(Net_kgy2,"Net_hgSed_kgy_long.txt");
+#write.table(Net_kgy,"Net_hgSed_kgy.txt");
+#write.table(Net_kgy2,"Net_hgSed_kgy_long.txt");
 
-head(Net_kgy)
+str(Net_kgy)
+str(Net_kgy2)
+
+summary(Net_kgy)
+summary(Net_kgy2)
+
+
+
+plot(Net_kgy)
 
 plot(TotD,ylim=c(0,100000), type='l')
 par(new=T)

@@ -17,8 +17,12 @@ names(RESUS_POM)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9'
 #setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo3')
 #G:\Il mio Drive\MERCURIO\Venezia\2017_Venice\fin87
 #setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\2017_Venice\\fin87')
-#setwd('C:/Users/Acer/Desktop/N615b')
-setwd('C:/Users/Acer/Dropbox/NEWVenice27/b')
+#setwd('C:/Users/Acer/Dropbox/Venice_Ultime/SIM_FINALE_fg')
+#setwd('C:/Users/Acer/Dropbox/NEWVenice28/b')
+setwd('C:/Users/Acer/Dropbox/NewVenice20/w')
+#setwd('C:/Users/Acer/Dropbox/NewVenice17')
+
+
 
 DEPO_silt2<-read.csv("Silt_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_silt2)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -101,6 +105,9 @@ plot(Vb_Si_box7)      #net sediment depo in g m-2 y
 
 plot(burial$sn4)
 
+
+png('SedHg.png', res=200, width=1000, height = 1000)
+par(mfrow=c(2,5), mar=c(1,1,1,1))
 plot(SEDhg2$wn1, type='l', ylim=c(0,2000))
 par(new=T)
 plot(SEDhg2$sn1, type='l',col=2, ylim=c(0,2000))
@@ -142,25 +149,9 @@ plot(SEDhg2$ss9, type='l',col=2, ylim=c(0,2000))
 plot(SEDhg2$ws10, type='l', ylim=c(0,2000))
 par(new=T)
 plot(SEDhg2$ss10, type='l',col=2, ylim=c(0,2000))
+dev.off()
 
 
-plot(SEDhg$wc6, type='l', ylim=c(0,8000))
-par(new=T)
-plot(SEDhg2$wc6, type='l', col=2, ylim=c(0,8000))
-
-plot(SEDhg$wc7, type='l', ylim=c(0,8000))
-par(new=T)
-plot(SEDhg2$wc7, type='l', col=2, ylim=c(0,8000))
-
-plot(SEDhg$wn2, type='l', ylim=c(0,8000))
-par(new=T)
-plot(SEDhg2$wn2, type='l', col=2, ylim=c(0,8000))
-
-
-
-
-
-plot(RESUS_POM$sc6, type='l', ylim=c(0,.0008000))
 
 
 

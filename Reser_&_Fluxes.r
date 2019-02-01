@@ -1,14 +1,14 @@
-setwd('C:\\Users\\Acer\\Dropbox\\NewVenice151\\1')
+setwd('C:\\Users\\Acer\\Dropbox\\NewVenice16')
 
-hg<-read.csv('Total_Hg.csv', skip=1)
+hg<-read.csv('Total_Hg.csv',header=FALSE, skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
-  time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
-  TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
-  rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
+time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -61,12 +61,12 @@ Volume<-read.csv("Segment_Volume.csv", header=FALSE, skip = 1,sep = ",", dec="."
 names(Volume)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',	'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                	  	'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
-#aree e profonditÃ 
+#aree e profonditÃ
 a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07; a9<-2.95E+07;a10<-4.06E+07
 area<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10; AT<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
 
 d1<-1.26; d3<-3.35;d5<-1.03; d6<-1.64; d7<-1.84;   d10<-1.71
-d2<-0.78; d4<-0.64;d8<-0.89 ; d9<.0.69     #d8<-1 d9<-1
+d2<-0.78; d4<-0.64;d8<-0.89 ; d9<-0.69     #d8<-1 d9<-1
 
 #fsilt=silts/TOTs;fPOM=POMs/TOTs;fsand=sands/TOTs
 
@@ -126,13 +126,167 @@ hgpw9_fr<-(hgpw9+hgsw9)/(hg$ws9*10^3)
 hgpw10_fr<-(hgpw10+hgsw10)/(hg$ws10*10^3)
 
 # ug m-3 *m d-1 == ug m-2 d-1/10^6 == mg /m2 d
-b1_Dep_mg_m2d<-((hg$wn1)*DEPO_silt2$wn1*(hgpw1_fr))/10^6
-b2_Dep_mg_m2d<-((hg$wn2)*DEPO_silt2$wn2*(hgpw2_fr))/10^6        # ng m-3 *m d-1 == ng m-2 d-1/
-b3_Dep_mg_m2d<-((hg$wn3)*DEPO_silt2$wn3*(hgpw3_fr))/10^6        # ng m-3 *m d-1 == ng m-2 d-1/
-b4_Dep_mg_m2d<-((hg$wn4)*DEPO_silt2$wn4*(hgpw4_fr))/10^6        # ng m-3 *m d-1 == ng m-2 d-1/
-b5_Dep_mg_m2d<-((hg$wn5)*DEPO_silt2$wn5*(hgpw5_fr))/10^6        # ng m-3 *m d-1 == ng m-2 d-1/
-b6_Dep_mg_m2d<-((hg$wc6)*DEPO_silt2$wc6*(hgpw6_fr))/10^6        # ng m-3 *m d-1 == ng m-2 d-1/
-b7_Dep_mg_m2d<-((hg$wc7)*DEPO_silt2$wc7*(hgpw7_fr))/10^6        # ng m-3 *m d-1 == ng m-2 d-1/
-b8_Dep_mg_m2d<-((hg$ws8)*DEPO_silt2$ws8*(hgpw8_fr))/10^6        # ng m-3 *m d-1 == ng m-2 d-1/
-b9_Dep_mg_m2d<-((hg$ws9)*DEPO_silt2$ws9*(hgpw9_fr))/10^6        # ng m-3 *m d-1 == ng m-2 d-1/
-b10_Dep_mg_m2d<-((hg$ws10)*DEPO_silt2$ws10*(hgpw10_fr))/10^6        # ng m-3 *m d-1 == ng m-2 d-1/
+b1_Dep_mg_m2d<-(hg$wn1*DEPO_silt$wn1*(hgpw1_fr))/10^3
+b2_Dep_mg_m2d<-(hg$wn2*DEPO_silt$wn2*(hgpw2_fr))/10^3           # ug m-3 *m d-1 == mg m-2 d-1
+b3_Dep_mg_m2d<-(hg$wn3*DEPO_silt$wn3*(hgpw3_fr))/10^3          
+b4_Dep_mg_m2d<-(hg$wn4*DEPO_silt$wn4*(hgpw4_fr))/10^3           
+b5_Dep_mg_m2d<-(hg$wn5*DEPO_silt$wn5*(hgpw5_fr))/10^3           
+b6_Dep_mg_m2d<-(hg$wc6*DEPO_silt$wc6*(hgpw6_fr))/10^3           
+b7_Dep_mg_m2d<-(hg$wc7*DEPO_silt$wc7*(hgpw7_fr))/10^3          
+b8_Dep_mg_m2d<-(hg$ws8*DEPO_silt$ws8*(hgpw8_fr))/10^3           
+b9_Dep_mg_m2d<-(hg$ws9*DEPO_silt$ws9*(hgpw9_fr))/10^3           
+b10_Dep_mg_m2d<-(hg$ws10*DEPO_silt$ws10*(hgpw10_fr))/10^3      
+
+hgssed1<-SEDhg2$sn1*silts$sn1     #ng g-1 * g m-3  = ng m-3
+hgssed2<-SEDhg2$sn2*silts$sn2     #ng g-1 * g m-3
+hgssed3<-SEDhg2$sn3*silts$sn3     #ng g-1 * g m-3
+hgssed4<-SEDhg2$sn4*silts$sn4     #ng g-1 * g m-3
+hgssed5<-SEDhg2$sn5*silts$sn5     #ng g-1 * g m-3
+hgssed6<-SEDhg2$sc6*silts$sc6     #ng g-1 * g m-3
+hgssed7<-SEDhg2$sc7*silts$sc7     #ng g-1 * g m-3
+hgssed8<-SEDhg2$ss8*silts$ss8     #ng g-1 * g m-3
+hgssed9<-SEDhg2$ss9*silts$ss9    #ng g-1 * g m-3
+hgssed10<-SEDhg2$ss10*silts$ss10    #ng g-1 * g m-3
+
+hgpsed1<-SEDhg2$sn1*POMs$sn1     #ng g-1 * g m-3  = ng m-3
+hgpsed2<-SEDhg2$sn2*POMs$sn2     #ng g-1 * g m-3
+hgpsed3<-SEDhg2$sn3*POMs$sn3     #ng g-1 * g m-3
+hgpsed4<-SEDhg2$sn4*POMs$sn4     #ng g-1 * g m-3
+hgpsed5<-SEDhg2$sn5*POMs$sn5     #ng g-1 * g m-3
+hgpsed6<-SEDhg2$sc6*POMs$sc6     #ng g-1 * g m-3
+hgpsed7<-SEDhg2$sc7*POMs$sc7     #ng g-1 * g m-3
+hgpsed8<-SEDhg2$ss8*POMs$ss8     #ng g-1 * g m-3
+hgpsed9<-SEDhg2$ss9*POMs$ss9    #ng g-1 * g m-3
+hgpsed10<-SEDhg2$ss10*POMs$ss10    #ng g-1 * g m-3
+
+phgw1<-Phgs2$wn1*10^3
+hgpw1+hgsw1      #Phg ug m-3
+
+plot(phgw1)
+plot(hgpw1+hgsw1)
+
+plot(SEDhg2$sn1, type='l',col=2, ylim=c(0,2000))
+
+hgT1<-(hg$sn1*TOTs$sn1)   # ng g * g m-3  = ng m-3
+hgT2<-(hg$sn2*TOTs$sn2)   # ng g * g m-3  = ng m-3
+hgT3<-(hg$sn3*TOTs$sn3)   # ng g * g m-3  = ng m-3
+hgT4<-(hg$sn4*TOTs$sn4)   # ng g * g m-3  = ng m-3
+hgT5<-(hg$sn5*TOTs$sn5)   # ng g * g m-3  = ng m-3
+hgT6<-(hg$sc6*TOTs$sc6)   # ng g * g m-3  = ng m-3
+hgT7<-(hg$sc7*TOTs$sc7)   # ng g * g m-3  = ng m-3
+hgT8<-(hg$ss8*TOTs$ss8)   # ng g * g m-3  = ng m-3
+hgT9<-(hg$ss9*TOTs$ss9)   # ng g * g m-3  = ng m-3
+hgT10<-(hg$ss10*TOTs$ss10)   # ng g * g m-3  = ng m-3
+
+hgPOMsed1_fr<-(hgpsed1)/hgT1
+hgPOMsed2_fr<-(hgpsed2)/hgT2
+hgPOMsed3_fr<-(hgpsed3)/hgT3
+hgPOMsed4_fr<-(hgpsed4)/hgT4
+hgPOMsed5_fr<-(hgpsed5)/hgT5
+hgPOMsed6_fr<-(hgpsed6)/hgT6
+hgPOMsed7_fr<-(hgpsed7)/hgT7
+hgPOMsed8_fr<-(hgpsed8)/hgT8
+hgPOMsed9_fr<-(hgpsed9)/hgT9
+hgPOMsed10_fr<-(hgpsed10)/hgT10
+
+hgSiltsed1_fr<-(hgssed1)/hgT1
+hgSiltsed2_fr<-(hgssed2)/hgT2
+hgSiltsed3_fr<-(hgssed3)/hgT3
+hgSiltsed4_fr<-(hgssed4)/hgT4
+hgSiltsed5_fr<-(hgssed5)/hgT5
+hgSiltsed6_fr<-(hgssed6)/hgT6
+hgSiltsed7_fr<-(hgssed7)/hgT7
+hgSiltsed8_fr<-(hgssed8)/hgT8
+hgSiltsed9_fr<-(hgssed9)/hgT9
+hgSiltsed10_fr<-(hgssed10)/hgT10
+
+b1_ResS_mg_m2d <-(hgT1*RESUS_silt$sn1*hgSiltsed1_fr)/10^6       
+b2_ResS_mg_m2d <-(hgT2*RESUS_silt$sn2*hgSiltsed2_fr)/10^6       
+b3_ResS_mg_m2d <-(hgT3*RESUS_silt$sn3*hgSiltsed3_fr)/10^6       
+b4_ResS_mg_m2d <-(hgT4*RESUS_silt$sn4*hgSiltsed4_fr)/10^6       
+b5_ResS_mg_m2d <-(hgT5*RESUS_silt$sn5*hgSiltsed5_fr)/10^6       
+b6_ResS_mg_m2d <-(hgT6*RESUS_silt$sc6*hgSiltsed6_fr)/10^6       
+b7_ResS_mg_m2d <-(hgT7*RESUS_silt$sc7*hgSiltsed7_fr)/10^6       
+b8_ResS_mg_m2d <-(hgT8*RESUS_silt$ss8*hgSiltsed8_fr)/10^6       
+b9_ResS_mg_m2d <-(hgT9*RESUS_silt$ss9*hgSiltsed9_fr)/10^6       
+b10_ResS_mg_m2d<-(hgT10*RESUS_silt$ss10*hgSiltsed10_fr)/10^6       
+
+b1_ResP_mg_m2d<-(hgT1*RESUS_POM$sn1*hgPOMsed1_fr)/10^6       
+b2_ResP_mg_m2d<-(hgT2*RESUS_POM$sn2*hgPOMsed2_fr)/10^6       
+b3_ResP_mg_m2d<-(hgT3*RESUS_POM$sn3*hgPOMsed3_fr)/10^6  
+b4_ResP_mg_m2d<-(hgT4*RESUS_POM$sn4*hgPOMsed4_fr)/10^6  
+b5_ResP_mg_m2d<-(hgT5*RESUS_POM$sn5*hgPOMsed5_fr)/10^6  
+b6_ResP_mg_m2d<-(hgT6*RESUS_POM$sc6*hgPOMsed6_fr)/10^6  
+b7_ResP_mg_m2d<-(hgT7*RESUS_POM$sc7*hgPOMsed7_fr)/10^6  
+b8_ResP_mg_m2d<-(hgT8*RESUS_POM$ss8*hgPOMsed8_fr)/10^6  
+b9_ResP_mg_m2d<-(hgT9*RESUS_POM$ss9*hgPOMsed9_fr)/10^6  
+b10_ResP_mg_m2d<-(hgT10*RESUS_POM$ss10*hgPOMsed10_fr)/10^6  
+
+reservoir_hg_s1 <- a1*0.05 * hg$sn1 *TOTs$sn1/10^3       #ng(hg)/g(s) *g(s)/m3(w+s)*vol(m3) = ng(hg)/10^3 = ug(hg)
+reservoir_hg_s2 <- a2*0.05 * hg$sn2 *TOTs$sn2/10^3
+reservoir_hg_s3 <- a3*0.05 * hg$sn3 *TOTs$sn3/10^3
+reservoir_hg_s4 <- a4*0.05 * hg$sn4 *TOTs$sn4/10^3
+reservoir_hg_s5 <- a5*0.05 * hg$sn5 *TOTs$sn5/10^3
+reservoir_hg_s6 <- a6*0.05 * hg$sc6 *TOTs$sc6/10^3
+reservoir_hg_s7 <- a7*0.05 * hg$sc7 *TOTs$sc7/10^3
+reservoir_hg_s8 <- a8*0.05 * hg$ss8 *TOTs$ss8/10^3
+reservoir_hg_s9 <- a9*0.05 * hg$ss9 *TOTs$ss9/10^3
+reservoir_hg_s10<-a10*0.05 * hg$ss10 *TOTs$ss10/10^3
+plot(b1_Dep_mg_m2d, type='l', col=2)
+
+
+str(hg$wn1)
+str(DEPO_silt$wn1)
+
+(hg$wn1*d1)/10^6
+
+plot(reservoir_hg_w1*10^3, type='l', ylim=c(0,1000000))   #mg
+par(new=T)
+plot(b1_Dep_mg_m2d*a1, type='l', col=2, ylim=c(0,1000000))
+
+plot(reservoir_hg_s1/10^3, type='l', ylim=c(0,2000000000))   #mg
+par(new=T)
+plot(b1_ResS_mg_m2d*a1, type='l', col=2, ylim=c(0,2000000000))
+
+
+plot(b1_Dep_mg_m2d*a1, type='l', col=2, ylim=c(0,10000000))
+par(new=T)
+plot(b1_ResS_mg_m2d*a1, type='l', col=1, ylim=c(0,10000000))
+
+
+
+plot(rdate[731:1096],b1_Dep_mg_m2d[731:1096], type='l', col=2, ylim=c(0,.2))
+par(new=T)
+plot(b1_ResS_mg_m2d, type='l', col=1, ylim=c(0,.2))
+
+mean(b1_Dep_mg_m2d[731:1096])*a1/10^6
+mean(b1_ResS_mg_m2d[731:1096]+b1_ResP_mg_m2d[731:1096])*a1/10^6
+
+mean(b2_Dep_mg_m2d[731:1096])*a2/10^6
+mean(b2_ResS_mg_m2d[731:1096]+b2_ResP_mg_m2d[731:1096])*a2/10^6
+
+mean(b3_Dep_mg_m2d[731:1096])*a3/10^6
+mean(b3_ResS_mg_m2d[731:1096]+b3_ResP_mg_m2d[731:1096])*a3/10^6
+
+mean(b4_Dep_mg_m2d[731:1096])*a4/10^6
+mean(b4_ResS_mg_m2d[731:1096]+b4_ResP_mg_m2d[731:1096])*a4/10^6
+
+mean(b5_Dep_mg_m2d[731:1096])*a5/10^6
+mean(b5_ResS_mg_m2d[731:1096]+b5_ResP_mg_m2d[731:1096])*a5/10^6
+
+mean(b6_Dep_mg_m2d[731:1096])*a6/10^6
+mean(b6_ResS_mg_m2d[731:1096]+b6_ResP_mg_m2d[731:1096])*a6/10^6
+
+mean(b7_Dep_mg_m2d[731:1096])*a7/10^6
+mean(b7_ResS_mg_m2d[731:1096]+b7_ResP_mg_m2d[731:1096])*a7/10^6
+
+mean(b8_Dep_mg_m2d[731:1096])*a8/10^6
+mean(b8_ResS_mg_m2d[731:1096]+b8_ResP_mg_m2d[731:1096])*a8/10^6
+
+mean(b9_Dep_mg_m2d[731:1096])*a9/10^6
+mean(b9_ResS_mg_m2d[731:1096]+b9_ResP_mg_m2d[731:1096])*a9/10^6
+
+mean(b10_Dep_mg_m2d[731:1096])*a10/10^6
+mean(b10_ResS_mg_m2d[731:1096]+b10_ResP_mg_m2d[731:1096])*a10/10^6
+
+b1_Dep_mg_m2d<-(hg$wn1*DEPO_silt$wn1*(hgpw1_fr))/10^3

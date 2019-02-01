@@ -42,26 +42,7 @@ netDepo1_kg_y 		<-sed_bal
 evasione_kg_y     <-volat$vol
 plot(evasione_kg_y)
 ## ------------ bound mc/s -> mc/y --------------------
-bound3  <-	(-7) *60*60*24 *365  
-bound10 <-	(-25)*60*60*24 *365  
-bound7  <-	(-15) *60*60*24 *365   
 
- #8.4 10^10 m3 year acque nord 
-# 6.9 10^8 bound 3 + 7
-# 6.9 10^8 bound 3 + 7
-water3<-hg$wn3; solids3<-TOTs$wn3  #Lido       
-water7<-hg$wc7; solids7<-TOTs$wc7  #Malamocco     1.5768e+08
-water10<-hg$ws10; solids10<-TOTs$ws10  #chioggia  9.77616e+08
-
-#lido and Malamocco:  5.6 10^10 m3 year?1
-#Chioggia :  2.8 10^10 m3 year?1
-
-#ngL*mcy
-outflow_ugy<-(water3*bound3)+(water10*bound10)+(water7*bound7)  #ug /y
-hg_outflow_kg_y<-outflow_ugy/10^9
-### solids out
-outflow_solids<-(bound3*solids3)+(bound10*solids10)+(bound7*solids7)
-## _______________________________
 
 evasione_kg_y<-evasione_kg_y[1:2412]
 hg_outflow_kg_y<-hg_outflow_kg_y[1:2412]

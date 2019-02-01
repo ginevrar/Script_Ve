@@ -4,13 +4,10 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #dati<-read.table('QSEV_data.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep')
-#setwd('C:/Users/gi/Desktop/NNN59')
-#setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
 ##setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo2')
 #setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\b')
-setwd('C:/Users/Acer/Desktop/N615b/c')
-setwd('C:/Users/Acer/Dropbox/NewVenice8')
+#setwd('C:/Users/Acer/Desktop/N615b/c')
+setwd('C:/Users/Acer/Dropbox/NewVenice20/y')
 
 hgp<-read.csv('Total_Sorbed_Divalent_Hg_Solids.csv', skip=1)
 names(hgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -274,7 +271,7 @@ bb8<-data.frame(box8_A_hg,box8_B_hg,box8_C_hg,box8_D_hg, box8_D_hg)
 bb9<-data.frame(box9_A_hg,box9_B_hg,box9_C_hg,box9_D_hg, box9_D_hg)
 bb10<-data.frame(box10_A_hg,box10_B_hg,box10_C_hg,box10_D_hg, box10_D_hg)
 
-png('profile_ZONTA_datoModeo_BUONA___q23_bb_.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_ZONTA_datoModeo_BUONA___q23_g_.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 

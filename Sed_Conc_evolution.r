@@ -1,8 +1,7 @@
-#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN20')
-#setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes12/d')
 #setwd('C:/Users/Acer/Desktop/PiuSILT5d')
-setwd('C:/Users/Acer/Desktop/N615b/c')
-setwd('C:/Users/Acer/Dropbox/NewVenice12')
+#setwd('C:/Users/Acer/Desktop/N615b/c')
+setwd('C:/Users/Acer/Dropbox/NewVenice20/z')
+#setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -63,10 +62,10 @@ rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
 str(rdate)
 
-rdate[1083]
+rdate[1095]
+silts[1095,]
+POMs[1095,]
 
-silts[1150,]
-POMs[1150,]
 POMs[1083,]
 rdate[1099]
 
@@ -74,7 +73,7 @@ rdate[1090]
 POMs[1099,]
 silts[1099,]
 
-rdate[1238]
+rdate[1239]
 POMs[1238,]
 silts[1238,]
 
@@ -84,6 +83,8 @@ silts$wn2[1099]
   rdate[1238]
 POMs[1238,]
 silts[1238,]
+
+POMs[2,]
 
 plot(silts$wn1)
 #plot(silts$sn1[1083:1095])

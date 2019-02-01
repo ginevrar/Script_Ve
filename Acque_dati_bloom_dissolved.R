@@ -1,7 +1,8 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61');
-setwd('C:/Users/Gi/Desktop/NNN59')
-setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
-setwd('C:/Users/Acer/Dropbox/NewVenice2')
+#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61');
+#setwd('C:/Users/Gi/Desktop/NNN59')
+#setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
+setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
+#setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -46,14 +47,6 @@ rdate1<-format(rdate,"%d-%m-%Y" )
 rdate[1313:(1325)]
 rdate1[1313:(1325)]
 ### Bùù
-
-plot(rdate[1322:(1333)],vol$wn1[1322:1333])
-plot(rdate[1322:(1333)],vol$wn2[1322:1333])
-plot(rdate[1322:(1333)],vol$wn3[1322:1333])
-plot(rdate[1322:(1333)],vol$wn4[1322:1333])
-
-
-
 
 nord_bloom_med_hgd<-2.086136
 nord_bloom_min_hgd<-1.65366396
@@ -114,7 +107,7 @@ xx<-c(rdate[1214:1285],rev(rdate[1214:1285]))
 
 
 
-png('Acque_Bloom_diss_dDddd51.png',width = 21, height = 16,
+png('Acque_Bloom_diss_dDddd20b4.png',width = 21, height = 16,
     units = "cm", res=400)
 
 par(mfrow=c(2,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,6,3,1))

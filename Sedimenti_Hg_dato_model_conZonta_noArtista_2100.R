@@ -6,7 +6,10 @@
 #setwd('C:/Users/Acer/Desktop/PiuSILT5b')
 #setwd('C:/Users/Acer/Desktop/PiuSILT5d')
 #setwd('C:/Users/Acer/Desktop/N615b/c')
-setwd('C:/Users/Acer/Dropbox/NewVenice9')
+#setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max3800') #5_newInp
+#setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
+setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
+#setwd('C:/Users/Acer/Desktop/g')
 
 1900-2101
 2426/12
@@ -127,7 +130,7 @@ Zonta10<-c(box10_A_hg$Hg, box10_B_hg$Hg)
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin92b_oks_buona48_2100.png',
+png('Time_hg_sediment_fin92b_oks_buona48_2100h.png',
     width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,2,1,1), 
@@ -139,7 +142,7 @@ plot(rdate[2: 2427],hg$sn1[2: 2427],ylim=c(-50,5000),
      xlab= '', cex.lab=2 , cex.main=1.7 , cex.axis=1.6)
 mtext('Hg (ng/g)', side = 2, line=3.4, cex=1.3)
 par(new=T)
-plot(rdate[2: 2427],hg$dsn1[2: 2427],ylim=c(-50,5000), type='l', col='#313695',
+plot(rdate[2: 2427],hg$dsn1[2: 2427],ylim=c(-50,5000), type='l', col='#313695',     #
      lty=1,lwd=2,main=' ',ylab= '',xaxt='n',yaxt='n',
      xlab= '', cex.lab=2 , cex.main=1.7 , cex.axis=1.6)
 par(new=T)

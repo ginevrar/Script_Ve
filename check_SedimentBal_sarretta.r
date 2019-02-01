@@ -11,7 +11,9 @@
 #setwd('C:/Users/Acer/Dropbox/NNN61/b')
 #setwd('C:/Users/Acer/Desktop/PiuSILT5d')
 #setwd('C:/Users/Acer/Desktop/N615b/c')
-setwd('C:/Users/Acer/Dropbox/NewVenice12')
+ #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/') #5_newInp
+#setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
+setwd('C:/Users/Acer/Dropbox/NewVenice20/z')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -93,6 +95,15 @@ fsilt <-silts/TOTs
 str(POMs)
 
 POM_perc<-POMs/TOTs*100
+
+silt_res[2,]
+silt_res[1095,]
+silt_res[1239,]
+
+POM_res[2,]
+POM_res[1095,]
+POM_res[1239,]
+
 
 time.steps <- hg$time
 time.steps3 <- time.steps*24*3600

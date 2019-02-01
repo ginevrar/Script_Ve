@@ -6,7 +6,7 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 #setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo')
 #setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12\\d')    #')annuale
- setwd('C:/Users/Acer/Dropbox/NewVenice5')
+ setwd('C:/Users/Acer/Dropbox/NewVenice20/r')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -125,7 +125,8 @@ rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07
 a9<-2.95E+07;a10<-4.06E+07
 area<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
-d1<-1.26; d2<-.78; d3<-3.35; d4<-.64; d5<-1.03; d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71
+#d1<-1.26; d2<-.78; d3<-3.35; d4<-.64; d5<-1.03; d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71
+d1<-1; d2<-1; d3<-1; d4<-1; d5<-1; d6<-1; d7<-1; d8<-1; d9<-1; d10<-1
 
 # DEPOSITION VELOCITIES # m d-1 / m --> 1 d-1  # depo silt m/day  (0.014 /d)
 #depo m/day * depth(m) --> 1/day (0.003 /d)
@@ -147,7 +148,7 @@ sand_depo5_m_day<-sand_depos$wn5; sand_depo6_m_day<-sand_depos$wc6
 sand_depo7_m_day<-sand_depos$wc7; sand_depo8_m_day<-sand_depos$ws8
 sand_depo9_m_day<-sand_depos$ws9; sand_depo10_m_day<-sand_depos$ws10
 
-#--------------------------------------------------
+#--------------------------------------------------burial
 ##
 hgpom_dep1 <-POM_depo1_m_day *Phgs$wn1*fpomp$wn1    #m/day *ug/m3 = ug/m2d
 hgpom_dep2<- POM_depo2_m_day *Phgs$wn2*fpomp$wn2 
@@ -216,16 +217,16 @@ hgsilt_dep8<- silt_depo8_m_day *Phgs$ws8*fsiltp$ws8
 hgsilt_dep9<- silt_depo9_m_day *Phgs$ws9*fsiltp$ws9  
 hgsilt_dep10<- silt_depo10_m_day *Phgs$ws10*fsiltp$ws10
 
-hgpom_dep1b <-POM_depo1_m_day *POMs$wn1*SEDhg$wn1/1000   #m/day*ng/m3*m*g/m3  = ug/m2d
-hgpom_dep2b<- POM_depo2_m_day *POMs$wn2*SEDhg$wn2/1000
-hgpom_dep3b<- POM_depo3_m_day *POMs$wn3*SEDhg$wn3/1000
-hgpom_dep4b<- POM_depo3_m_day *POMs$wn4*SEDhg$wn4/1000
-hgpom_dep5b<- POM_depo5_m_day *POMs$wn5*SEDhg$wn5/1000
-hgpom_dep6b<- POM_depo6_m_day *POMs$wc6*SEDhg$wc6/1000
-hgpom_dep7b<- POM_depo7_m_day *POMs$wc7*SEDhg$wc7/1000
-hgpom_dep8b<- POM_depo8_m_day *POMs$ws8*SEDhg$ws8/1000
-hgpom_dep9b<- POM_depo9_m_day *POMs$ws9*SEDhg$ws9/1000
-hgpom_dep10b<- POM_depo10_m_day *POMs$ws10*SEDhg$ws10/1000
+hgpom_dep1b <-(POM_depo1_m_day *POMs$wn1*SEDhg$wn1)/1000   #m/day*ng/m3*m*g/m3  = ug/m2d
+hgpom_dep2b<- (POM_depo2_m_day *POMs$wn2*SEDhg$wn2)/1000
+hgpom_dep3b<- (POM_depo3_m_day *POMs$wn3*SEDhg$wn3)/1000
+hgpom_dep4b<- (POM_depo3_m_day *POMs$wn4*SEDhg$wn4)/1000
+hgpom_dep5b<- (POM_depo5_m_day *POMs$wn5*SEDhg$wn5)/1000
+hgpom_dep6b<- (POM_depo6_m_day *POMs$wc6*SEDhg$wc6)/1000
+hgpom_dep7b<- (POM_depo7_m_day *POMs$wc7*SEDhg$wc7)/1000
+hgpom_dep8b<- (POM_depo8_m_day *POMs$ws8*SEDhg$ws8)/1000
+hgpom_dep9b<- (POM_depo9_m_day *POMs$ws9*SEDhg$ws9)/1000
+hgpom_dep10b<- (POM_depo10_m_day *POMs$ws10*SEDhg$ws10)/1000
 
 plot(hgpom_dep6b)
 head(hgpom_dep6b)
@@ -233,27 +234,27 @@ head(hgpom_dep6b)
 head(POMs$wc6)
 head(SEDhg$wc6)
 
-hgsilt_dep1b <-silt_depo1_m_day *silts$wn1*SEDhg$wn1/1000  #m/day *ng/m3*m*g/m3  = ug/m2d
-hgsilt_dep2b<- silt_depo2_m_day *silts$wn2*SEDhg$wn2/1000
-hgsilt_dep3b<- silt_depo3_m_day *silts$wn3*SEDhg$wn3/1000
-hgsilt_dep4b<- silt_depo3_m_day *silts$wn4*SEDhg$wn4/1000
-hgsilt_dep5b<- silt_depo5_m_day *silts$wn5*SEDhg$wn5/1000
-hgsilt_dep6b<- silt_depo6_m_day *silts$wc6*SEDhg$wc6/1000
-hgsilt_dep7b<- silt_depo7_m_day *silts$wc7*SEDhg$wc7/1000
-hgsilt_dep8b<- silt_depo8_m_day *silts$ws8*SEDhg$ws8/1000
-hgsilt_dep9b<- silt_depo9_m_day *silts$ws9*SEDhg$ws9/1000
-hgsilt_dep10b<- silt_depo10_m_day *silts$ws10*SEDhg$ws10/1000
+hgsilt_dep1b <-(silt_depo1_m_day *silts$wn1*SEDhg$wn1)/1000  #m/day *ng/m3*m*g/m3  = ug/m2d
+hgsilt_dep2b<- (silt_depo2_m_day *silts$wn2*SEDhg$wn2)/1000
+hgsilt_dep3b<- (silt_depo3_m_day *silts$wn3*SEDhg$wn3)/1000
+hgsilt_dep4b<- (silt_depo3_m_day *silts$wn4*SEDhg$wn4)/1000
+hgsilt_dep5b<- (silt_depo5_m_day *silts$wn5*SEDhg$wn5)/1000
+hgsilt_dep6b<- (silt_depo6_m_day *silts$wc6*SEDhg$wc6)/1000
+hgsilt_dep7b<- (silt_depo7_m_day *silts$wc7*SEDhg$wc7)/1000
+hgsilt_dep8b<- (silt_depo8_m_day *silts$ws8*SEDhg$ws8)/1000
+hgsilt_dep9b<- (silt_depo9_m_day *silts$ws9*SEDhg$ws9)/1000
+hgsilt_dep10b<- (silt_depo10_m_day *silts$ws10*SEDhg$ws10)/1000
 
-hgsand_dep1b <-sand_depo1_m_day *sands$wn1*SEDhg$wn1/1000 #m/day *ng/m3*m*g/m3 /1000= ug/m2d
-hgsand_dep2b<- sand_depo2_m_day *sands$wn2*SEDhg$wn2/1000
-hgsand_dep3b<- sand_depo3_m_day *sands$wn3*SEDhg$wn3/1000
-hgsand_dep4b<- sand_depo3_m_day *sands$wn4*SEDhg$wn4/1000
-hgsand_dep5b<- sand_depo5_m_day *sands$wn5*SEDhg$wn5/1000
-hgsand_dep6b<- sand_depo6_m_day *sands$wc6*SEDhg$wc6/1000
-hgsand_dep7b<- sand_depo7_m_day *sands$wc7*SEDhg$wc7/1000
-hgsand_dep8b<- sand_depo8_m_day *sands$ws8*SEDhg$ws8/1000
-hgsand_dep9b<- sand_depo9_m_day *sands$ws9*SEDhg$ws9/1000
-hgsand_dep10b<- sand_depo10_m_day *sands$ws10*SEDhg$ws10/1000
+hgsand_dep1b <-(sand_depo1_m_day *sands$wn1*SEDhg$wn1)/1000 #m/day *ng/m3*m*g/m3 /1000= ug/m2d
+hgsand_dep2b<- (sand_depo2_m_day *sands$wn2*SEDhg$wn2)/1000
+hgsand_dep3b<- (sand_depo3_m_day *sands$wn3*SEDhg$wn3)/1000
+hgsand_dep4b<- (sand_depo3_m_day *sands$wn4*SEDhg$wn4)/1000
+hgsand_dep5b<- (sand_depo5_m_day *sands$wn5*SEDhg$wn5)/1000
+hgsand_dep6b<- (sand_depo6_m_day *sands$wc6*SEDhg$wc6)/1000
+hgsand_dep7b<- (sand_depo7_m_day *sands$wc7*SEDhg$wc7)/1000
+hgsand_dep8b<- (sand_depo8_m_day *sands$ws8*SEDhg$ws8)/1000
+hgsand_dep9b<- (sand_depo9_m_day *sands$ws9*SEDhg$ws9)/1000
+hgsand_dep10b<-(sand_depo10_m_day *sands$ws10*SEDhg$ws10)/1000
 
 head(silt_depo1_1_day*Phgs$wn1*fhgsilt*d1*365/10^9*a1)
 
@@ -282,29 +283,29 @@ POM_res10_m_day<-POM_res$ss10; silt_res10_m_day<-silt_res$ss10;sand_res10_m_day<
 #hgpom_res10<- POM_res10_m_day*Phgs$ss10*fhgPOM
 
 #   [ng m-2 d-1] =  [ m d-1] * [g m-3] * [ng g-1]  /1000 = ug m2d
-hgpom_res1 <- POM_res1_m_day*POMs$sn1*SEDhg$sn1/1000
-hgpom_res2 <- POM_res2_m_day*POMs$sn2*SEDhg$sn2/1000
-hgpom_res3 <- POM_res3_m_day*POMs$sn3*SEDhg$sn3/1000
-hgpom_res4 <- POM_res4_m_day*POMs$sn4*SEDhg$sn4/1000
-hgpom_res5 <- POM_res5_m_day*POMs$sn5*SEDhg$sn5/1000
-hgpom_res6 <- POM_res6_m_day*POMs$sc6*SEDhg$sc6/1000
-hgpom_res7 <- POM_res7_m_day*POMs$sc7*SEDhg$sc7/1000
-hgpom_res8 <- POM_res8_m_day*POMs$ss8*SEDhg$ss8/1000
-hgpom_res9 <- POM_res9_m_day*POMs$ss9*SEDhg$ss9/1000
-hgpom_res10<- POM_res10_m_day*POMs$ss10*SEDhg$ss10/1000
+hgpom_res1 <- (POM_res1_m_day*POMs$sn1*SEDhg$sn1)/1000
+hgpom_res2 <- (POM_res2_m_day*POMs$sn2*SEDhg$sn2)/1000
+hgpom_res3 <- (POM_res3_m_day*POMs$sn3*SEDhg$sn3)/1000
+hgpom_res4 <- (POM_res4_m_day*POMs$sn4*SEDhg$sn4)/1000
+hgpom_res5 <- (POM_res5_m_day*POMs$sn5*SEDhg$sn5)/1000
+hgpom_res6 <- (POM_res6_m_day*POMs$sc6*SEDhg$sc6)/1000
+hgpom_res7 <- (POM_res7_m_day*POMs$sc7*SEDhg$sc7)/1000
+hgpom_res8 <- (POM_res8_m_day*POMs$ss8*SEDhg$ss8)/1000
+hgpom_res9 <- (POM_res9_m_day*POMs$ss9*SEDhg$ss9)/1000
+hgpom_res10<- (POM_res10_m_day*POMs$ss10*SEDhg$ss10)/1000
 
 #hgpom_res1b <- POM_res1_m_day*POMs$sn1*fPOM$sn1*SEDhg$sn1/1000
 
-hgsilt_res1<- silt_res1_m_day*silts$sn1*SEDhg$sn1/1000
-hgsilt_res2<- silt_res2_m_day*silts$sn2*SEDhg$sn2/1000
-hgsilt_res3<- silt_res3_m_day*silts$sn3*SEDhg$sn3/1000
-hgsilt_res4<- silt_res4_m_day*silts$sn4*SEDhg$sn4/1000
-hgsilt_res5<- silt_res5_m_day*silts$sn5*SEDhg$sn5/1000
-hgsilt_res6<- silt_res6_m_day*silts$sc6*SEDhg$sc6/1000
-hgsilt_res7<- silt_res7_m_day*silts$sc7*SEDhg$sc7/1000
-hgsilt_res8<- silt_res8_m_day*silts$ss8*SEDhg$ss8/1000
-hgsilt_res9<- silt_res9_m_day*silts$ss9*SEDhg$ss9/1000
-hgsilt_res10<- silt_res10_m_day*silts$ss10*SEDhg$ss10/1000
+hgsilt_res1<- (silt_res1_m_day*silts$sn1*SEDhg$sn1)/1000
+hgsilt_res2<- (silt_res2_m_day*silts$sn2*SEDhg$sn2)/1000
+hgsilt_res3<- (silt_res3_m_day*silts$sn3*SEDhg$sn3)/1000
+hgsilt_res4<- (silt_res4_m_day*silts$sn4*SEDhg$sn4)/1000
+hgsilt_res5<- (silt_res5_m_day*silts$sn5*SEDhg$sn5)/1000
+hgsilt_res6<- (silt_res6_m_day*silts$sc6*SEDhg$sc6)/1000
+hgsilt_res7<- (silt_res7_m_day*silts$sc7*SEDhg$sc7)/1000
+hgsilt_res8<- (silt_res8_m_day*silts$ss8*SEDhg$ss8)/1000
+hgsilt_res9<- (silt_res9_m_day*silts$ss9*SEDhg$ss9)/1000
+hgsilt_res10<- (silt_res10_m_day*silts$ss10*SEDhg$ss10)/1000
 #hgsilt_res1b<- silt_res1_m_day*silts$sn1*fsilt$sn1*SEDhg$sn1/1000
 #hgsilt_res1c<- silt_res1_m_day*Phgs$sn1*fsilt$sn1
 
@@ -394,10 +395,6 @@ plot(head(hgsilt_dep9,40), type='l', ylim=c(0,3))
 par(new=T)
 plot(head(hgsilt_dep10,40), type='l', ylim=c(0,3))
 
-
-
-
-
 plot(hgbal/10^9*365)
 #depo ug/m2d  - res ug/m2d
 hgbal_1b <-(hgpom_dep1b-hgpom_res1) + (hgsilt_dep1b-hgsilt_res1)+(hgsand_dep1b-hgsand_res1)#ug/m2d
@@ -443,7 +440,7 @@ hgbal_kgy<-(hgbal/10^9)*365
 hgbalb_kgy<-(hgbalb/10^9)*365
 
 head(hgbal_kgy, 250)
-head(hgbalb_kgy)
+  max(hgbal_kgy)
 
   plot(hgbal_kgy, type='l')
   abline(h=0, col=2)
@@ -453,6 +450,11 @@ hgbal_kgy_mean<-tapply(hgbal_kgy[1:2424], rep(1:(length(hgbal_kgy[1:2424])/12),e
 
 plot(hgbal_kgy_mean[1:200], type='l')
 head(hgbal_kgy_mean,80)
+
+plot(hgbal_kgy*10^6/area)
+head(hgbal_kgy*10^6/area,40)
+
+
 
 abline(v=21, col=2)
 dev.off()
@@ -498,7 +500,8 @@ plot(bilancio_hg)
 
 hgbal_kgyb<-hgbalb/10^9*365
 
-plot(hgbal_kgy/area*10^3)  # meno di un g/ m2 y in media
+plot(hgbal_kgy/area*10^6)  # da 0.7 a  18 mg/ m2 y in media
+head(hgbal_kgy/area*10^6)  # 
 
 plot(hgbal_kgyb, type='l')  # meno di un g/ m2 y in media
 

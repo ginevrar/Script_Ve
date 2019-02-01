@@ -6,8 +6,9 @@
 ##92.4% of re-suspension (1.13 10^12 g year?1) 
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
 
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
- 
+#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
+setwd('C:/Users/Acer/Dropbox/NewVenice20/o')
+
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 

@@ -7,7 +7,8 @@ dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes6')
 
 #setwd('C:/Users/Acer/Desktop/PiuSILT5d')
-setwd('C:/Users/Acer/Dropbox/NewVenice8')
+setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
+#setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1, header = T)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
