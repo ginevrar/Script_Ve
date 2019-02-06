@@ -1,7 +1,9 @@
 #setwd('C:/Users/Acer/Desktop/PiuSILT5d')
 #setwd('C:/Users/Acer/Desktop/N615b/c')
-setwd('C:/Users/Acer/Dropbox/NewVenice20/z')
+#setwd('C:/Users/Acer/Dropbox/NewVenice20/z')
 #setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
+#setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
+setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

@@ -13,7 +13,8 @@
 #setwd('C:/Users/Acer/Desktop/N615b/c')
  #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/') #5_newInp
 #setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
-setwd('C:/Users/Acer/Dropbox/NewVenice20/z')
+#setwd('C:/Users/Acer/Dropbox/NewVenice20/z20')
+setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -434,33 +435,6 @@ b5_depo_2014_gm2d<-c(83,950,371)
 b5_depo_2014 <-b5_depo_2014_gm2d*365/1000   #kg DW m2y
 b6_depo_2014_gm2d<-c(667,147,1584)   #kg DW m2y
 b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
-
-png('DEPO_kgm2y_fin92b__oksMMM9_.png',width = 30, height = 20, units = "cm", res=300)
-par(mfrow=c(2,5), bty='n', cex.lab=1.5, cex.axis=1.5)
-plot(rdate, depo1_kg_y/a1, type='l',ylim=c(0,1300), ylab='kg m-2 y-1', xlab='',  col='grey70')     # 1989 - 1990: 114 g m 2 day-1 (st.A) - 2609 g m 2 day 1 (st.D)
-plot(rdate,depo2_kg_y/a2, type='l', ylim=c(0,1300), ylab='kg m-2 y-1', xlab='', col='grey70') 
-plot(rdate,depo3_kg_y/a3, type='l', ylim=c(0,1300), ylab='kg m-2 y-1', xlab='', col='grey70') 
-
-plot(rdate,depo4_kg_y/a4, type='l',ylim=c(0,1300), ylab='kg m-2 y-1', xlab='',  col='grey70') 
-plot(rdate,depo5_kg_y/a5, type='l',ylim=c(0,1300), ylab='kg m-2 y-1', xlab='',  col='grey70') 
-par(new=T)
-boxplot(b5_depo_2014, xaxt='n',
-        xlim=c(rdate[1],rdate[2428]),at=c(rdate[1380]),
-        boxwex=2200, ylim=c(0,1300))
-plot(rdate,depo6_kg_y/a6, ylim=c(0,1300), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
-par(new=T)
-boxplot(b6_depo_1989,b6_depo_1999,b6_depo_2014, xaxt='n',
-        xlim=c(rdate[1],rdate[2428]),at=c(rdate[1072],rdate[1197],rdate[1380]),
-        boxwex=2200, ylim=c(0,1300))
-
-plot(rdate,depo7_kg_y/a7, ylim=c(0,1300), ylab='kg m-2 y-1', xlab='', type='l', col='grey70') 
-par(new=T)
-boxplot(b7_depo_1989,b7_depo_1999, xaxt='n', xlim=c(rdate[1],rdate[2428]),at=c(rdate[1072],rdate[1197]),
-        boxwex=2200, ylim=c(0,1300))
-plot(rdate,depo8_kg_y/a8, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1300)) 
-plot(rdate,depo9_kg_y/a9, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1300)) 
-plot(rdate,depo10_kg_y/a10, type='l', col='grey70',ylab='kg m-2 y-1',ylim=c(0,1300)) 
-dev.off()
 
   sar_b1<-c(-0.3125, 0.3125)
   sar_b2<-c(-0.3125, 0.3125)

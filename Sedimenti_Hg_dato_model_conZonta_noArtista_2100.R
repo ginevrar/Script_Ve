@@ -8,8 +8,11 @@
 #setwd('C:/Users/Acer/Desktop/N615b/c')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max3800') #5_newInp
 #setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
-setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
+#setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
 #setwd('C:/Users/Acer/Desktop/g')
+#setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
+setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
+#setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 
 1900-2101
 2426/12
