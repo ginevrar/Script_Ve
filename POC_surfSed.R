@@ -1,5 +1,7 @@
 setwd('G:/Il mio Drive/MERCURIO/Venezia/')
-setwd('C:/Users/gi/Downloads/');dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
+setwd('H:/Il mio Drive/MERCURIO/Venezia/')
+#setwd('C:/Users/gi/Downloads/');
+dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 
 library(dplyr)
 box1<-filter(dati,box==1);box2<-filter(dati,box ==2);box3<-filter(dati,box ==3);box4<-filter(dati,box ==4);box5<-filter(dati,box ==5);box6<-filter(dati,box ==6);box7<-filter(dati,box ==7);box8<-filter(dati,box ==8);box9<-filter(dati,box ==9);box10<-filter(dati,box==10)
@@ -28,8 +30,17 @@ box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC);box10_C_OC<-sele
 
  
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
+<<<<<<< HEAD
 setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max4700') #5_newInp
+=======
+#setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
+#setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max4700') #5_newInp
+setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
+#setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
+#setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
+
+>>>>>>> origin/master
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

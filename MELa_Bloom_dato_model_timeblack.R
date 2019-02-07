@@ -22,10 +22,12 @@ Water_central_bloom<-c(14.84366, 8.5531576,
                        3.627636718 ,NA)
 Marghera_bloom<-c(11.9391168,56,	100.7924632,NA,NA,NA,NA)
 
-setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola16')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_pazzo3')#
-setwd('C:\\Users\\gi\\Dropbox\\eccola')
+#setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
+#setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola16')
+#setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice/piuSILT6_pazzo3')#
+#setwd('C:\\Users\\gi\\Dropbox\\eccola')
+setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
+setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2122')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

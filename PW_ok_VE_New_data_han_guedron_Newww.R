@@ -1,7 +1,14 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep')
+#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/MenoDep')
 #setwd('C:/Users/gi/Desktop/NNN59')
+<<<<<<< HEAD
 setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/c')
 setwd('C:/Users/gi/Dropbox/NewVenice20/z8')
+=======
+#setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/c')
+#setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
+setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
+# setwd('C:/Users/Acer/Desktop/NewVenice20/z13')
+>>>>>>> origin/master
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
