@@ -10,13 +10,11 @@
 #setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
 #setwd('C:/Users/Acer/Desktop/g')
-<<<<<<< HEAD
-setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
-=======
-#setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
-setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
+# setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
+ #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
+#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
->>>>>>> origin/master
+setwd('C:\\Users\\gi\\Desktop\\2127')
 
 1900-2101
 2426/12

@@ -30,17 +30,16 @@ box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC);box10_C_OC<-sele
 
  
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
-<<<<<<< HEAD
 setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max4700') #5_newInp
-=======
+
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max4700') #5_newInp
-setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
+#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
+setwd('C:\\Users\\gi\\Desktop\\2127')
 
->>>>>>> origin/master
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

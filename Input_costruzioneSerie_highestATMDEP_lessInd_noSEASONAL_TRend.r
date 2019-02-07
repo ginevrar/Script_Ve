@@ -26,6 +26,7 @@ dep<-data.frame(years[1:201],de)
 dep[100,]
 dep[118,]
 
+win.graph()
 plot(years, de, type='l')
 abline(v=2002, col=2)
 
@@ -190,6 +191,7 @@ yy<-as.numeric(as.character(unlist(if6[1])))
 b6i<-as.numeric(as.character(unlist(if6[3])))
 tot_ind = b6i
 
+library(tidyverse)
 
 if6_mehg<-indus_mehg %>%
   rowwise() %>%                       # for each row
@@ -228,7 +230,6 @@ dum<-cit %>%
 tot_city<-as.numeric(as.character(unlist(dum[5])))
 
 
-library(tidyverse)
 
 df1<-dep %>%
   rowwise() %>%                       # for each row
@@ -359,17 +360,20 @@ in7 <-(monthly_dep$b7)/365
 in8 <-(monthly_dep$b8 + monthly_riv$b8r)/365
 in9 <-(monthly_dep$b9 + monthly_riv$b9r)/365
 in10<-(monthly_dep$b10)/365
-
+str(monthly_riv)
 ladata<-seq(as.Date('1900-01-01'),by='months',length=2412)
 ladataOK<-format(ladata, "%m-%d-%Y")
 
 all_input<-data.frame(ladataOK,in1,in2,in3,in4,in5,in6,in7,in8,in9,in10)
-monthly_riv_mehg<-data.frame(ladataOK,monthly_riv[2:6]*1.7/(365*100))
+monthly_riv_mehg<-data.frame(ladataOK,monthly_riv[2:6]*1.7/(365*100))       #kg y to kg d
 plot(monthly_riv_mehg$b6r, type='l')
 
 monthly_riv_mehg$b6r<-monthly_riv_mehg$b6r+(b6i_mehg/365)
 
 dep_g_km2_y<-tot_depo/area_km2*100
+
+
+monthly_riv_mehg/(monthly_riv/365)
 
 
 TOT<-tot_city+tot_depo+tot_ind+tot_riv
@@ -459,7 +463,7 @@ xx$tot/1000
 
 write.table(ladataOK,file='ladataOK.txt')
 
-
+monthly_riv_mehg
 
 tail(ladata)
 str(monthly_riv)

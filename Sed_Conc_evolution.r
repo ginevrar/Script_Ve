@@ -5,7 +5,7 @@
  setwd('C:/Users/gi/Dropbox/NewVenice20/z8')
  #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
-setwd('C:\\Users\\gi\\Desktop\\2127')
+setwd('C:\\Users\\gi\\Desktop\\2149')
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -105,7 +105,7 @@ plot(silts$ws10)
 
 POM_perc<-POMs/TOTs*100
 
-png('solids_sed_PERC_eeeeeEEt_.png',width = 21, height = 29,
+png('solids_sed_PERC_eeeeeEEt_bis.png',width = 21, height = 29,
     units = "cm", res=400)
 
 par(mfrow=c(10,3),mar=c(1,1,1,1),
