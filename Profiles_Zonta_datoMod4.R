@@ -7,7 +7,8 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 ##setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo2')
 #setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\b')
 #setwd('C:/Users/Acer/Desktop/N615b/c')
-setwd('C:/Users/Acer/Dropbox/NewVenice20/y')
+#setwd('C:/Users/Acer/Dropbox/NewVenice20/y')
+setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
 
 hgp<-read.csv('Total_Sorbed_Divalent_Hg_Solids.csv', skip=1)
 names(hgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

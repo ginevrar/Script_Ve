@@ -1,7 +1,7 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61');
 #setwd('C:/Users/Gi/Desktop/NNN59')
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
-setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
+setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
@@ -264,8 +264,7 @@ plot(rdate2[36:48], mod_cent_mean_D[36:48], type='l')
 plot(rdate2[36:48], mod_nord_mean[36:48], type='l')
 
 plot(rdate2[36:48], mod_cent_mean_mhgd_D[36:48], type='l')
-par(new=T)
- plot(mul_atm, type='b')
+
  
  
 plot(rdate2[13:24], mod_nord_mean_mhgd_D[13:24], type='b')

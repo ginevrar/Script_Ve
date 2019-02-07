@@ -1,14 +1,12 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
 #setwd('C:/Users/Acer/Dropbox/NNN61/')
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/f')
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/o')
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/v')
-#setwd('C:/Users/Acer/Desktop/baba/Buona/mr')
 #setwd('C:/Users/Acer/Dropbox/Venice_Ultime/')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
 # setwd('C:/Users/Acer/Desktop/baba/Buona_tutteMALE/double_in/MMM40')
-setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
+# setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
 # setwd('C:/Users/Acer/Desktop/g')
+setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
 
 
 hg<-read.csv('Total_Hg.csv', skip=1)
