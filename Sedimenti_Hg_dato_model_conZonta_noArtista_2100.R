@@ -14,7 +14,7 @@
  #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
-setwd('C:\\Users\\gi\\Desktop\\2127')
+setwd('C:\\Users\\gi\\Desktop\\2151')
 
 1900-2101
 2426/12
@@ -135,7 +135,7 @@ Zonta10<-c(box10_A_hg$Hg, box10_B_hg$Hg)
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin92b_oks_buona48_2100h.png',
+png('Time_hg_sediment_fin92b_oks_buona48_2100_49.png',
     width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,2,1,1), 

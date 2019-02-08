@@ -1,17 +1,14 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61');
 #setwd('C:/Users/Gi/Desktop/NNN59')
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
- setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
- 
+
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
  #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
  setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
  #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
- setwd('C:\\Users\\gi\\Desktop\\2127')
- 
- 
+ setwd('C:\\Users\\gi\\Desktop\\2151')
  
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -113,10 +110,7 @@ NN_mhg_D<-c(mod_nord_min_mhgd_D,rev(mod_nord_max_mhgd_D));
 CC_mhg_D<-c(mod_cent_min_mhgd_D,rev(mod_cent_max_mhgd_D));SS_mhg_D<-c(mod_sud_min_mhgd_D,rev(mod_sud_max_mhgd_D))
 xx<-c(rdate[1214:1285],rev(rdate[1214:1285]))
 
-
-
-
-png('Acque_Bloom_diss_dDddd20b4.png',width = 21, height = 16,
+png('Acque_Bloom_diss_dDddd20b4tris_51.png',width = 21, height = 16,
     units = "cm", res=400)
 
 par(mfrow=c(2,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,6,3,1))

@@ -6,7 +6,7 @@
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2127')
 # setwd('C:/Users/Acer/Desktop/NewVenice20/z13')
-setwd('C:\\Users\\gi\\Desktop\\2128')
+setwd('C:\\Users\\gi\\Desktop\\2151')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -147,7 +147,7 @@ write.table(df, file = 'pw_hg_perTaylorD.txt')
 write.table(df2, file = 'pw_mehg_perTaylorD.txt')
 
 
-png('PoreWaaatyter4mM.png', width =1000*1.5, height =630*1.5,
+png('PoreWaaatyter51.png', width =1000*1.5, height =630*1.5,
     units = "px")
 par(mfrow=c(2,4),mar=c(3,0,5,0.5), oma=c(1,3.5,0,.7),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 

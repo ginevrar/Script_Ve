@@ -1,28 +1,6 @@
 setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\f')
 setwd('C:/Users/Acer/Dropbox/NEWVenice6/')
-
-RESUS_silt<-read.csv("Silt_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
-names(RESUS_silt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
-                      'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-RESUS_POM<-read.csv("POM_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
-names(RESUS_POM)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
-                     'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-
-#setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\g')
-#setwd('C:\\Users\\Acer\\Desktop\\baba\\Buona\\met')
-#setwd('C:/Users/Acer/Desktop/baba/Buona/double_in/i')
-#setwd('G:/Il mio Drive/MERCURIO/Venezia/NNN61/b')
-#setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo3')
-#G:\Il mio Drive\MERCURIO\Venezia\2017_Venice\fin87
-#setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\2017_Venice\\fin87')
-#setwd('C:/Users/Acer/Dropbox/Venice_Ultime/SIM_FINALE_fg')
-#setwd('C:/Users/Acer/Dropbox/NEWVenice28/b')
-setwd('C:/Users/Acer/Dropbox/NewVenice20/w')
-#setwd('C:/Users/Acer/Dropbox/NewVenice17')
-
-
+setwd('C:\\Users\\gi\\Desktop\\2150')
 
 DEPO_silt2<-read.csv("Silt_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_silt2)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -66,11 +44,6 @@ names(burial)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','w
                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 par(mfrow=c(1,1))
-plot(, ylim=c(0,100))
-par(new=T)
-plot(silts$wn1[2:50], ylim=c(0,100))
-
-par(mfrow=c(1,1))
 plot(RESUS_POM2$ss8, type='l', ylim=c(0,0.005))
 par(new=T)
 plot(RESUS_POM2$ss9, type='l', col=2, ylim=c(0,0.005))
@@ -106,7 +79,7 @@ plot(Vb_Si_box7)      #net sediment depo in g m-2 y
 plot(burial$sn4)
 
 
-png('SedHg.png', res=200, width=1000, height = 1000)
+png('SedHg_tris49.png', res=200, width=1000, height = 1000)
 par(mfrow=c(2,5), mar=c(1,1,1,1))
 plot(SEDhg2$wn1, type='l', ylim=c(0,2000))
 par(new=T)
@@ -153,48 +126,37 @@ dev.off()
 
 
 
+png('ResusPOM.png', res=200, width=1000, height = 1000)
+par(mfrow=c(2,5), mar=c(1,1,1,1))
 
+plot(RESUS_POM2$sn1, type='l', col=3, ylim=c(0,.001000))
+ plot(RESUS_POM2$sn2, type='l', col=4, ylim=c(0,.001000))
+ plot(RESUS_POM2$sn3, type='l', col='pink', ylim=c(0,.001000))
+ plot(RESUS_POM2$sn4, type='l', col='cyan',lty=2, ylim=c(0,.001000))
+ plot(RESUS_POM2$sn5, type='l', col=7, ylim=c(0,.001000))
+ plot(RESUS_POM2$sc6, type='l', col=2, ylim=c(0,.001000))
+ plot(RESUS_POM2$sc7, type='l', col=1, ylim=c(0,.001000)); max(RESUS_POM2$sc7)
+ plot(RESUS_POM2$ss8, type='l', col='royalblue', ylim=c(0,.001000))
+ plot(RESUS_POM2$ss9, type='l', col='grey', ylim=c(0,.001000))
+ plot(RESUS_POM2$ss10, type='l', col='yellow', ylim=c(0,.001000))
+dev.off()
 
-plot(RESUS_POM2$sn1, type='l', col=3, ylim=c(0,.008000))
-par(new=T)
-plot(RESUS_POM2$sn2, type='l', col=4, ylim=c(0,.008000))
-par(new=T)
-plot(RESUS_POM2$sn3, type='l', col='pink', ylim=c(0,.008000))
-par(new=T)
-plot(RESUS_POM2$sn4, type='l', col='cyan',lty=2, ylim=c(0,.008000))
-par(new=T)
-plot(RESUS_POM2$sn5, type='l', col=7, ylim=c(0,.008000))
-par(new=T)
-plot(RESUS_POM2$sc6, type='l', col=2, ylim=c(0,.008000))
-par(new=T)
-plot(RESUS_POM2$sc7, type='l', col=1, ylim=c(0,.008000)); max(RESUS_POM2$sc7)
-par(new=T)
-plot(RESUS_POM2$ss8, type='l', col='royalblue', ylim=c(0,.008000))
-par(new=T)
-plot(RESUS_POM2$ss9, type='l', col='grey', ylim=c(0,.008000))
-par(new=T)
-plot(RESUS_POM2$ss10, type='l', col='yellow', ylim=c(0,.008000))
-
-
-plot(RESUS_silt2$sn1, type='l', col=1, ylim=c(0,.0001000))
-par(new=T)
-plot(RESUS_silt2$sn2, type='l', col=2, ylim=c(0,.0001000)); max(RESUS_silt2$sn2)
-par(new=T)
-plot(RESUS_silt2$sn3, type='l', col=3, ylim=c(0,.0001000))
-par(new=T)
-plot(RESUS_silt2$sn4, type='l', col=4, ylim=c(0,.0001000))
-par(new=T)
-plot(RESUS_silt2$sn5, type='l', col=5, ylim=c(0,.0001000)); max(RESUS_silt2$sn5)
-par(new=T)
-plot(RESUS_silt2$sc6, type='l', col=6, ylim=c(0,.0010000)); max(RESUS_silt2$sc6)
-par(new=T)
+png('Resussilt.png', res=200, width=1000, height = 1000)
+par(mfrow=c(2,5), mar=c(1,1,1,1))
+plot(RESUS_silt2$sn1, type='l', col=1, ylim=c(0,.001000))
+ plot(RESUS_silt2$sn2, type='l', col=2, ylim=c(0,.001000)); max(RESUS_silt2$sn2)
+plot(RESUS_silt2$sn3, type='l', col=3, ylim=c(0,.001000))
+ plot(RESUS_silt2$sn4, type='l', col=4, ylim=c(0,.001000))
+ plot(RESUS_silt2$sn5, type='l', col=5, ylim=c(0,.001000)); max(RESUS_silt2$sn5)
+ plot(RESUS_silt2$sc6, type='l', col=6, ylim=c(0,.0010000)); max(RESUS_silt2$sc6)
 plot(RESUS_silt2$sc7, type='l', col=7, ylim=c(0,.001000)); max(RESUS_silt2$sc7)
-par(new=T)
-plot(RESUS_silt2$ss8, type='l', col=8, ylim=c(0,.0001000))
-par(new=T)
-plot(RESUS_silt2$ss9, type='l', col=9, ylim=c(0,.0001000))
-par(new=T)
-plot(RESUS_silt2$ss10, type='l', col=10, ylim=c(0,.0001000)); max(RESUS_silt2$ss10)
+plot(RESUS_silt2$ss8, type='l', col=8, ylim=c(0,.001000))
+plot(RESUS_silt2$ss9, type='l', col=9, ylim=c(0,.001000))
+plot(RESUS_silt2$ss10, type='l', col=10, ylim=c(0,.001000)); max(RESUS_silt2$ss10)
+dev.off()
+
+head(RESUS_POM2$sn1)
+head(RESUS_POM2$sn3)
 
 
 plot(DEPO_silt2$wn1, type='l', col=1, ylim=c(0,40))

@@ -1,6 +1,6 @@
 setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 setwd('H:/Il mio Drive/MERCURIO/Venezia/')
-#setwd('C:/Users/gi/Downloads/');
+setwd('C:/Users/gi/Downloads/');
 dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 
 library(dplyr)
@@ -30,7 +30,7 @@ box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC);box10_C_OC<-sele
 
  
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
-setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
+#setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max4700') #5_newInp
 
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
@@ -38,14 +38,18 @@ setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
-setwd('C:\\Users\\gi\\Desktop\\2127')
-
+setwd('C:\\Users\\gi\\Desktop\\2151')
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+
+time.steps <- POMs$time; time.steps3 <- time.steps*24*3600
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+ rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -54,7 +58,7 @@ names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws1
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 POM_perc<-POMs/TOTs*100
-OC_perc<-POM_perc/1.77
+OC_perc<-POM_perc/1.88
 
 1.95/1.77
 
@@ -77,94 +81,94 @@ OC8[1306]<-mean(box8_A_OC$OC)
 OC9[1306]<-mean(box9_A_OC$OC)
 OC10[1306]<-mean(box10_A_OC$OC)
 
-png('POC_perc_fin92b__oksMMM9.png',width = 30, height = 20, units = "cm", res=300)
+png('POC_perc_fin92b__oksMMM9bisss.png',width = 30, height = 20, units = "cm", res=300)
 par(mfrow=c(2,5), bty='n', cex.lab=1.3)
-plot(rdate[480:1440],OC_perc$sn1[480:1440],main='Box 1',
+plot(rdate,OC_perc$sn1,main='Box 1',
      ylab='POC %',xlab=' ',
      col='#313695',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC1[480:1440],col=c('#313695'),yaxt='n',
+plot(rdate,OC1,col=c('#313695'),yaxt='n',
      type='p', lwd=2, cex=2, xaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box1_A_OC),rdate[1306], min(box1_A_OC),col='#313695')
 
-plot(rdate[480:1440],OC_perc$sn2[480:1440],col='#4575b4',
+plot(rdate,OC_perc$sn2,col='#4575b4',
      main='Box 2',ylab='POC %',xlab='',
      type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC2[480:1440],col=c('#4575b4'),
+plot(rdate,OC2,col=c('#4575b4'),
      type='p', lwd=2, cex=2, xaxt='n',yaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box2_A_OC),rdate[1306], min(box2_A_OC),col='#4575b4')
 
-plot(rdate[480:1440],OC_perc$sn4[480:1440],
+plot(rdate,OC_perc$sn4,
      main='Box 4',ylab='POC %',xlab='',
      col='#abd9e9',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC4[480:1440],col=c('#abd9e9'),
+plot(rdate,OC4,col=c('#abd9e9'),
      type='p', lwd=2, cex=2, xaxt='n',yaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box4_A_OC),rdate[1306], min(box4_A_OC),col='#abd9e9')
 
-plot(rdate[480:1440],OC_perc$sn3[480:1440],
+plot(rdate,OC_perc$sn3,
      main='Box 3',ylab='POC %',xlab='',
      col='#DDF26B',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC3[480:1440],col=c('#DDF26B'),
+plot(rdate,OC3,col=c('#DDF26B'),
      type='p', lwd=2, cex=2, xaxt='n',yaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box3_A_OC),rdate[1306], min(box3_A_OC),col='#DDF26B')
 
-plot(rdate[480:1440],OC_perc$sn5[480:1440],
+plot(rdate,OC_perc$sn5,
      main='Box 5',ylab='POC %',xlab='',
      col='#e5e572',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC5[480:1440],col=c('#e5e572'),
+plot(rdate,OC5,col=c('#e5e572'),
      type='p', lwd=2, cex=2, ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box5_A_OC),rdate[1306], min(box5_A_OC),col='#e5e572')
 
-plot(rdate[480:1440],OC_perc$sc6[480:1440],
+plot(rdate,OC_perc$sc6,
      main='Box 6',ylab='POC %',xlab='',
      col='#fed976',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC6[480:1440],col=c('#fed976'),
+plot(rdate,OC6,col=c('#fed976'),
      type='p', lwd=2, cex=2, xaxt='n',yaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box6_A_OC),rdate[1306], min(box6_A_OC),col='#fed976')
 
-plot(rdate[480:1440],OC_perc$sc7[480:1440],
+plot(rdate,OC_perc$sc7,
      main='Box 7',ylab='POC %',xlab='',
      col='#f79220',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC7[480:1440],col=c('#f79220'),
+plot(rdate,OC7,col=c('#f79220'),
      type='p', lwd=2, cex=2, xaxt='n',yaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box7_A_OC),rdate[1306], min(box7_A_OC),col='#f79220')
 
-plot(rdate[480:1440],OC_perc$ss8[480:1440],
+plot(rdate,OC_perc$ss8,
      main='Box 8',ylab='POC %',xlab='',
      col='#f46d43',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC8[480:1440],col=c('#f46d43'),
+plot(rdate,OC8,col=c('#f46d43'),
      type='p', lwd=2, cex=2, xaxt='n',yaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box8_A_OC),rdate[1306], min(box8_A_OC),col='#f46d43')
 
-plot(rdate[480:1440],OC_perc$ss9[480:1440],
+plot(rdate,OC_perc$ss9,
      main='Box 9',ylab='POC %',xlab='',
      col='#d73027',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC9[480:1440],col=c('#d73027'),
+plot(rdate,OC9,col=c('#d73027'),
      type='p', lwd=2, cex=2, xaxt='n',yaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box9_A_OC),rdate[1306], min(box9_A_OC),col='#d73027')
 
-plot(rdate[480:1440],OC_perc$ss10[480:1440],
+plot(rdate,OC_perc$ss10,
      main='Box 10',ylab='POC %',xlab='',
      col='#a50028',type='l', lwd=2, ylim=c(0,10))
 par(new=T)
-plot(rdate[480:1440],OC10[480:1440],col=c('#a50028'),
+plot(rdate,OC10,col=c('#a50028'),
      type='p', lwd=2, cex=2, xaxt='n',yaxt='n',ylab=' ',xlab=' ',
      lty=2,ylim=c(0,10))
 segments(rdate[1306],max(box10_A_OC),rdate[1306], min(box10_A_OC),col='#a50028')

@@ -18,7 +18,7 @@
  #setwd('C:/Users/Acer/Dropbox/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
  
-setwd('C:\\Users\\gi\\Desktop\\2127')
+setwd('C:\\Users\\gi\\Desktop\\2151')
 
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)

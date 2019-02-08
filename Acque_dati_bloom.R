@@ -1,15 +1,10 @@
-#setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes7')
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/w')
-#setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
-setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
-
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
 #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
-#setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
+#setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20)
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2127')
-setwd('C:\\Users\\gi\\Desktop\\2133')
+setwd('C:\\Users\\gi\\Desktop\\2151')
 
 hgt<-read.csv('Total_Hg.csv', skip=1)
 names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -84,7 +79,7 @@ plot(rdate[1250:1261], mod_cent_mean[25:36], type='l')
 plot(rdate[1250:1261], mod_cent_mean[37:48], type='l')
 
 
-png('Acque_Bloom_tootB20b3.png',width = 21, height = 16,  #26
+png('Acque_Bloom_tootB20b3tris_51.png',width = 21, height = 16,  #26
     units = "cm", res=400)
 
 par(mfrow=c(2,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,6,3,1))
@@ -227,3 +222,4 @@ segments(rdate[1225],south_bloom_max_mhgt,rdate[1225],south_bloom_min_mhgt)
 dev.off()
 
 #___________________________fine HgT MeHgT acque bloom _____________________________________________
+getwd()
