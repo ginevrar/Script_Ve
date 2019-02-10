@@ -1,5 +1,6 @@
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes6')
+setwd('C:\\Users\\gi\\Desktop\\2156\\b')
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

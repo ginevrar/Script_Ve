@@ -4,7 +4,7 @@
 #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20)
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2127')
-setwd('C:\\Users\\gi\\Desktop\\2151')
+setwd('C:\\Users\\gi\\Desktop\\2156')
 
 hgt<-read.csv('Total_Hg.csv', skip=1)
 names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

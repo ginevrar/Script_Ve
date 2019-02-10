@@ -15,7 +15,8 @@ dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
-setwd('C:\\Users\\gi\\Desktop\\2151')
+setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('C:\\Users\\gi\\Desktop\\NNN14')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1, header = T)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

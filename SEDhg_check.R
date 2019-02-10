@@ -1,6 +1,6 @@
 setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\f')
 setwd('C:/Users/Acer/Dropbox/NEWVenice6/')
-setwd('C:\\Users\\gi\\Desktop\\2150')
+setwd('C:\\Users\\gi\\Desktop\\2156')
 
 DEPO_silt2<-read.csv("Silt_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_silt2)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -106,7 +106,6 @@ par(new=T)
 #plot(SEDhg$wc6, type='l', ylim=c(0,4000))
 plot(SEDhg2$sc6, type='l',col=2, ylim=c(0,6000))
 
-
 plot(SEDhg2$wc7, type='l', ylim=c(0,4000))
 par(new=T)
 plot(SEDhg2$sc7, type='l',col=2, ylim=c(0,4000))
@@ -129,7 +128,7 @@ dev.off()
 png('ResusPOM.png', res=200, width=1000, height = 1000)
 par(mfrow=c(2,5), mar=c(1,1,1,1))
 
-plot(RESUS_POM2$sn1, type='l', col=3, ylim=c(0,.001000))
+ plot(RESUS_POM2$sn1, type='l', col=3, ylim=c(0,.001000))
  plot(RESUS_POM2$sn2, type='l', col=4, ylim=c(0,.001000))
  plot(RESUS_POM2$sn3, type='l', col='pink', ylim=c(0,.001000))
  plot(RESUS_POM2$sn4, type='l', col='cyan',lty=2, ylim=c(0,.001000))

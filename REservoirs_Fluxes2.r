@@ -1,97 +1,64 @@
-#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
-#setwd('C:/Users/Acer/Dropbox/NNN61/')
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/f')
-#setwd('C:/Users/Acer/Dropbox/Venice_Ultime/')
-#setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
- # setwd('C:/Users/Acer/Desktop/baba/Buona_tutteMALE/double_in/MMM40')
-# setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
-# setwd('C:/Users/Acer/Desktop/g')
-setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
-
- # setwd('C:/Users/Acer/Desktop/baba/Buona_tutteMALE/double_in/MMM175')
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
-# setwd('C:/Users/Acer/Desktop/g')
-# setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/i')
-setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\hh')
-setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2134')
-setwd('C:\\Users\\gi\\Desktop\\2151')
-
+#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\hh')
+#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2134')
+#setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('C:\\Users\\gi\\Desktop\\NNN14')
+setwd('C:\\Users\\gi\\Desktop\\2156\\b')
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-  hg<-hg[2:2413,]
-
+ 
   time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
   TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
   rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
-  rdate[2412]
-
+ 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10', 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-TOTs<-TOTs[2:2413,]
-
+ 
 silts<-read.csv("Silts_Fines.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(silts)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-silts<-silts[2:2413,]
-
+ 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-POMs<-POMs[2:2413,]
-
+ 
 sands<-read.csv("Sands.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(sands)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-sands<-sands[2:2413,]
-
+ 
 Phgs<-read.csv("Total_Sorbed_Divalent_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(Phgs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-Phgs<-Phgs[2:2413,]
-
+ 
 DEPO_silt<-read.csv("Silt_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_silt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                   'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-DEPO_silt<-DEPO_silt[2:2413,]
-
+ 
 DEPO_POM<-read.csv("POM_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_POM)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                   'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-DEPO_POM<-DEPO_POM[2:2413,]
-
+ 
 DEPO_sand<-read.csv("Sand_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_sand)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                     'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10', 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-DEPO_sand<-DEPO_sand[2:2413,]
-
+ 
 RESUS_silt<-read.csv("Silt_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(RESUS_silt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                       'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-RESUS_silt<-RESUS_silt[2:2413,]
-
+ 
 RESUS_POM<-read.csv("POM_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(RESUS_POM)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                     'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-RESUS_POM<-RESUS_POM[2:2413,]
-
+ 
 RESUS_sand<-read.csv("Sand_Res_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(RESUS_sand)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',	'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                	  	'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
                # aree box
-RESUS_sand<-RESUS_sand[2:2413,]
-
 
 a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07; a9<-2.95E+07;a10<-4.06E+07
 area<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
 d1<-1.26; d2<-0.78; d3<-3.35; d4<-0.64; d5<-1.03; d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71
-
-max(RESUS_silt, na.rm=T)
-
-plot(DEPO_sand$wc6)
-plot(DEPO_POM$wc6)
 
 reservoir_hg_w1 <- a1*d1 * hg$wn1/10^6     # ug/m3(w+s) *vol(m3) = ug(hg)/10^6 = g(hg)
 reservoir_hg_w2 <- a2*d2 * hg$wn2/10^6
@@ -122,6 +89,32 @@ head(Phgs$wn1)
 
  #fsilt=silts/TOTs;fPOM=POMs/TOTs;fsand=sands/TOTs
 plot(RESUS_POM$sc6)
+
+147560/201 
+
+734.1294/2
+
+
+7309-1   #01/01/1910
+8038-1   # 12/13/1910
+
+51139-1  #01/01/1970
+51868-1  #12/31/1970
+
+69401-1  #01/01/1995
+70130-1  #12/31/1995
+
+72323-1  #01/01/1999
+73052-1  #12/31/1999
+
+87662-1  #01/01/2019
+86933-1  #01/01/2019
+
+
+plot(RESUS_silt$sc6[7308:8037]) # da 01-01 a 12-31 del 1910
+plot(RESUS_silt$sc6[51138:51867]) # da 01-01 a 12-31 del 1970
+plot(RESUS_silt$sc6[69400:70129])# da 01-01 a 12-31 del 1995
+plot(RESUS_silt$sc6[87661:86932])# da 01-01 a 12-31 del 2019
 
 
 ksilt<-1.5*10^5; kpom<-2*10^5; kdoc<-10000
@@ -306,8 +299,14 @@ dev.off()
 ###------------------ CALCOLO FLUSSI -----------
 # Flussi deposizione in [g d-1]  || Emili et al. 1.3 - 2.7 [mg m-2 y-1] at MGL
 
-head(tot_s_reser, 50)
+head(tot_s_reser, 50)   #tonnellate
+
 ##Fds1 <- hgsilt_w1 * (DEPO_silt$wn1/d1)        # g d-1
+
+plot(tot_s_reser[7308:8037]) # da 01-01 a 12-31 del 1910
+plot(tot_s_reser[51138:51867]) # da 01-01 a 12-31 del 1970
+plot(tot_s_reser[69400:70129])# da 01-01 a 12-31 del 1995
+plot(tot_s_reser[87661:86932])# da 01-01 a 12-31 del 2019
 
 Fds1b <- hgsilt_w1/a1 * (DEPO_silt$wn1/d1)        # g m2 d-1
 Fds2b <- hgsilt_w2/a2 * (DEPO_silt$wn2/d2)
@@ -343,12 +342,9 @@ summary(fd4)
 
 fd1[1300]
 rdate[1300]
-win.graph()
-plot(fd1_mg_m2y)
-
 
 # Deposition rate for Hg in sand  = ZERO
- Fdsa1 <-hgsand_w1 * (DEPO_sand$wn1) #g(hg) * 1 d-1 --> g d-1
+Fdsa1 <-hgsand_w1 * (DEPO_sand$wn1) #g(hg) * 1 d-1 --> g d-1
 Fdsa2 <-hgsand_w2 * (DEPO_sand$wn2)
 Fdsa3 <-hgsand_w3 * (DEPO_sand$wn3)
 Fdsa4 <-hgsand_w4 * (DEPO_sand$wn4)
@@ -372,7 +368,6 @@ Fdp7b <-hgpom_w7/a7 *(DEPO_POM$wc7/d7)
 Fdp8b <-hgpom_w8/a8 *(DEPO_POM$ws8/d8) 
 Fdp9b <-hgpom_w9/a9 *(DEPO_POM$ws9/d9) 
 Fdp10b<-hgpom_w10/a10* (DEPO_POM$ws10/d10) 
-
 
 # Resuspension of Hg in silt
 Frs1 <-hgsilt_s1/a1*(RESUS_silt$sn1/0.05)   #g / m2 * d-1  --> g m-2 d-1 
@@ -417,26 +412,63 @@ Frsilt=cbind(Frs1*a1,Frs2*a2,Frs3*a3,Frs4*a4,Frs5*a5,Frs6*a6,Frs7*a7,Frs8*a8,Frs
 Frsand=cbind(Frsa1,Frsa2,Frsa3,Frsa4,Frsa5,Frsa6,Frsa7,Frsa8,Frsa9,Frsa10)
 Frpom=cbind(Frp1*a1,Frp2*a2,Frp3*a3,Frp4*a4,Frp5*a5,Frp6*a6,Frp7*a7,Frp8*a8,Frp9*a9,Frp10*a10)
 
-
 silt_bal<-rowSums(Fdsilt-Frsilt)*365/1000
 pom_bal<-rowSums(Fdpom-Frpom)*365/1000
  
 plot(silt_bal+pom_bal)
 plot(Bil2)
  
-Bil1<-(Fds1b+Fdp1b-Frs1-Frp1)*a1*365/10^3         ## g d-1 
-Bil2<-(Fds2b+Fdp2b-Frs2-Frp2)*a2*365/10^3      
-Bil3<-(Fds3b+Fdp3b-Frs3-Frp3)*a3*365/10^3   
-Bil4<-(Fds4b+Fdp4b-Frs4-Frp4)*a4*365/10^3     
-Bil5<-(Fds5b+Fdp5b-Frs5-Frp5)*a5*365/10^3     #  
-Bil6<-(Fds6b+Fdp6b-Frs6-Frp6)*a6*365/10^3    # 
-Bil7<-(Fds7b+Fdp7b-Frs7-Frp7)*a7*365/10^3    
-Bil8<-(Fds8b+Fdp8b-Frs8-Frp8)*a8*365/10^3  
-Bil9<-(Fds9b+Fdp9b-Frs9-Frp9)*a9*365/10^3    
-Bil10<-(Fds10b+Fdp10b-Frs10-Frp10)*a10*365/10^3  
+Bil1<-(Fds1b+Fdp1b-Frs1-Frp1)*a1          ## g d-1 
+Bil2<-(Fds2b+Fdp2b-Frs2-Frp2)*a2       
+Bil3<-(Fds3b+Fdp3b-Frs3-Frp3)*a3  
+Bil4<-(Fds4b+Fdp4b-Frs4-Frp4)*a4      
+Bil5<-(Fds5b+Fdp5b-Frs5-Frp5)*a5      #  
+Bil6<-(Fds6b+Fdp6b-Frs6-Frp6)*a6  # 
+Bil7<-(Fds7b+Fdp7b-Frs7-Frp7)*a7  
+Bil8<-(Fds8b+Fdp8b-Frs8-Frp8)*a8  
+Bil9<-(Fds9b+Fdp9b-Frs9-Frp9)*a9    
+Bil10<-(Fds10b+Fdp10b-Frs10-Frp10)*a10
 
 Bilt<-(Bil1+Bil2+Bil3+Bil4+Bil5+Bil6+Bil7+Bil8+Bil9+Bil10)  #kg y-1
-plot(Bilt)
+plot(Bilt, type='l')
+
+mean(Bilt[7308:8037]*365/10^3)      #g d-1
+
+a=mean(Bil1[7308:8037]*365/10^3)      #g d-1
+b=mean(Bil2[7308:8037]*365/10^3)      #g d-1
+c=mean(Bil3[7308:8037]*365/10^3)      #g d-1
+d=mean(Bil4[7308:8037]*365/10^3)      #g d-1
+e=mean(Bil5[7308:8037]*365/10^3)      #g d-1
+f=mean(Bil6[7308:8037]*365/10^3)      #g d-1
+g=mean(Bil7[7308:8037]*365/10^3)      #g d-1
+h=mean(Bil8[7308:8037]*365/10^3)      #g d-1
+i=mean(Bil9[7308:8037]*365/10^3)      #g d-1
+l=mean(Bil10[7308:8037]*365/10^3)      #g d-1
+
+str(Bilt)
+rdate[8034]
+
+a+b+c+d+e+f+  g+h+i+l
+a
+b
+c
+d
+e
+f
+g
+h
+i
+l
+
+plot(RESUS_silt$sc6[7308:8037]) # da 01-01 a 12-31 del 1910
+plot(RESUS_silt$sc6[51138:51867]) # da 01-01 a 12-31 del 1970
+plot(RESUS_silt$sc6[69400:70129])# da 01-01 a 12-31 del 1995
+plot(RESUS_silt$sc6[87661:86932])# da 01-01 a 12-31 del 2019
+
+diffHgp1<-reservoir_hgp_s1[ , diff := reservoir_hgp_s1[n] - shift(reservoir_hgp_s1[n-1])]  
+
+
+
 head(Bilt)
 
 head(Bil7)
@@ -451,6 +483,9 @@ net_tot_pom=Fdpom_tot-Frpom_tot       # g d-1
 net_tot_silt_mean<-tapply(net_tot_silt, rep(1:(length(net_tot_silt)/12),each = 12),mean)
 net_tot_sand_mean<-tapply(net_tot_sand, rep(1:(length(net_tot_sand)/12),each = 12),mean)
 net_tot_pom_mean <-tapply(net_tot_pom, rep(1:(length(net_tot_pom)/12),each = 12),mean)
+
+
+
 
 plot(net_tot_silt, type='l')
 plot(net_tot_silt_mean, type='l',col=2)
