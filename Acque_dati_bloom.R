@@ -4,7 +4,9 @@
 #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20)
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2127')
-setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('H:\\2154')
+setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
 
 hgt<-read.csv('Total_Hg.csv', skip=1)
 names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -17,6 +19,16 @@ names(mhgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws1
               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+time.steps <- hgt[,1]
+time.steps3 <- time.steps*24*3600
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+TEMPO[1:10]
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
+rdate1<-format(rdate,"%d-%m-%Y" )
+rdate[1313:(1325)]
+rdate1[1313:(1325)]
+
 nord_bloom_med_hgt<-29.08555
 nord_bloom_min_hgt<-12.1798248	
 nord_bloom_max_hgt<-45.9912752
@@ -75,16 +87,14 @@ mod_sud_mean_mhgt<-rowMeans(sud_mhgt); mod_sud_min_mhgt<-apply(sud_mhgt,1,FUN=mi
 NN_mhg<-c(mod_nord_min_mhgt,rev(mod_nord_max_mhgt)); CC_mhg<-c(mod_cent_min_mhgt,rev(mod_cent_max_mhgt));SS_mhg<-c(mod_sud_min_mhgt,rev(mod_sud_max_mhgt))
 xx<-c(rdate[1214:1285],rev(rdate[1214:1285]))
 
-plot(rdate[1250:1261], mod_cent_mean[25:36], type='l')
-plot(rdate[1250:1261], mod_cent_mean[37:48], type='l')
+plot(rdate[1250:1261], mod_nord_mean_mhgt[25:36], type='l')
+plot(rdate[1250:1261], mod_sud_mean[37:48], type='l')
 
 
-png('Acque_Bloom_tootB20b3tris_51.png',width = 21, height = 16,  #26
-    units = "cm", res=400)
+##png('Acque_Bloom_tootB20b3tris_51.png',width = 21, height = 16, units = "cm", res=400)  #26
+#par(mfrow=c(2,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,6,3,1))
 
-par(mfrow=c(2,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,6,3,1))
-
-plot(rdate[1214:1285], mod_nord_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='royalblue',
+p1<-plot(rdate[1214:1285], mod_nord_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='royalblue',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,NN, col='#4575b455',border = NA)
 par(new=T)
@@ -101,7 +111,8 @@ plot(rdate[1225],nord_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=
      ylab=expression(paste('ng l'^-1)))        
 segments(rdate[1225],nord_bloom_max_hgt,rdate[1225],nord_bloom_min_hgt)
 
-plot(rdate[1214:1285], mod_cent_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+ 
+p2<-plot(rdate[1214:1285], mod_cent_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,CC, col='#fed97666',border = NA)
 par(new=T)
@@ -119,7 +130,6 @@ plot(rdate[1225],central_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',c
      ylab='')        
 segments(rdate[1225],central_bloom_max_hgt,rdate[1225],central_bloom_min_hgt)
 par(new=T)
-
 plot(rdate[1227],centralIND_bloom_med_hgt,ylim=c(0,100),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31")), col='darkgrey',
      ylab='')
@@ -134,7 +144,7 @@ plot(rdate[1227],centralIND_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p
 segments(rdate[1227],centralIND_bloom_max_hgt,rdate[1227],centralIND_bloom_min_hgt,col='darkgrey')
 
 
-plot(rdate[1214:1285], mod_sud_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#82012099',yaxt='n',
+p3<-plot(rdate[1214:1285], mod_sud_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#82012099',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,SS, col='#82012066',border = NA)
 par(new=T)
@@ -151,7 +161,7 @@ plot(rdate[1225],south_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex
 segments(rdate[1225],south_bloom_max_hgt,rdate[1225],south_bloom_min_hgt)
 
 
-plot(rdate[1214:1285], mod_nord_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l', col='royalblue',
+p4<-plot(rdate[1214:1285], mod_nord_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l', col='royalblue',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,NN_mhg, col='#4575b455',border = NA)
 par(new=T)
@@ -170,7 +180,7 @@ plot(rdate[1225],nord_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',ce
 segments(rdate[1225],nord_bloom_max_mhgt,rdate[1225],nord_bloom_min_mhgt)
   
 
-plot(rdate[1214:1285], mod_cent_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+p5<-plot(rdate[1214:1285], mod_cent_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,CC_mhg, col='#fed97666',border = NA)
 par(new=T)
@@ -188,7 +198,6 @@ plot(rdate[1225],central_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p'
      ylab='')        
 segments(rdate[1225],central_bloom_max_mhgt,rdate[1225],central_bloom_min_mhgt)
 par(new=T)
-
 plot(rdate[1227],centralIND_bloom_med_mhgt, ylim=c(0,0.4),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31")), col='darkgrey',
      ylab='')
@@ -203,7 +212,7 @@ plot(rdate[1227],centralIND_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type=
 segments(rdate[1227],centralIND_bloom_max_mhgt,rdate[1227],centralIND_bloom_min_mhgt,col='darkgrey')
 
 
-plot(rdate[1214:1285], mod_sud_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#820120',yaxt='n',
+p6<-plot(rdate[1214:1285], mod_sud_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#820120',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,SS_mhg, col='#82012066',border = NA)
 par(new=T)
@@ -219,7 +228,7 @@ plot(rdate[1225],south_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',c
      xlim=as.Date(c("2001-01-01", "2006-12-31")),
      ylab=expression(paste('ng l'^-1)))   
 segments(rdate[1225],south_bloom_max_mhgt,rdate[1225],south_bloom_min_mhgt)
-dev.off()
+#dev.off()
 
 #___________________________fine HgT MeHgT acque bloom _____________________________________________
 getwd()

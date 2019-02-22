@@ -8,10 +8,9 @@
   area                 
 
 (2.739726*10^12)/area    #ng m-2d
-
-  
 setwd('C:\\Users\\Acer\\Dropbox\\NewVenice18')
 setwd('C:/Users/Acer/Dropbox/NewVenice20/h')
+setwd('C:\\Users\\Acer\\Desktop\\533')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

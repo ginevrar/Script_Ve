@@ -6,10 +6,12 @@
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
  #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
- setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
+# setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
  #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
- setwd('C:\\Users\\gi\\Desktop\\2156')
+# setwd('C:\\Users\\gi\\Desktop\\2156')
 # setwd('C:\\Users\\gi\\Desktop\\NNN14')
+ setwd('H:\\2154')
+ setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
  
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -111,19 +113,16 @@ NN_mhg_D<-c(mod_nord_min_mhgd_D,rev(mod_nord_max_mhgd_D));
 CC_mhg_D<-c(mod_cent_min_mhgd_D,rev(mod_cent_max_mhgd_D));SS_mhg_D<-c(mod_sud_min_mhgd_D,rev(mod_sud_max_mhgd_D))
 xx<-c(rdate[1214:1285],rev(rdate[1214:1285]))
 
-png('Acque_Bloom_diss_dDddd20b4tris_51.png',width = 21, height = 16,
-    units = "cm", res=400)
 
-par(mfrow=c(2,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,6,3,1))
 
-plot(rdate[1214:1285], mod_nord_mean_D,  ylim=c(0,11),xlab='',ylab='',type='l',col='royalblue',
+p7<-plot(rdate[1214:1285], mod_nord_mean_D,  ylim=c(0,11),xlab='',ylab='',type='l',col='royalblue',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,NN_D, col='#4575b455',border = NA)
 par(new=T)
 plot(rdate[1225],nord_bloom_med_hgd,ylim=c(0,11),pch=19,xaxt='n',type='p',cex=2,xlab='',
      xlim=as.Date(c("2001-01-01", "2006-12-31")),
      ylab='')
-mtext(side=2, expression(paste('ng l'^-1)), line=3.5)
+mtext(side=2, expression(paste('ng l'^-1)), line=2.6, cex=0.85)
 par(new=T)
 plot(rdate[1225],nord_bloom_min_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2,xlab='',
      xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
@@ -135,7 +134,7 @@ plot(rdate[1225],nord_bloom_max_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2
 segments(rdate[1225],nord_bloom_max_hgd,rdate[1225],nord_bloom_min_hgd)
 
 
-plot(rdate[1214:1285], mod_cent_mean_D,  ylim=c(0,11),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+p8<-plot(rdate[1214:1285], mod_cent_mean_D,  ylim=c(0,11),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,CC_D, col='#fed97666',border = NA)
 par(new=T)
@@ -167,7 +166,7 @@ plot(rdate[1227],centralIND_bloom_max_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p'
 segments(rdate[1227],centralIND_bloom_max_hgd,rdate[1227],centralIND_bloom_min_hgd,col='darkgrey')
 
 
-plot(rdate[1214:1285], mod_sud_mean_D,  ylim=c(0,11),xlab='',ylab='',type='l',col='#82012099',yaxt='n',
+p9<-plot(rdate[1214:1285], mod_sud_mean_D,  ylim=c(0,11),xlab='',ylab='',type='l',col='#82012099',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,SS_D, col='#82012066',border = NA)
 par(new=T)
@@ -186,14 +185,14 @@ plot(rdate[1225],south_bloom_max_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=
 segments(rdate[1225],south_bloom_max_hgd,rdate[1225],south_bloom_min_hgd)
 
 
-plot(rdate[1214:1285], mod_nord_mean_mhgd_D,  ylim=c(0,0.12),xlab='',ylab='',type='l', col='royalblue',
+p10<-plot(rdate[1214:1285], mod_nord_mean_mhgd_D,  ylim=c(0,0.12),xlab='',ylab='',type='l', col='royalblue',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,NN_mhg_D, col='#4575b455',border = NA)
 par(new=T)
 plot(rdate[1225],nord_bloom_med_mhgd, ylim=c(0,0.12),pch=19,xaxt='n',type='p',cex=2,xlab='',
      xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
      ylab='')
-mtext(side=2, expression(paste('ng l'^-1)), line=3.5)
+mtext(side=2, expression(paste('ng l'^-1)), line=2.6, cex=0.85)
 par(new=T)
 plot(rdate[1225],nord_bloom_min_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
      xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
@@ -205,14 +204,14 @@ plot(rdate[1225],nord_bloom_max_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',c
 segments(rdate[1225],nord_bloom_max_mhgd,rdate[1225],nord_bloom_min_mhgd)
 
 
-plot(rdate[1214:1285], mod_cent_mean_mhgd_D,  ylim=c(0,0.12),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+p11<-plot(rdate[1214:1285], mod_cent_mean_mhgd_D,  ylim=c(0,0.12),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), yaxt='n',"%Y-%m-%d"))
 polygon(xx,CC_mhg_D, col='#fed97666',border = NA)
 par(new=T)
 plot(rdate[1225],central_bloom_med_mhgd, ylim=c(0,0.12),pch=19,xaxt='n',type='p',cex=2,xlab='',
      xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
      ylab='')
-mtext(side=3, 'MeHg'[D]~'water concentrations', line=-0.9, font=2, cex=1.2)
+
 par(new=T)
 plot(rdate[1225],central_bloom_min_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
      xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
@@ -237,8 +236,287 @@ plot(rdate[1227],centralIND_bloom_max_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type
 segments(rdate[1227],centralIND_bloom_max_mhgd,rdate[1227],centralIND_bloom_min_mhgd,col='darkgrey')
 
 
-plot(rdate[1214:1285], mod_sud_mean_mhgd_D,  ylim=c(0,0.12),xlab='',ylab='',type='l',col='#820120',yaxt='n',
+p12<-plot(rdate[1214:1285], mod_sud_mean_mhgd_D,  ylim=c(0,0.12),xlab='',ylab='',type='l',col='#820120',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
+polygon(xx,SS_mhg_D, col='#82012066',border = NA)
+par(new=T)
+plot(rdate[1225],south_bloom_med_mhgd, ylim=c(0,0.12),pch=19,xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')
+par(new=T)
+plot(rdate[1225],south_bloom_min_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')   
+par(new=T)
+plot(rdate[1225],south_bloom_max_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')   
+segments(rdate[1225],south_bloom_max_mhgd,rdate[1225],south_bloom_min_mhgd)
+
+
+
+
+
+png('Acque_Bloom_all.png',width = 21, height = 18,
+    units = "cm", res=400)
+par(mfrow=c(4,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,8,3,1))
+p1<-plot(rdate[1214:1285], mod_nord_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='royalblue',
+         main='Northern Water', xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
+polygon(xx,NN, col='#4575b455',border = NA)
+par(new=T)
+plot(rdate[1225],nord_bloom_med_hgt,ylim=c(0,100),pch=19,xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n')
+par(new=T)
+plot(rdate[1225],nord_bloom_min_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n')   
+par(new=T)
+plot(rdate[1225],nord_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n')
+segments(rdate[1225],nord_bloom_max_hgt,rdate[1225],nord_bloom_min_hgt)
+mtext(side=2, expression(paste('Hg'[T])), line=4.5, font=2, cex=1, las=1, at=85)
+mtext(side=2, expression(paste('ng l'^-1)), line=2.6, cex=0.85)
+
+
+p2<-plot(rdate[1214:1285], mod_cent_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+         xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"),
+         main='Central Water')
+polygon(xx,CC, col='#fed97666',border = NA)
+par(new=T)
+plot(rdate[1225],central_bloom_med_hgt,ylim=c(0,100),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')
+par(new=T)
+plot(rdate[1225],central_bloom_min_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')   
+par(new=T)
+plot(rdate[1225],central_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')        
+segments(rdate[1225],central_bloom_max_hgt,rdate[1225],central_bloom_min_hgt)
+par(new=T)
+plot(rdate[1227],centralIND_bloom_med_hgt,ylim=c(0,100),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")), col='darkgrey',
+     ylab='')
+par(new=T)
+plot(rdate[1227],centralIND_bloom_min_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),col='darkgrey',
+     ylab='')   
+par(new=T)
+plot(rdate[1227],centralIND_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),col='darkgrey',
+     ylab='')   
+segments(rdate[1227],centralIND_bloom_max_hgt,rdate[1227],centralIND_bloom_min_hgt,col='darkgrey')
+
+
+p3<-plot(rdate[1214:1285], mod_sud_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#82012099',yaxt='n',
+         xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"),
+         main='Southern Water')
+polygon(xx,SS, col='#82012066',border = NA)
+par(new=T)
+plot(rdate[1225],south_bloom_med_hgt,ylim=c(0,100),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')
+par(new=T)
+plot(rdate[1225],south_bloom_min_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')   
+par(new=T)
+plot(rdate[1225],south_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim='',   ylab='')   
+segments(rdate[1225],south_bloom_max_hgt,rdate[1225],south_bloom_min_hgt)
+
+
+p7<-plot(rdate[1214:1285], mod_nord_mean_D,  ylim=c(0,11),xlab='',ylab='',type='l',col='royalblue',
+         xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
+polygon(xx,NN_D, col='#4575b455',border = NA)
+par(new=T)
+plot(rdate[1225],nord_bloom_med_hgd,ylim=c(0,11),pch=19,xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')
+mtext(side=2, expression(paste('ng l'^-1)), line=2.6, cex=0.85)
+par(new=T)
+plot(rdate[1225],nord_bloom_min_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')   
+par(new=T)
+plot(rdate[1225],nord_bloom_max_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab=expression(paste('ng l'^-1)))
+segments(rdate[1225],nord_bloom_max_hgd,rdate[1225],nord_bloom_min_hgd)
+mtext(side=2, expression(paste('Hg'[D])), line=4.5, font=2, cex=1, las=1, at=8.7)
+
+p8<-plot(rdate[1214:1285], mod_cent_mean_D,  ylim=c(0,11),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+         xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
+polygon(xx,CC_D, col='#fed97666',border = NA)
+par(new=T)
+plot(rdate[1225],central_bloom_med_hgd,ylim=c(0,11),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab= '')
+par(new=T)
+plot(rdate[1225],central_bloom_min_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')   
+par(new=T)
+plot(rdate[1225],central_bloom_max_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')        
+segments(rdate[1225],central_bloom_max_hgd,rdate[1225],central_bloom_min_hgd)
+par(new=T)
+plot(rdate[1227],centralIND_bloom_med_hgd,ylim=c(0,11),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")), col='darkgrey',
+     ylab='')
+par(new=T)
+plot(rdate[1227],centralIND_bloom_min_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),col='darkgrey',
+     ylab='')   
+par(new=T)
+plot(rdate[1227],centralIND_bloom_max_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),col='darkgrey',
+     ylab='')   
+segments(rdate[1227],centralIND_bloom_max_hgd,rdate[1227],centralIND_bloom_min_hgd,col='darkgrey')
+
+
+p9<-plot(rdate[1214:1285], mod_sud_mean_D,  ylim=c(0,11),xlab='',ylab='',type='l',col='#82012099',yaxt='n',
+         xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
+polygon(xx,SS_D, col='#82012066',border = NA)
+par(new=T)
+plot(rdate[1225],south_bloom_med_hgd,ylim=c(0,11),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')
+par(new=T)
+plot(rdate[1225],south_bloom_min_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')
+par(new=T)
+plot(rdate[1225],south_bloom_max_hgd,ylim=c(0,11),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')   
+segments(rdate[1225],south_bloom_max_hgd,rdate[1225],south_bloom_min_hgd)
+
+p4<-plot(rdate[1214:1285], mod_nord_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l', col='royalblue',
+         xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
+polygon(xx,NN_mhg, col='#4575b455',border = NA)
+par(new=T)
+plot(rdate[1225],nord_bloom_med_mhgt, ylim=c(0,0.4),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')
+mtext(side=2, expression(paste('ng l'^-1)), line=2.6, cex=0.85)
+par(new=T)
+plot(rdate[1225],nord_bloom_min_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')
+par(new=T)
+plot(rdate[1225],nord_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')        
+segments(rdate[1225],nord_bloom_max_mhgt,rdate[1225],nord_bloom_min_mhgt)
+mtext(side=2, expression(paste('MeHg'[T])), line=4.5, font=2, cex=1, las=1, at=.38)
+
+
+p5<-plot(rdate[1214:1285], mod_cent_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+         xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
+polygon(xx,CC_mhg, col='#fed97666',border = NA)
+par(new=T)
+plot(rdate[1225],central_bloom_med_mhgt, ylim=c(0,0.4),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')
+par(new=T)
+plot(rdate[1225],central_bloom_min_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')   
+par(new=T)
+plot(rdate[1225],central_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab='')        
+segments(rdate[1225],central_bloom_max_mhgt,rdate[1225],central_bloom_min_mhgt)
+par(new=T)
+plot(rdate[1227],centralIND_bloom_med_mhgt, ylim=c(0,0.4),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")), col='darkgrey',
+     ylab='')
+par(new=T)
+plot(rdate[1227],centralIND_bloom_min_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),col='darkgrey',
+     ylab='')   
+par(new=T)
+plot(rdate[1227],centralIND_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),col='darkgrey',
+     ylab='')   
+segments(rdate[1227],centralIND_bloom_max_mhgt,rdate[1227],centralIND_bloom_min_mhgt,col='darkgrey')
+
+
+p6<-plot(rdate[1214:1285], mod_sud_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#820120',yaxt='n',
+         xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
+polygon(xx,SS_mhg, col='#82012066',border = NA)
+par(new=T)
+plot(rdate[1225],south_bloom_med_mhgt, ylim=c(0,0.4),pch=19,xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab=expression(paste('ng l'^-1)))
+par(new=T)
+plot(rdate[1225],south_bloom_min_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab=expression(paste('ng l'^-1)))   
+par(new=T)
+plot(rdate[1225],south_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',cex=2,xlab='',yaxt='n',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),
+     ylab=expression(paste('ng l'^-1)))   
+segments(rdate[1225],south_bloom_max_mhgt,rdate[1225],south_bloom_min_mhgt)
+
+
+
+p10<-plot(rdate[1214:1285], mod_nord_mean_mhgd_D,  ylim=c(0,0.12),xlab='',ylab='',type='l', col='royalblue',
+          xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
+polygon(xx,NN_mhg_D, col='#4575b455',border = NA)
+par(new=T)
+plot(rdate[1225],nord_bloom_med_mhgd, ylim=c(0,0.12),pch=19,xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')
+mtext(side=2, expression(paste('ng l'^-1)), line=2.6, cex=0.85)
+par(new=T)
+plot(rdate[1225],nord_bloom_min_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')   
+par(new=T)
+plot(rdate[1225],nord_bloom_max_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')        
+segments(rdate[1225],nord_bloom_max_mhgd,rdate[1225],nord_bloom_min_mhgd)
+mtext(side=2, expression(paste('MeHg'[D])), line=4.5, font=2, cex=1, las=1, at=.115)
+
+ 
+p11<-plot(rdate[1214:1285], mod_cent_mean_mhgd_D,  ylim=c(0,0.12),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+          xlim=as.Date(c("2001-01-01", "2006-12-31"), yaxt='n',"%Y-%m-%d"))
+polygon(xx,CC_mhg_D, col='#fed97666',border = NA)
+par(new=T)
+plot(rdate[1225],central_bloom_med_mhgd, ylim=c(0,0.12),pch=19,xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')
+par(new=T)
+plot(rdate[1225],central_bloom_min_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')   
+par(new=T)
+plot(rdate[1225],central_bloom_max_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),yaxt='n',
+     ylab='')        
+segments(rdate[1225],central_bloom_max_mhgd,rdate[1225],central_bloom_min_mhgd)
+par(new=T)
+plot(rdate[1227],centralIND_bloom_med_mhgd, ylim=c(0,0.12),pch=19,xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")), col='darkgrey',yaxt='n',
+     ylab='')
+par(new=T)
+plot(rdate[1227],centralIND_bloom_min_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),col='darkgrey',yaxt='n',
+     ylab='')   
+par(new=T)
+plot(rdate[1227],centralIND_bloom_max_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',cex=2,xlab='',
+     xlim=as.Date(c("2001-01-01", "2006-12-31")),col='darkgrey',yaxt='n',
+     ylab='')   
+segments(rdate[1227],centralIND_bloom_max_mhgd,rdate[1227],centralIND_bloom_min_mhgd,col='darkgrey')
+
+
+p12<-plot(rdate[1214:1285], mod_sud_mean_mhgd_D,  ylim=c(0,0.12),xlab='',ylab='',type='l',col='#820120',yaxt='n',
+          xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,SS_mhg_D, col='#82012066',border = NA)
 par(new=T)
 plot(rdate[1225],south_bloom_med_mhgd, ylim=c(0,0.12),pch=19,xaxt='n',type='p',cex=2,xlab='',

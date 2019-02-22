@@ -1,6 +1,7 @@
 #setwd('C:/Users/gi/Dropbox/NNN61')
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 setwd('C:\\Users\\gi\\Desktop\\2156\\b')
+setwd('C:\\Users\\Acer\\Desktop\\533')
 
 volat<-read.table('volat.txt', header=T); str(volat)
 names(volat)<-'vol'

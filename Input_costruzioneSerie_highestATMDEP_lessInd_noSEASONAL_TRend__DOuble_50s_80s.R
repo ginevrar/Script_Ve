@@ -113,19 +113,28 @@ str(cit)
 #ind<-c(rep(0,20), seq(21,60,length.out = 20), seq(60,200,length.out = 10),rep(600, 10), seq(500,300,length.out = 30),
 #     seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
 
-ind<-c(rep(0,20), seq(21,70,length.out = 20), seq(75,300,length.out = 10),
-       seq(300,800,length.out = 10), seq(860,1000,length.out = 10),seq(1000,650,length.out = 10),
-       seq(640,100,length.out = 10), seq(95,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
+inda<-c(rep(0,20), seq(21,70,length.out = 20), seq(75,300,length.out = 10),
+     seq(600,1600,length.out = 10), seq(1220,10000,length.out = 10),seq(10000,1000,length.out = 10),
+      seq(1000,100,length.out = 10))
+
+inda<-c(rep(0,20), seq(21,70,length.out = 20), seq(75,300,length.out = 10),
+       seq(300,800,length.out = 10), seq(1720,2000,length.out = 10),seq(2000,1300,length.out = 10),
+       seq(1280,100,length.out = 10))
+
 indus<-data.frame(years[1:201],ind)
-ind2<-ind*1.085
+       
+indb<- c(seq(95,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
+ind<-c(inda,indb)
 
-indus<-data.frame(years[1:201],ind2)
+indus<-data.frame(years[1:201],ind)
+plot(years,ind)
 
-ind_mehg<-ind2*1/100
+ 
+ind_mehg<-ind*1/100
 
 indus_mehg<-data.frame(years[1:201],ind_mehg)
 
-ind3<-ind2+ind_mehg
+ind3<-ind+ind_mehg
 
 plot(years, ind, type='l')
 abline(h=36)
@@ -185,7 +194,7 @@ cit_mult<-rep(1,12)
 
 if6<-indus %>%
   rowwise() %>%                       # for each row
-  mutate(x = list(ind2 * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
+  mutate(x = list(ind * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
   unnest()                            # unnest data
 yy<-as.numeric(as.character(unlist(if6[1])))
 b6i<-as.numeric(as.character(unlist(if6[3])))

@@ -15,6 +15,7 @@
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 setwd('C:\\Users\\gi\\Desktop\\2156')
+setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
 
 1900-2101
 2426/12

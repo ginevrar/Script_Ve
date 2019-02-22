@@ -113,11 +113,17 @@ str(cit)
 #ind<-c(rep(0,20), seq(21,60,length.out = 20), seq(60,200,length.out = 10),rep(600, 10), seq(500,300,length.out = 30),
 #     seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
 
-ind<-c(rep(0,20), seq(21,70,length.out = 20), seq(75,300,length.out = 10),
+inda<-c(rep(0,20), seq(21,70,length.out = 20), seq(75,300,length.out = 10),
        seq(300,800,length.out = 10), seq(860,1000,length.out = 10),seq(1000,650,length.out = 10),
-       seq(640,100,length.out = 10), seq(95,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
+       seq(640,100,length.out = 10))
+       
+indb<- c(seq(95,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
+ind<-inda+indb
+
 indus<-data.frame(years[1:201],ind)
-ind2<-ind*1.085
+
+
+plot(years,ind)
 
 indus<-data.frame(years[1:201],ind2)
 

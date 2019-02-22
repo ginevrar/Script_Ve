@@ -1,7 +1,8 @@
 #setwd('C:/Users/gi/Dropbox/NNN61')
 #setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\MenoDep4\\c')
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes4')
-setwd('C:\\Users\\gi\\Desktop\\2156\\b')
+#setwd('C:\\Users\\gi\\Desktop\\2156\\b')
+setwd('C:\\Users\\Acer\\Desktop\\533')
 
 #sed_bal_ugdm2<-read.table('Net_ugm2d.txt')
 #sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
@@ -10,12 +11,12 @@ Disper<-read.table('Disper_tot_kgy.txt', header=T);str(Disper)
 
 sed_bal<-read.table("net_Dep_prova.txt", header=F);
 
-input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Total_IN.txt')
+input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Tot_input_short.txt')
 volat<-read.table('volat.txt', header=T); str(volat)
 names(volat)<-'vol'
 plot(volat$vol)
 
-setwd('C:/Users/Acer/Dropbox/NNN61')
+#setwd('C:/Users/Acer/Dropbox/NNN61')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -151,13 +152,14 @@ M_70/T_in_70*100; M_95/T_in_95*100;M_2019/T_in_19*100
 atm_10 + F_10+ V_10+M_10
 outf_10+dp_10+ev_10
 
+
+diff10<-tot_w_reser_m[12]-tot_w_reser_m[11]
 depo10<-sum(All_in_10)+outf_10-ev_10-diff10
 
 bilancio_hg_10<-c(outf_10,-depo10,-ev_10,atm_10, F_10, V_10,M_10)
 names(bilancio_hg_10)<-c('Outflow','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
 
 sum(bilancio_hg_10); sum(All_in_10)
-diff10<-tot_w_reser_m[12]-tot_w_reser_m[11]
 
 
 diff70<-tot_w_reser_m[72]-tot_w_reser_m[71]
@@ -182,6 +184,8 @@ sum(bilancio_hg_70)
 #sum(All_in_95)+outf_95-ev_70-diff95 
 sum(bilancio_hg2019)
 diff19<-tot_w_reser_m[121]-tot_w_reser_m[120]
+
+
 depo19<-sum(All_in_19)+outf_19-ev_19-diff19
 
 bilancio_hg2019<-c(outf_19,-depo19,-ev_19, atm_19,F_19, V_19,M_19) 
@@ -189,13 +193,13 @@ names(bilancio_hg2019)<-c('Outflow','Deposizione','Evasione','Atmosfera','Fiumi'
 
 
 
-png('TUTTI_Bilancis2z3__bb__2__.png',height = 15, width=22,
+png('TUTTI_Bilancis2z3__bb__.png',height = 15, width=22,
     units = 'cm',res=300)
 par(mfrow=c(2,2),cex.axis=1.4, bty='n', mgp=c(2.3, 1, 0), 
-    mar=c(4,1,2,1))
+    mar=c(4,2,3,1), cex.main=0.85)
 barplot(bilancio_hg_10,horiz =T, xlab='kg/y',
         main='Hg Budget in Lagoon Water  \n (1910)',
-        axisnames=F,border='darkgrey',
+        axisnames=F,border='black',
         xlim=c(-20,20),cex.names = .6,las=1,
         col=c('darkblue','darkorange',
               '#008B8B','#00cccc','royalblue','#ECC16F','grey60'))
@@ -208,12 +212,12 @@ text(-20,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
 text(20,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
 text(20,2.1, expression("Hg"[T]*~"Water-Sediment Exchange"),adj=1, cex=.7)
 text(20,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
-mtext(side=1, 'Input', at=20,line=2, font=2, cex=0.8)
-mtext(side=1, 'Output', at=-20,line=2, font=2, cex=0.8)
+mtext(side=1, 'Input', at=17,line=2, font=2, cex=0.8)
+mtext(side=1, 'Output', at=-17,line=2, font=2, cex=0.8)
 
 barplot(bilancio_hg_70,horiz =T, xlab='kg/y',
         main='Hg Budget in Lagoon Water  \n (1970)',names.arg = F,
-        xlim=c(-1100,1100),cex.names = .6,border='darkgrey',
+        xlim=c(-1200,1200),cex.names = .6,border='black',
         axisnames=F,
         col=c('darkblue','darkorange','#008B8B','#00cccc','royalblue','#ECC16F','grey60'))
 text(-1000,8.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.7)
@@ -223,13 +227,13 @@ text(-1000,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
 text(1000,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
 text(1000,2.1, expression("Hg"[T]*~"Water-Sediment Exchange"),adj=1, cex=.7)
 text(1000,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
-mtext(side=1, 'Input', at=1000,line=2, font=2, cex=0.8)
-mtext(side=1, 'Output', at=-1000,line=2, font=2, cex=0.8)
+mtext(side=1, 'Input', at=800,line=2, font=2, cex=0.8)
+mtext(side=1, 'Output', at=-800,line=2, font=2, cex=0.8)
 
 
 barplot(bilancio_hg95, horiz = T,xlab='kg/y',
         main='Hg Budget in Lagoon Water  \n (1995)',
-        cex.names=0.6,xlim=c(-100,100),border='darkgrey',
+        cex.names=0.6,xlim=c(-100,100),border='black',
         axisnames=F,las=1,
         col=c('darkblue','darkorange','#008B8B','#00cccc','royalblue','#ECC16F','grey60'))
 text(-100,8.1, expression("Hg"[T]*~"Industrial"), adj=0,cex=.7)
@@ -239,12 +243,12 @@ text(-100,4.3, expression("Hg"[p]*~"Atmospheric Deposition"), adj=0,cex=.7)
 text(100,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
 text(100,2.1, expression("Hg"[T]*~"Water-Sediment Exchange"),adj=1, cex=.7)
 text(100,.801, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
-mtext(side=1, 'Input', at=100,line=2, font=2, cex=0.8)
-mtext(side=1, 'Output', at=-100,line=2, font=2, cex=0.8)
+mtext(side=1, 'Input', at=80,line=2, font=2, cex=0.8)
+mtext(side=1, 'Output', at=-80,line=2, font=2, cex=0.8)
 
 
 barplot(bilancio_hg2019, horiz = T, cex.names=0.6,
-        xlab='kg/y',axisnames=F,las=1,border='darkgrey',
+        xlab='kg/y',axisnames=F,las=1,border='black',
         xlim = c(-20,20),main='Hg Budget in Lagoon Water  \n (2019)',
         col=c('darkblue','darkorange','#008B8B','#00cccc','royalblue','#ECC16F','grey60'))
 text(-20,8.1, expression("Hg"[T]*~"Industrial"),adj=0, cex=.7)
@@ -254,7 +258,7 @@ text(-20,4.3, expression("Hg"[P]*~"Atmospheric Deposition"), adj=1,cex=.7)
 text(20,3.3, expression("Hg"^0*~"Evasion"),adj=1, cex=.7)
 text(20,2.1, expression("Hg"[T]*~"Water-Sediment Exchange"),adj=1, cex=.7)
 text(20,.851, expression("Hg"[T]*~"Outflow"), cex=.7,adj=1)
-mtext(side=1, 'Input', at=20,line=2, font=2, cex=0.8)
-mtext(side=1, 'Output', at=-20,line=2, font=2, cex=0.8)
+mtext(side=1, 'Input', at=17,line=2, font=2, cex=0.8)
+mtext(side=1, 'Output', at=-17,line=2, font=2, cex=0.8)
 
 dev.off()

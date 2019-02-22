@@ -4,19 +4,14 @@ setwd('H:/Il mio Drive/MERCURIO/Venezia/')
 setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
-#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/NOsand')
-#setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes6')
 
-#setwd('C:/Users/Acer/Desktop/PiuSILT5d')
- #setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
- #setwd('C:/Users/Acer/Dropbox/NewVenice20/z10')
- #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
-#setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 setwd('C:\\Users\\gi\\Desktop\\2156')
 #setwd('C:\\Users\\gi\\Desktop\\NNN14')
+setwd('H:\\2154')
+setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1, header = T)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

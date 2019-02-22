@@ -14,6 +14,7 @@ box10_SPM<-read.table('Box10_tss_poc.txt', header=T)   #ricordare di convertire 
 
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2124')
 setwd('C:\\Users\\gi\\Desktop\\2156')
+setwd('C:\\Users\\Acer\\Desktop\\533b')
 
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
