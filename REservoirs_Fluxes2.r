@@ -2,7 +2,9 @@
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2134')
 #setwd('C:\\Users\\gi\\Desktop\\2156')
 #setwd('C:\\Users\\gi\\Desktop\\NNN14')
-setwd('C:\\Users\\gi\\Desktop\\2156\\b')
+#setwd('C:\\Users\\gi\\Desktop\\2156\\b')
+setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
@@ -574,7 +576,7 @@ str(Net_kgy)
 tapply(net_tot_silt, rep(1:(length(net_tot_silt)/12),each = 12),mean)
 
 
-Net_kgyMEDIA<-tapply(Net_kgy, rep(1:(length(Net_kgy)/12),each = 12),mean)
+Net_kgyMEDIA<-tapply(Net_kgy[2:2125], rep(1:(length(Net_kgy[2:2125])/12),each = 12),mean)
 
 hg_silt_sed<-cbind(hgsilt_s1,hgsilt_s2,hgsilt_s3,hgsilt_s4,hgsilt_s5,hgsilt_s6,hgsilt_s7,hgsilt_s8,hgsilt_s9,hgsilt_s10)
 hg_silt_wat<-cbind(hgsilt_w1,hgsilt_w2,hgsilt_w3,hgsilt_w4,hgsilt_w5,hgsilt_w6,hgsilt_w7,hgsilt_w8,hgsilt_w9,hgsilt_w10)
@@ -633,7 +635,7 @@ dev.off()
 
 write.table(Net_kgy,"Net_hgSed_kgy.txt");
 
-head(Net_kgy)
+head(Net_kgy, 30)
 summary(Net_kgy)
 summary(Bilt)
 
