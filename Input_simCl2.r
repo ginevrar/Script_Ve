@@ -1,3 +1,8 @@
+setwd('C:/Users/gi/Dropbox/Cloro_Soda_Ve')
+
+hgL<-read.csv('Hgind_load.csv')
+
+str(hgL)
 
 years    <-seq(1900,2100)  # sequence of 200 elements (years)
 area     <-4.12E+08   # surface area of the site (m2)  - to compute rates 
@@ -20,23 +25,11 @@ for(i in 2: 46){
 }
 
 #------- Serie DEPOSIZIONE ATMOSFERICA ----------------------------
-de<-c(rep(10,40), rep(14,10), rep(23.4, 10), seq(24,35,length.out = 15), seq(35,30,length.out = 15), 
-      seq(30,11.7, length.out = 10),n , rep(5.92,55)) # create a series
-dep<-data.frame(years[1:201],de)    
-dep[100,]
-dep[118,]
+de<-hgL$atm_dep[1:201]
 
-win.graph()
-plot(years, de, type='l')
-abline(v=2002, col=2)
-
-mul_d<-de/9.049025
-hg0_air<-1.6*mul_d
-plot(hg0_air, type='l')
-
-getwd()
-write.table(hg0_air,'hg0_time.txt')
-
+de[1:37]<-10
+dep<-data.frame(years[1:201],de)
+names(dep)<-c('year','de')
 dep_g_km2_y<-de/area_km2*100
 
 #------- Serie RIVER LOAD ----------------------------
@@ -113,21 +106,20 @@ str(cit)
 #ind<-c(rep(0,20), seq(21,60,length.out = 20), seq(60,200,length.out = 10),rep(600, 10), seq(500,300,length.out = 30),
 #     seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
 
-ind<-c(rep(0,20), seq(21,70,length.out = 20), seq(75,300,length.out = 10),
-       seq(300,800,length.out = 10), seq(860,1000,length.out = 10),seq(1000,650,length.out = 10),
-       seq(640,100,length.out = 10), seq(95,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
-indus<-data.frame(years[1:201],ind)
-ind2<-ind*1.085
-
-indus<-data.frame(years[1:201],ind2)
-
+ind<-hgL$Cl2
+  
+ind2<-ind[1:201]
+indus<-data.frame(years[1:201],ind2[1:201])
+names(indus)<-c('year','ind2')
 ind_mehg<-ind2*1/100
 
+str(indus)
+str(cit)
 indus_mehg<-data.frame(years[1:201],ind_mehg)
 
 ind3<-ind2+ind_mehg
 
-plot(years, ind, type='l')
+plot(years, ind2, type='l')
 abline(h=36)
 
 plot(years, ind_mehg, type='l')
@@ -135,7 +127,8 @@ plot(years, ind_mehg, type='l')
 tt<- de+ri+ci+ind3+riv_mehg
 t_cum<-cumsum(tt)/1000
 
-tott<-data.frame(as.numeric(years),de,ri,riv_mehg,ci,ind3, tt, t_cum)
+
+tott<-data.frame(years,de,ri,riv_mehg,ci,ind3, tt, t_cum)
 str(tott)
 
 write.table(tott, file='tot_input_short.txt')
@@ -147,8 +140,8 @@ tott[106,]
 plot(years[1:106],t_cum[1:106])
 plot(years,ri, type='l') 
 plot(years,ci, type='l') 
-plot(years,ind, type='l') 
-
+plot(years,ind[1:201], type='l') 
+ind<-ind[1:201]
 #::::::::::::: ripar
 #::::::::::::: ripartizione input fra i box :::::::::::::::::::::::::::::::::::::
 
@@ -156,16 +149,19 @@ area <-4.119E+08
 aree<-c(4.350E+07,3.530E+07,3.130E+07,	8.900E+06,	2.220E+07,
         5.430E+07,1.146E+08,3.170E+07,	2.950E+07,	4.060E+07)
 
-dep$BOX1 <-dep$de*(aree[1]/area)
-dep$BOX2 <-dep$de*(aree[2]/area)
-dep$BOX3 <-dep$de*(aree[3]/area)
-dep$BOX4 <-dep$de*(aree[4]/area)
-dep$BOX5 <-dep$de*(aree[5]/area)
-dep$BOX6 <-dep$de*(aree[6]/area)
-dep$BOX7 <-dep$de*(aree[7]/area)
-dep$BOX8 <-dep$de*(aree[8]/area)
-dep$BOX9 <-dep$de*(aree[9]/area)
-dep$BOX10 <-dep$de*(aree[10]/area)
+dep<-data.frame(years[1:201],de)
+cit<-data.frame(years[1:201],ci)
+
+dep$BOX1 <-de*(aree[1]/area)
+dep$BOX2 <-de*(aree[2]/area)
+dep$BOX3 <-de*(aree[3]/area)
+dep$BOX4 <-de*(aree[4]/area)
+dep$BOX5 <-de*(aree[5]/area)
+dep$BOX6 <-de*(aree[6]/area)
+dep$BOX7 <-de*(aree[7]/area)
+dep$BOX8 <-de*(aree[8]/area)
+dep$BOX9 <-de*(aree[9]/area)
+dep$BOX10 <-de*(aree[10]/area)
 
 #aaaaa<-(dep$BOX1+dep$BOX2+dep$BOX3+dep$BOX4+dep$BOX5+dep$BOX6+dep$BOX7+dep$BOX8+dep$BOX9+dep$BOX10)
 
@@ -183,6 +179,8 @@ riv_mult<-rep(1,12)
 
 cit_mult<-rep(1,12)
 
+library(tidyverse)
+
 if6<-indus %>%
   rowwise() %>%                       # for each row
   mutate(x = list(ind2 * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
@@ -191,7 +189,6 @@ yy<-as.numeric(as.character(unlist(if6[1])))
 b6i<-as.numeric(as.character(unlist(if6[3])))
 tot_ind = b6i
 
-library(tidyverse)
 
 if6_mehg<-indus_mehg %>%
   rowwise() %>%                       # for each row
@@ -230,10 +227,9 @@ dum<-cit %>%
 tot_city<-as.numeric(as.character(unlist(dum[5])))
 
 
-
 df1<-dep %>%
   rowwise() %>%                       # for each row
-  mutate(x = list(BOX1 * mul_atm)) %>%    # multiply value in BOX1 with mul and save results as a list
+  mutate(x = list(BOX1 * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
   unnest()                            # unnest data
 yy<-as.numeric(as.character(unlist(df1[1])))
 b1<-as.numeric(as.character(unlist(df1[13])))
@@ -345,6 +341,8 @@ monthly_dep<-data.frame(yy,b1, b2, b3, b4, b5, b6, b7, b8, b9, b10)
 monthly_riv<-data.frame(yy,b2r, b5r, b6r, b8r, b9r)
 monthly_cit<-data.frame(yy,b3c,b5c,b6c)
 monthy_ind<-data.frame(yy,b6i)
+
+plot(b6i[1:2412])
 
 write.table(monthly_dep,file='monthly_dep.txt')
 write.table(monthly_riv,file='monthly_riv.txt')
