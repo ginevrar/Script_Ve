@@ -1,10 +1,8 @@
 setwd('C:/Users/gi/Dropbox/Cloro_Soda_Ve')
-setwd('C:/Users/Acer/Desktop/Future_emissions')
 
-hgL<-read.csv('Hgind_load.csv', sep=';', header=T)
- str(hgL)
+hgL<-read.csv('Hgind_load.csv')
 
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_cl')
+str(hgL)
 
 years    <-seq(1900,2100)  # sequence of 200 elements (years)
 area     <-4.12E+08   # surface area of the site (m2)  - to compute rates 
@@ -27,36 +25,11 @@ for(i in 2: 46){
 }
 
 #------- Serie DEPOSIZIONE ATMOSFERICA ----------------------------
-de<-hgL$atm_dep_Cl[1:201]
+de<-hgL$atm_dep[1:201]
 
+de[1:37]<-10
 dep<-data.frame(years[1:201],de)
 names(dep)<-c('year','de')
-
-de2<-hgL$dep_zeroEm[100:201]
-de3<-hgL$Hg_control[100:201]
-de4<-hgL$Hg_const[100:201]
-de5<-hgL$A1B1[100:201]
-
-de_s2<-c(de[1:99],de2)
-de_s3<-c(de[1:99],de3)
-de_s4<-c(de[1:99],de4)
-de_s5<-c(de[1:99],de5)
-
-dev.new()
-plot(years,de, type='b', ylim=c(0,80))
-par(new=T)
-plot(years,de_s2, type='l', lty=2,col=3, ylim=c(0,80))
-
-abline(v=1999)
-abline(h=11.7)
-
-dep_g_km2_y<-de/area_km2*100
-de2_g_km2_y<-de_s2/area_km2*100
-de3_g_km2_y<-de_s3/area_km2*100
-de4_g_km2_y<-de_s4/area_km2*100
-de5_g_km2_y<-de_s5/area_km2*100
-
-
 dep_g_km2_y<-de/area_km2*100
 
 #------- Serie RIVER LOAD ----------------------------
@@ -395,7 +368,7 @@ plot(monthly_riv_mehg$b6r, type='l')
 
 monthly_riv_mehg$b6r<-monthly_riv_mehg$b6r+(b6i_mehg/365)
 
-#dep_g_km2_y<-tot_depo/area_km2*100
+dep_g_km2_y<-tot_depo/area_km2*100
 
 
 monthly_riv_mehg/(monthly_riv/365)
@@ -403,78 +376,60 @@ monthly_riv_mehg/(monthly_riv/365)
 
 TOT<-tot_city+tot_depo+tot_ind+tot_riv
 
-png('Hg_input_VE2_Cl2.png', units='cm', height = 31,  width = 31, res=300)
+png('Hg_input_VE2_.png', units='cm', height = 31,  width = 31, res=300)
 
 par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(2,2), cex.main=1.4)
-
-
-tutt<-data.frame((tott[2]), (tott[3]+tott[4]),
-                 (tott[5]),(tott[6]))
-rownames(tutt)<-years
-tutt<-as.matrix(tutt); tutt<-t(tutt)
-
-
-par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(2,2), cex.main=1.4)
-#plot(ladata,TOT, type='l', ylim=c(0,1500), xlab='',ylab='kg y-1', 
-#    main='Hg inputs to the Venice Lagoon')
-#par(new=T)
-#plot(ladata,tot_city, type='l',col='orange',ylab='',xlab='', yaxt='n',xaxt='n', lwd=2, ylim=c(0,1500))
-#par(new=T)
-#plot(ladata,tot_depo, type='l',col='cyan3',ylab='',xlab='', yaxt='n',xaxt='n', lwd=2, ylim=c(0,1500))
-##par(new=T)
-#plot(ladata,tot_ind, type='l',col='grey40', ylab='',xlab='', yaxt='n',xaxt='n', lwd=2,ylim=c(0,1500))
-#par(new=T)
-##plot(ladata,tot_riv, type='l',col='royalblue',ylab='',xlab='',  yaxt='n',xaxt='n', lwd=2,ylim=c(0,1500))
-##legend(4900, 1500, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
-#      legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
-
-barplot(tutt, beside=F, width = 10,legend.text=T,
-        border = NA, col=c('cyan3','royalblue','orange',
-                           'grey40'),
-        main='Hg inputs to the Venice Lagoon')
+plot(ladata,TOT, type='l', ylim=c(0,1500), xlab='',ylab='kg y-1', 
+     main='Hg inputs to the Venice Lagoon')
+par(new=T)
+plot(ladata,tot_city, type='l',col='orange',ylab='',xlab='', yaxt='n',xaxt='n', lwd=2, ylim=c(0,1500))
+par(new=T)
+plot(ladata,tot_depo, type='l',col='cyan3',ylab='',xlab='', yaxt='n',xaxt='n', lwd=2, ylim=c(0,1500))
+par(new=T)
+plot(ladata,tot_ind, type='l',col='grey40', ylab='',xlab='', yaxt='n',xaxt='n', lwd=2,ylim=c(0,1500))
+par(new=T)
+plot(ladata,tot_riv, type='l',col='royalblue',ylab='',xlab='',  yaxt='n',xaxt='n', lwd=2,ylim=c(0,1500))
+legend(4900, 1500, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
+       legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
 text(ladata[30],1500,'A', cex=2.5)
 
-
-
-str(perA)
-
-perctutt<-data.frame((tott[2]/tott[7]*100), ((tott[3]+tott[4])/tott[7]*100),
-                     (tott[5]/tott[7]*100),(tott[6]/tott[7]*100))
-rownames(perctutt)<-years
-perctutt<-as.matrix(perctutt); perctutt<-t(perctutt)
-
-barplot(perctutt, beside=F, width = 10,space=1,legend.text=T,
-        border = NA, col=c('cyan3','royalblue','orange',
-                           'grey40'),
-        main='Hg inputs to the Venice Lagoon')
+#plot(ladata,TOT/TOT*100, type='l', ylim=c(0,100), xlab='',ylab='kg y-1', 
+#     )
+#par(new=T)
+plot(ladata,tot_city/TOT*100, type='l',col='orange',ylab='%',xlab='', lwd=2,
+     ylim=c(0,100), main='Hg inputs to the Venice Lagoon')
+par(new=T)
+plot(ladata,tot_depo/TOT*100, type='l',col='cyan3',ylab='',xlab='', yaxt='n', lwd=2,
+     xaxt='n', ylim=c(0,100))
+par(new=T)
+plot(ladata,tot_ind/TOT*100, type='l',col='grey40', ylab='',xlab='',  lwd=2,
+     yaxt='n',xaxt='n',ylim=c(0,100))
+par(new=T)
+plot(ladata,tot_riv/TOT*100, type='l',col='royalblue',ylab='',xlab='',  lwd=2,
+     yaxt='n',xaxt='n',ylim=c(0,100))
+#legend(4900, 100, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
+#      legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
 text(ladata[30],100,'B', cex=2.5)
 
 r<-c(1,2,15,25) #observational range for atmospheric deposition rate
 
 ef_2008
-plot(ladata,tot_riv/13.2, type='l', col='#4169E1', lwd=3,
+plot(ladata,tot_riv/14, type='l', col='#4169E1', lwd=2,
      main='River load \n enrichment factor relative to 2008', ylab='EF',ylim=c(0,15)) 
 text(ladata[30],15,'C', cex=2.5)
 par(new=T)
 boxplot(ef_1970,ef_1980,ef_1990,ef_2000, ef_2008, ylim=c(0,15),xaxt='n',col='grey80',
-        at=c(71,85,93,100,108), xlim=c(1,201), boxwex=3.5,
+        at=c(71,81,91,100,108), xlim=c(1,201), boxwex=3.5,
         range = T, outline=T)
 
 boxplot(r, ylim=c(1,26), col='grey80', ylab='', xlab='', 
         boxwex=1.2, main='Atmospheric deposition rate')
 text(1,18,'range for marine areas \n from global models \n ensemble (UNEP, 2013)', cex=1.2)
 par(new=T)
-plot(years,de2_g_km2_y, type='l', ylim=c(1,26),lwd=3,lty=2, col='cyan4', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-par(new=T)
-plot(years,de3_g_km2_y, type='l', ylim=c(1,26),lwd=3, lty=3,col='cyan4', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-par(new=T)
-plot(years,de4_g_km2_y, type='l', ylim=c(1,26),lwd=3,lty=4, col='cyan4', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-par(new=T)
-plot(years,de5_g_km2_y, type='l', ylim=c(1,26),lwd=3,lty=5, col='cyan4', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-par(new=T)
-plot(years,dep_g_km2_y, type='l', ylim=c(1,26),lwd=3, col='cyan3', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+plot(ladata,dep_g_km2_y, type='l', ylim=c(1,26),lwd=2, col='cyan3', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
 text(18,5,'input for \n the Venice lagoon', cex=1.2)
 text(ladata[30],26,'D', cex=2.5)
+
 dev.off()
 
 write.table(all_input,file='all_input_hgII_noSeason.txt')
