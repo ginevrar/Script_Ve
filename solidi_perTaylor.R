@@ -14,8 +14,8 @@ box10<-read.table('Box10_tss_poc.txt', header=T)   #ricordare di convertire poc 
 
 #setwd('C:/Users/gi/Dropbox/fin92b/mehg4/oksolid19')  #oksolid7
 #setwd('C:/Users/Acer/Dropbox/fin92b/mehg4/oksolid41l')  #oksolid7
-setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/c')
-#
+  setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\naoh2')
+
  tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(tots)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 

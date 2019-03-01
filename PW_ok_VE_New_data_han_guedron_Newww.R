@@ -3,8 +3,10 @@
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2127')
 # setwd('C:/Users/Acer/Desktop/NewVenice20/z13')
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+ 
+#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_min2\\sim_cl')
+#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')     #sim_cl
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -51,7 +53,7 @@ b1_layerB_pw = c(48,8.66667,	11.4,	6)                          #site B Han et al
 b1_layerB_pw_mehg = c(3.93939,0.162,	0.0898876,	0.161798)    #site B Han et al., 2007; VE2 guedron et al., 2012
 
 b1_layerC_pw = 	c(30, 9.06667,	13.6667, 8.06667)     #site B Han et al., 2007; VE2 guedron et al., 2012
-             
+
 b1_layerC_pw_mehg =c(2.32323,0.0808989,	0.0629213,	0.0269663) 
 
 b1_hg<-c(b1_layerA_pw,b1_layerB_pw,b1_layerC_pw)
@@ -63,7 +65,7 @@ b2_layerA_pw_mehg =c(0.74, 0.0380952, 0.187755,	0.0707483,0.0163265,	0.4)
 
 b2_layerB_pw = c(13.0435,	6.52174,13.6957,	4.34783)                              #VE1 guedron et al., 2012
 b2_layerB_pw_mehg =c(0.092517,	0.12517, 0.0680272,	0.198639)
- 
+
 b2_layerC_pw = c(21.5217,	6.30435, 19.1304,	14.1304)                              #VE1 guedron et al., 2012
 b2_layerC_pw_mehg =c(0.329252,	0.157823,0.0598639,	0.0598639)
 
@@ -88,7 +90,7 @@ b7_layerA_pw_mehg = 1.21212    #site S2 Han et al., 2007
 
 b7_layerB_pw =  37.3737    #site S2 Han et al., 2007
 b7_layerB_pw_mehg = 1.61616    #site S2 Han et al., 2007
-	
+
 b7_layerC_pw =c(29.2929,31.3131)#site S2 Han et al., 2007
 b7_layerC_pw_mehg = c(1.71717	,0.808081) #site S2 Han et al., 2007
 
@@ -145,7 +147,7 @@ write.table(df, file = 'pw_hg_perTaylorD.txt')
 write.table(df2, file = 'pw_mehg_perTaylorD.txt')
 
 
-png('PoreWaaatyter51.png', width =1000*1.5, height =630*1.5,
+png('PoreWaaatyter51_12ilm.png', width =1000*1.5, height =630*1.5,
     units = "px")
 par(mfrow=c(2,4),mar=c(3,0,5,0.5), oma=c(1,3.5,0,.7),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
@@ -169,7 +171,7 @@ plot(b2_profile_mod[1:3],y, xlim=c(0,100), cex=1.6, ylim=c(-20,0),  yaxt='n',
 mtext(side=3, text='box2',  cex=1.6, line=.5,  font=2)
 mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
 mtext(side=3, text=expression(paste('Hg'[D]~'pore-water')), font=2, cex=1.7,line=1.6,at=100, outer=F)
-                              
+
 
 boxplot(b6_layerA_pw,b6_layerB_pw,b6_layerC_pw, xlim=c(-20,0),cex=1.5, range = T,outline = T,
         at=c(-2,-7, -15),boxwex=3.,ylim=c(0,100), yaxt='n',xaxt='n',
@@ -233,7 +235,7 @@ boxplot(b7_layerA_pw_mehg,b7_layerB_pw_mehg,b7_layerC_pw_mehg, xlim=c(-20,0),cex
 par(new=T)
 plot(b7_profile_mod_mhg[1:3],y, xlim=c(0,4), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#f79220',   type='b', pch=25)
- #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
 mtext(side=3, text='box7',  cex=1.6, line=.5,  font=2)
 mtext(side=1, text=expression(paste('ng l'^-1)), cex=1.7, line=2.5)
 
@@ -242,7 +244,7 @@ text(3,-7, 'layer B', cex=1, col='grey30')
 text(3,-15, 'layer C', cex=1, col='grey30')
 text(3,-25, 'layer D', cex=1, col='grey30')
 text(3,-40, 'layer E', cex=1, col='grey30')
- dev.off()
+dev.off()
 
 
 cor.test(dd,mm)

@@ -12,9 +12,8 @@ box8_SPM<-read.table('Box8_tss_poc.txt', header=T)   #ricordare di convertire po
 box9_SPM<-read.table('Box9_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 box10_SPM<-read.table('Box10_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 
-#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2124')
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\533b')
+
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')
 
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
@@ -97,7 +96,7 @@ b10_y4<-filter(box10_SPM, box10_SPM$ANNO ==2005)
 
 
 
-png('TSS_allboxes_year_07__6bis.png',width = 21, height = 26,
+png('TSS_allboxes_year_07__6bis__.png',width = 21, height = 26,
     units = "cm", res=400)
 
 par(mfrow=c(10,4),mar=c(.4,.1,1.5,0.0),
@@ -295,7 +294,7 @@ dev.off()
 
 
 
-png('POM_allboxes_year_07__6.png',width = 21, height = 26,
+png('POM_allboxes_year_07__6__.png',width = 21, height = 26,
     units = "cm", res=400)
 
 par(mfrow=c(10,4),mar=c(.4,.1,1.5,0.0),

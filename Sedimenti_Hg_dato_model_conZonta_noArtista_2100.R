@@ -1,21 +1,6 @@
-#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/NOsand')
-#setwd('C:/Users/Gi/Desktop/NNN59')
-#setwd('C:/Users/Acer/Dropbox/NewVenice')
-#setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo3')
-#setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\b')
-#setwd('C:/Users/Acer/Desktop/PiuSILT5b')
-#setwd('C:/Users/Acer/Desktop/PiuSILT5d')
-#setwd('C:/Users/Acer/Desktop/N615b/c')
-#setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max3800') #5_newInp
-#setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
-#setwd('C:/Users/Acer/Desktop/g')
-# setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
- #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
-#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
-#setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_min2\\sim_cl')
+#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_min2\\naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')     #sim_cl
 
 1900-2101
 2426/12
@@ -136,7 +121,7 @@ Zonta10<-c(box10_A_hg$Hg, box10_B_hg$Hg)
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb.png',
+png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb__8hilmno.png',
     width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,2,1,1), 

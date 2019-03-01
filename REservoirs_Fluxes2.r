@@ -4,6 +4,7 @@
 #setwd('C:\\Users\\gi\\Desktop\\NNN14')
 #setwd('C:\\Users\\gi\\Desktop\\2156\\b')
 setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max2\\naoh2')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -301,7 +302,7 @@ dev.off()
 ###------------------ CALCOLO FLUSSI -----------
 # Flussi deposizione in [g d-1]  || Emili et al. 1.3 - 2.7 [mg m-2 y-1] at MGL
 
-head(tot_s_reser, 50)   #tonnellate
+head(tot_s_reser, 190)   #tonnellate
 
 ##Fds1 <- hgsilt_w1 * (DEPO_silt$wn1/d1)        # g d-1
 
@@ -383,7 +384,7 @@ Frs8 <-hgsilt_s8/a8*(RESUS_silt$ss8/0.05)
 Frs9 <-hgsilt_s9/a9*(RESUS_silt$ss9/0.05)
 Frs10<-hgsilt_s10/a10*(RESUS_silt$ss10/0.05)
 
-Frsa1<-hgsand_s1*RESUS_sand$sn1/0.05       #   # ug * m d-1 /m --> ug d-1 /86400 = ug s-1
+Frsa1<-hgsand_s1*RESUS_sand$sn1/0.05/86400      #   # ug * m d-1 /m --> ug d-1 /86400 = ug s-1
 Frsa2<-hgsand_s2*RESUS_sand$sn2/0.05/86400        #
 Frsa3<-hgsand_s3*RESUS_sand$sn3/0.05/86400        #
 Frsa4<-hgsand_s4*RESUS_sand$sn4/0.05/86400        #

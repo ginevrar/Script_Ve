@@ -1,6 +1,6 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
-setwd('C:/Users/gi/Desktop/NNN59')
-setwd('C:\\Users\\gi\\Desktop\\2131')
+# setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')     #sim_cl
+
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -60,7 +60,7 @@ r2<-round(cor(layerB,layerB_mod), digits = 2)
 r3<-round(cor(layerC,layerC_mod), digits = 2)
 r4<-round(cor(layerD,layerD_mod), digits = 2)
 
-png('Corr_sed.png')
+png('Corr_sedgilm.png')
 par(mfrow=c(1,1))
 plot(layerA,layerA_mod, col='indianred1',bg='indianred1', 
      pch=21,ylab = 'model (ng g)', 
@@ -80,10 +80,20 @@ text(840,160,paste('r =', r3, ' p<0.05'),col='indianred4', font=2)
 dev.off()
 
 bo<-cor.test(layerA,layerA_mod)
-bo<-cor.test(layerD,layerD_mod)
+bo1<-cor.test(layerB,layerB_mod)
+bo2<-cor.test(layerC,layerC_mod)
+bo3<-cor.test(layerD,layerD_mod)
 bo
-str(bo)
-bo$p.value
-bo$estimate
 
+bo$estimate
+bo$p.value
+
+bo1$estimate
+bo1$p.value
+
+bo2$estimate
+bo2$p.value
+
+bo3$estimate
+bo3$p.value
 #________________________________ Fine data model correlation sed hg ________________________________

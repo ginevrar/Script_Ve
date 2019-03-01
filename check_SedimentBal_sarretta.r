@@ -18,8 +18,11 @@
  #setwd('C:/Users/Acer/Dropbox/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
  
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+#setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+#setwd('C:/Users/Acer/Desktop/Cl2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')     #sim_cl
 
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
@@ -115,12 +118,9 @@ POM_res[1239,]
 time.steps <- hg$time
 time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
-TEMPO[1:10]
-rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
-rdate
-str(rdate)
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y"); rdate; str(rdate)
 
-png('ALL_POM_fraction__oksMMM92.png')
+png('ALL_POM_fraction__oksMMM92cghil.png')
 plot(fPOM$sn1[241:1467], ylim=c(0,0.2),col=1, type = 'l', lty=1,lwd=2)
 par(new=T)
 plot(fPOM$sn2[241:1467], ylim=c(0,0.2),col=2, type = 'l', lty=2,lwd=1.9)
@@ -458,7 +458,7 @@ b6_depo_2014 <-b6_depo_2014_gm2d*365/1000   #kg DW m2y
   
   plot(POC_perc$sn1)
   
-  png('DEPO_vs_Sarretta_fin92b__oksMMM9_.png',width = 30, height = 20, units = "cm", res=300)
+  png('DEPO_vs_Sarretta_fin92b__oksMMM9chil_.png',width = 30, height = 20, units = "cm", res=300)
   par(mfrow=c(2,5))
   plot(rdate,netdepo_sed1, type='l',ylim=c(-1.6,1.6), col='#313695', lwd=2)
   par(new=T)
@@ -560,7 +560,7 @@ poc10[1306:1308]<-c(1.6,1.6,1.4)
   
   summary(BURIAL_cmy)
 
-  png('DEPO_NET_fin92b__oksMMM9_.png',
+  png('DEPO_NET_fin92b__oksMMM9chil_.png',
       width = 30, height = 20, units = "cm", res=300)
   par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
   plot(rdate[241:1467], netdepo_sed1[241:1467], type='l',ylim=c(-1,0.4),
@@ -618,7 +618,7 @@ poc10[1306:1308]<-c(1.6,1.6,1.4)
   abline(h=0, lty=3)
   dev.off()
   
-  png('DEPO_NET_fin92b__oksMMM9.png',
+  png('DEPO_NET_fin92b__oksMMM9chil.png',
       width = 30, height = 20, units = "cm", res=300)
   par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,6,3,1), bty='n')
   plot(rdate, netdepo_sed1, type='l',ylim=c(-1,0.4),

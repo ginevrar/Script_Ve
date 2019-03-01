@@ -37,9 +37,9 @@ box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC);box10_C_OC<-sele
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max4700') #5_newInp
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
-#setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+ 
+#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')     #sim_cl
 
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
@@ -83,7 +83,7 @@ OC8[1306]<-mean(box8_A_OC$OC)
 OC9[1306]<-mean(box9_A_OC$OC)
 OC10[1306]<-mean(box10_A_OC$OC)
 
-png('POC_perc_fin92b__oksMMM9bisss.png',width = 30, height = 20, units = "cm", res=300)
+png('POC_perc_fin92b__oksMMM9bissscilmn.png',width = 30, height = 20, units = "cm", res=300)
 par(mfrow=c(2,5), bty='n', cex.lab=1.3)
 plot(rdate,OC_perc$sn1,main='Box 1',
      ylab='POC %',xlab=' ',

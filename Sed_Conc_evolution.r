@@ -2,11 +2,14 @@
 #setwd('C:/Users/Acer/Desktop/N615b/c')
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/z')
 #setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
- setwd('C:/Users/gi/Dropbox/NewVenice20/z8')
+# setwd('C:/Users/gi/Dropbox/NewVenice20/z8')
  #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
-setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
+#setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\naoh2')
+#setwd('C:/Users/Acer/Desktop/Cl2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_cl')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -106,7 +109,7 @@ plot(silts$ws10)
 
 POM_perc<-POMs/TOTs*100
 
-png('solids_sed_PERC_eeeeeEEt_bis.png',width = 21, height = 29,
+png('solids_sed_PERC_eeeeeEEt_bishilm.png',width = 21, height = 29,
     units = "cm", res=400)
 
 par(mfrow=c(10,3),mar=c(1,1,1,1),
@@ -316,7 +319,7 @@ plot(rdate,TOTs$oss10/TOTs$oss10,col='black',type='l', lwd=2, lty=1,ylim=c(0,1))
 dev.off()
 
 
-png('solids_sed_conc_fin92b__oks6_eeeeeet4_.png',width = 21, height = 29,
+png('solids_sed_conc_fin92b__oks6_eeeeeet4i_.png',width = 21, height = 29,
     units = "cm", res=400)
 par(mfrow=c(10,3),mar=c(1,1,1,1),
     oma=c(2.3,5.3,1.5,0), bty='n')
