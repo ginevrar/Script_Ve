@@ -6,7 +6,7 @@ dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max2\\naoh2')
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')     #sim_cl
+ setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
 
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1, header = T)
@@ -70,7 +70,7 @@ box3<-c(mean(A3$mehg),mean(B3$mehg),mean(C3$mehg))
 box6<-c(mean(A6$mehg),mean(B6$mehg),mean(C6$mehg))
 box7<-c(mean(A7$mehg),mean(B7$mehg),mean(C7$mehg))
 
-png('profile_Mehg_datoModeo_boxpl_fin92b_mehgmmmmMMM51hilmn_.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_Mehg_datoModeo_boxpl_fin92b_mehgmmmmMMM51hilmnbbcc_.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
 par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 

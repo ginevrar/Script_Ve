@@ -12,7 +12,9 @@ setwd('C:/Users/Acer/Dropbox/NewVenice20/h')
 setwd('C:\\Users\\Acer\\Desktop\\533')
 setwd('C:/Users/Acer/Dropbox/sim_cl')
 setwd('C:/Users/Acer/Desktop/sim_Cl2')
-  setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')
+  setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz5')
+  setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+  
  hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -390,8 +392,39 @@ w_reser<-cbind(reservoir_hg_w1,reservoir_hg_w2,reservoir_hg_w3,reservoir_hg_w4,r
 s_reser<-cbind(reservoir_hg_s1,reservoir_hg_s2,reservoir_hg_s3,reservoir_hg_s4,reservoir_hg_s5,
                reservoir_hg_s6,reservoir_hg_s7, reservoir_hg_s8, reservoir_hg_s9, reservoir_hg_s10)
 
-tot_w_reser<-rowSums(w_reser/10^9)   #ug(hg)/10^9 = kg(hg)
-tot_s_reser<-rowSums(s_reser/10^9)
+tot_w_reser1<-rowSums(w_reser/10^9)   #ug(hg)/10^9 = kg(hg)
+tot_s_reser9<-rowSums(s_reser/10^9)
+
+plot(tot_w_reser)
+plot(tot_w_reser1[1:201])
+tot_w_reser_media
+(tot_w_reser1[72])
+(tot_s_reser[72])
+rdate[72]
+
+tot_s_reser[20]
+tot_w_reser[1]
+plot(tot_w_reser1[1:40])
+
+win.graph()
+plot(tot_s_reser1[1:39], col='grey', pch=19, ylim=c(2035,2120), main='Sediment Hg')
+par(new=T)
+plot(tot_s_reser2[1:39], col=2, pch=19, ylim=c(2035,2120))
+par(new=T)
+plot(tot_s_reser3[1:39], col=3, pch=19, ylim=c(2035,2120))
+par(new=T)
+plot(tot_s_reser4[1:39], col=4, pch=19, ylim=c(2035,2120))   # bound 20 m s-1
+par(new=T)
+plot(tot_s_reser5[1:39], col=5, pch=19, ylim=c(2035,2120))    # bound 15 m s-1
+par(new=T)
+plot(tot_s_reser6[1:468], col=6, pch=19, ylim=c(2035,2120))    # bound 15 m s-1
+par(new=T)
+plot(tot_s_reser7[1:468], col=3, pch=19, ylim=c(2035,2120))    # bound 20 m s-1
+par(new=T)
+plot(tot_s_reser8[1:468], col=1, pch=19, ylim=c(2035,2120))    # bound 20 m s-1
+par(new=T)
+plot(tot_s_reser9[1:468], col=7, pch=19, ylim=c(2035,2120))    # bound 20 m s-1
+
 
 head(tot_s_reser)
 head(tot_w_reser)

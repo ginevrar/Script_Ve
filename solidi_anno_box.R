@@ -13,7 +13,7 @@ box9_SPM<-read.table('Box9_tss_poc.txt', header=T)   #ricordare di convertire po
 box10_SPM<-read.table('Box10_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 
 
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh6\\b')
 
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")

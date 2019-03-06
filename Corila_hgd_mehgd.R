@@ -6,15 +6,7 @@ str(corila)
 tmp <- as.Date(corila$data,format="%Y-%m-%d")
 tmp2<-format(tmp, "%d-%m-%Y")
   
-#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN68')
-#setwd('C:/Users/Gi/Desktop/NNN59')
-##setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes5')
-##setwd('C:/Users/Acer/Dropbox/sim_naoh')
-#setwd('C:/Users/Acer/Desktop/naoh3')
-#setwd('C:/Users/Acer/Dropbox/sim_cl')
-#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_9\\cl')
-#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_min2\\cl')
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
 
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
   names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

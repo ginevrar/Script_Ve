@@ -43,7 +43,12 @@ summary(layerE_sud)
 
 summary(box10_E_hg)
 
+layerA<-rbind(box1_A_hg,box2_A_hg,box3_A_hg,box4_A_hg,box5_A_hg,box6_A_hg,box7_A_hg,box8_A_hg,box9_A_hg,box10_A_hg)
 
+max(layerA)
+median(layerA$Hg)
+mean(layerA$Hg)/1000
+min(layerA$Hg)/1000
 
 y<-c(-2,-7,-15,-25,-40)
 

@@ -29,17 +29,9 @@ box9_A_OC<-select(box9_A,OC) ; box9_B_OC<-select(box9_B,OC);   box9_C_OC<-select
 box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC);box10_C_OC<-select(box10_C,OC) ;box10_D_OC<-select(box10_D,OC) ;box10_E_OC<-select(box10_E,OC) 
 
  
-#setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
-#setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
-#setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max4700') #5_newInp
-
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
-#setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max4700') #5_newInp
-#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
-#setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
- 
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\naoh2')
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_clok')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
 
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")

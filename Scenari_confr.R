@@ -69,7 +69,6 @@ par(new=T)
 plot(hg_A1B$wc6[1500:2500],type='l', col='red', ylim=c(2,15))
 
 
-
 plot(hg$sn1[1500:2500],type='l', ylim=c(10,1000))
 par(new=T)
 plot(hg_ze$sn1[1500:2500],type='l', col='green', ylim=c(10,1000))

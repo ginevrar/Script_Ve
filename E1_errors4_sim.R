@@ -1,4 +1,4 @@
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_12\\naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')
 
 #hgw<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA<-read.table('surf_sedhg_taylor.txt', header=T)
@@ -23,6 +23,7 @@ POM1 <- POM[complete.cases(POM),]
 #setwd('C:/Users/Gi/Desktop/NNN59')
 #setwd('I:\\varie\\NNN60')
 setwd('C:\\Users\\Acer\\Desktop\\last\\kd_12\\sim_cl')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh6\\b')
 
 # hgw2<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA2<-read.table('surf_sedhg_taylor.txt', header=T)
@@ -47,6 +48,7 @@ e1 <- function (obs, pred) {(1-
 
 
 setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\sim_cl')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_clok')
 
 # hgw2<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA3<-read.table('surf_sedhg_taylor.txt', header=T)
@@ -67,6 +69,7 @@ SPM13 <- SPM3[complete.cases(SPM3), ]
 POM13 <- POM3[complete.cases(POM3), ]
 
 setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_cl2')
 
 # hgw2<-read.table('acque_perTaylorD.txt', header=T)
 hgsedA4<-read.table('surf_sedhg_taylor.txt', header=T)

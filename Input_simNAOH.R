@@ -4,7 +4,8 @@ setwd('C:/Users/Acer/Desktop/Future_emissions')
 hgL<-read.csv('Hgind_load.csv', sep=';', header=T)
 str(hgL)
 
-setwd('C:\\Users\\gi\\Dropbox\\sim_cl')
+#setwd('C:\\Users\\gi\\Dropbox\\sim_cl')
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')     #sim_cl
 
 years    <-seq(1900,2100)  # sequence of 200 elements (years)
 area     <-4.12E+08   # surface area of the site (m2)  - to compute rates 

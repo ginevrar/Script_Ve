@@ -1,11 +1,6 @@
-#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_min2\\sim_cl')
-#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_min2\\naoh2')
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
 
-1900-2101
-2426/12
-# plot da 2424 a 2020
-12*80
+1900-2101;2426/12;# plot da 2424 a 2020  12*80
 2424-960
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -121,7 +116,7 @@ Zonta10<-c(box10_A_hg$Hg, box10_B_hg$Hg)
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb__8hilmno.png',
+png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb__8hilmnohilcciiDDEF.png',
     width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,2,1,1), 

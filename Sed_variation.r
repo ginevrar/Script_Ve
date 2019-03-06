@@ -179,9 +179,8 @@ net_sum[97] ; rdate[97]
 net_sum[240] ; rdate[240]
 
 setwd('C:\\Users\\gi\\Desktop\\2156\\b')
-
 write.table(net_sum,file='Sed_bal.txt')
-
+getwd()
 diffHgTs1[2]
 
 diffHgps1[2]

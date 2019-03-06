@@ -25,7 +25,7 @@ for(i in 2: 46){
 }
 
 #------- Serie DEPOSIZIONE ATMOSFERICA ----------------------------
-de<-hgL$atm_dep[1:201]
+de<-hgL$atm_dep_Cl[1:201]
 
 de[1:37]<-10
 dep<-data.frame(years[1:201],de)

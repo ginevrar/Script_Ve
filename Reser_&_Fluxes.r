@@ -283,24 +283,32 @@ par(new=T)
 plot(b1_ResS_mg_m2d*a1, type='l', col=1, ylim=c(0,10000000))
 
 silt_bal1=(b1_Dep_mg_m2d-b1_ResS_mg_m2d)
-silt_bal2<-(b2_Dep_mg_m2d-b2_ResS_mg_m2d)
-silt_bal3<-(b3_Dep_mg_m2d-b3_ResS_mg_m2d)*a3/10^6
-
-
-
+silt_bal2=(b2_Dep_mg_m2d-b2_ResS_mg_m2d)
+silt_bal3=(b3_Dep_mg_m2d-b3_ResS_mg_m2d)
+silt_bal4=(b4_Dep_mg_m2d-b4_ResS_mg_m2d)
+silt_bal5=(b5_Dep_mg_m2d-b5_ResS_mg_m2d)
+silt_bal6=(b6_Dep_mg_m2d-b6_ResS_mg_m2d)
+silt_bal7=(b7_Dep_mg_m2d-b7_ResS_mg_m2d)
+silt_bal8=(b8_Dep_mg_m2d-b8_ResS_mg_m2d)
+silt_bal9=(b9_Dep_mg_m2d-b9_ResS_mg_m2d)
+silt_bal10=(b10_Dep_mg_m2d-b10_ResS_mg_m2d)
 
 SB1<-silt_bal1*a1/10^6
-*a2/10^6
-silt_bal4<-(b4_Dep_mg_m2d-b4_ResS_mg_m2d)*a4/10^6
-silt_bal5<-(b5_Dep_mg_m2d-b5_ResS_mg_m2d)*a5/10^6
-silt_bal6<-(b6_Dep_mg_m2d-b6_ResS_mg_m2d)*a6/10^6
-silt_bal7<-(b7_Dep_mg_m2d-b7_ResS_mg_m2d)*a7/10^6
-silt_bal8<-(b8_Dep_mg_m2d-b8_ResS_mg_m2d)*a8/10^6
-silt_bal9<-(b9_Dep_mg_m2d-b9_ResS_mg_m2d)*a9/10^6
-silt_bal10<-(b10_Dep_mg_m2d-b10_ResS_mg_m2d)*a10/10^6
+SB2<-silt_bal2*a2/10^6
+SB3<-silt_bal3*a3/10^6
+SB4<-silt_bal4*a4/10^6
+SB5<-silt_bal5*a5/10^6
+SB6<-silt_bal6*a6/10^6
+SB7<-silt_bal7*a7/10^6
+SB8<-silt_bal8*a8/10^6
+SB9<-silt_bal9*a9/10^6
+SB10<-silt_bal10*a10/10^6
 
 silt_BAL<-silt_bal1+silt_bal2+silt_bal3+silt_bal4+silt_bal5+silt_bal6+silt_bal7+silt_bal8+silt_bal9+silt_bal10
 head(silt_BAL)   #???kg d
+
+
+SB<-(SB1+SB2+SB3+SB4+SB5+SB6+SB7+SB8+SB9+SB10)*365
 
  POM_bal1<-(b1_DepP_mg_m2d-b1_ResP_mg_m2d)*a1/10^6
  POM_bal2<-(b2_DepP_mg_m2d-b2_ResP_mg_m2d)*a2/10^6
@@ -309,15 +317,16 @@ head(silt_BAL)   #???kg d
  POM_bal5<-(b5_DepP_mg_m2d-b5_ResP_mg_m2d)*a5/10^6
  POM_bal6<-(b6_DepP_mg_m2d-b6_ResP_mg_m2d)*a6/10^6
  POM_bal7<-(b7_DepP_mg_m2d-b7_ResP_mg_m2d)*a7/10^6
- POM_bal8<-(b8_DepP_mg_m2d-b8_ResP_mg_m2d)*a8/10^6
+   POM_bal8<-(b8_DepP_mg_m2d-b8_ResP_mg_m2d)*a8/10^6
  POM_bal9<-(b9_DepP_mg_m2d-b9_ResP_mg_m2d)*a9/10^6
  POM_bal10<-(b10_DepP_mg_m2d-b10_ResP_mg_m2d)*a10/10^6
 
-
+plot(b6_DepP_mg_m2d-b6_ResP_mg_m2d)
+plot(POM_bal6)
  POM_BAL<-POM_bal1+POM_bal2+POM_bal3+POM_bal4+POM_bal5+POM_bal6+POM_bal7+POM_bal8+POM_bal9+POM_bal10
  head(POM_BAL)   #???kg d
  
-
+ POM_BAL+SB
 
 plot(rdate[731:1096],b1_Dep_mg_m2d[731:1096], type='l', col=2, ylim=c(0,.2))
 par(new=T)

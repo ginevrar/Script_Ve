@@ -1,4 +1,5 @@
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_clok')
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
