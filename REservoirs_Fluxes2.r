@@ -4,7 +4,7 @@
 #setwd('C:\\Users\\gi\\Desktop\\NNN14')
 #setwd('C:\\Users\\gi\\Desktop\\2156\\b')
 setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max2\\naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -94,7 +94,6 @@ head(Phgs$wn1)
 plot(RESUS_POM$sc6)
 
 147560/201 
-
 734.1294/2
 
 
@@ -195,7 +194,6 @@ hgdoc_w10<-reservoir_hg_w10*fdoc$ws10
 
 # Deposition rate Deposition for Hg in silt
 # g(hg) * 1 d-1 --> ug d-1
-
 
 w_reser<-cbind(reservoir_hg_w1,reservoir_hg_w2,reservoir_hg_w3,reservoir_hg_w4,reservoir_hg_w5,
                reservoir_hg_w6,reservoir_hg_w7, reservoir_hg_w8, reservoir_hg_w9, reservoir_hg_w10)   # grams

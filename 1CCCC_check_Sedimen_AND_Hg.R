@@ -3,11 +3,11 @@
 
 #da output n n 242 strano (21^ anno)
 
-#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 #setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo')
 #setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12\\d')    #')annuale
  setwd('C:/Users/Acer/Dropbox/NewVenice20/r')
-
+ setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')     #sim_cl
+ 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -550,6 +550,7 @@ deptot_sum<-deptot1+deptot2+deptot3+deptot4+deptot5+deptot6+deptot7+deptot8+
 restot_all<-cbind(restot1,restot2,restot3,restot4,restot5,restot6,restot7,restot8,
   restot9,restot10)
 
+Net<-deptot_sum-restot_sum
 
 deptot_all<-cbind(deptot1,deptot2,deptot3,deptot4,deptot5,deptot6,deptot7,deptot8,
                   deptot9,deptot10)
@@ -607,7 +608,7 @@ plot(rdate,Tot_Depo_hg_kgy, col='blue',type='l')#ylim = c(-60866.52,14891))
 par(new=T)
 plot(rdate,-Tot_res_hg, col='orange',type='l')
 par(new=T)
-plot(rdate,Net, col='darkgrey',type='l', ylim = c(-60866.52,14891))
+plot(rdate,Net, col='darkgrey',type='l', ylim = c(-60866.52,60866.52))
 
 
 win.graph()

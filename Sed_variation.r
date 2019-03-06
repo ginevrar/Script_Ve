@@ -2,7 +2,7 @@ setwd('C:\\Users\\gi\\Desktop\\2155')
 #setwd('C:\\Users\\gi\\Desktop\\NNN14')
 #setwd('F:\\2128')
 setwd('C:\\Users\\Acer\\Desktop\\naoh3')
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_9\\sim_cl')
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_year')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -108,7 +108,7 @@ diffHgTs8<-c(NA,diff(reservoir_hg_s8, differences = 1))
 diffHgTs9<-c(NA,diff(reservoir_hg_s9, differences = 1))
 diffHgTs10<-c(NA,diff(reservoir_hg_s10, differences = 1))
 
-bur1 <- (Phgs$sn1*(burial$sn1/100)/10^6)*a1    # ug m3 * m y-1 /10^6 = g y-1
+bur1 <- (Phgs$sn1*(burial$sn1/100)/10^6)*a1    # ug m3 * m y-1 /10^6 *m2= g y-1
 bur2 <- (Phgs$sn2*(burial$sn2/100)/10^6)*a2
 bur3 <- (Phgs$sn3*(burial$sn3/100)/10^6)*a3
 bur4 <- (Phgs$sn4*(burial$sn4/100)/10^6)*a4

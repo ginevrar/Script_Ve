@@ -12,9 +12,8 @@ setwd('C:/Users/Acer/Dropbox/NewVenice20/h')
 setwd('C:\\Users\\Acer\\Desktop\\533')
 setwd('C:/Users/Acer/Dropbox/sim_cl')
 setwd('C:/Users/Acer/Desktop/sim_Cl2')
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_min2\\naoh2')
-
-hg<-read.csv('Total_Hg.csv', skip=1)
+  setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')
+ hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
@@ -639,8 +638,7 @@ summary(Net_kgy)
 head(hg_wat_reservoir/10^9)
 head(NEt,12)
 head(Net_kgy)
-
-#write.table(Net_kgy,"Net_hgSed_kgy.txt");
+ write.table(Net_kgy,"Net_hgSed_kgy.txt");
 #write.table(Net_kgy2,"Net_hgSed_kgy_long.txt");
 
 str(Net_kgy)

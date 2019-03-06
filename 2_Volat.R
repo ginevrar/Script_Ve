@@ -2,6 +2,7 @@
 #setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes6')
 #setwd('C:\\Users\\gi\\Desktop\\2156\\b')
 setwd('C:\\Users\\Acer\\Desktop\\533')
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz')     #sim_cl
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -179,9 +180,12 @@ vola_vola<-cbind(volat1_kg_y,volat2_kg_y,volat3_kg_y,volat4_kg_y,
                  volat5_kg_y,volat6_kg_y,volat7_kg_y,volat8_kg_y,
                  volat9_kg_y,volat10_kg_y)
 vola<-rowSums(vola_vola)
+vola_media<-tapply(vola[2:2413], rep(1:(length(vola[2:2413])/12),each = 12),mean)
+plot(vola_media)
 
 VV<-data.frame(vola,volat_kg_y)
 str(VV)
+str(vola[2:1425])
 colMeans(VV[1431:1443,])
 VV[1431:1443,]
 write.table(VV$vola,'volat.txt')

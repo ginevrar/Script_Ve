@@ -2,6 +2,7 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 setwd('C:\\Users\\gi\\Desktop\\2156\\b')
 setwd('C:\\Users\\Acer\\Desktop\\533')
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh6\\b')     #sim_cl
 
 volat<-read.table('volat.txt', header=T); str(volat)
 names(volat)<-'vol'
@@ -10,16 +11,19 @@ Disper<-read.table('Disper_tot_kgy.txt', header=T);str(Disper)
 sed_bal_short<-read.table('Sed_bal.txt')
 input<-read.table('tot_input.txt')
 
+
+outflow_mhg<-read.table('Disper_tot_MHG_kgy.txt', header=T)
+Disper_mhg<-read.table('Outflow_tot_MHG_kgy.txt')
+
 #sed_bal_ugdm2<-read.table('Net_ugm2d.txt')
-#sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
-
-
+ sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
+ plot(outflow$x)
 hg_outflow_kg_y<-outflow[1:2412,]
 hg_disper_kg_y<-Disper[1:2412,]
 
 depo_Phg_kg_y_media1<-sed_bal$x
 depo_Phg_kg_y_media<-sed_bal$x
-plot(depo_Phg_kg_y_media1)
+plot(depo_Phg_kg_y_media)
 
 evasione_kg_y<-volat
 
@@ -28,6 +32,9 @@ hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y, rep(1:(length(hg_outflow_kg_y)/12
 evasione_kg_y_media<-tapply(evasione_kg_y[1:2412,], rep(1:(length(evasione_kg_y[1:2412,])/12),each = 12),mean)
 hg_disper_kg_y_media<-tapply(hg_disper_kg_y, rep(1:(length(hg_disper_kg_y)/12),each = 12),mean)
 #evasione_kg_y_media<-volat
+
+hg_outflow_kg_y_mhg_media<-tapply(outflow_mhg, rep(1:(length(outflow_mhg)/12),each = 12),mean)
+ hg_disper_kg_y_mhg_media<-tapply(Disper_mhg$x[1:2142], rep(1:(length(Disper_mhg$x[1:2142])/12),each = 12),mean) 
 
 #diffusion_kg_y_media<-tapply(diffusion_kg_y, rep(1:(length(diffusion_kg_y)/12),each = 12),mean)
 #burial2_kg_y_media<-tapply(burial2_kg_y, rep(1:(length(burial2_kg_y)/12),each = 12),mean)
@@ -65,7 +72,11 @@ T_ou_10<--ev_10-dp_10+outf_10; T_ou_10
 T_ou_70<--ev_70-dp_70+outf_70+disp_70;  T_ou_70 # 750 da acque a sed
 T_ou_95<--ev_95+outf_95+disp_95;  T_ou_95
 T_ou_19<--ev_19-dp_19+outf_19+disp_19;T_ou_19
-dp_95
+
+od<-hg_outflow_kg_y_media+hg_disper_kg_y_media
+
+odd<-data.frame(years,od)
+ev_19
 
 # input from Marghera 
 M_10<-input$ind3[11];M_70<-input$ind3[71]
