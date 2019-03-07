@@ -6,7 +6,7 @@ str(corila)
 tmp <- as.Date(corila$data,format="%Y-%m-%d")
 tmp2<-format(tmp, "%d-%m-%Y")
   
-setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
   names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -139,7 +139,6 @@ dev.off()
   
 plot(mehgD_dat, mehgD_mod)
 
-#
 #
 plot(tmp,corila$MeHg,ylim=c(0,.6),pch='-',xaxt='n',type='p',cex=2,xlab='',
 ylab=expression(paste('ng l'^-1)),

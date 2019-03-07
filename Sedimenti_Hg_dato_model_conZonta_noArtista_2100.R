@@ -1,4 +1,4 @@
-setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
 1900-2101;2426/12;# plot da 2424 a 2020  12*80
 2424-960

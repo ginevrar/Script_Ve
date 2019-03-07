@@ -1,18 +1,12 @@
-#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\hh')
-#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2134')
-#setwd('C:\\Users\\gi\\Desktop\\2156')
-#setwd('C:\\Users\\gi\\Desktop\\NNN14')
-#setwd('C:\\Users\\gi\\Desktop\\2156\\b')
-setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
-setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')
+setwd('C:\\Users\\Acer\\Desktop\\last\\cL_10\\year')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
  
-  time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
-  TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
-  rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
+time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
  
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -87,30 +81,10 @@ reservoir_hgp_w8 <- a8*d8 *Phgs$ws8/10^6
 reservoir_hgp_w9 <- a9*d9 *Phgs$ws9/10^6
 reservoir_hgp_w10<- a10*d10 *Phgs$ws10/10^6
 
-head(hg$wn1)
-head(Phgs$wn1)
+head(hg$wn1); head(Phgs$wn1)
 
  #fsilt=silts/TOTs;fPOM=POMs/TOTs;fsand=sands/TOTs
 plot(RESUS_POM$sc6)
-
-147560/201 
-734.1294/2
-
-
-7309-1   #01/01/1910
-8038-1   # 12/13/1910
-
-51139-1  #01/01/1970
-51868-1  #12/31/1970
-
-69401-1  #01/01/1995
-70130-1  #12/31/1995
-
-72323-1  #01/01/1999
-73052-1  #12/31/1999
-
-87662-1  #01/01/2019
-86933-1  #01/01/2019
 
 
 plot(RESUS_silt$sc6[7308:8037]) # da 01-01 a 12-31 del 1910
@@ -289,6 +263,12 @@ s_reser<-cbind(reservoir_hg_s1,reservoir_hg_s2,reservoir_hg_s3,reservoir_hg_s4,r
                reservoir_hg_s6,reservoir_hg_s7, reservoir_hg_s8, reservoir_hg_s9, reservoir_hg_s10)   # grams
 tot_s_reser<-rowSums(s_reser/10^6)  #tons
 
+  tot_s_reser_kg<-rowSums(s_reser/10^3)  #tons
+  tot_w_reser
+  
+  df<-data.frame(rdate,tot_w_reser,tot_s_reser_kg[1:204]) 
+write.table(df, file='reservoirs.txt')
+str(tot_s_reser_kg)
 
 head(tot_s_reser,45)
 
@@ -300,9 +280,7 @@ dev.off()
 ###------------------ CALCOLO FLUSSI -----------
 # Flussi deposizione in [g d-1]  || Emili et al. 1.3 - 2.7 [mg m-2 y-1] at MGL
 
-head(tot_s_reser, 190)   #tonnellate
-
-##Fds1 <- hgsilt_w1 * (DEPO_silt$wn1/d1)        # g d-1
+head(tot_s_reser, 190)   #tonnellate   ##Fds1 <- hgsilt_w1 * (DEPO_silt$wn1/d1)        # g d-1
 
 plot(tot_s_reser[7308:8037]) # da 01-01 a 12-31 del 1910
 plot(tot_s_reser[51138:51867]) # da 01-01 a 12-31 del 1970
@@ -450,16 +428,7 @@ str(Bilt)
 rdate[8034]
 
 a+b+c+d+e+f+  g+h+i+l
-a
-b
-c
-d
-e
-f
-g
-h
-i
-l
+
 
 plot(RESUS_silt$sc6[7308:8037]) # da 01-01 a 12-31 del 1910
 plot(RESUS_silt$sc6[51138:51867]) # da 01-01 a 12-31 del 1970

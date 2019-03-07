@@ -3,7 +3,7 @@
   #setwd('C:\\Users\\gi\\Desktop\\2156\\b')
  # setwd('C:\\Users\\Acer\\Desktop\\533')
 setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz6')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
   volat<-read.table('volat.txt', header=T); str(volat)
   names(volat)<-'vol'
@@ -32,14 +32,19 @@ setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
   hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y, rep(1:(length(hg_outflow_kg_y)/12),each = 12),mean)
   evasione_kg_y_media<-tapply(evasione_kg_y[1:2412,], rep(1:(length(evasione_kg_y[1:2412,])/12),each = 12),mean)
   hg_disper_kg_y_media<-tapply(hg_disper_kg_y, rep(1:(length(hg_disper_kg_y)/12),each = 12),mean)
-  #evasione_kg_y_media<-volat
+  
+  years<-seq(1900,2100)
+  df<-cbind(years,evasione_kg_y_media)
+  df[91,]               #evasione_kg_y_media<-volat
   
   hg_outflow_kg_y_mhg_media<-tapply(outflow_mhg[1:2412,], rep(1:(length(outflow_mhg[1:2412,])/12),each = 12),mean)
-   hg_disper_kg_y_mhg_media<-tapply(Disper_mhg[1:2412,], rep(1:(length(Disper_mhg[1:2412,])/12),each = 12),mean) 
+  hg_disper_kg_y_mhg_media<-tapply(Disper_mhg[1:2412,], rep(1:(length(Disper_mhg[1:2412,])/12),each = 12),mean) 
   
   #diffusion_kg_y_media<-tapply(diffusion_kg_y, rep(1:(length(diffusion_kg_y)/12),each = 12),mean)
   #burial2_kg_y_media<-tapply(burial2_kg_y, rep(1:(length(burial2_kg_y)/12),each = 12),mean)
   plot(evasione_kg_y_media)
+  
+  
   #____________SOMMA DEI TERMINI DI OUTPUT delle ACQUE
   Output_terms<-as.numeric(evasione_kg_y_media + depo_Phg_kg_y_media[3:203] +
                               hg_outflow_kg_y_media+
@@ -98,10 +103,10 @@ setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
   V_10<-input$ci[11]; V_70  <-input$ci[71] 
   V_95<-input$ci[100]; V_19<-input$ci[120] 
   
-  outff_10<-outf_10+disp_10
-  outff_70<-outf_70+disp_70
-  outff_95<-outf_95+disp_95
-  outff_19<-outf_19+disp_19
+  outff_10<-outf_10 +disp_10
+  outff_70<-outf_70 +disp_70
+  outff_95<-outf_95 +disp_95
+  outff_19<-outf_19 +disp_19
   
   All_out_10=c(NA,-ev_10,-dp_10,outff_10)
   All_out_70=c(NA,-ev_70,-dp_70,outff_70)
@@ -131,9 +136,19 @@ setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
   atm_10 + F_10+ V_10+M_10
   outf_10+dp_10+ev_10
   
-  bilancio_hg_10<-c(outff_10,disp_10,
-                    -dp_10,-ev_10,atm_10, F_10, V_10,M_10)
+  bilancio_hg_10<-c(outf_10,disp_10,-dp_10,-ev_10,atm_10, F_10, V_10,M_10)
   names(bilancio_hg_10)<-c('Outflow','Dispersione','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
+  
+  
+  bilancio_hg_70<-c(outf_70,disp_70,-dp_70,-ev_70,atm_70, F_70, V_70,M_70) 
+  names(bilancio_hg_70)<-c('Outflow','Dispersione','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
+  
+  
+  bilancio_hg95<-c(outf_95,disp_95,-dp_95,-ev_95,atm_95, F_95, V_95,M_95) 
+  names(bilancio_hg95)<-c('Outflow','Dispersione','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
+  
+  bilancio_hg2019<-c(outf_19,disp_19,-dp_19,-ev_19, atm_19,F_19, V_19,M_19) 
+  names(bilancio_hg2019)<-c('Outflow','Dispersione','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
   
   sum(bilancio_hg_10)
   sum(All_in_10)
@@ -152,17 +167,11 @@ setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
   depo95<-sum(All_in_95)+outf_95-ev_95+disp95-diff95
   sum(bilancio_hg95)
   
-  bilancio_hg_70<-c(outf_70,disp_70,-depo70,-ev_70,atm_70, F_70, V_70,M_70) 
-  names(bilancio_hg_70)<-c('Outflow','Dispersione','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
+
   
-  bilancio_hg95<-c(outf_95,disp_95,-depo95,-ev_95,atm_95, F_95, V_95,M_95) 
-  names(bilancio_hg95)<-c('Outflow','Dispersione','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
-  
+
   sum(bilancio_hg95)     #sum(All_in_95)+outf_95-ev_70-diff95 
    
-  bilancio_hg2019<-c(outf_19,disp_19,-dp_19,-ev_19, atm_19,F_19, V_19,M_19) 
-  names(bilancio_hg2019)<-c('Outflow','Dispersione','Deposizione','Evasione','Atmosfera','Fiumi','Citta','Marghera')
-  
   sum(bilancio_hg2019)
   diff19<-tot_w_reser_m[121]-tot_w_reser_m[120]
   depo19<-sum(All_in_19)+outf_19-ev_19-diff19

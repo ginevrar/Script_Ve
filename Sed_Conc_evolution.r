@@ -1,4 +1,4 @@
-setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -304,8 +304,7 @@ plot(rdate, silts$oss10/TOTs$oss10,col='#6d3504',type='l', lwd=2, lty=2,ylim=c(0
 par(new=T)
 plot(rdate,sands$oss10/TOTs$oss10,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1))
 par(new=T)
-plot(rdate,TOTs$oss10/TOTs$oss10,col='black',type='l', lwd=2, lty=1,ylim=c(0,1))
-dev.off()
+ dev.off()
 
 
 png('solids_sed_conc_fin92b__oks6_eeeeeet4i_.png',width = 21, height = 29,

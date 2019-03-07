@@ -31,7 +31,7 @@ box10_A_OC<-select(box10_A,OC) ; box10_B_OC<-select(box10_B,OC);box10_C_OC<-sele
  
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\naoh2')
 setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_clok')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
 
 POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")

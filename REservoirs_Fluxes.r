@@ -1,19 +1,5 @@
-#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/')
-#setwd('C:/Users/gi/Dropbox/NNN61/')
-#('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12')
-#setwd('C:/Users/Acer/Desktop/baba/Buona/double_in/NNN68')
-#setwd('C:/Users/Acer/Desktop/N615b/c')
-
-1000/365
  
-(2.739726*10^12)/area    #ng m-2d
-setwd('C:\\Users\\Acer\\Dropbox\\NewVenice18')
-setwd('C:/Users/Acer/Dropbox/NewVenice20/h')
-setwd('C:\\Users\\Acer\\Desktop\\533')
-setwd('C:/Users/Acer/Dropbox/sim_cl')
-setwd('C:/Users/Acer/Desktop/sim_Cl2')
-  setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz5')
-  setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+  setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
   
  hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -26,6 +12,13 @@ names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10'
   TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
   rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
   rdate[2412]
+  
+  
+  SEDhg<-read.csv("Total_Sorbed_Divalent_Hg_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+  names(SEDhg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')#ng/g
 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

@@ -3,7 +3,7 @@
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes4')
 #setwd('C:\\Users\\gi\\Desktop\\2156\\b')
 setwd('C:\\Users\\Acer\\Desktop\\533')
-setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh3')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
 #sed_bal_ugdm2<-read.table('Net_ugm2d.txt')
 #sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);

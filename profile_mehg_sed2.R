@@ -6,7 +6,7 @@ dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max2\\naoh2')
- setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+ setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1, header = T)

@@ -3,7 +3,7 @@
 # 2050        [1804:1815] # 2001 - 2003 [1215:1250]
 ##92.4% of re-suspension (1.13 10^12 g year?1) 
 # occurs in the northern basin and 7.6% from the southern basin (9.27 10^10 g year?1).
-setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')   #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')   #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

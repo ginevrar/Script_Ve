@@ -1,5 +1,5 @@
 setwd('C:\\Users\\Acer\\Dropbox\\NewVenice16')
-setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')
 
 hg<-read.csv('Total_Hg.csv',header=FALSE, skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -10,6 +10,13 @@ names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10'
 time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
+
+
+SEDhg<-read.csv("Total_Sorbed_Divalent_Hg_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+names(SEDhg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')#ng/g
 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -93,27 +100,27 @@ reservoir_hgp_w8 <- (a8*d8 *Phgs$ws8)/10^6
 reservoir_hgp_w9 <- (a9*d9 *Phgs$ws9)/10^6
 reservoir_hgp_w10<- (a10*d10 *Phgs$ws10)/10^6
 
-hgsw1<-SEDhg2$wn1*silts$wn1     #ng g-1 * g m-3  = ng m-3
-hgsw2<-SEDhg2$wn2*silts$wn2     #ng g-1 * g m-3
-hgsw3<-SEDhg2$wn3*silts$wn3     #ng g-1 * g m-3
-hgsw4<-SEDhg2$wn4*silts$wn4     #ng g-1 * g m-3
-hgsw5<-SEDhg2$wn5*silts$wn5     #ng g-1 * g m-3
-hgsw6<-SEDhg2$wc6*silts$wc6     #ng g-1 * g m-3
-hgsw7<-SEDhg2$wc7*silts$wc7     #ng g-1 * g m-3
-hgsw8<-SEDhg2$ws8*silts$ws8     #ng g-1 * g m-3
-hgsw9<-SEDhg2$ws9*silts$ws9    #ng g-1 * g m-3
-hgsw10<-SEDhg2$ws10*silts$ws10    #ng g-1 * g m-3
+hgsw1<-SEDhg$wn1*silts$wn1     #ng g-1 * g m-3  = ng m-3
+hgsw2<-SEDhg$wn2*silts$wn2     #ng g-1 * g m-3
+hgsw3<-SEDhg$wn3*silts$wn3     #ng g-1 * g m-3
+hgsw4<-SEDhg$wn4*silts$wn4     #ng g-1 * g m-3
+hgsw5<-SEDhg$wn5*silts$wn5     #ng g-1 * g m-3
+hgsw6<-SEDhg$wc6*silts$wc6     #ng g-1 * g m-3
+hgsw7<-SEDhg$wc7*silts$wc7     #ng g-1 * g m-3
+hgsw8<-SEDhg$ws8*silts$ws8     #ng g-1 * g m-3
+hgsw9<-SEDhg$ws9*silts$ws9    #ng g-1 * g m-3
+hgsw10<-SEDhg$ws10*silts$ws10    #ng g-1 * g m-3
 
-hgpw1<-SEDhg2$wn1*POMs$wn1     #ng g-1 * g m-3  = ng m-3
-hgpw2<-SEDhg2$wn2*POMs$wn2     #ng g-1 * g m-3
-hgpw3<-SEDhg2$wn3*POMs$wn3     #ng g-1 * g m-3
-hgpw4<-SEDhg2$wn4*POMs$wn4     #ng g-1 * g m-3
-hgpw5<-SEDhg2$wn5*POMs$wn5     #ng g-1 * g m-3
-hgpw6<-SEDhg2$wc6*POMs$wc6     #ng g-1 * g m-3
-hgpw7<-SEDhg2$wc7*POMs$wc7     #ng g-1 * g m-3
-hgpw8<-SEDhg2$ws8*POMs$ws8     #ng g-1 * g m-3
-hgpw9<-SEDhg2$ws9*POMs$ws9    #ng g-1 * g m-3
-hgpw10<-SEDhg2$ws10*POMs$ws10    #ng g-1 * g m-3
+hgpw1<-SEDhg$wn1*POMs$wn1     #ng g-1 * g m-3  = ng m-3
+hgpw2<-SEDhg$wn2*POMs$wn2     #ng g-1 * g m-3
+hgpw3<-SEDhg$wn3*POMs$wn3     #ng g-1 * g m-3
+hgpw4<-SEDhg$wn4*POMs$wn4     #ng g-1 * g m-3
+hgpw5<-SEDhg$wn5*POMs$wn5     #ng g-1 * g m-3
+hgpw6<-SEDhg$wc6*POMs$wc6     #ng g-1 * g m-3
+hgpw7<-SEDhg$wc7*POMs$wc7     #ng g-1 * g m-3
+hgpw8<-SEDhg$ws8*POMs$ws8     #ng g-1 * g m-3
+hgpw9<-SEDhg$ws9*POMs$ws9    #ng g-1 * g m-3
+hgpw10<-SEDhg$ws10*POMs$ws10    #ng g-1 * g m-3
 
 hgpw1_fr<-(hgpw1)/(hg$wn1*10^3)
 plot(hgpw1_fr, type='l')
@@ -163,27 +170,27 @@ b9_DepP_mg_m2d<-(hg$ws9*DEPO_POM$ws9*(hgpw9_fr))/10^3
 b10_DepP_mg_m2d<-(hg$ws10*DEPO_POM$ws10*(hgpw10_fr))/10^3      
 
 
-hgssed1<-SEDhg2$sn1*silts$sn1     #ng g-1 * g m-3  = ng m-3
-hgssed2<-SEDhg2$sn2*silts$sn2     #ng g-1 * g m-3
-hgssed3<-SEDhg2$sn3*silts$sn3     #ng g-1 * g m-3
-hgssed4<-SEDhg2$sn4*silts$sn4     #ng g-1 * g m-3
-hgssed5<-SEDhg2$sn5*silts$sn5     #ng g-1 * g m-3
-hgssed6<-SEDhg2$sc6*silts$sc6     #ng g-1 * g m-3
-hgssed7<-SEDhg2$sc7*silts$sc7     #ng g-1 * g m-3
-hgssed8<-SEDhg2$ss8*silts$ss8     #ng g-1 * g m-3
-hgssed9<-SEDhg2$ss9*silts$ss9    #ng g-1 * g m-3
-hgssed10<-SEDhg2$ss10*silts$ss10    #ng g-1 * g m-3
+hgssed1<-SEDhg$sn1*silts$sn1     #ng g-1 * g m-3  = ng m-3
+hgssed2<-SEDhg$sn2*silts$sn2     #ng g-1 * g m-3
+hgssed3<-SEDhg$sn3*silts$sn3     #ng g-1 * g m-3
+hgssed4<-SEDhg$sn4*silts$sn4     #ng g-1 * g m-3
+hgssed5<-SEDhg$sn5*silts$sn5     #ng g-1 * g m-3
+hgssed6<-SEDhg$sc6*silts$sc6     #ng g-1 * g m-3
+hgssed7<-SEDhg$sc7*silts$sc7     #ng g-1 * g m-3
+hgssed8<-SEDhg$ss8*silts$ss8     #ng g-1 * g m-3
+hgssed9<-SEDhg$ss9*silts$ss9    #ng g-1 * g m-3
+hgssed10<-SEDhg$ss10*silts$ss10    #ng g-1 * g m-3
 
-hgpsed1<-SEDhg2$sn1*POMs$sn1     #ng g-1 * g m-3  = ng m-3
-hgpsed2<-SEDhg2$sn2*POMs$sn2     #ng g-1 * g m-3
-hgpsed3<-SEDhg2$sn3*POMs$sn3     #ng g-1 * g m-3
-hgpsed4<-SEDhg2$sn4*POMs$sn4     #ng g-1 * g m-3
-hgpsed5<-SEDhg2$sn5*POMs$sn5     #ng g-1 * g m-3
-hgpsed6<-SEDhg2$sc6*POMs$sc6     #ng g-1 * g m-3
-hgpsed7<-SEDhg2$sc7*POMs$sc7     #ng g-1 * g m-3
-hgpsed8<-SEDhg2$ss8*POMs$ss8     #ng g-1 * g m-3
-hgpsed9<-SEDhg2$ss9*POMs$ss9    #ng g-1 * g m-3
-hgpsed10<-SEDhg2$ss10*POMs$ss10    #ng g-1 * g m-3
+hgpsed1<-SEDhg$sn1*POMs$sn1     #ng g-1 * g m-3  = ng m-3
+hgpsed2<-SEDhg$sn2*POMs$sn2     #ng g-1 * g m-3
+hgpsed3<-SEDhg$sn3*POMs$sn3     #ng g-1 * g m-3
+hgpsed4<-SEDhg$sn4*POMs$sn4     #ng g-1 * g m-3
+hgpsed5<-SEDhg$sn5*POMs$sn5     #ng g-1 * g m-3
+hgpsed6<-SEDhg$sc6*POMs$sc6     #ng g-1 * g m-3
+hgpsed7<-SEDhg$sc7*POMs$sc7     #ng g-1 * g m-3
+hgpsed8<-SEDhg$ss8*POMs$ss8     #ng g-1 * g m-3
+hgpsed9<-SEDhg$ss9*POMs$ss9    #ng g-1 * g m-3
+hgpsed10<-SEDhg$ss10*POMs$ss10    #ng g-1 * g m-3
 
 phgw1<-Phgs2$wn1*10^3
 hgpw1+hgsw1      #Phg ug m-3
@@ -191,7 +198,7 @@ hgpw1+hgsw1      #Phg ug m-3
 plot(phgw1)
 plot(hgpw1+hgsw1)
 
-plot(SEDhg2$sn1, type='l',col=2, ylim=c(0,2000))
+plot(SEDhg$sn1, type='l',col=2, ylim=c(0,2000))
 
 hgT1<-(hg$sn1*TOTs$sn1)   # ng g * g m-3  = ng m-3
 hgT2<-(hg$sn2*TOTs$sn2)   # ng g * g m-3  = ng m-3
@@ -292,6 +299,9 @@ silt_bal7=(b7_Dep_mg_m2d-b7_ResS_mg_m2d)
 silt_bal8=(b8_Dep_mg_m2d-b8_ResS_mg_m2d)
 silt_bal9=(b9_Dep_mg_m2d-b9_ResS_mg_m2d)
 silt_bal10=(b10_Dep_mg_m2d-b10_ResS_mg_m2d)
+
+0.0001313073 0.0001353113 0.0017146732 0.0021216010 0.0031144216 0.0049792471 0.0061178995 0.0065854957 0.0064620386 0.0051914175
+0.001255236  0.001255228  0.001255533 0.001255951 0.001256225 0.001256055 0.001255282 0.001254120 0.001252829 0.001251954 0.001251661
 
 SB1<-silt_bal1*a1/10^6
 SB2<-silt_bal2*a2/10^6

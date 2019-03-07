@@ -136,16 +136,6 @@ head(dep_net)
 
 #total_reservoir_Sed_media[2]-total_reservoir_Sed_media[1]+
 
-###
-##questo da trasformare in funzione calcola depo hgp
-total_reservoir_W_media[2]-total_reservoir_W_media[1]+
-input_short$tt[1]-Output_terms[1]
-
-total_reservoir_W_media[3]-total_reservoir_W_media[2]+
-  input_short$tt[2]-Output_terms[2]
-
-#for i 1:201
-total_reservoir_Sed_media-total_reservoir_Sed_media[i-1]
 
 ax<-seq(1900,2100)
 plot(ax,dep_net,type='l', col='orange',lwd=2)
