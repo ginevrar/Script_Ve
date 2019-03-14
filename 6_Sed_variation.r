@@ -1,8 +1,4 @@
-setwd('C:\\Users\\gi\\Desktop\\2155')
-#setwd('C:\\Users\\gi\\Desktop\\NNN14')
-#setwd('F:\\2128')
-setwd('C:\\Users\\Acer\\Desktop\\naoh3')
-
+ 
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
@@ -13,10 +9,11 @@ time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
 
-TOT<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
-names(TOT)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
-               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9',
-               'dss10', 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 silts<-read.csv("Silts_Fines.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(silts)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -74,9 +71,7 @@ reservoir_hgp_s8<-(a8*0.05*Phgs$ss8[2:202])/10^6
 reservoir_hgp_s9<-(a9*0.05*Phgs$ss9[2:202])/10^6
 reservoir_hgp_s10<-(a10*0.05*Phgs$ss10[2:202])/10^6   # con Phg = 1327071.6; con SEDhg =1330108.1
 
-head(reservoir_hgp_s1); head(reservoir_hg_s1)
-
-str(hg);str(TOTs)
+head(reservoir_hgp_s1); head(reservoir_hg_s1); str(hg);str(TOTs)
 
 reservoir_hg_s1 <- (a1*0.05 * hg$sn1[2:202] *TOTs$sn1[2:202])/10^9   #ng(hg)/g(s) *g(s)/m3(w+s)*vol(m3) = ng(hg)/10^9 = g(hg)
 reservoir_hg_s2 <- (a2*0.05 * hg$sn2[2:202] *TOTs$sn2[2:202])/10^9
@@ -179,7 +174,10 @@ net_sum[72] ; rdate[72]
 net_sum[97] ; rdate[97]
 net_sum[240] ; rdate[240]
 
+burial_tot<-(bur1+bur2+bur3+bur4+bur5+bur6+bur7+bur8+bur9+bur10)/1000
+
 write.table(net_sum,file='Sed_bal.txt')
+write.table(burial_tot,file='Burial.txt')
 getwd()
 diffHgTs1[2]
 

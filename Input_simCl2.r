@@ -377,6 +377,7 @@ plot(b6i[1:2412])
 write.table(monthly_dep,file='monthly_dep.txt')
 write.table(monthly_riv,file='monthly_riv.txt')
 write.table(monthly_cit,file='monthly_city.txt')
+write.table(monthy_ind,file='monthy_ind.txt')
 
 in1 <-(monthly_dep$b1)/365   # kg / y to kg/d
 in2 <-(monthly_dep$b2 + monthly_riv$b2r)/365

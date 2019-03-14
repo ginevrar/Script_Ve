@@ -5,7 +5,7 @@
  # setwd('C:/Users/Acer/Dropbox/NewVenice20/w')
  # setwd('C:\\Users\\gi\\Desktop\\2156\\b')
  # setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
-  setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\long')     #sim_cl
+  setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\long_long')     #sim_cl
   
   hg<-read.csv('Total_Hg.csv', skip=1)
   names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -18,6 +18,21 @@
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+  
+  TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+  names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')  
+  
+  time.steps <- hg[,1]; time.steps3 <- time.steps*24*3600
+  time.st_media<-tapply(time.steps3[2:147461], rep(1:(length(time.steps3[2:147461])/365),each = 365),mean)
+  TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+  TEMPO2 <- as.POSIXct(time.st_media, tz= "GMT", origin = "1900-01-01")
+  TEMPO[1:10]
+  rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
+  rdate2<-as.Date(TEMPO2, tz= "GMT", format="%Y")
+  
   # water Hg conc
   water3<-hg$wn3; solids3<-TOTs$wn3  #Lido       
   water7<-hg$wc7; solids7<-TOTs$wc7  #Malamocco     1.5768e+08
@@ -67,13 +82,21 @@
   Sb7_kgy_mhg=VbSb7_mhg*365/10^9
   Sb10_kgy_mhg=VbSb10_mhg*365/10^9
   
+  
+  VbSb3_SED=(exchB3*grad3_solidi)     # m3 d-1 * ug m-3 = ug d-1
+  VbSb7_SED=(exchB7*grad7_solidi)     # m3 d-1 * ug m-3 = ug d-1
+  VbSb10_SED=(exchB10*grad10_solidi)  # m3 d-1 * ug m-3 = ug d-1
+  
+  Sb3_kgy_SED=VbSb3_SED*365/10^9
+  Sb7_kgy_SED=VbSb7_SED*365/10^9
+  Sb10_kgy_SED=VbSb10_SED*365/10^9
+  
   par(mfrow=c(2,2))
-  plot(Sb3_kgy);plot(Sb7_kgy);plot(Sb10_kgy)
+  #plot(Sb3_kgy);plot(Sb7_kgy);plot(Sb10_kgy)
   
   Disper_tot_kgy<-(Sb3_kgy)+(Sb7_kgy)+(Sb10_kgy)
   Disper_tot_kgy_mhg<-(Sb3_kgy_mhg)+(Sb7_kgy_mhg)+(Sb10_kgy_mhg)
-  
-  plot(Disper_tot_kgy)
+  Disper_tot_kgy_SED<-(Sb3_kgy_SED)+(Sb7_kgy_SED)+(Sb10_kgy_SED)
   
   
   #---------------- ADVECTIVE FLOWS  (Qi) m3 s-1 to m3 d-1  --------------------------------------
@@ -91,18 +114,71 @@
   hg_outflow_kg_y_mhg<-outflow_ugd_mhg*365/10^9
   
   ### solids out
-  outflow_solids_gy<-(bound3*solids3)+(bound10*solids10)+(bound7*solids7)
+  outflow_SED_gd<-((bound3*solids3)+(bound10*solids10)+(bound7*solids7)) # g m-3 * m3 d-1 = g d-1
+  hg_outflow_kg_y_SED<-outflow_SED_gd*365/1000
   ## _______________________________
   
-  plot(hg_outflow_kg_y)
-  plot(Disper_tot_kgy)
   
-  write.table(Disper_tot_kgy, file='Disper_tot_kgy.txt')
-  write.table(hg_outflow_kg_y, file='Outflow_tot_kgy.txt')
+  if (length(hg$wn1) > 206 & length(hg$wn1)< 2450) {
+    hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y[2:2413,], rep(1:(length(hg_outflow_kg_y[2:2413,])/12),each = 12),mean)
+    Disper_tot_kgy_media<-tapply(Disper_tot_kgy[2:2413], rep(1:(length(Disper_tot_kgy[2:2413])/12),each = 12),mean)
+     
+    hg_outflow_kg_y_media_mhg<-tapply(hg_outflow_kg_y_mhg[2:2413,], rep(1:(length(hg_outflow_kg_y_mhg[2:2413,])/12),each = 12),mean)
+    Disper_tot_kgy_media_mhg<-tapply(Disper_tot_kgy_mhg[2:2413], rep(1:(length(Disper_tot_kgy_mhg[2:2413])/12),each = 12),mean)
+    
+    hg_outflow_kg_y_media_SED<-tapply(hg_outflow_kg_y_SED[2:2413,], rep(1:(length(hg_outflow_kg_y_SED[2:2413,])/12),each = 12),mean)
+    Disper_tot_kgy_media_SED<-tapply(Disper_tot_kgy_SED[2:2413], rep(1:(length(Disper_tot_kgy_SED[2:2413])/12),each = 12),mean)
+    
+    dfff<-data.frame(rdate,hg_outflow_kg_y_media, Disper_tot_kgy_media, hg_outflow_kg_y_media_mhg,
+                     Disper_tot_kgy_media_mhg,hg_outflow_kg_y_media_SED, Disper_tot_kgy_media_SED)
+  } else if (length(hg$wn1) > 2450) {
+    hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y[2:147461], rep(1:(length(hg_outflow_kg_y[2:147461])/365),each = 365),mean)
+    Disper_tot_kgy_media<-tapply(Disper_tot_kgy[2:147461], rep(1:(length(Disper_tot_kgy[2:147461])/365),each = 365),mean)
+    
+    hg_outflow_kg_y_media_mhg<-tapply(hg_outflow_kg_y_mhg[2:147461,], rep(1:(length(hg_outflow_kg_y_mhg[2:147461,])/365),each = 365),mean)
+    Disper_tot_kgy_media_mhg<-tapply(Disper_tot_kgy_mhg[2:147461], rep(1:(length(Disper_tot_kgy_mhg[2:147461])/365),each = 365),mean)
+    
+    hg_outflow_kg_y_media_SED<-tapply(hg_outflow_kg_y_SED[2:147461,], rep(1:(length(hg_outflow_kg_y_SED[2:147461,])/365),each = 365),mean)
+    Disper_tot_kgy_media_SED<-tapply(Disper_tot_kgy_SED[2:147461], rep(1:(length(Disper_tot_kgy_SED[2:147461])/365),each = 365),mean)
+    
+    dfff<-data.frame(rdate2,hg_outflow_kg_y_media, Disper_tot_kgy_media, hg_outflow_kg_y_media_mhg,
+                     Disper_tot_kgy_media_mhg,hg_outflow_kg_y_media_SED, Disper_tot_kgy_media_SED)
+    
+  } else if (length(hg$wn1) < 206) {
+    hg_outflow_kg_y_media<-hg_outflow_kg_y[2:203]
+    Disper_tot_kgy_media<-Disper_tot_kgy[2:203]
+    
+    hg_outflow_kg_y_media_mhg<-hg_outflow_kg_y_mhg[2:203]
+    Disper_tot_kgy_media_mhg<-Disper_tot_kgy_mhg[2:203]
+    
+    hg_outflow_kg_y_media_SED<-hg_outflow_kg_y_SED[2:203]
+    Disper_tot_kgy_media_SED<-Disper_tot_kgy_SED[2:203]
+    
+    dfff<-data.frame(rdate[2:203],hg_outflow_kg_y_media, Disper_tot_kgy_media,hg_outflow_kg_y_media_mhg,Disper_tot_kgy_media_mhg)
+  } else if (length(hg$wn1) > 760000) { 
+    hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y[2:762121], rep(1:(length(hg_outflow_kg_y[2:762121])/8760),each = 8760),mean)
+    Disper_tot_kgy_media<-tapply(Disper_tot_kgy[2:762121], rep(1:(length(Disper_tot_kgy[2:762121])/8760),each = 8760),mean)
+    
+    hg_outflow_kg_y_media_mhg<-tapply(hg_outflow_kg_y_mhg[2:762121,], rep(1:(length(hg_outflow_kg_y_mhg[2:762121,])/8760),each = 8760),mean)
+    Disper_tot_kgy_media_mhg<-tapply(Disper_tot_kgy_mhg[2:762121], rep(1:(length(Disper_tot_kgy_mhg[2:762121])/8760),each = 8760),mean)
+    
+    hg_outflow_kg_y_media_SED<-tapply(hg_outflow_kg_y_SED[2:762121,], rep(1:(length(hg_outflow_kg_y_SED[2:762121,])/8760),each = 8760),mean)
+    Disper_tot_kgy_media_SED<-tapply(Disper_tot_kgy_SED[2:762121], rep(1:(length(Disper_tot_kgy_SED[2:762121])/8760),each = 8760),mean)
+    
+    dfff<-data.frame(rdate2,hg_outflow_kg_y_media, Disper_tot_kgy_media, hg_outflow_kg_y_media_mhg,
+                     Disper_tot_kgy_media_mhg,hg_outflow_kg_y_media_SED, Disper_tot_kgy_media_SED)
+  }
   
-  write.table(Disper_tot_kgy_mhg, file='Disper_tot_MHG_kgy.txt')
-  write.table(hg_outflow_kg_y_mhg, file='Outflow_tot_MHG_kgy.txt')
+
+#  plot(hg_outflow_kg_y)
+ # plot(Disper_tot_kgy)
   
-    outflow_solids_tgy<-outflow_solids_gy/10^6
-  plot(outflow_solids_tgy)
-      
+  write.table(dfff, file='Disper_and_OUTfl_tot_kgy.txt')
+  #write.table(hg_outflow_kg_y, file='Outflow_tot_kgy.txt')
+  
+ # write.table(Disper_tot_kgy_mhg, file='Disper_tot_MHG_kgy.txt')
+  #write.table(hg_outflow_kg_y_mhg, file='Outflow_tot_MHG_kgy.txt')
+  
+    outflow_solids_tgy<-hg_outflow_kg_y_SED/10^3
+
+

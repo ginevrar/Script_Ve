@@ -183,6 +183,8 @@ riv_mult<-rep(1,12)
 
 cit_mult<-rep(1,12)
 
+library(tidyverse)
+
 if6<-indus %>%
   rowwise() %>%                       # for each row
   mutate(x = list(ind2 * cit_mult)) %>%    # multiply value in BOX1 with mul and save results as a list
@@ -191,7 +193,6 @@ yy<-as.numeric(as.character(unlist(if6[1])))
 b6i<-as.numeric(as.character(unlist(if6[3])))
 tot_ind = b6i
 
-library(tidyverse)
 
 if6_mehg<-indus_mehg %>%
   rowwise() %>%                       # for each row

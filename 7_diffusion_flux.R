@@ -1,4 +1,4 @@
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\long')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
 
 Ec= 2*10^(-9)    # Diffusion coefficient, m2 s-1 
 por=0.7
@@ -68,16 +68,16 @@ grad10_mhgd = (mhgd$ss10/por - mhgd$ws10)
 
 fd<- (Ec*por)/Lex
 
-flux1=fd*a1*(grad1)     ## ug s-1 
-flux2=fd*a2*(grad2)     ## ug s-1 
-flux3=fd*a3*(grad3)     ## ug s-1 
-flux4=fd*a4*(grad4)     ## ug s-1 
-flux5=fd*a5*(grad5)     ## ug s-1 
-flux6=fd*a6*(grad6)     ## ug s-1 
-flux7=fd*a7*(grad7)     ## ug s-1 
-flux8=fd*a8*(grad8)     ## ug s-1 
-flux9=fd*a9*(grad9)     ## ug s-1 
-flux10=fd*a10*(grad10)     ## ug s-1 
+flux1=-fd*a1*(grad1)     ## ug s-1 
+flux2=-fd*a2*(grad2)     ## ug s-1 
+flux3=-fd*a3*(grad3)     ## ug s-1 
+flux4=-fd*a4*(grad4)     ## ug s-1 
+flux5=-fd*a5*(grad5)     ## ug s-1 
+flux6=-fd*a6*(grad6)     ## ug s-1 
+flux7=-fd*a7*(grad7)     ## ug s-1 
+flux8=-fd*a8*(grad8)     ## ug s-1 
+flux9=-fd*a9*(grad9)     ## ug s-1 
+flux10=-fd*a10*(grad10)     ## ug s-1   # negative flux : to the water
 
 fd1_kgy<-(flux1*86400)/10^9   ## ug m-3 s-1 
 fd2_kgy<-(flux2*86400)/10^9   ## ug m-3 s-1 
