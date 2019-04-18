@@ -28,18 +28,18 @@ for(i in 2: 46){
 
 years[138]
 #------- Serie DEPOSIZIONE ATMOSFERICA ----------------------------
-de<-hgL$atm_dep_NaOH 
+de<-hgL$atm_dep_Cl 
 de2<-hgL$Hg_control 
-  
+de3<-c(de[0:99],de2[100:201])
+
   plot(de, type='l', ylim=c(0,80))
   par(new=T)
   plot(de3, type='l',col=3, ylim=c(0,80))
-  de-de2
 str(de)
-de3<-c(de[0:99],de2[100:201])
+tail(de3)
 
-dep<-data.frame(years[1:201],de)
-names(dep)<-c('year','de')
+#dep<-data.frame(years[1:201],de)
+#names(dep)<-c('year','de')
 
 de2<-hgL$dep_zeroEm[100:201]
 de3<-hgL$Hg_control[100:201]
@@ -51,15 +51,63 @@ de_s3<-c(de[1:99],de3)
 de_s4<-c(de[1:99],de4)
 de_s5<-c(de[1:99],de5)
 
-dev.new()
-plot(years,de, type='l', ylim=c(0,80))
+png('Scenarios_rates2.png', height=12, width=22, units='cm', res=300)
+par(mar=c(3,4.5,1,0), bty='n')
+plot(years[100:201],de[100:201], type='b',lwd=2.0, ylim=c(0,20), ylab='',pch=1, xlab='', xaxt='n',yaxt='n')
 par(new=T)
-plot(years,de_s2, type='l', lty=2,col=3, ylim=c(0,80))
+plot(years[100:201],de_s2[100:201], type='b', lwd=2.0, lty=2,col='#117733', ylim=c(0,20),pch=2, ylab='', xlab='', xaxt='n',yaxt='n')
+par(new=T)
+plot(years[100:201],de_s3[100:201], type='b', lwd=2.0, lty=2,col='#88CCEE', ylim=c(0,20),pch=8, ylab='', xlab='', xaxt='n',yaxt='n')
+par(new=T)
+plot(years[100:201],de_s4[100:201], type='b', lwd=2.0, lty=2,col='#DDCC77', ylim=c(0,20), pch=5,ylab='', xlab='', xaxt='n',yaxt='n')
+par(new=T)
+plot(years[100:201],de_s5[100:201], type='b', lwd=2., lty=2,col='#882255', ylim=c(0,20),pch=6, 
+     ylab='', xlab='year', main='Scenarios of Hg atmospheric deposition')
+legend(1999,20,legend=c('Reference','Zero emissions','Emissions control','Constant emissions','A1B1'), 
+       col=c(1,'#117733','#88CCEE','#DDCC77','#882255'), pch=c(1,2,8,5,6))
+mtext(side=2,expression(paste('kg y'^-1)), line=2.2)
+dev.off()
 
 abline(v=1999)
 abline(h=11.7)
 
+Hg_sediment<-c(10.35, 5.72, 1.96,	-0.32)
+Hg_Water<-c(12.61,6.84,2.22,-0.17)
+MeHg_Sediment<-c(5.06,2.83,	0.99,	-0.22)
+MeHg_Water<-c(5.57,3.04,1.02,-0.13)
+
+df<-(cbind(Hg_Water,Hg_sediment,MeHg_Water,MeHg_Sediment))
+
+
+df1<-as.matrix( df)
+  rownames(df1)<-c('Hg sediment','Hg Water','MeHg sediment','MeHg Water')
+  
+png('barplot_scenarioss.png', height=25, width=23, units='cm', res=300)
+par(mar=c(3,3,1,0))
+barplot(df1,beside=T, border="white",ylab='concentrations difference (%)',
+        ylim=c(-2,13), col=c('#882255','#DDCC77','#88CCEE','#117733'))
+legend("topright",legend=c('Hg sediment','Hg Water','MeHg sediment','MeHg Water'),
+       col=c('#882255','#DDCC77','#88CCEE','#117733'), pch=15,bty = "n")
+dev.off()
+
+png('barplot_scenarioss4.png', height=20, width=22, units='cm', res=300)
+par(mar=c(3,4.5,1,0))
+barplot(df1,beside=T, border="white",ylab='concentrations differences (%)',cex.axis = 1.6,cex.lab=1.6,cex.names=1.5,
+        ylim=c(-2,13), col=c('#882255','#DDCC77','#88CCEE','#117733'))
+legend("topright",legend=c('A1B1','Constant emissions','Emissions control','Zero emissions'),
+       col=c('#882255','#DDCC77','#88CCEE','#117733'), pch=15,bty = "n", cex=1.5)
+dev.off()
+
+png('barplot_scenarioss5b.png', height=12, width=22, units='cm', res=300)
+par(mar=c(3,4.5,1,0))
+barplot(df1,beside=T, border="white",ylab='concentrations differences (%)',cex.axis = 1.6,cex.lab=1.6,cex.names=1.5,
+        ylim=c(-2,13), col=c('#882255','#DDCC77','#88CCEE','#117733'))
+legend("topright",legend=c('A1B1','Constant emissions','Emissions control','Zero emissions'),
+       col=c('#882255','#DDCC77','#88CCEE','#117733'), pch=15,bty = "n", cex=1.5)
+dev.off()
+
 dep_g_km2_y<-de/area_km2*100
+
 de2_g_km2_y<-de_s2/area_km2*100
 de3_g_km2_y<-de_s3/area_km2*100
 de4_g_km2_y<-de_s4/area_km2*100
@@ -142,7 +190,7 @@ str(cit)
 #ind<-c(rep(0,20), seq(21,60,length.out = 20), seq(60,200,length.out = 10),rep(600, 10), seq(500,300,length.out = 30),
 #     seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
 
-ind<-hgL$NaOH
+ind<-hgL$Cl2
   plot(ind)
 
   ind2<-ind[1:201]
@@ -185,21 +233,26 @@ ind<-ind[1:201]
 area <-4.119E+08
 aree<-c(4.350E+07,3.530E+07,3.130E+07,	8.900E+06,	2.220E+07,
         5.430E+07,1.146E+08,3.170E+07,	2.950E+07,	4.060E+07)
-
-dep<-data.frame(years[1:201],de)
 cit<-data.frame(years[1:201],ci)
 
-dep$BOX1 <-de*(aree[1]/area)
-dep$BOX2 <-de*(aree[2]/area)
-dep$BOX3 <-de*(aree[3]/area)
-dep$BOX4 <-de*(aree[4]/area)
-dep$BOX5 <-de*(aree[5]/area)
-dep$BOX6 <-de*(aree[6]/area)
-dep$BOX7 <-de*(aree[7]/area)
-dep$BOX8 <-de*(aree[8]/area)
-dep$BOX9 <-de*(aree[9]/area)
-dep$BOX10 <-de*(aree[10]/area)
+dep<-data.frame(years[1:201],de3)
+names(dep)<-c('year','de3')
+plot(dep$de); tail(dep)
+plot(dep)
 
+dep$BOX1 <-de3*(aree[1]/area)
+dep$BOX2 <-de3*(aree[2]/area)
+dep$BOX3 <-de3*(aree[3]/area)
+dep$BOX4 <-de3*(aree[4]/area)
+dep$BOX5 <-de3*(aree[5]/area)
+dep$BOX6 <-de3*(aree[6]/area)
+dep$BOX7 <-de3*(aree[7]/area)
+dep$BOX8 <-de3*(aree[8]/area)
+dep$BOX9 <-de3*(aree[9]/area)
+dep$BOX10 <-de3*(aree[10]/area)
+
+
+plot(dep$BOX1)
 #aaaaa<-(dep$BOX1+dep$BOX2+dep$BOX3+dep$BOX4+dep$BOX5+dep$BOX6+dep$BOX7+dep$BOX8+dep$BOX9+dep$BOX10)
 
 plot(dep$BOX1)
@@ -501,7 +554,7 @@ text(ladata[30],26,'D', cex=2.5)
 
 dev.off()
 
-write.table(all_input,file='all_input_hgII_noSeason_Hgcontrol.txt')
+write.table(all_input,file='all_input_hgII_noSeason_HgControl.txt')
 #write.table(monthly_riv_mehg,file='monthly_riv_mehg_noSeason.txt')
 
 getwd()

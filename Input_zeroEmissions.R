@@ -28,9 +28,11 @@ for(i in 2: 46){
 
 years[138]
 #------- Serie DEPOSIZIONE ATMOSFERICA ----------------------------
-de<-hgL$atm_dep_NaOH 
+de<-hgL$atm_dep_Cl 
 de2<-hgL$dep_zeroEm   #A1B1
   
+plot(de2)
+
 de3<-c(de[0:99],de2[100:201])
 
   plot(de, type='l', ylim=c(0,80))

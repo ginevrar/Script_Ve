@@ -42,16 +42,29 @@ names(mehgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','
 mhgd<-mehgdiss + mehgDOC
 hgd<-hgdiss + hgDOC 
 
-time.steps <- hgdiss[,1]
+
+hgII<-hgt-hg0-mhgt
+
+diss_perc<-hgd/hgII*100
+
+diss_perc[1313:1325,]
+rdate[1313:1325,]
+
+time.steps <- hg0[,1]
 time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 rdate1<-format(rdate,"%d-%m-%Y" )
 rdate[1313:(1325)]
-rdate1[1313:(1325)]
-### Bùù
+rdate[1430:(1441)]
 
+### B
+mean_diss_perc<-colMeans(diss_perc[1430:1441,2:11])
+
+mean(mean_diss_perc)
+
+ 
 nord_bloom_med_hgd<-2.086136
 nord_bloom_min_hgd<-1.65366396
 nord_bloom_max_hgd<-2.51860804
@@ -84,8 +97,6 @@ south_bloom_med_mhgd<-0.0172
 south_bloom_min_mhgd<-0.008772	
 south_bloom_max_mhgd<-0.025628 
 
-
-
 rdate2<-rdate[1214:1321]
 nord_hgd<-data.frame(hgd$wn1[1214:1321],hgd$wn2[1214:1321],hgd$wn4[1214:1321]); names(nord_hgd)<-c('w1','w2','w4')
 centr_hgd<-data.frame(hgd$wc6[1214:1321], hgd$wn3[1214:1321], hgd$wn5[1214:1321],hgd$wc7[1214:1321])
@@ -108,7 +119,6 @@ mod_sud_mean_mhgd_D<-rowMeans(sud_mhgd); mod_sud_min_mhgd_D<-apply(sud_mhgd,1,FU
 NN_mhg_D<-c(mod_nord_min_mhgd_D,rev(mod_nord_max_mhgd_D)); 
 CC_mhg_D<-c(mod_cent_min_mhgd_D,rev(mod_cent_max_mhgd_D));SS_mhg_D<-c(mod_sud_min_mhgd_D,rev(mod_sud_max_mhgd_D))
 xx<-c(rdate[1214:1321],rev(rdate[1214:1321]))
-
 
 png('Acque_Bloom_all_19hilmnB.png',width = 21, height = 18,
     units = "cm", res=400)

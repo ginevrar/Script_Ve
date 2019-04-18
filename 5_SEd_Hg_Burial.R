@@ -1,6 +1,6 @@
 setwd('C:/Users/Acer/Dropbox/NewVenice21')
 setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\long')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -128,15 +128,21 @@ tot_bur_media
 hgSilt<-silts*SEDhg 
 hgPOM<- POMs*SEDhg 
 
-VDSw<-silt_depos* hgSilt  #. Vd (m d-1)* silt (g m-3) * hg (ng g-1) = g m-2 d-1
+VDSw<-silt_depos* hgSilt  #. Vd (m d-1)* silt (g m-3) * hg (ng g-1) = ng m-2 d-1
 VRSs<-silt_res *hgSilt
 
-VDPw<-POM_depos* hgPOM  #. Vd (m d-1)* silt (g m-3) * hg (ng g-1) = g m-2 d-1
+VDPw<-POM_depos* hgPOM  #. Vd (m d-1)* silt (g m-3) * hg (ng g-1) = ng m-2 d-1
 VRPs<-POM_res *hgPOM
 
 B1<-a1*(VDSw$wn1-VRSs$sn1)/10^12
 B11<-a1*(VDPw$wn1-VRPs$sn1)/10^12
 t1<-B1+B11
+
+B2<-a2*(VDSw$wn2-VRSs$sn2)/10^12
+B22<-a2*(VDPw$wn2-VRPs$sn2)/10^12
+t2<-B2+B22
+
+plot(B22)
 
 bal_media1<-tapply(t1[3:2414], rep(1:(length(t1[3:2414])/12),each = 12),mean)
 

@@ -1,4 +1,4 @@
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10\\')     #sim_cl
 
 1900-2101;2426/12;# plot da 2424 a 2020  12*80
 2424-960
@@ -42,6 +42,10 @@ TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 tail(rdate)
+
+conc_mhg<-data.frame(rdate,mehg)
+
+conc_mhg[96,]
 
 # Dati 1995 CVN, MAV  -  15 cm
 box1<-c(0.8,0.6,0.9)*1000

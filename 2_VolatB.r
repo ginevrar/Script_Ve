@@ -3,7 +3,7 @@ setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
 atm_hg0<-read.table('atm_hg.txt')    #g/m3
 
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\long_long')     #sim_cl
-
+setwd('G:\\Il mio Drive\\CL_10\\out')
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -21,6 +21,8 @@ names(evasion)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','
                   'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                   'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                   'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+str(hg0)
+
 # aree boxes
 a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07; a4<-8.90E+06; a5<-2.22E+07;a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
 # depths boxes
@@ -41,8 +43,8 @@ library(tidyverse)
 mult<-rep(1,8760)
 atm_hg0<-atm_hg0 %>%
   rowwise() %>%                     # for each row
-  mutate(x = list(V1 * mult)) %>%    # multiply value in BOX1 with mul and save results as a list
-  unnest()                            # unnest data
+  mutate(x = list(V1 * mult)) %>%   # multiply value in BOX1 with mul and save results as a list
+  unnest()                          # unnest data
 atm_hg0<-as.numeric(atm_hg0$V1)
 
 atm_hg0[1:768944]

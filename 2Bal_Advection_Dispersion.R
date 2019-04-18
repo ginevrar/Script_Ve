@@ -5,7 +5,7 @@
  # setwd('C:/Users/Acer/Dropbox/NewVenice20/w')
  # setwd('C:\\Users\\gi\\Desktop\\2156\\b')
  # setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
-  setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\long_long')     #sim_cl
+  setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
   
   hg<-read.csv('Total_Hg.csv', skip=1)
   names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -105,6 +105,8 @@
   #lido and Malamocco:  5.6 10^10 m3 year?1
   #Chioggia :  2.8 10^10 m3 year?1
   
+  bound3*365
+  
   #ngL*mcy
   outflow_ugd<-(water3*bound3)+(water10*bound10)+(water7*bound7)  # ug m-3 * m3 d-1 = 
   hg_outflow_kg_y<-outflow_ugd*365/10^9
@@ -120,17 +122,19 @@
   
   
   if (length(hg$wn1) > 206 & length(hg$wn1)< 2450) {
-    hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y[2:2413,], rep(1:(length(hg_outflow_kg_y[2:2413,])/12),each = 12),mean)
+    hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y[2:2413], rep(1:(length(hg_outflow_kg_y[2:2413])/12),each = 12),mean)
     Disper_tot_kgy_media<-tapply(Disper_tot_kgy[2:2413], rep(1:(length(Disper_tot_kgy[2:2413])/12),each = 12),mean)
      
-    hg_outflow_kg_y_media_mhg<-tapply(hg_outflow_kg_y_mhg[2:2413,], rep(1:(length(hg_outflow_kg_y_mhg[2:2413,])/12),each = 12),mean)
+    hg_outflow_kg_y_media_mhg<-tapply(hg_outflow_kg_y_mhg[2:2413], rep(1:(length(hg_outflow_kg_y_mhg[2:2413])/12),each = 12),mean)
     Disper_tot_kgy_media_mhg<-tapply(Disper_tot_kgy_mhg[2:2413], rep(1:(length(Disper_tot_kgy_mhg[2:2413])/12),each = 12),mean)
     
-    hg_outflow_kg_y_media_SED<-tapply(hg_outflow_kg_y_SED[2:2413,], rep(1:(length(hg_outflow_kg_y_SED[2:2413,])/12),each = 12),mean)
+    hg_outflow_kg_y_media_SED<-tapply(hg_outflow_kg_y_SED[2:2413], rep(1:(length(hg_outflow_kg_y_SED[2:2413])/12),each = 12),mean)
     Disper_tot_kgy_media_SED<-tapply(Disper_tot_kgy_SED[2:2413], rep(1:(length(Disper_tot_kgy_SED[2:2413])/12),each = 12),mean)
     
-    dfff<-data.frame(rdate,hg_outflow_kg_y_media, Disper_tot_kgy_media, hg_outflow_kg_y_media_mhg,
+    dfff<-data.frame(hg_outflow_kg_y_media, Disper_tot_kgy_media, hg_outflow_kg_y_media_mhg,
                      Disper_tot_kgy_media_mhg,hg_outflow_kg_y_media_SED, Disper_tot_kgy_media_SED)
+   
+    
   } else if (length(hg$wn1) > 2450) {
     hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y[2:147461], rep(1:(length(hg_outflow_kg_y[2:147461])/365),each = 365),mean)
     Disper_tot_kgy_media<-tapply(Disper_tot_kgy[2:147461], rep(1:(length(Disper_tot_kgy[2:147461])/365),each = 365),mean)
@@ -169,11 +173,16 @@
                      Disper_tot_kgy_media_mhg,hg_outflow_kg_y_media_SED, Disper_tot_kgy_media_SED)
   }
   
-
+  
 #  plot(hg_outflow_kg_y)
  # plot(Disper_tot_kgy)
+  df2<-data.frame(rdate,hg_outflow_kg_y,Disper_tot_kgy,
+                  hg_outflow_kg_y_mhg,Disper_tot_kgy_mhg)
+  
+                  (hg_outflow_kg_y_SED+Disper_tot_kgy_SED)
   
   write.table(dfff, file='Disper_and_OUTfl_tot_kgy.txt')
+  write.table(df2, file='Disper_and_OUTfl_tot_kgy_monthy.txt')
   #write.table(hg_outflow_kg_y, file='Outflow_tot_kgy.txt')
   
  # write.table(Disper_tot_kgy_mhg, file='Disper_tot_MHG_kgy.txt')

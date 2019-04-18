@@ -171,8 +171,8 @@ par(mfrow=c(1,1))
 plot(net_sum)
 max(net_sum,na.rm = T)
 head(net_sum,20)
-
-net_sum[12]; rdate[12]
+net_sum[121];
+net_sum[120]; rdate[12]
 net_sum[24]; rdate[24]
 net_sum[72] ; rdate[72]
 net_sum[97] ; rdate[97]

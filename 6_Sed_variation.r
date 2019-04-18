@@ -1,10 +1,11 @@
- 
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
+
+str(hg)
 time.steps <- hg$time;time.steps3 <- time.steps*24*3600;
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y");head(rdate)
@@ -28,8 +29,11 @@ names(sands)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws
                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 Phgs<-read.csv("Total_Sorbed_Divalent_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+
 names(Phgs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
+str(Phgs)
 
 DEPO_silt<-read.csv("Silt_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_silt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -176,11 +180,73 @@ net_sum[240] ; rdate[240]
 
 burial_tot<-(bur1+bur2+bur3+bur4+bur5+bur6+bur7+bur8+bur9+bur10)/1000
 
-write.table(net_sum,file='Sed_bal.txt')
-write.table(burial_tot,file='Burial.txt')
+write.table(net_sum,file='Sed_bal_bydifference2.txt')
+write.table(burial_tot,file='Burial2.txt')
 getwd()
 diffHgTs1[2]
 
 diffHgps1[2]
 
 diffHgD<-diffHgTs1-diffHgps1
+
+Rrw1=hg$wn1*a1*d1/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs1=Phgs$sn1*a1*0.05/10^6
+Rrds1=Phgs$dsn1*a1*0.05/10^6
+Rros1=Phgs$osn1*a1*0.05/10^6
+
+Rrw2=hg$wn2*a2*d2/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs2=Phgs$sn2*a2*0.05/10^6
+Rrds2=Phgs$dsn2*a2*0.05/10^6
+Rros2=Phgs$osn2*a2*0.05/10^6
+
+Rrw3=hg$wn3*a3*d3/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs3=Phgs$sn3*a3*0.05/10^6
+Rrds3=Phgs$dsn3*a3*0.05/10^6
+Rros3=Phgs$osn3*a3*0.05/10^6
+
+Rrw4=hg$wn4*a4*d4/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs4=Phgs$sn4*a4*0.05/10^6
+Rrds4=Phgs$dsn4*a4*0.05/10^6
+Rros4=Phgs$osn4*a4*0.05/10^6
+
+Rrw5=hg$wn5*a5*d5/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs5=Phgs$sn5*a5*0.05/10^6
+Rrds5=Phgs$dsn5*a5*0.05/10^6
+Rros5=Phgs$osn5*a5*0.05/10^6
+
+Rrw6=hg$wc6*a6*d6/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs6=Phgs$sc6*a6*0.05/10^6
+Rrds6=Phgs$dsc6*a6*0.05/10^6
+Rros6=Phgs$osc6*a6*0.05/10^6
+
+Rrw7=hg$wc7*a7*d7/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs7=Phgs$sc7*a7*0.05/10^6
+Rrds7=Phgs$dsc7*a7*0.05/10^6
+Rros7=Phgs$osc7*a7*0.05/10^6
+
+Rrw8=hg$ws8*a8*d8/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs8=Phgs$ss8*a8*0.05/10^6
+Rrds8=Phgs$dss8*a8*0.05/10^6
+Rros8=Phgs$oss8*a8*0.05/10^6
+
+Rrw9=hg$ws9*a9*d9/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs9=Phgs$ss9*a9*0.05/10^6
+Rrds9=Phgs$dss9*a9*0.05/10^6
+Rros9=Phgs$oss9*a9*0.05/10^6
+
+Rrw10=hg$ws10*a10*d10/10^6     # ug m-3 * m3 = ug//10^6 = g
+Rrs10=Phgs$ss10*a10*0.05/10^6
+Rrds10=Phgs$dss10*a10*0.05/10^6
+Rros10=Phgs$oss10*a10*0.05/10^6
+
+RrW<-Rrw1+Rrw2+Rrw3+Rrw4+Rrw5+Rrw6+Rrw7+Rrw8+Rrw9+Rrw10
+RrS<-Rrs1+Rrs2+Rrs3+Rrs4+Rrs5+Rrs6+Rrs7+Rrs8+Rrs9+Rrs10
+RrDS<-Rrds1+Rrds2+Rrds3+Rrds4+Rrds5+Rrds6+Rrds7+Rrds8+Rrds9+Rrds10
+RrOS<-Rros1+Rros2+Rros3+Rros4+Rros5+Rros6+Rros7+Rros8+Rros9+Rros10
+
+RESERV<-data.frame(RrW,RrS[2:204],RrDS[2:204], RrOS[2:204])
+write.table(RESERV,file='RESERV_g.txt')
+str(RrW)
+str(RrS)
+str(RrDS)
+str(hg$ws10)

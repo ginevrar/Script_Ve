@@ -1,45 +1,6 @@
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
 
-Ec= 2*10^(-9)    # Diffusion coefficient, m2 s-1 
-por=0.6
-L=5/100
-
-# f = (Ec * A *por)/ L/por *(grad)
-Lex=L#/por
-
-hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
-names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-                 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-hgDOC<-read.csv('DOC_Sorbed_Divalent_Hg.csv', skip=1)
-names(hgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-hg0<-read.csv('Elemental_Hg.csv', skip=1)
-names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-mehgdiss<-read.csv('Dissolved_Methyl_Hg.csv', skip=1)
-names(mehgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-                   'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                   'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-                   'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-mehgDOC<-read.csv('DOC_Sorbed_Methyl_Hg.csv', skip=1)
-names(mehgDOC)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-
-mhgd<-mehgdiss + mehgDOC
-hgd<-hgdiss + hgDOC 
+hgd<-hgD_19+DOChg_19
+mhgd<-mehgD_19+DOCmehg_19
 
 time.steps <- mehgDOC[,1]; time.steps3 <- time.steps*24*3600
 time.st_media<-tapply(time.steps3[2:147461], rep(1:(length(time.steps3[2:147461])/365),each = 365),mean)
@@ -95,17 +56,16 @@ fd8_kgy<-(flux8*31536000)/10^9   ## ug m-3 s-1
 fd9_kgy<-(flux9*31536000)/10^9   ## ug m-3 s-1 
 fd10_kgy<-(flux10*31536000)/10^9   ## ug m-3 s-1 
 
-
-flux1_mhgd = fd*a1*(grad1_mhgd)     ## ug s-1 
-flux2_mhgd = fd*a2*(grad2_mhgd)     ## ug s-1 
-flux3_mhgd = fd*a3*(grad3_mhgd)     ## ug s-1 
-flux4_mhgd = fd*a4*(grad4_mhgd)     ## ug s-1 
-flux5_mhgd = fd*a5*(grad5_mhgd)     ## ug s-1 
-flux6_mhgd = fd*a6*(grad6_mhgd)     ## ug s-1 
-flux7_mhgd = fd*a7*(grad7_mhgd)     ## ug s-1 
-flux8_mhgd = fd*a8*(grad8_mhgd)     ## ug s-1 
-flux9_mhgd = fd*a9*(grad9_mhgd)     ## ug s-1 
-flux10_mhgd= fd*a10*(grad10_mhgd)     ## ug s-1 
+flux1_mhgd = -fd*a1*(grad1_mhgd)     ## ug s-1 
+flux2_mhgd = -fd*a2*(grad2_mhgd)     ## ug s-1 
+flux3_mhgd = -fd*a3*(grad3_mhgd)     ## ug s-1 
+flux4_mhgd = -fd*a4*(grad4_mhgd)     ## ug s-1 
+flux5_mhgd = -fd*a5*(grad5_mhgd)     ## ug s-1 
+flux6_mhgd = -fd*a6*(grad6_mhgd)     ## ug s-1 
+flux7_mhgd = -fd*a7*(grad7_mhgd)     ## ug s-1 
+flux8_mhgd = -fd*a8*(grad8_mhgd)     ## ug s-1 
+flux9_mhgd = -fd*a9*(grad9_mhgd)     ## ug s-1 
+flux10_mhgd= -fd*a10*(grad10_mhgd)     ## ug s-1 
 
 fd1_kgy_mhgd<-(flux1_mhgd*31536000)/10^9   ## ug m-3 s-1 
 fd2_kgy_mhgd<-(flux2_mhgd*31536000)/10^9   ## ug m-3 s-1 
@@ -118,27 +78,26 @@ fd8_kgy_mhgd<-(flux8_mhgd*31536000)/10^9   ## ug m-3 s-1
 fd9_kgy_mhgd<-(flux9_mhgd*31536000)/10^9   ## ug m-3 s-1 
 fd10_kgy_mhgd<-(flux10_mhgd*31536000)/10^9   ## ug m-3 s-1 
 
-
-
-tot_flux2= 
-
 tot_flux= fd1_kgy+fd2_kgy+fd3_kgy+fd4_kgy+fd5_kgy+fd6_kgy+fd7_kgy+fd8_kgy+fd9_kgy+fd10_kgy
 
 tot_flux_mhgd= fd1_kgy_mhgd+fd2_kgy_mhgd+fd3_kgy_mhgd+fd4_kgy_mhgd+fd5_kgy_mhgd+
-               fd6_kgy_mhgd+fd7_kgy_mhgd+fd8_kgy_mhgd+fd9_kgy_mhgd+fd10_kgy_mhgd
+fd6_kgy_mhgd+fd7_kgy_mhgd+fd8_kgy_mhgd+fd9_kgy_mhgd+fd10_kgy_mhgd
 
-tot_flux_all=data.frame(rdate,fd1_kgy,fd2_kgy,fd3_kgy,fd4_kgy,fd5_kgy,fd6_kgy,fd7_kgy,fd8_kgy,fd9_kgy,fd10_kgy)
-tot_flux_mhgd_all=data.frame(rdate,fd1_kgy_mhgd,fd2_kgy_mhgd,fd3_kgy_mhgd,fd4_kgy_mhgd,fd5_kgy_mhgd,
-  fd6_kgy_mhgd,fd7_kgy_mhgd,fd8_kgy_mhgd,fd9_kgy_mhgd,fd10_kgy_mhgd)
+tot_flux_all=data.frame(fd1_kgy,fd2_kgy,fd3_kgy,fd4_kgy,fd5_kgy,fd6_kgy,fd7_kgy,fd8_kgy,fd9_kgy,fd10_kgy)
+tot_flux_mhgd_all=data.frame(fd1_kgy_mhgd,fd2_kgy_mhgd,fd3_kgy_mhgd,fd4_kgy_mhgd,fd5_kgy_mhgd,
+                             fd6_kgy_mhgd,fd7_kgy_mhgd,fd8_kgy_mhgd,fd9_kgy_mhgd,fd10_kgy_mhgd)
 
-tot_flux_mhgd_all[121,]
-tot_flux_all[121,]
+colMeans(tot_flux_mhgd_all)
+colMeans(tot_flux_all)
+
+plot(tot_flux)
+plot(tot_flux_mhgd)
 
 plot(tot_flux)
 write.table(tot_flux, file='diffusion_flux.txt')
 write.table(tot_flux_mhgd, file='diffusion_flux_mehg.txt')
 # f = (Ec * A *por)/ L/por *(grad)
-  
+
 #tot_flux_media<-tapply(tot_flux[2:2413], 
 #                            rep(1:(length(tot_flux[2:2413])/12),each = 12),mean)
 

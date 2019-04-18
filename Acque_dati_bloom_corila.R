@@ -1,5 +1,5 @@
 setwd('C:/Users/Acer/Desktop/naoh3')
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\long')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
 
 hgt<-read.csv('Total_Hg.csv', skip=1)
 names(hgt)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -19,8 +19,8 @@ TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 rdate1<-format(rdate,"%d-%m-%Y" )
-rdate[1313:(1325)]
-rdate1[1313:(1325)]
+rdate[1313:1325]
+rdate1[1313:1325]
 
 nord_bloom_med_hgt<-29.08555
 nord_bloom_min_hgt<-12.1798248	
@@ -65,6 +65,21 @@ mod_sud_mean <-rowMeans(sud_hgt); mod_sud_min<-apply(sud_hgt,1,FUN=min); mod_sud
 NN<-c(mod_nord_min,rev(mod_nord_max)); CC<-c(mod_cent_min,rev(mod_cent_max));SS<-c(mod_sud_min,rev(mod_sud_max))
 xx<-c(rdate[1214:1321],rev(rdate[1214:1321]))
 
+nord_hgt_2019<-data.frame(hgt$wn1[1430:1441],hgt$wn2[1430:1441],hgt$wn4[1430:1441]); names(nord_hgt)<-c('w1','w2','w4')
+centr_hgt_2019<-data.frame(hgt$wc6[1430:1441], hgt$wn3[1430:1441], hgt$wn5[1430:1441],hgt$wc7[1430:1441])
+sud_hgt_2019<-data.frame(hgt$ws8[1430:1441],hgt$ws9[1430:1441], hgt$ws10[1430:1441])
+
+mod_cent_mean_2019<-rowMeans(centr_hgt_2019); mod_cent_min<-apply(centr_hgt_2019,1,FUN=min);mod_cent_max<-apply(centr_hgt_2019,1,FUN=max)
+mod_nord_mean_2019<-rowMeans(nord_hgt_2019);mod_nord_min<-apply(nord_hgt_2019,1,FUN=min);mod_nord_max<-apply(nord_hgt_2019,1,FUN=max)
+mod_sud_mean_2019<-rowMeans(sud_hgt_2019); mod_sud_min<-apply(sud_hgt_2019,1,FUN=min); mod_sud_max<-apply(sud_hgt_2019,1,FUN=max)
+
+mean(mean(mod_cent_mean_2019),mean(mod_nord_mean_2019),mean(mod_sud_mean_2019))
+mean(mean(mod_cent_min),mean(mod_nord_min),mean(mod_sud_min))
+mean(mean(mod_cent_max),mean(mod_nord_max),mean(mod_sud_max))
+
+ 
+rdate[1430:1441]
+
 mean(mod_cent_mean[3:37]); central_bloom_med_hgt
 mean(mod_nord_mean[3:37]); nord_bloom_med_hgt
 mean(mod_sud_mean[3:37]); south_bloom_med_hgt
@@ -80,9 +95,15 @@ mod_sud_mean_mhgt<-rowMeans(sud_mhgt); mod_sud_min_mhgt<-apply(sud_mhgt,1,FUN=mi
 NN_mhg<-c(mod_nord_min_mhgt,rev(mod_nord_max_mhgt)); CC_mhg<-c(mod_cent_min_mhgt,rev(mod_cent_max_mhgt));SS_mhg<-c(mod_sud_min_mhgt,rev(mod_sud_max_mhgt))
 xx<-c(rdate[1214:1321],rev(rdate[1214:1321]))
 
-plot(rdate[1250:1261], mod_nord_mean_mhgt[25:36], type='l')
+plot(rdate[1250:1261], mod_nord_mean_mhgt[37:48], type='l')
 plot(rdate[1250:1261], mod_sud_mean[37:48], type='l')
+plot(rdate[1250:1261], mod_cent_mean[37:48], type='l')
+plot(rdate[1250:1261], hg0$wn1[37:48], type='l')
 
+uuu<-hg0$wn1[37:48]
+(mean(uuu[1:4])-mean(uuu[5:8]))/mean(uuu[1:4])*100
+
+mean(uuu[8:10])
 
 ##png('Acque_Bloom_tootB20b3tris_51.png',width = 21, height = 16, units = "cm", res=400)  #26
 #par(mfrow=c(2,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,6,3,1))
