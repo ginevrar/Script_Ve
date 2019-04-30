@@ -4,18 +4,13 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #dati<-read.table('QSEV_data.txt', header=T); str(dati)
 # plot anno 2013 - 2015 vari layer sed
 
-##setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo2')
-#setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\b')
-#setwd('C:/Users/Acer/Desktop/N615b/c')
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/y')
- #setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
- 
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 # setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
  
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+#setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
 
 hgp<-read.csv('Total_Sorbed_Divalent_Hg_Solids.csv', skip=1)
 names(hgp)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

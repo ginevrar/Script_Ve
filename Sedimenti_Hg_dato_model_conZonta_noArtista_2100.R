@@ -1,11 +1,3 @@
-#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/NOsand')
-#setwd('C:/Users/Gi/Desktop/NNN59')
-#setwd('C:/Users/Acer/Dropbox/NewVenice')
-#setwd('C:/Users/Acer/Dropbox/NNN61/MenoDep4/bobo3')
-#setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\b')
-#setwd('C:/Users/Acer/Desktop/PiuSILT5b')
-#setwd('C:/Users/Acer/Desktop/PiuSILT5d')
-#setwd('C:/Users/Acer/Desktop/N615b/c')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max3800') #5_newInp
 #setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
@@ -14,8 +6,9 @@
  #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+#setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
 
 1900-2101
 2426/12

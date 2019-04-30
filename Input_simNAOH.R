@@ -3,7 +3,7 @@ setwd('C:/Users/gi/Dropbox/Cloro_Soda_Ve')
 hgL<-read.csv('Hgind_load.csv')
 str(hgL)
 
-setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
+setwd('C:\\Users\\gi\\Dropbox\\sim_cl')
 
 years    <-seq(1900,2100)  # sequence of 200 elements (years)
 area     <-4.12E+08   # surface area of the site (m2)  - to compute rates 
@@ -108,8 +108,9 @@ str(cit)
 #     seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
 
 ind<-hgL$Cl2
-  
-ind2<-ind[1:201]
+  plot(ind)
+
+  ind2<-ind[1:201]
 indus<-data.frame(years[1:201],ind2[1:201])
 names(indus)<-c('year','ind2')
 ind_mehg<-ind2*1/100
@@ -170,7 +171,6 @@ dep$BOX10 <-de*(aree[10]/area)
 cit$BOX3<-cit$ci*0.33
 cit$BOX5<-cit$ci*0.33
 cit$BOX6<-cit$ci*0.33
-
 
 ## mancano years 1901; 1905(?)
 
@@ -379,59 +379,58 @@ TOT<-tot_city+tot_depo+tot_ind+tot_riv
 
 png('Hg_input_VE2_.png', units='cm', height = 31,  width = 31, res=300)
 
+
+tutt<-data.frame((tott[2]), (tott[3]+tott[4]),
+                     (tott[5]),(tott[6]))
+rownames(tutt)<-years
+tutt<-as.matrix(tutt); tutt<-t(tutt)
+
+
 par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(2,2), cex.main=1.4)
-plot(ladata,TOT, type='l', ylim=c(0,1500), xlab='',ylab='kg y-1', 
-     main='Hg inputs to the Venice Lagoon')
-par(new=T)
-plot(ladata,tot_city, type='l',col='orange',ylab='',xlab='', yaxt='n',xaxt='n', lwd=2, ylim=c(0,1500))
-par(new=T)
-plot(ladata,tot_depo, type='l',col='cyan3',ylab='',xlab='', yaxt='n',xaxt='n', lwd=2, ylim=c(0,1500))
-par(new=T)
-plot(ladata,tot_ind, type='l',col='grey40', ylab='',xlab='', yaxt='n',xaxt='n', lwd=2,ylim=c(0,1500))
-par(new=T)
-plot(ladata,tot_riv, type='l',col='royalblue',ylab='',xlab='',  yaxt='n',xaxt='n', lwd=2,ylim=c(0,1500))
-legend(4900, 1500, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
-       legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
+#plot(ladata,TOT, type='l', ylim=c(0,1500), xlab='',ylab='kg y-1', 
+ #    main='Hg inputs to the Venice Lagoon')
+#par(new=T)
+#plot(ladata,tot_city, type='l',col='orange',ylab='',xlab='', yaxt='n',xaxt='n', lwd=2, ylim=c(0,1500))
+#par(new=T)
+#plot(ladata,tot_depo, type='l',col='cyan3',ylab='',xlab='', yaxt='n',xaxt='n', lwd=2, ylim=c(0,1500))
+##par(new=T)
+#plot(ladata,tot_ind, type='l',col='grey40', ylab='',xlab='', yaxt='n',xaxt='n', lwd=2,ylim=c(0,1500))
+#par(new=T)
+##plot(ladata,tot_riv, type='l',col='royalblue',ylab='',xlab='',  yaxt='n',xaxt='n', lwd=2,ylim=c(0,1500))
+##legend(4900, 1500, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
+ #      legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
+
+barplot(tutt, beside=F, width = 10,legend.text=T,
+        border = NA, col=c('cyan3','royalblue','orange',
+                           'grey40'),
+        main='Hg inputs to the Venice Lagoon')
 text(ladata[30],1500,'A', cex=2.5)
 
-#plot(ladata,TOT/TOT*100, type='l', ylim=c(0,100), xlab='',ylab='kg y-1', 
-#     )
-#par(new=T)
-input
-short
-
-
-perC<-tot_city/TOT*100
-perA<-tot_depo/TOT*100
-perI<-tot_ind/TOT*100
-perR<-tot_riv/TOT*100
-
-perctutt<-data.frame(perC,perA,perI,perR)
-perctutt<-as.matrix(perctutt, nrow=4)
-rownames(perctutt)<-ladataOK
-
-str(perctutt)
 
 
 str(perA)
 
-perctutt<-data.frame(tott[2], tott[3]+tott[4],tott[5],tott[6])
+perctutt<-data.frame((tott[2]/tott[7]*100), ((tott[3]+tott[4])/tott[7]*100),
+                     (tott[5]/tott[7]*100),(tott[6]/tott[7]*100))
 rownames(perctutt)<-years
 perctutt<-as.matrix(perctutt); perctutt<-t(perctutt)
 
-barplot(perctutt, beside=F, col=c(1,2,3,4))
+barplot(perctutt, beside=F, width = 10,space=1,legend.text=T,
+        border = NA, col=c('cyan3','royalblue','orange',
+                           'grey40'),
+         main='Hg inputs to the Venice Lagoon')
 
-barplot(ladata,tot_city/TOT*100, type='l',col='orange',ylab='%',xlab='', lwd=2,
-     ylim=c(0,100), main='Hg inputs to the Venice Lagoon')
-par(new=T)
-plot(ladata,tot_depo/TOT*100, type='l',col='cyan3',ylab='',xlab='', yaxt='n', lwd=2,
-     xaxt='n', ylim=c(0,100))
-par(new=T)
-plot(ladata,tot_ind/TOT*100, type='l',col='grey40', ylab='',xlab='',  lwd=2,
-     yaxt='n',xaxt='n',ylim=c(0,100))
-par(new=T)
-plot(ladata,tot_riv/TOT*100, type='l',col='royalblue',ylab='',xlab='',  lwd=2,
-     yaxt='n',xaxt='n',ylim=c(0,100))
+#barplot(ladata,tot_city/TOT*100, type='l',col='orange',ylab='%',xlab='', lwd=2,
+    # ylim=c(0,100))
+#par(new=T)
+#plot(ladata,tot_depo/TOT*100, type='l',col='cyan3',ylab='',xlab='', yaxt='n', lwd=2,
+ #    xaxt='n', ylim=c(0,100))
+#par(new=T)
+#plot(ladata,tot_ind/TOT*100, type='l',col='grey40', ylab='',xlab='',  lwd=2,
+ #    yaxt='n',xaxt='n',ylim=c(0,100))
+#par(new=T)
+#plot(ladata,tot_riv/TOT*100, type='l',col='royalblue',ylab='',xlab='',  lwd=2,
+ #    yaxt='n',xaxt='n',ylim=c(0,100))
 #legend(4900, 100, col=c(1,'grey40', 'royalblue','cyan3','orange'),pch=19, bty='n',cex=1.4,
 #      legend=c('Total load','Industrial load','River load','Atmospheric deposition','City load'))
 text(ladata[30],100,'B', cex=2.5)

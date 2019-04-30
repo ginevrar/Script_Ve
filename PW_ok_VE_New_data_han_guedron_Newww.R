@@ -3,8 +3,9 @@
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2127')
 # setwd('C:/Users/Acer/Desktop/NewVenice20/z13')
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+#setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

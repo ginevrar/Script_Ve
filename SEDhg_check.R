@@ -1,6 +1,7 @@
-setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\f')
-setwd('C:/Users/Acer/Dropbox/NEWVenice6/')
-setwd('C:\\Users\\gi\\Desktop\\2156')
+#setwd('C:\\Users\\Acer\\Desktop\\fin92bold\\f')
+#setwd('C:/Users/Acer/Dropbox/NEWVenice6/')
+#setwd('C:\\Users\\gi\\Desktop\\2156')
+setwd('C:\\Users\\gi\\Dropbox\\sim_Cl')
 
 DEPO_silt2<-read.csv("Silt_Dep_Vel.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(DEPO_silt2)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',

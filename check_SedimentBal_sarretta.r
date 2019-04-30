@@ -20,6 +20,7 @@
  
 setwd('C:\\Users\\gi\\Desktop\\2156')
 setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
+setwd('C:\\Users\\gi\\Dropbox\\sim_Cl')
 
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
