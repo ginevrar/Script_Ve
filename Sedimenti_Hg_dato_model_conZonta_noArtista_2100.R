@@ -74,6 +74,9 @@ box7<-c(1.5,0.9,0.2,1.2,0.7,0.5,0.3,0.7,0.2,0.1,0.1,0.3,0.4,0.5,0.4,0.1,0.6,0.8,
 box8<-c(0.8,0.3,0.3,0.5)*1000
 box9<-c(0.5,0.1,0.1,0.4)*1000
 box10<-c(0.7,0.1,0.1)*1000
+MAV_1995<-c(box1,box2,box3,box4,box5,box6,box7,
+          box8,box9,box10)
+# 2005 Han et al; 2008-2009 Guedron et al
 
 c1<-rdate[929]   # 1977-04-16  # donazz       10 cm
 c2<-rdate[1147]  # 1995-06-13  # MAV          15 cm
@@ -99,6 +102,8 @@ box8_77<-c(0.54,0.57,0.27,0.37,0.21,0.19,0.23,0.19)*1000
 box9_77<-c(0.05,0.05,0.05,0.13,0.31,0.16,0.2)*1000
 box10_77<-c(0.63,0.18,0.05,0.26,0.17,0.29,0.38,0.26,0.49,0.05,0.1,0.12)*1000
 
+Donnaz<-c(box1_77,box2_77,box3_77,box4_77,box5_77,box6_77,box7_77,
+box8_77,box9_77,box10_77)
 # 2005 Han et al; 2008-2009 Guedron et al
 
 box1_2005<-c(593.18,466.02,753.73,478.37,638.21) 
@@ -130,7 +135,9 @@ Zonta7<-c(box7_A_hg$Hg, box7_B_hg$Hg)
 Zonta8<-c(box8_A_hg$Hg, box8_B_hg$Hg)
 Zonta9<-c(box9_A_hg$Hg, box9_B_hg$Hg)
 Zonta10<-c(box10_A_hg$Hg, box10_B_hg$Hg)
-
+#380 siti * 5 prof. 
+Donnaz<-cbind(Zonta1,Zonta2,Zonta3,Zonta4,Zonta5,Zonta6,Zonta7,
+          Zonta8,Zonta9,Zonta10_77)
 #png('Time_hg_sediment_ns11d.png'
 #width = 1000*1.5, height = 530*1.5, 
 #provare mult*1.5 dimensioni plot
