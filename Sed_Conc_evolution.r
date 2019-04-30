@@ -1,4 +1,4 @@
-#setwd('C:/Users/Acer/Desktop/PiuSILT5d')
+ #setwd('C:/Users/Acer/Desktop/PiuSILT5d')
 #setwd('C:/Users/Acer/Desktop/N615b/c')
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/z')
 #setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
@@ -9,6 +9,8 @@
 #setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
  setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
  
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
+
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -107,7 +109,7 @@ plot(silts$ws10)
 
 POM_perc<-POMs/TOTs*100
 
-png('solids_sed_PERC_eeeeeEEt_bis.png',width = 21, height = 29,
+png('solids_sed_PERC_eeeeeEEt_bishilm.png',width = 21, height = 29,
     units = "cm", res=400)
 
 par(mfrow=c(10,3),mar=c(1,1,1,1),
@@ -313,11 +315,10 @@ plot(rdate, silts$oss10/TOTs$oss10,col='#6d3504',type='l', lwd=2, lty=2,ylim=c(0
 par(new=T)
 plot(rdate,sands$oss10/TOTs$oss10,col='goldenrod',type='l', lwd=2, lty=2,ylim=c(0,1))
 par(new=T)
-plot(rdate,TOTs$oss10/TOTs$oss10,col='black',type='l', lwd=2, lty=1,ylim=c(0,1))
-dev.off()
+ dev.off()
 
 
-png('solids_sed_conc_fin92b__oks6_eeeeeet4_.png',width = 21, height = 29,
+png('solids_sed_conc_fin92b__oks6_eeeeeet4i_.png',width = 21, height = 29,
     units = "cm", res=400)
 par(mfrow=c(10,3),mar=c(1,1,1,1),
     oma=c(2.3,5.3,1.5,0), bty='n')

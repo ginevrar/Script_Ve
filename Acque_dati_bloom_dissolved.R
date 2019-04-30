@@ -1,7 +1,3 @@
-#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61');
-#setwd('C:/Users/Gi/Desktop/NNN59')
-#setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes8')
-
 #setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
 #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola14_newInp_max4700') #5_newInp
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
@@ -14,6 +10,9 @@
 # setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
  setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
  
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_clok')
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -255,10 +254,7 @@ plot(rdate[1225],south_bloom_max_mhgd, ylim=c(0,0.12),pch='-',xaxt='n',type='p',
 segments(rdate[1225],south_bloom_max_mhgd,rdate[1225],south_bloom_min_mhgd)
 
 
-
-
-
-png('Acque_Bloom_all.png',width = 21, height = 18,
+png('Acque_Bloom_all_19hilmn.png',width = 21, height = 18,
     units = "cm", res=400)
 par(mfrow=c(4,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,8,3,1))
 p1<-plot(rdate[1214:1285], mod_nord_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='royalblue',

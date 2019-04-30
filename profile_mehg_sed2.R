@@ -4,15 +4,14 @@ setwd('H:/Il mio Drive/MERCURIO/Venezia/')
 setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 
-
-#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
-#setwd('C:\Users\Acer\Desktop\NWBad\NewVenice20\z20')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
-#setwd('C:\\Users\\gi\\Desktop\\2156')
+ #setwd('C:\\Users\\gi\\Desktop\\2156')
 #setwd('C:\\Users\\gi\\Desktop\\NNN14')
 #setwd('H:\\2154')
 #setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
 setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
+ #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max2\\naoh2')
+ setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1, header = T)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -75,9 +74,9 @@ box3<-c(mean(A3$mehg),mean(B3$mehg),mean(C3$mehg))
 box6<-c(mean(A6$mehg),mean(B6$mehg),mean(C6$mehg))
 box7<-c(mean(A7$mehg),mean(B7$mehg),mean(C7$mehg))
 
-png('profile_Mehg_datoModeo_boxpl_fin92b_mehgmmmmMMM51.png',width = 1000*1.5, height = 530*1.5,  
+png('profile_Mehg_datoModeo_boxpl_fin92b_mehgmmmmMMM51hilmnbbccddd_.png',width = 1000*1.5, height = 530*1.5,  
     units = "px")
-par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
+par(mfrow=c(2,5),mar=c(5,0,1,1), oma=c(0,4,1,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
 
 boxplot(A1$mehg,B1$mehg,C1$mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
         at=c(-2,-7, -15),boxwex=3.,yaxt='n',xaxt='n',
@@ -95,7 +94,6 @@ plot(b1_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
 mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
 #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
 mtext(side=3, text='box 1', font=2, cex=1.4, line=.5)
-
 
 boxplot(A2$mehg,B2$mehg,C2$mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
         at=c(-2,-7, -15),boxwex=3.,yaxt='n',xaxt='n',
@@ -165,6 +163,7 @@ plot(b6_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
 mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
 #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
 mtext(side=3, text='box 6', font=2, cex=1.4, line=.5)
+mtext(side=1, text=expression(paste('ng g'^-1)), font=2, cex=1.8, line=2.5)
 
 boxplot(A7$mehg,B7$mehg,C7$mehg, xlim=c(-20,0),cex=2.6, range = F,outline = F,
         at=c(-2,-7, -15),boxwex=3.,yaxt='n',xaxt='n',
@@ -179,14 +178,17 @@ plot(b7_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#f79220',   type='b', pch=25)
  #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
 mtext(side=3, text='box 7', font=2, cex=1.4, line=.5)
+mtext(side=1, text=expression(paste('ng g'^-1)), font=2, cex=1.8, line=2.5)
 
 plot(b8_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#f46d43',   type='b', pch=25)
 mtext(side=3, text='box 8', font=2, cex=1.4, line=.5)
+mtext(side=1, text=expression(paste('ng g'^-1)), font=2, cex=1.8, line=2.5)
 
 plot(b9_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#d73027',   type='b', pch=25)
 mtext(side=3, text='box 9', font=2, cex=1.4, line=.5)
+mtext(side=1, text=expression(paste('ng g'^-1)), font=2, cex=1.8, line=2.5)
 
 plot(b10_profile_mod[1:3],y,xlim=c(0,2.5), cex=1.6, ylim=c(-20,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#a50028',   type='b', pch=25)
@@ -194,7 +196,7 @@ mtext(side=3, text='box 10', font=2, cex=1.4, line=.5)
 text(2,-2, 'layer A', cex=1, col='grey30')
 text(2,-7, 'layer B', cex=1, col='grey30')
 text(2,-15, 'layer C', cex=1, col='grey30')
-
+mtext(side=1, text=expression(paste('ng g'^-1)), font=2, cex=1.8, line=2.5)
 
 dev.off()
 
@@ -228,6 +230,9 @@ write.table(sedMehg2, file='sedMehg2_perTaylorD.txt')
 write.table(sedMehg3, file='sedMehg3_perTaylorD.txt')
 getwd()
 
-cor.test(datsurfmehg,modsurfmehg)
+ma<-cor.test(datsurfmehg,modsurfmehg)
+
+ma$estimate
+ma$p.value
 
 #________________________________ Fine plot Sediment mehg vs time ________________________________

@@ -1,9 +1,19 @@
 setwd('C:/Users/gi/Dropbox/Cloro_Soda_Ve')
+<<<<<<< HEAD
 
 hgL<-read.csv('Hgind_load.csv')
 str(hgL)
 
 setwd('C:\\Users\\gi\\Dropbox\\sim_cl')
+=======
+setwd('C:/Users/Acer/Desktop/Future_emissions')
+
+hgL<-read.csv('Hgind_load.csv', sep=';', header=T)
+str(hgL)
+
+#setwd('C:\\Users\\gi\\Dropbox\\sim_cl')
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')     #sim_cl
+>>>>>>> origin/master
 
 years    <-seq(1900,2100)  # sequence of 200 elements (years)
 area     <-4.12E+08   # surface area of the site (m2)  - to compute rates 
@@ -25,6 +35,7 @@ for(i in 2: 46){
   n[i] = n[i-1]-((n[i-1]*1.5)/100)
 }
 
+<<<<<<< HEAD
 #------- Serie DEPOSIZIONE ATMOSFERICA ----------------------------
 de<-hgL$atm_dep[1:201]
 
@@ -32,6 +43,41 @@ de[1:37]<-10
 dep<-data.frame(years[1:201],de)
 names(dep)<-c('year','de')
 dep_g_km2_y<-de/area_km2*100
+=======
+years[138]
+#------- Serie DEPOSIZIONE ATMOSFERICA ----------------------------
+de<-hgL$atm_dep_NaOH 
+str(de)
+dep<-data.frame(years[1:201],de)
+names(dep)<-c('year','de')
+
+de2<-hgL$dep_zeroEm[100:201]
+de3<-hgL$Hg_control[100:201]
+de4<-hgL$Hg_const[100:201]
+de5<-hgL$A1B1[100:201]
+
+de_s2<-c(de[1:99],de2)
+de_s3<-c(de[1:99],de3)
+de_s4<-c(de[1:99],de4)
+de_s5<-c(de[1:99],de5)
+
+dev.new()
+plot(years,de, type='l', ylim=c(0,80))
+par(new=T)
+plot(years,de_s2, type='l', lty=2,col=3, ylim=c(0,80))
+
+abline(v=1999)
+abline(h=11.7)
+
+dep_g_km2_y<-de/area_km2*100
+de2_g_km2_y<-de_s2/area_km2*100
+de3_g_km2_y<-de_s3/area_km2*100
+de4_g_km2_y<-de_s4/area_km2*100
+de5_g_km2_y<-de_s5/area_km2*100
+
+years[99]
+years[1]
+>>>>>>> origin/master
 
 #------- Serie RIVER LOAD ----------------------------
 
@@ -107,7 +153,11 @@ str(cit)
 #ind<-c(rep(0,20), seq(21,60,length.out = 20), seq(60,200,length.out = 10),rep(600, 10), seq(500,300,length.out = 30),
 #     seq(100,10,length.out =  16),seq(10,2,length.out =  15), rep(0,80))
 
+<<<<<<< HEAD
 ind<-hgL$Cl2
+=======
+ind<-hgL$NaOH
+>>>>>>> origin/master
   plot(ind)
 
   ind2<-ind[1:201]
@@ -167,6 +217,10 @@ dep$BOX10 <-de*(aree[10]/area)
 
 #aaaaa<-(dep$BOX1+dep$BOX2+dep$BOX3+dep$BOX4+dep$BOX5+dep$BOX6+dep$BOX7+dep$BOX8+dep$BOX9+dep$BOX10)
 
+<<<<<<< HEAD
+=======
+plot(dep$BOX1)
+>>>>>>> origin/master
 
 cit$BOX3<-cit$ci*0.33
 cit$BOX5<-cit$ci*0.33
@@ -369,7 +423,11 @@ plot(monthly_riv_mehg$b6r, type='l')
 
 monthly_riv_mehg$b6r<-monthly_riv_mehg$b6r+(b6i_mehg/365)
 
+<<<<<<< HEAD
 dep_g_km2_y<-tot_depo/area_km2*100
+=======
+#dep_g_km2_y<-tot_depo/area_km2*100
+>>>>>>> origin/master
 
 
 monthly_riv_mehg/(monthly_riv/365)
@@ -377,7 +435,11 @@ monthly_riv_mehg/(monthly_riv/365)
 
 TOT<-tot_city+tot_depo+tot_ind+tot_riv
 
+<<<<<<< HEAD
 png('Hg_input_VE2_.png', units='cm', height = 31,  width = 31, res=300)
+=======
+png('Hg_input_VE2_NaOH.png', units='cm', height = 31,  width = 31, res=300)
+>>>>>>> origin/master
 
 
 tutt<-data.frame((tott[2]), (tott[3]+tott[4]),
@@ -438,19 +500,40 @@ text(ladata[30],100,'B', cex=2.5)
 r<-c(1,2,15,25) #observational range for atmospheric deposition rate
 
 ef_2008
+<<<<<<< HEAD
 plot(ladata,tot_riv/14, type='l', col='#4169E1', lwd=2,
+=======
+
+plot(ladata,tot_riv/13.2, type='l', col='#4169E1', lwd=3,
+>>>>>>> origin/master
      main='River load \n enrichment factor relative to 2008', ylab='EF',ylim=c(0,15)) 
 text(ladata[30],15,'C', cex=2.5)
 par(new=T)
 boxplot(ef_1970,ef_1980,ef_1990,ef_2000, ef_2008, ylim=c(0,15),xaxt='n',col='grey80',
+<<<<<<< HEAD
         at=c(71,81,91,100,108), xlim=c(1,201), boxwex=3.5,
+=======
+        at=c(71,85,93,100,108), xlim=c(1,201), boxwex=3.5,
+>>>>>>> origin/master
         range = T, outline=T)
 
 boxplot(r, ylim=c(1,26), col='grey80', ylab='', xlab='', 
         boxwex=1.2, main='Atmospheric deposition rate')
 text(1,18,'range for marine areas \n from global models \n ensemble (UNEP, 2013)', cex=1.2)
 par(new=T)
+<<<<<<< HEAD
 plot(ladata,dep_g_km2_y, type='l', ylim=c(1,26),lwd=2, col='cyan3', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+=======
+plot(years,de2_g_km2_y, type='l', ylim=c(1,26),lwd=3,lty=2, col='cyan4', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+par(new=T)
+plot(years,de3_g_km2_y, type='l', ylim=c(1,26),lwd=3, lty=3,col='cyan4', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+par(new=T)
+plot(years,de4_g_km2_y, type='l', ylim=c(1,26),lwd=3,lty=4, col='cyan4', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+par(new=T)
+plot(years,de5_g_km2_y, type='l', ylim=c(1,26),lwd=3,lty=5, col='cyan4', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+par(new=T)
+plot(years,dep_g_km2_y, type='l', ylim=c(1,26),lwd=3, col='cyan3', xlab='year',ylab='g km-2 y-1')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+>>>>>>> origin/master
 text(18,5,'input for \n the Venice lagoon', cex=1.2)
 text(ladata[30],26,'D', cex=2.5)
 
@@ -483,6 +566,10 @@ names(tot_in)<-c('data','tot')
 xx<-tot_in[1261,]
 xx$tot/1000
 
+<<<<<<< HEAD
+=======
+plot(ind)
+>>>>>>> origin/master
 write.table(ladataOK,file='ladataOK.txt')
 
 monthly_riv_mehg
