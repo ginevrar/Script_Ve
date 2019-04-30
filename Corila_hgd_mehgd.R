@@ -6,10 +6,7 @@ str(corila)
 tmp <- as.Date(corila$data,format="%Y-%m-%d")
 tmp2<-format(tmp, "%d-%m-%Y")
   
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN68')
-setwd('C:/Users/Gi/Desktop/NNN59')
-setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes5')
-setwd('C:/Users/Acer/Dropbox/NewVenice2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
   hgd<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
   names(hgd)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -106,7 +103,7 @@ corila_hg<-data.frame(hgD_dat, hgD_mod)
 write.table(corila_hg, file = 'Corila_hg_perTaylorD.txt')
 write.table(corila_mehg, file = 'Corila_mehg_perTaylorD.txt')
 
-png('disss_hg_mehg_COrila2mwet__.png')
+png('disss_hg_mehg_COrila2mwet_ilmno_.png')
 par(mfrow=c(1,2), mgp=c(2,1,0))
 plot(tmp,corila$HgII,ylim=c(0,28),pch='-',xaxt='n',type='p',cex=2,xlab='',
      ylab=expression(paste('ng l'^-1)),
@@ -143,7 +140,6 @@ dev.off()
 plot(mehgD_dat, mehgD_mod)
 
 #
-#
 plot(tmp,corila$MeHg,ylim=c(0,.6),pch='-',xaxt='n',type='p',cex=2,xlab='',
 ylab=expression(paste('ng l'^-1)),
 xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
@@ -158,4 +154,4 @@ plot(rdate[1313:(1325)],dissmehg$wc6[1313:(1325)],  ylim=c(0,.6),xaxt='n',xlab='
      xlim=as.Date(c("2009-04-10", "2010-04-10"), "%Y-%m-%d"))
 axis(side=1, at=rdate[1313:(1325)],'%d/%m/%Y', labels=rdate[1313:(1325)])
 #######_____________________________ Fine plot Corila hgD ________________________________
-#
+getwd()

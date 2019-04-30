@@ -1,6 +1,5 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
-setwd('C:/Users/gi/Desktop/NNN59')
-setwd('C:\\Users\\gi\\Desktop\\2131')
+# setwd('C:\\Users\\Acer\\Desktop\\lastc\\kd_max\\naoh2')
+setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -21,9 +20,20 @@ layerC<-c(median(box1_C_hg$Hg),median(box2_C_hg$Hg),median(box3_C_hg$Hg),
           median(box4_C_hg$Hg),median(box5_C_hg$Hg),median(box6_C_hg$Hg),
           median(box7_C_hg$Hg),median(box8_C_hg$Hg),median(box9_C_hg$Hg),median(box10_C_hg$Hg))
 
+layerC2<-c(mean(box1_C_hg$Hg),mean(box2_C_hg$Hg),mean(box3_C_hg$Hg),
+          mean(box4_C_hg$Hg),mean(box5_C_hg$Hg),mean(box6_C_hg$Hg),
+          mean(box7_C_hg$Hg),mean(box8_C_hg$Hg),mean(box9_C_hg$Hg),mean(box10_C_hg$Hg))
+
 layerD<-c(median(box1_D_hg$Hg),median(box2_D_hg$Hg),median(box3_D_hg$Hg),
           median(box4_D_hg$Hg),median(box5_D_hg$Hg),median(box6_D_hg$Hg),
           median(box7_D_hg$Hg),median(box8_D_hg$Hg),median(box9_D_hg$Hg),median(box10_D_hg$Hg))
+
+time.steps <- hg[,1]
+time.steps3 <- time.steps*24*3600
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+TEMPO[1:10]
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
+rdate[1298:13]
 
 
 layerA_mod<-c(mean(hg$la1[1298:1309]),mean(hg$la2[1298:1309]), mean(hg$la3[1298:1309]), mean(hg$la4[1298:1309]),
@@ -60,7 +70,7 @@ r2<-round(cor(layerB,layerB_mod), digits = 2)
 r3<-round(cor(layerC,layerC_mod), digits = 2)
 r4<-round(cor(layerD,layerD_mod), digits = 2)
 
-png('Corr_sed.png')
+png('Corr_sedgilm.png')
 par(mfrow=c(1,1))
 plot(layerA,layerA_mod, col='indianred1',bg='indianred1', 
      pch=21,ylab = 'model (ng g)', 
@@ -80,10 +90,20 @@ text(840,160,paste('r =', r3, ' p<0.05'),col='indianred4', font=2)
 dev.off()
 
 bo<-cor.test(layerA,layerA_mod)
-bo<-cor.test(layerD,layerD_mod)
+bo1<-cor.test(layerB,layerB_mod)
+bo2<-cor.test(layerC2,layerC_mod)
+bo3<-cor.test(layerD,layerD_mod)
 bo
-str(bo)
-bo$p.value
-bo$estimate
 
+bo$estimate
+bo$p.value
+
+bo1$estimate
+bo1$p.value
+
+bo2$estimate
+bo2$p.value
+
+bo3$estimate
+bo3$p.value
 #________________________________ Fine data model correlation sed hg ________________________________

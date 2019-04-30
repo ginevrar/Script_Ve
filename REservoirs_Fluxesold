@@ -69,14 +69,6 @@ names(RESUS_sand)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9
                	  	'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 RESUS_sand<-RESUS_sand[1:2412,]
 
-Volume<-read.csv("Segment_Volume.csv", header=FALSE, skip = 1,sep = ",", dec=".")
-names(Volume)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',	'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
-               	  	'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-Volume<-Volume[1:2412,]
-
-#Volumi
-v1_w<-Volume$wn1; v2_w<-Volume$wn2; v3_w<-Volume$wn3; v4_w<-Volume$wn4; v5_w<-Volume$wn5;
-v6_w<-Volume$wc6; v7_w<-Volume$wc7; v8_w<-Volume$ws8; v9_w<-Volume$ws9; v10_w<-Volume$ws10
 
 v1_s<-Volume$sn1; v2_s<-Volume$wn2; v3_s<-Volume$sn3; v4_s<-Volume$sn4; v5_s<-Volume$sn5;
 v6_s<-Volume$sc6; v7_s<-Volume$sc7; v8_s<-Volume$ss8; v9_s<-Volume$ss9; v10_s<-Volume$ss10

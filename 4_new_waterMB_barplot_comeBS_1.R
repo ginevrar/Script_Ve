@@ -3,15 +3,18 @@
 #setwd('C:/Users/Acer/Dropbox/NNN61/PiuRes4')
 #setwd('C:\\Users\\gi\\Desktop\\2156\\b')
 setwd('C:\\Users\\Acer\\Desktop\\533')
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 
 #sed_bal_ugdm2<-read.table('Net_ugm2d.txt')
 #sed_bal<-read.table("Net_hgSed_kgy.txt", header=TRUE);
 
 Disper<-read.table('Disper_tot_kgy.txt', header=T);str(Disper)
 
-sed_bal<-read.table("net_Dep_prova.txt", header=F);
+#sed_bal<-read.table("net_Dep_prova.txt", header=F);
 
-input_long<-read.table('Total_IN_long.txt');input_short<-read.table('Tot_input_short.txt')
+input_long<-read.table('Total_IN_long.txt');
+
+input_short<-read.table('in_short_hgII.txt')
 volat<-read.table('volat.txt', header=T); str(volat)
 names(volat)<-'vol'
 plot(volat$vol)

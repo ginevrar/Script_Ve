@@ -43,7 +43,13 @@ summary(layerE_sud)
 
 summary(box10_E_hg)
 
+layerA<-rbind(box1_A_hg,box2_A_hg,box3_A_hg,box4_A_hg,box5_A_hg,box6_A_hg,box7_A_hg,box8_A_hg,box9_A_hg,box10_A_hg)
 
+max(layerA)/1000
+median(layerA$Hg)
+mean(layerA$Hg)/1000
+
+min(layerA$Hg)/1000
 
 y<-c(-2,-7,-15,-25,-40)
 
@@ -218,8 +224,8 @@ par(new=T)
 plot(b9_profile,y, xlim=c(0,1), lwd=2,ylim=c(-40,0), col='#d73027', type='b', pch=8)
 par(new=T)
 plot(b10_profile,y, xlim=c(0,1),lwd=2, ylim=c(-40,0), col='#a50028', type='b', pch=9)
-legend(0,-5,col=c('#313695','#4575b4','#DDF26B','#abd9e9','#e5e572','#fed976','#f79220','#f46d43','#d73027','#a50028'),
-       pch=c(1,2,4,11,10,5,6,7,8,9), legend=c('box1','box2','box3','box4','box5','box6','box7','box8','box9','box10'))
+#legend(0,-5,col=c('#313695','#4575b4','#DDF26B','#abd9e9','#e5e572','#fed976','#f79220','#f46d43','#d73027','#a50028'),
+ #      pch=c(1,2,4,11,10,5,6,7,8,9), legend=c('box1','box2','box3','box4','box5','box6','box7','box8','box9','box10'))
  
 ## STAZIONI BOX1
 st7<-rbind(box1_A[1,1:16],box1_B[1,1:16],box1_C[1,1:16],box1_D[1,1:16],box1_E[1,1:16])

@@ -5,6 +5,7 @@ silt##92.4% of re-suspension (1.13 10^12 g year?1)
 
 #setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\PiuRes12\\d')    # annuale
 setwd('C:/Users/Acer/Dropbox/NewVenice20/l')
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1,header=FALSE)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

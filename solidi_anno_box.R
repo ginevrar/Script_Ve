@@ -12,9 +12,8 @@ box8_SPM<-read.table('Box8_tss_poc.txt', header=T)   #ricordare di convertire po
 box9_SPM<-read.table('Box9_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 box10_SPM<-read.table('Box10_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 
-#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2124')
-setwd('C:\\Users\\gi\\Desktop\\2156')
-setwd('C:\\Users\\Acer\\Desktop\\533b')
+
+setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\CL_10')
 
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
@@ -97,7 +96,7 @@ b10_y4<-filter(box10_SPM, box10_SPM$ANNO ==2005)
 
 
 
-png('TSS_allboxes_year_07__6bis.png',width = 21, height = 26,
+png('TSS_allboxes_year_07__6bis__.png',width = 21, height = 26,
     units = "cm", res=400)
 
 par(mfrow=c(10,4),mar=c(.4,.1,1.5,0.0),
@@ -295,203 +294,201 @@ dev.off()
 
 
 
-png('POM_allboxes_year_07__6.png',width = 21, height = 26,
+png('POM_allboxes_year_07__6__.png',width = 21, height = 26,
     units = "cm", res=400)
 
 par(mfrow=c(10,4),mar=c(.4,.1,1.5,0.0),
     oma=c(2.3,5.8,1.5,1), bty='n')
 
-plot(rdate[1227:1238],POM$wn1[1227:1238], type='l', 
+plot(rdate[1227:1238],POMs$wn1[1227:1238], type='l', 
      main='2002', col='green', ylab='', ylim=c(0,8))
 par(new=T)
-plot(jitter(b1_y1$MESE), b1_y1$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b1_y1$MESE), b1_y1$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 #mtext('box1',side=2, outer=T)
 mtext(text='box1',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$wn1[1239:1250], type='l', ylab='',main='2003', col='green', ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$wn1[1239:1250], type='l', ylab='',main='2003', col='green', ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b1_y2$MESE), b1_y2$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b1_y2$MESE), b1_y2$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$wn1[1251:1262], type='l',ylab='', main='2004', col='green', ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$wn1[1251:1262], type='l',ylab='', main='2004', col='green', ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b1_y3$MESE), b1_y3$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b1_y3$MESE), b1_y3$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1263:1274],POM$wn1[1263:1274], type='l',ylab='', main='2005', col='green', ylim=c(0,8), yaxt='n')
+plot(rdate[1263:1274],POMs$wn1[1263:1274], type='l',ylab='', main='2005', col='green', ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b1_y4$MESE), b1_y4$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b1_y4$MESE), b1_y4$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
 
 
-plot(rdate[1227:1238],POM$wn2[1227:1238], type='l',ylab='',col='green', ylim=c(0,8))
+plot(rdate[1227:1238],POMs$wn2[1227:1238], type='l',ylab='',col='green', ylim=c(0,8))
 par(new=T)
-plot(jitter(b2_y1$MESE), b2_y1$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b2_y1$MESE), b2_y1$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 mtext(text='box2',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$wn2[1239:1250], type='l',ylab='', col='green', ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$wn2[1239:1250], type='l',ylab='', col='green', ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b2_y2$MESE), b2_y2$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n',  ylim=c(0,8), yaxt='n')
+plot(jitter(b2_y2$MESE), b2_y2$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n',  ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$wn2[1251:1262], type='l', col='green', ylab='', ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$wn2[1251:1262], type='l', col='green', ylab='', ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b2_y3$MESE), b2_y3$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b2_y3$MESE), b2_y3$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1263:1274],POM$wn2[1263:1274], type='l', col='green', ylab='', ylim=c(0,8), yaxt='n')
+plot(rdate[1263:1274],POMs$wn2[1263:1274], type='l', col='green', ylab='', ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b2_y4$MESE), b2_y4$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b2_y4$MESE), b2_y4$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
 
-plot(rdate[1227:1238],POM$wn3[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
+plot(rdate[1227:1238],POMs$wn3[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
 par(new=T)
-plot(jitter(b3_y1$MESE), b3_y1$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8))
+plot(jitter(b3_y1$MESE), b3_y1$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8))
 mtext(text='box3',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$wn3[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$wn3[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b3_y2$MESE), b3_y2$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b3_y2$MESE), b3_y2$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$wn3[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$wn3[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b3_y3$MESE), b3_y3$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b3_y3$MESE), b3_y3$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1263:1274],POM$wn3[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1263:1274],POMs$wn3[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b3_y4$MESE), b3_y4$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b3_y4$MESE), b3_y4$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
 
-plot(rdate[1227:1238],POM$wn4[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
+plot(rdate[1227:1238],POMs$wn4[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
 par(new=T)
-plot(jitter(b4_y1$MESE), b4_y1$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b4_y1$MESE), b4_y1$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 mtext(text='box4',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$wn4[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$wn4[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b4_y2$MESE), b4_y2$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b4_y2$MESE), b4_y2$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$wn4[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
-
-
-plot(rdate[1263:1274],POM$wn4[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$wn4[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 
 
+plot(rdate[1263:1274],POMs$wn4[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 
-plot(rdate[1227:1238],POM$wn5[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
+
+
+plot(rdate[1227:1238],POMs$wn5[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
 par(new=T)
-plot(jitter(b5_y1$MESE), b5_y1$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b5_y1$MESE), b5_y1$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 mtext(text='box5',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$wn5[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$wn5[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b5_y2$MESE), b5_y2$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b5_y2$MESE), b5_y2$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$wn5[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$wn5[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b5_y3$MESE), b5_y3$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b5_y3$MESE), b5_y3$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1263:1274],POM$wn5[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1263:1274],POMs$wn5[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b5_y4$MESE), b5_y4$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b5_y4$MESE), b5_y4$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
 
-plot(rdate[1227:1238],POM$wc6[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
+plot(rdate[1227:1238],POMs$wc6[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
 par(new=T)
-plot(jitter(b6_y1$MESE), b6_y1$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8))
+plot(jitter(b6_y1$MESE), b6_y1$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8))
 mtext(text='box6',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$wc6[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$wc6[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b6_y2$MESE), b6_y2$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b6_y2$MESE), b6_y2$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$wc6[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$wc6[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b6_y3$MESE), b6_y3$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b6_y3$MESE), b6_y3$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1263:1274],POM$wc6[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1263:1274],POMs$wc6[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b6_y4$MESE), b6_y4$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b6_y4$MESE), b6_y4$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
 
-plot(rdate[1227:1238],POM$wc7[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
+plot(rdate[1227:1238],POMs$wc7[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
 par(new=T)
-plot(jitter(b7_y1$MESE), b7_y1$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b7_y1$MESE), b7_y1$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 mtext(text='box7',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$wc7[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$wc7[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b7_y2$MESE), b7_y2$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b7_y2$MESE), b7_y2$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$wc7[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$wc7[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b7_y3$MESE), b7_y3$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b7_y3$MESE), b7_y3$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1263:1274],POM$wc7[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1263:1274],POMs$wc7[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b7_y4$MESE), b7_y4$POC*1.88, pch=19, col='#c4d1c677',
+plot(jitter(b7_y4$MESE), b7_y4$POC*1.88, pch=19, col='#b8d8bd99',
      xlab='', ylab='', xaxt='n', ylim=c(0,8), yaxt='n')
 
 
 
-plot(rdate[1227:1238],POM$ws8[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
+plot(rdate[1227:1238],POMs$ws8[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
 par(new=T)
-plot(jitter(b8_y1$MESE), b8_y1$POC*1.88, pch=19, col='#c4d1c677',
+plot(jitter(b8_y1$MESE), b8_y1$POC*1.88, pch=19, col='#b8d8bd99',
      xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 mtext(text='box8',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$ws8[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$ws8[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
 plot(jitter(b8_y2$MESE), b8_y2$POC*1.88, 
-     pch=19, col='#c4d1c677', xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+     pch=19, col='#b8d8bd99', xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$ws8[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$ws8[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
 plot(jitter(b8_y3$MESE), b8_y3$POC*1.88, pch=19, 
-     col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+     col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1263:1274],POM$ws8[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1263:1274],POMs$ws8[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
 plot(jitter(b8_y4$MESE), b8_y4$POC*1.88, pch=19, 
-     col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+     col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
 
-
-
-plot(rdate[1227:1238],POM$ws9[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
+plot(rdate[1227:1238],POMs$ws9[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
 par(new=T)
 plot(jitter(b9_y1$MESE), b9_y1$POC*1.88, pch=19, 
-     col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+     col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 mtext(text='box9',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$ws9[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$ws9[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
 plot(jitter(b9_y2$MESE), b9_y2$POC*1.88, pch=19, 
-     col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+     col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$ws9[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$ws9[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
 plot(jitter(b9_y3$MESE), b9_y3$POC*1.88, pch=19, 
-     col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+     col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1263:1274],POM$ws9[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1263:1274],POMs$ws9[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b9_y4$MESE), b9_y4$POC*1.88,pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b9_y4$MESE), b9_y4$POC*1.88,pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
 
 
-plot(rdate[1227:1238],POM$ws10[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
+plot(rdate[1227:1238],POMs$ws10[1227:1238], type='l', col='green', ylab='',  ylim=c(0,8))
 par(new=T)
-plot(jitter(b10_y1$MESE), b10_y1$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b10_y1$MESE), b10_y1$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 mtext(text='box10',side=2, line=2.7, las=2)
 
-plot(rdate[1239:1250],POM$ws10[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1239:1250],POMs$ws10[1239:1250], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b10_y2$MESE), b10_y2$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b10_y2$MESE), b10_y2$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1251:1262],POM$ws10[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1251:1262],POMs$ws10[1251:1262], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b10_y3$MESE), b10_y3$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b10_y3$MESE), b10_y3$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
-plot(rdate[1263:1274],POM$ws10[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
+plot(rdate[1263:1274],POMs$ws10[1263:1274], type='l', col='green', ylab='',  ylim=c(0,8), yaxt='n')
 par(new=T)
-plot(jitter(b10_y4$MESE), b10_y4$POC*1.88, pch=19, col='#c4d1c677',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
+plot(jitter(b10_y4$MESE), b10_y4$POC*1.88, pch=19, col='#b8d8bd99',xlab='', ylab='',xaxt='n', ylim=c(0,8), yaxt='n')
 
 dev.off()
 
