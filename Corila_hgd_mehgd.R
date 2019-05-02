@@ -1,7 +1,8 @@
 setwd('C:/Users/Acer/Dropbox')
 setwd('C:/Users/gi/Dropbox')
 corila<-read.table('Corila_dati_acque.txt', header=T,as.is=TRUE)
-str(corila)
+summary(corila$HgII)
+summary(corila$MeHg)
 
 tmp <- as.Date(corila$data,format="%Y-%m-%d")
 tmp2<-format(tmp, "%d-%m-%Y")

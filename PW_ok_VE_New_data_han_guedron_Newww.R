@@ -70,6 +70,8 @@ b2_layerB_pw_mehg =c(0.092517,	0.12517, 0.0680272,	0.198639)
 b2_layerC_pw = c(21.5217,	6.30435, 19.1304,	14.1304)                              #VE1 guedron et al., 2012
 b2_layerC_pw_mehg =c(0.329252,	0.157823,0.0598639,	0.0598639)
 
+#36 obs. Hg + 36 obs. MeHg
+ 
 b2_hg<-c(b2_layerA_pw,b2_layerB_pw,b2_layerC_pw)
 b2_mehg<-c(b2_layerA_pw_mehg,b2_layerB_pw_mehg,b2_layerC_pw_mehg)
 

@@ -1,12 +1,12 @@
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice')
-setwd('L:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
+setwd('C:/Users/Acer/Dropbox/')
+setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice')
 
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
 str(Mel)
 
 Mel$Hg1<-Mel$Hg*1000
 
-summary(Mel$Hg1)
+str(Mel$Hg1)
 
 Mela<-Mel[(Mel$Staz!='M01' & Mel$Staz!='M02'& Mel$Staz!='B31'&
                Mel$Staz!='E' & Mel$Hg1<300 & Mel$Anno>2001),]
@@ -15,7 +15,7 @@ Mela1<-Mela[complete.cases(Mela),]
 
 summary(Mela1$Staz)
 summary(Mela1$Hg1)
-summary(Mela1$Hg)
+str(Mela1$Hg)
 
 Mela1$Zone[Mela1$Staz == 'B01' | Mela1$Staz == 'B02'| Mela1$Staz == 'B03' |
              Mela1$Staz == 'B04'| Mela1$Staz == 'C01'| Mela1$Staz == 'C02'] <- "Nord"

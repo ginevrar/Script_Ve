@@ -11,7 +11,7 @@ dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 #setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
 setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max2\\naoh2')
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
 setwd('C:\\Users\\gi\\Downloads')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1, header = T)
@@ -20,6 +20,13 @@ names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws1
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 str(mehg)
+
+hg<-read.csv('Total_Hg.csv', skip=1, header = T)
+names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
 layerA<-dati[(dati$depth<=5),]
 layerB<-dati[(dati$depth>5 & dati$depth<=10),]
 layerC<-dati[(dati$depth>10 & dati$depth<=20),]
