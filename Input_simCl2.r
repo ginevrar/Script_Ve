@@ -4,6 +4,11 @@ setwd('C:/Users/Acer/Desktop/Future_emissions')
  hgL<-read.csv('Hgind_load.csv')
 str(hgL)
 
+plot(hgL$year,hgL$Cl2, type='l')
+abline(v=1970)
+par(new=T)
+plot(hgL$year,r, type='l')
+
 setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
  
 hgL<-read.csv('Hgind_load.csv', sep=';', header=T)
@@ -89,7 +94,7 @@ riv_mehg<-ri*1.7/100
 riv_mehg<-data.frame(years,riv_mehg)
 riv<-data.frame(years,ri)
 
-plot(riv$years, riv$ri)
+plot(riv$years, riv$ri, type = 'l')
 abline(v=1970, col=2)
 
 
