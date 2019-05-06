@@ -12,7 +12,7 @@ polygon(x = c, # X-Coordinates of polygon (basso sx, basso dx, alto dx, alto sx)
 Eutrop<-c(rdate[81], rdate[92],  rdate[92],rdate[81])
   
 
-png('Peaks_sediment_Hg_mehg7.png',
+png('Peaks_sediment_Hg_mehg8.png',
     width = 25, height = 14,res=600,     # width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,3.2,1.5,1.5), cex=0.7,
@@ -146,8 +146,8 @@ plot(rdate[45:132],hg$sc7[45:132],
      xlab= '', cex.lab=1 , cex.main=1 , cex.axis=1)
 abline(v=rdate[97],lty=2)
 text(rdate[104],490,'1995',col=1)
- polygon(H_resus,yy6, col='#68676733',border = NA)
-polygon(Eutrop,yy6, col='#3a871f33',border = NA)
+polygon(H_resus,yy1, col='#68676755',border = NA)
+polygon(Eutrop,yy1, col='#3a871f88',border = NA)
 a<-seq(0,500, by=250)
 axis(4,at=a, cex.axis=1)
 par(new=T)
