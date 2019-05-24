@@ -1,5 +1,6 @@
 # setwd('C:\\Users\\Acer\\Desktop\\lastc\\kd_max\\naoh2')
 setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Base_MenoRes4')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

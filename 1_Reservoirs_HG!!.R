@@ -40,6 +40,10 @@ TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1901-01-01")
 TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
+a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07; a9<-2.95E+07;a10<-4.06E+07
+area<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
+d1<-1.26; d2<-0.78; d3<-3.35; d4<-0.64; d5<-1.03; d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71
+
 reservoir_hg_w1<-a1*d1*hg$wn1/10^9  # .hg (ug m-3) * (m3) /10^9 = kg
 reservoir_hg_w2<-a2*d2*hg$wn2/10^9
 reservoir_hg_w3<-a3*d3*hg$wn3/10^9
@@ -157,19 +161,54 @@ reservoir_mehg_vos10<-a10*0.1*Pmehgs$voss10/10^9
 
 
 total_reservoir_W<-c(reservoir_hg_w1+reservoir_hg_w2+reservoir_hg_w3+reservoir_hg_w4+
-  reservoir_hg_w5+reservoir_hg_w6+reservoir_hg_w7+reservoir_hg_w8+reservoir_hg_w9+reservoir_hg_w10)
+                     reservoir_hg_w5+reservoir_hg_w6+reservoir_hg_w7+reservoir_hg_w8+reservoir_hg_w9+reservoir_hg_w10)
+ 
+
+total_reservoir_W_mehg<-c(reservoir_mehg_w1+reservoir_mehg_w2+reservoir_mehg_w3+reservoir_mehg_w4+
+                       reservoir_mehg_w5+reservoir_mehg_w6+reservoir_mehg_w7+reservoir_mehg_w8+reservoir_mehg_w9+reservoir_mehg_w10)
+
+
+rdate[121]
+
+total_reservoir_W[122]-total_reservoir_W[121]    # differenza 2020 - 2019 in kg
+total_reservoir_W_mehg[122]-total_reservoir_W_mehg[121]
+
+reservoir_mehg_w1[122]-reservoir_mehg_w1[121]
+reservoir_mehg_w2[122]-reservoir_mehg_w2[121]
+reservoir_mehg_w3[122]-reservoir_mehg_w3[121]
+reservoir_mehg_w4[122]-reservoir_mehg_w4[121]
+reservoir_mehg_w5[122]-reservoir_mehg_w5[121]
+reservoir_mehg_w6[122]-reservoir_mehg_w6[121]
+reservoir_mehg_w7[122]-reservoir_mehg_w7[121]
+reservoir_mehg_w8[122]-reservoir_mehg_w8[121]
+reservoir_mehg_w9[122]-reservoir_mehg_w9[121]
+reservoir_mehg_w10[122]-reservoir_mehg_w10[121]
+
+
+reservoir_hg_w1[122]-reservoir_hg_w1[121]
+reservoir_hg_w2[122]-reservoir_hg_w2[121]
+reservoir_hg_w3[122]-reservoir_hg_w3[121]
+reservoir_hg_w4[122]-reservoir_hg_w4[121]
+reservoir_hg_w5[122]-reservoir_hg_w5[121]
+reservoir_hg_w6[122]-reservoir_hg_w6[121]
+reservoir_hg_w7[122]-reservoir_hg_w7[121]
+reservoir_hg_w8[122]-reservoir_hg_w8[121]
+reservoir_hg_w9[122]-reservoir_hg_w9[121]
+reservoir_hg_w10[122]-reservoir_hg_w10[121]
+
+
 
 total_reservoir_Sed<-c(reservoir_hg_s1+reservoir_hg_s2+reservoir_hg_s3+reservoir_hg_s4+
-  reservoir_hg_s5+reservoir_hg_s6+reservoir_hg_s7+reservoir_hg_s8+reservoir_hg_s9+reservoir_hg_s10)
+                       reservoir_hg_s5+reservoir_hg_s6+reservoir_hg_s7+reservoir_hg_s8+reservoir_hg_s9+reservoir_hg_s10)
 
 total_reservoir_dsed<-c(reservoir_hg_ds1+reservoir_hg_ds2+reservoir_hg_ds3+reservoir_hg_ds4+reservoir_hg_ds5+
                         reservoir_hg_ds6+reservoir_hg_ds7+reservoir_hg_ds8+reservoir_hg_ds9+reservoir_hg_ds10)
 
 total_reservoir_osed<-c(reservoir_hg_os1+reservoir_hg_os2+reservoir_hg_os3+reservoir_hg_os4+reservoir_hg_os5+
-                          reservoir_hg_os6+reservoir_hg_os7+reservoir_hg_os8+reservoir_hg_os9+reservoir_hg_os10)
+                        reservoir_hg_os6+reservoir_hg_os7+reservoir_hg_os8+reservoir_hg_os9+reservoir_hg_os10)
  
 total_reservoir_vosed<-c(reservoir_hg_vos1+reservoir_hg_vos2+reservoir_hg_vos3+reservoir_hg_vos4+reservoir_hg_vos5+
-                          reservoir_hg_vos6+reservoir_hg_vos7+reservoir_hg_vos8+reservoir_hg_vos9+reservoir_hg_vos10)
+                        reservoir_hg_vos6+reservoir_hg_vos7+reservoir_hg_vos8+reservoir_hg_vos9+reservoir_hg_vos10)
 
 
 TOT_SED<-total_reservoir_Sed+total_reservoir_dsed+total_reservoir_osed+total_reservoir_vosed

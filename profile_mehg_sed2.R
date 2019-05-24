@@ -11,8 +11,9 @@ dati<-read.table('MeHg_data_depths.txt',  header=T);str(dati)
 #setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
 setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
  #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max2\\naoh2')
- setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
-
+ setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Base')     #sim_cl
+ setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Base_MenoRes3')     #sim_cl
+ 
 mehg<-read.csv('Methyl_Hg.csv', skip=1, header = T)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
                'la1','la2','la3','la4','la5','la6','la7','la8','la9','la10',

@@ -14,6 +14,7 @@ box10_SPM<-read.table('Box10_tss_poc.txt', header=T)   #ricordare di convertire 
 
 
 setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\CL_10')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Base_MenoRes')     #sim_cl
 
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")

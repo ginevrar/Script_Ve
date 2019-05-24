@@ -1,6 +1,5 @@
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh6\\b')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')
-
+ setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK')     #sim_cl
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -12,30 +11,22 @@ names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws1
                    'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                    'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh6\\b')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10b\\')
-
-hgb<-read.csv('Total_Hg.csv', skip=1)
-names(hgb)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
-
-#setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh6\\sZeroEM')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\ZeroEm')
-
+#setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10b\\')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\ZeroEmissions')     #sim_cl
 hg_ze<-read.csv('Total_Hg.csv', skip=1)
 names(hg_ze)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 mehg_ze<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg_ze)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-                   'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-                   'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-                   'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                  'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                  'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh6\\sHgCont')     #sim_ hg control - reduction
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\HgContr')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\HgControl')
 
 hg_contr<-read.csv('Total_Hg.csv', skip=1)
 names(hg_contr)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -49,13 +40,14 @@ names(mehg_contr)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9
                    'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                    'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh6\\sHgConst')     #sim_ hg constatn k 
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\ConstEm')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\ConstEm')
 
 hg_hk<-read.csv('Total_Hg.csv', skip=1)
 names(hg_hk)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                 'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                 'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                 'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+
 mehg_hk<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg_hk)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                    'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -63,7 +55,7 @@ names(mehg_hk)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','
                    'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_naoh6\\sA1B1')     #sim_ hg constatn k 
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\A1B1')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\A1B1')
 
 hg_A1B<-read.csv('Total_Hg.csv', skip=1)
 names(hg_A1B)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -234,10 +226,10 @@ diff_hg_ze8_sed_mhg<-mean((mehg$ss8[2403:2414] - mehg_ze$ss8[2403:2414])/mehg$ss
 diff_hg_ze9_sed_mhg<-mean((mehg$ss9[2403:2414] - mehg_ze$ss9[2403:2414])/mehg$ss9[2403:2414])*100
 diff_hg_ze10_sed_mhg<-mean((mehg$ss10[2403:2414] - mehg_ze$ss10[2403:2414])/mehg$ss10[2403:2414])*100
 
-diff_hg_ze_sed<-cbind(diff_hg_ze1_sed_mhg,diff_hg_ze2_sed_mhg,diff_hg_ze3_sed_mhg,diff_hg_ze4_sed_mhg,diff_hg_ze5_sed_mhg,
+diff_hg_ze_sed_mehg<-cbind(diff_hg_ze1_sed_mhg,diff_hg_ze2_sed_mhg,diff_hg_ze3_sed_mhg,diff_hg_ze4_sed_mhg,diff_hg_ze5_sed_mhg,
                     diff_hg_ze6_sed_mhg,diff_hg_ze7_sed_mhg,diff_hg_ze8_sed_mhg,diff_hg_ze9_sed_mhg,diff_hg_ze10_sed_mhg)
 
-mean(diff_hg_ze_sed)
+mean(diff_hg_ze_sed_mehg)
 
 diff_hg_ze1_wat_mhg<-mean((mehg$wn1[2403:2414] - mehg_ze$wn1[2403:2414])/mehg$wn1[2403:2414])*100
 diff_hg_ze2_wat_mhg<-mean((mehg$wn2[2403:2414] - mehg_ze$wn2[2403:2414])/mehg$wn2[2403:2414])*100
@@ -299,10 +291,10 @@ diff_a1B8_sed_mhg<-mean((mehg$ss8[2403:2414] - mehg_A1B$ss8[2403:2414])/mehg$ss8
 diff_a1B9_sed_mhg<-mean((mehg$ss9[2403:2414] - mehg_A1B$ss9[2403:2414])/mehg$ss9[2403:2414])*100
 diff_a1B10_sed_mhg<-mean((mehg$ss10[2403:2414] - mehg_A1B$ss10[2403:2414])/mehg$ss10[2403:2414])*100
 
-diff_a1B_sed<-cbind(diff_a1B1_sed,diff_a1B2_sed,diff_a1B3_sed,diff_a1B4_sed,diff_a1B5_sed,
-                    diff_a1B6_sed,diff_a1B7_sed,diff_a1B8_sed,diff_a1B9_sed,diff_a1B10_sed)
+diff_a1B_sed_mehg<-cbind(diff_a1B1_sed_mhg,diff_a1B2_sed_mhg,diff_a1B3_sed_mhg,diff_a1B4_sed_mhg,diff_a1B5_sed_mhg,
+                    diff_a1B6_sed_mhg,diff_a1B7_sed_mhg,diff_a1B8_sed_mhg,diff_a1B9_sed_mhg,diff_a1B10_sed_mhg)
 
-mean(diff_a1B_sed)
+mean(diff_a1B_sed_mehg)
 
 diff_a1B1_wat_mhg<-mean((mehg$wn1[2403:2414] - mehg_A1B$wn1[2403:2414])/mehg$wn1[2403:2414])*100
 diff_a1B2_wat_mhg<-mean((mehg$wn2[2403:2414] - mehg_A1B$wn2[2403:2414])/mehg$wn2[2403:2414])*100

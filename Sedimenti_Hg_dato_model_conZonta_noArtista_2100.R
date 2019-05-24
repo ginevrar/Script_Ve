@@ -7,14 +7,15 @@
 #setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\gi\\Desktop\\2156')
-#setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
-setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
+#setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
+setwd('C:\\Users\\Acer\\Desktop\\New_sim\\base')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Base_MenoRes4')     #sim_cl
 
 1900-2101
 2426/12
 # plot da 2424 a 2020
 12*80
- setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10\\')     #sim_cl
+ #setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10\\')     #sim_cl
 
 1900-2101;2426/12;# plot da 2424 a 2020  12*80
 

@@ -1,4 +1,5 @@
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\ZeroEm')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -12,6 +13,13 @@ names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws1
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')	
 
+time.steps <- hg[,1]; time.steps3 <- time.steps*24*3600
+time.st_media<-tapply(time.steps3[2:147461], rep(1:(length(time.steps3[2:147461])/365),each = 365),mean)
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+TEMPO2 <- as.POSIXct(time.st_media, tz= "GMT", origin = "1900-01-01")
+TEMPO[1:10]
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
+rdate2<-as.Date(TEMPO2, tz= "GMT", format="%Y")
 mehg_perc<-mehg[,12:21]/hg[,12:21]*100
 
 plot(rdate,mehg_perc[,1],type='l',col=1, ylim=c(0,0.6))
@@ -44,50 +52,60 @@ plot(rdate[1430:2416],mehg$wn1[1430:2416], type='l')
 rdate[1430:1441]   #2019
 rdate[2403:2414]   #2100
 
-mean((mehg$wn1[1430:1441] - mehg$wn1[2403:2414])/mehg$wn1[1430:1441]*100)
-mean((mehg$wn2[1430:1441] - mehg$wn2[2403:2414])/mehg$wn2[1430:1441]*100)
-mean((mehg$wn3[1430:1441] - mehg$wn3[2403:2414])/mehg$wn3[1430:1441]*100)
-mean((mehg$wn4[1430:1441] - mehg$wn4[2403:2414])/mehg$wn4[1430:1441]*100)
-mean((mehg$wn5[1430:1441] - mehg$wn5[2403:2414])/mehg$wn5[1430:1441]*100)
-mean((mehg$wc6[1430:1441] - mehg$wc6[2403:2414])/mehg$wc6[1430:1441]*100)
-mean((mehg$wc7[1430:1441] - mehg$wc7[2403:2414])/mehg$wc7[1430:1441]*100)
-mean((mehg$ws8[1430:1441] - mehg$ws8[2403:2414])/mehg$ws8[1430:1441]*100)
-mean((mehg$ws9[1430:1441] - mehg$ws9[2403:2414])/mehg$ws9[1430:1441]*100)
-mean((mehg$ws10[1430:1441] - mehg$ws10[2403:2414])/mehg$ws10[1430:1441]*100)
+mhgw1<-mean((mehg$wn1[1430:1441] - mehg$wn1[2403:2414])/mehg$wn1[1430:1441]*100)
+mhgw2<-mean((mehg$wn2[1430:1441] - mehg$wn2[2403:2414])/mehg$wn2[1430:1441]*100)
+mhgw3<-mean((mehg$wn3[1430:1441] - mehg$wn3[2403:2414])/mehg$wn3[1430:1441]*100)
+mhgw4<-mean((mehg$wn4[1430:1441] - mehg$wn4[2403:2414])/mehg$wn4[1430:1441]*100)
+mhgw5<-mean((mehg$wn5[1430:1441] - mehg$wn5[2403:2414])/mehg$wn5[1430:1441]*100)
+mhgw6<-mean((mehg$wc6[1430:1441] - mehg$wc6[2403:2414])/mehg$wc6[1430:1441]*100)
+mhgw7<-mean((mehg$wc7[1430:1441] - mehg$wc7[2403:2414])/mehg$wc7[1430:1441]*100)
+mhgw8<-mean((mehg$ws8[1430:1441] - mehg$ws8[2403:2414])/mehg$ws8[1430:1441]*100)
+mhgw9<-mean((mehg$ws9[1430:1441] - mehg$ws9[2403:2414])/mehg$ws9[1430:1441]*100)
+mhgw10<-mean((mehg$ws10[1430:1441] - mehg$ws10[2403:2414])/mehg$ws10[1430:1441]*100)
 
-mean((hg$wn1[1430:1441] - hg$wn1[2403:2414])/hg$wn1[1430:1441]*100)
-mean((hg$wn2[1430:1441] - hg$wn2[2403:2414])/hg$wn2[1430:1441]*100)
-mean((hg$wn3[1430:1441] - hg$wn3[2403:2414])/hg$wn3[1430:1441]*100)
-mean((hg$wn4[1430:1441] - hg$wn4[2403:2414])/hg$wn4[1430:1441]*100)
-mean((hg$wn5[1430:1441] - hg$wn5[2403:2414])/hg$wn5[1430:1441]*100)
-mean((hg$wc6[1430:1441] - hg$wc6[2403:2414])/hg$wc6[1430:1441]*100)
-mean((hg$wc7[1430:1441] - hg$wc7[2403:2414])/hg$wc7[1430:1441]*100)
-mean((hg$ws8[1430:1441] - hg$ws8[2403:2414])/hg$ws8[1430:1441]*100)
-mean((hg$ws9[1430:1441] - hg$ws9[2403:2414])/hg$ws9[1430:1441]*100)
-mean((hg$ws10[1430:1441] - hg$ws10[2403:2414])/hg$ws10[1430:1441]*100)
+hgw1<-mean((hg$wn1[1430:1441] - hg$wn1[2403:2414])/hg$wn1[1430:1441]*100)
+hgw2<-mean((hg$wn2[1430:1441] - hg$wn2[2403:2414])/hg$wn2[1430:1441]*100)
+hgw3<-mean((hg$wn3[1430:1441] - hg$wn3[2403:2414])/hg$wn3[1430:1441]*100)
+hgw4<-mean((hg$wn4[1430:1441] - hg$wn4[2403:2414])/hg$wn4[1430:1441]*100)
+hgw5<-mean((hg$wn5[1430:1441] - hg$wn5[2403:2414])/hg$wn5[1430:1441]*100)
+hgw6<-mean((hg$wc6[1430:1441] - hg$wc6[2403:2414])/hg$wc6[1430:1441]*100)
+hgw7<-mean((hg$wc7[1430:1441] - hg$wc7[2403:2414])/hg$wc7[1430:1441]*100)
+hgw8<-mean((hg$ws8[1430:1441] - hg$ws8[2403:2414])/hg$ws8[1430:1441]*100)
+hgw9<-mean((hg$ws9[1430:1441] - hg$ws9[2403:2414])/hg$ws9[1430:1441]*100)
+hgw10<-mean((hg$ws10[1430:1441] - hg$ws10[2403:2414])/hg$ws10[1430:1441]*100)
 
-mean((mehg$sn1[1430:1441] - mehg$sn1[2403:2414])/mehg$sn1[1430:1441]*100)
-mean((mehg$sn2[1430:1441] - mehg$sn2[2403:2414])/mehg$sn2[1430:1441]*100)
-mean((mehg$sn3[1430:1441] - mehg$sn3[2403:2414])/mehg$sn3[1430:1441]*100)
-mean((mehg$sn4[1430:1441] - mehg$sn4[2403:2414])/mehg$sn4[1430:1441]*100)
-mean((mehg$sn5[1430:1441] - mehg$sn5[2403:2414])/mehg$sn5[1430:1441]*100)
-mean((mehg$sc6[1430:1441] - mehg$sc6[2403:2414])/mehg$sc6[1430:1441]*100)
-mean((mehg$sc7[1430:1441] - mehg$sc7[2403:2414])/mehg$sc7[1430:1441]*100)
-mean((mehg$ss8[1430:1441] - mehg$ss8[2403:2414])/mehg$ss8[1430:1441]*100)
-mean((mehg$ss9[1430:1441] - mehg$ss9[2403:2414])/mehg$ss9[1430:1441]*100)
-mean((mehg$ss10[1430:1441] - mehg$ss10[2403:2414])/mehg$ss10[1430:1441]*100)
+mhgs1<-mean((mehg$sn1[1430:1441] - mehg$sn1[2403:2414])/mehg$sn1[1430:1441]*100)
+mhgs2<-mean((mehg$sn2[1430:1441] - mehg$sn2[2403:2414])/mehg$sn2[1430:1441]*100)
+mhgs3<-mean((mehg$sn3[1430:1441] - mehg$sn3[2403:2414])/mehg$sn3[1430:1441]*100)
+mhgs4<-mean((mehg$sn4[1430:1441] - mehg$sn4[2403:2414])/mehg$sn4[1430:1441]*100)
+mhgs5<-mean((mehg$sn5[1430:1441] - mehg$sn5[2403:2414])/mehg$sn5[1430:1441]*100)
+mhgs6<-mean((mehg$sc6[1430:1441] - mehg$sc6[2403:2414])/mehg$sc6[1430:1441]*100)
+mhgs7<-mean((mehg$sc7[1430:1441] - mehg$sc7[2403:2414])/mehg$sc7[1430:1441]*100)
+mhgs8<-mean((mehg$ss8[1430:1441] - mehg$ss8[2403:2414])/mehg$ss8[1430:1441]*100)
+mhgs9<-mean((mehg$ss9[1430:1441] - mehg$ss9[2403:2414])/mehg$ss9[1430:1441]*100)
+mhgs10<-mean((mehg$ss10[1430:1441] - mehg$ss10[2403:2414])/mehg$ss10[1430:1441]*100)
 
-mean((hg$sn1[1430:1441] - hg$sn1[2403:2414])/hg$sn1[1430:1441]*100)
-mean((hg$sn2[1430:1441] - hg$sn2[2403:2414])/hg$sn2[1430:1441]*100)
-mean((hg$sn3[1430:1441] - hg$sn3[2403:2414])/hg$sn3[1430:1441]*100)
-mean((hg$sn4[1430:1441] - hg$sn4[2403:2414])/hg$sn4[1430:1441]*100)
-mean((hg$sn5[1430:1441] - hg$sn5[2403:2414])/hg$sn5[1430:1441]*100)
-mean((hg$sc6[1430:1441] - hg$sc6[2403:2414])/hg$sc6[1430:1441]*100)
-mean((hg$sc7[1430:1441] - hg$sc7[2403:2414])/hg$sc7[1430:1441]*100)
-mean((hg$ss8[1430:1441] - hg$ss8[2403:2414])/hg$ss8[1430:1441]*100)
-mean((hg$ss9[1430:1441] - hg$ss9[2403:2414])/hg$ss9[1430:1441]*100)
-mean((hg$ss10[1430:1441] - hg$ss10[2403:2414])/hg$ss10[1430:1441]*100)
+hgs1<-mean((hg$sn1[1430:1441] - hg$sn1[2403:2414])/hg$sn1[1430:1441]*100)
+hgs2<-mean((hg$sn2[1430:1441] - hg$sn2[2403:2414])/hg$sn2[1430:1441]*100)
+hgs3<-mean((hg$sn3[1430:1441] - hg$sn3[2403:2414])/hg$sn3[1430:1441]*100)
+hgs4<-mean((hg$sn4[1430:1441] - hg$sn4[2403:2414])/hg$sn4[1430:1441]*100)
+hgs5<-mean((hg$sn5[1430:1441] - hg$sn5[2403:2414])/hg$sn5[1430:1441]*100)
+hgs6<-mean((hg$sc6[1430:1441] - hg$sc6[2403:2414])/hg$sc6[1430:1441]*100)
+hgs7<-mean((hg$sc7[1430:1441] - hg$sc7[2403:2414])/hg$sc7[1430:1441]*100)
+hgs8<-mean((hg$ss8[1430:1441] - hg$ss8[2403:2414])/hg$ss8[1430:1441]*100)
+hgs9<-mean((hg$ss9[1430:1441] - hg$ss9[2403:2414])/hg$ss9[1430:1441]*100)
+hgs10<-mean((hg$ss10[1430:1441] - hg$ss10[2403:2414])/hg$ss10[1430:1441]*100)
 
+diff_mhgw<-c(mhgw1,mhgw2,mhgw3,mhgw4,mhgw5,mhgw6,mhgw7,mhgw8,mhgw9,mhgw10)
+diff_hgw<-c(hgw1,hgw2,hgw3,hgw4,hgw5,hgw6,hgw7,hgw8,hgw9,hgw10)
+diff_mhgs<-c(mhgs1,mhgs2,mhgs3,mhgs4,mhgs5,mhgs6,mhgs7,mhgs8,mhgs9,mhgs10)
+diff_hgs<-c(hgs1,hgs2,hgs3,hgs4,hgs5,hgs6,hgs7,hgs8,hgs9,hgs10)
+
+
+mean(diff_hgw); min(diff_hgw); max(diff_hgw)
+mean(diff_mhgw); min(diff_mhgw); max(diff_mhgw)
+mean(diff_hgs); min(diff_hgs); max(diff_hgs)
+mean(diff_mhgs); min(diff_mhgs); max(diff_mhgs)
 
 sed_rate1<-mean(hg$sn1[1430:1441] - hg$sn1[2403:2414])/81
 sed_rate2<-mean(hg$sn2[1430:1441] - hg$sn2[2403:2414])/81
@@ -101,7 +119,9 @@ sed_rate9<-mean(hg$ss9[1430:1441] - hg$ss9[2403:2414])/81
 sed_rate10<-mean(hg$ss10[1430:1441] - hg$ss10[2403:2414])/81
 
 sed_rate<-cbind(sed_rate1,sed_rate2,sed_rate3,sed_rate4,sed_rate5,sed_rate6,sed_rate7,sed_rate8,sed_rate9,sed_rate10)
-mean(sed_rate)
+mean(sed_rate);min(sed_rate);max(sed_rate)
+
+
 sed_rate
 
 rdate[1430:1441]
@@ -119,6 +139,7 @@ sed_rate_mhg9<-mean(mehg$ss9[1430:1441] - mehg$ss9[2403:2414])/81
 sed_rate_mhg10<-mean(mehg$ss10[1430:1441] - mehg$ss10[2403:2414])/81
 
 sed_rate_mhg<-cbind(sed_rate_mhg1,sed_rate_mhg2,sed_rate_mhg3,sed_rate_mhg4,sed_rate_mhg5,sed_rate_mhg6,sed_rate_mhg7,sed_rate_mhg8,sed_rate_mhg9,sed_rate_mhg10)
+mean(sed_rate);min(sed_rate);max(sed_rate)
 mean(sed_rate_mhg*1000)
   sed_rate_mhg*1000
 rdate[1430:1441]

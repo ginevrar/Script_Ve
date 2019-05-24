@@ -98,23 +98,23 @@ ax<-seq(from=1980, to=2030, by=1)
 llab<-seq(from=1980, to=2030, by=50)
 plot(rdate,mehg$sn1,
      type='l', col='#313695',ylim=c(0,5), ylab=' ',
-     lwd=2,main='Box1',lty=3,xlim=c(rdate[2],rdate[204]),
+     lwd=2,main='Box1',lty=3,xlim=c(rdate[2],rdate[203]),
      xlab= '', cex.lab=2 , cex.main=1.7 , cex.axis=1.6)
 mtext('MMHg (ng/g)', side = 2, line=3.4, cex=1.3)
 par(new=T)
 plot(rdate,mehg$dsn1,ylim=c(0,5), type='l', col='#313695',     #
-     lty=1,lwd=2,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[2],rdate[204]),
+     lty=1,lwd=2,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[2],rdate[203]),
      xlab= '', cex.lab=2 , cex.main=1.7 , cex.axis=1.6)
 par(new=T)
 plot(rdate,mehg$osn1,ylim=c(0,5), type='l', col='#313695',
-     lty=5,lwd=1,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[2],rdate[204]),
+     lty=5,lwd=1,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[2],rdate[203]),
      xlab= '', cex.lab=2 , cex.main=1.7 , cex.axis=1.6)
 #text(1020,1200,'1977', cex=1.3)
 #text(9700,1200,'1997', cex=1.3)
 par(new=T)
 boxplot(box1_2005$mehg,box1_2008$mehg,box1_2009$mehg,
         ylim=c(0,5),        col='#31369588', ylab=' ', range=F,
-        boxwex=1700, xaxt='n',yaxt='n', xlim=c(rdate[2],rdate[204]),
+        boxwex=1700, xaxt='n',yaxt='n', xlim=c(rdate[2],rdate[203]),
         at=c(c1,c2,c3))   #0.23,0.45
 v_text<-c('10cm','15cm','10cm')
 x=c(c1-2500,c2-541,c5+2500)
@@ -122,7 +122,7 @@ y=c(1500,-40,1500)
 text(x, y, v_text,cex=1.)  # 10 c
 par(new=T)
 plot(rdate,media1,ylim=c(0,5), type='l', col='gray10',
-     lwd=1.7, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[2],rdate[204]),
+     lwd=1.7, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[2],rdate[203]),
      ylab=' ',xlab= '', cex.lab=2 , 
      cex.main=1.7 , lty=1,cex.axis=1.6)
 
@@ -148,7 +148,7 @@ plot(rdate,mehg$osn2,ylim=c(0,5), type='l', col='#4575b4',
      xlab= '', cex.lab=2 , cex.main=1.7 , cex.axis=1.6)
 par(new=T)
 boxplot(box2_2008$mehg, box2_2009$mehg,ylim=c(0,5),
-        col='#4575b488',xlim=c(rdate[2],rdate[204]),
+        col='#4575b488',xlim=c(rdate[2],rdate[203]),
         at=c(c2,c3),
         boxwex=1700,xaxt='n',ylab= '',yaxt='n')
 par(new=T)
@@ -195,7 +195,7 @@ plot(rdate,mehg$osn3, ylim=c(0,5),lty=5,
 
 par(new=T)
 boxplot(box3$mehg ,ylim=c(0,5),col='#DDF26B88',
-        xlim=c(rdate[2],rdate[204]),at=c(c1),
+        xlim=c(rdate[2],rdate[203]),at=c(c1),
         ylab= '',boxwex=1700,xaxt='n',yaxt='n' , range=F)#
 par(new=T)  
 plot(rdate,media3,ylim=c(0,5), type='l', col='gray10',
@@ -244,7 +244,7 @@ plot(rdate, mehg$osc6, ylim=c(0,5),lty=5, type='l',
      xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7 , cex.axis=1.6)
 par(new=T)
 boxplot(box6_2005$mehg, box6_2006$mehg, ylim=c(0,5),col='#fed97688', ylab=' ', 
-        xlim=c(rdate[2],rdate[204]),at=c(c1,c5),range=F,
+        xlim=c(rdate[2],rdate[203]),at=c(c1,c5),range=F,
         boxwex=1700,xaxt='n',yaxt='n', outline=F)
 par(new=T)
 plot(rdate,media6,ylim=c(0,5), type='l', col='gray10',lwd=1.7, 
@@ -268,7 +268,7 @@ plot(rdate,mehg$osc7, ylim=c(0,5),lty=5,
      xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7 , cex.axis=1.6)
 par(new=T)
 boxplot(box7_2005$mehg, box7_2006$mehg,ylim=c(0,5),col='#f7922088',
-        xlim=c(rdate[2],rdate[204]),at=c(c1,c5),
+        xlim=c(rdate[2],rdate[203]),at=c(c1,c5),
         ylab= '',boxwex=1700,xaxt='n',yaxt='n' , range=F)#
 par(new=T)
 plot(rdate,media7,ylim=c(0,5), type='l', col='gray10',
@@ -356,30 +356,30 @@ filter(dati, ref== 'guedron_2012')
 png('BB11.png',height=13, width=18, units = 'cm',res=300)
  par(bty='n',mgp=c(3, 2, 0))
 ## fig(dist. day , , altezza plot)
-plot(rdate[92:122],mehg$sn1[92:122],
+  plot(rdate[92:122],mehg$sn1[92:122],lwd=3.5,
      type='l', col='#313695',ylim=c(0,2), ylab=' ',
-     lwd=2,lty=3,xlim=c(rdate[92],rdate[122]),
+     lty=3,xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=4.5 ,  cex.axis=2.6)
 #axis(side=1, at=ax, labels = TRUE)
 #axis(side=1, at=ax,lab=T,  cex.axis=1.2)
 par(new=T)
-boxplot(box1_2005$mehg,box1_2008$mehg,box1_2009$mehg,
-        ylim=c(0,2),col='#31369588', ylab=' ', range=F,
-        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
-        at=c(c1,c2,c3))   #0.23,0.45
-par(new=T)
 plot(rdate[92:122],mehg$dsn1[92:122],ylim=c(0,2), type='l', col='#313695',     #
-     lty=1,lwd=2,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lty=1,lwd=3.5,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      xlab= '')
 par(new=T)
 plot(rdate[92:122],mehg$osn1[92:122],ylim=c(0,2), type='l', col='#313695',
-     lty=5,lwd=1,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lty=5,lwd=3.5, main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      xlab= '')
 par(new=T)
 plot(rdate[92:122],media1[92:122],ylim=c(0,2), type='l', col='gray10',
-     lwd=1.7, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lwd=3.5, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      ylab=' ',xlab= '', 
      cex.main=1.7 , lty=1,cex.axis=1.6)
+par(new=T)
+boxplot(box1_2005$mehg,box1_2008$mehg,box1_2009$mehg,lwd=2.6,
+        ylim=c(0,2),col='#31369599', ylab=' ', range=F,
+        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
+        at=c(c1,c2,c3))   #0.23,0.45
 dev.off()
 
 
@@ -388,25 +388,25 @@ par(bty='n',mgp=c(3, 2, 0))
 ## fig(dist. day , , altezza plot)
 plot(rdate[92:122],mehg$sn2[92:122],
      type='l', col='#4575b4',ylim=c(0,3), ylab=' ',
-     lwd=2,lty=3,xlim=c(rdate[92],rdate[122]),
+     lwd=3.5,lty=3,xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=4.5 ,  cex.axis=2.6)
 #axis(side=1, at=ax, labels = TRUE)
 #axis(side=1, at=ax,lab=T,  cex.axis=1.2)
 par(new=T)
-boxplot(box2_2008$mehg,box2_2009$mehg,
-        ylim=c(0,3),col='#4575b488', ylab=' ', range=F,
-        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
-        at=c(c2,c3))   #0.23,0.45
+plot(rdate[92:122],mehg$dsn2[92:122],ylim=c(0,3), type='l', col='#4575b4',     #
+     lty=1,lwd=3.5,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]), xlab= '' )
 par(new=T)
-plot(rdate[92:122],mehg$dsn2[92:122],ylim=c(0,3), type='l', col='#313695',     #
-     lty=1,lwd=2,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]), xlab= '' )
-par(new=T)
-plot(rdate[92:122],mehg$osn2[92:122],ylim=c(0,3), type='l', col='#313695',
-     lty=5,lwd=1,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]), xlab= '')
+plot(rdate[92:122],mehg$osn2[92:122],ylim=c(0,3), type='l', col='#4575b4',
+     lty=5,lwd=3.5,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]), xlab= '')
 par(new=T)
 plot(rdate[92:122],media2[92:122],ylim=c(0,3), type='l', col='gray10',
-     lwd=1.7, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lwd=3.5, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      ylab=' ',xlab= '' )
+par(new=T)
+boxplot(box2_2008$mehg,box2_2009$mehg,lwd=2.6,
+        ylim=c(0,3),col='#4575b499', ylab=' ', range=F,
+        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
+        at=c(c2,c3))   #0.23,0.45
 dev.off()
 
 png('BB13.png',height=13, width=18, units = 'cm',res=300)
@@ -414,27 +414,27 @@ png('BB13.png',height=13, width=18, units = 'cm',res=300)
 ## fig(dist. day , , altezza plot)
 plot(rdate[92:122],mehg$sn3[92:122],
      type='l', col='#DDF26B',ylim=c(0,2), ylab=' ',
-     lwd=2,lty=3,xlim=c(rdate[92],rdate[122]),
+     lwd=4,lty=3,xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=4.5 ,  cex.axis=2.6)
 #axis(side=1, at=ax, labels = TRUE)
 #axis(side=1, at=ax,lab=T,  cex.axis=1.2)
 par(new=T)
-boxplot(box3$mehg,
-        ylim=c(0,2),col='#DDF26B88', ylab=' ', range=F,
-        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
-        at=c(c1))   #0.23,0.45
-par(new=T)
 plot(rdate[92:122],mehg$dsn3[92:122],ylim=c(0,2), type='l', col='#DDF26B',     #
-     lty=1,lwd=2,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lty=1,lwd=3.5,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=2 )
 par(new=T)
 plot(rdate[92:122],mehg$osn3[92:122],ylim=c(0,2), type='l', col='#DDF26B',
-     lty=5,lwd=1,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lty=5,lwd=3.5,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=2 )
 par(new=T)
 plot(rdate[92:122],media3[92:122],ylim=c(0,2), type='l', col='gray10',
-     lwd=1.7, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lwd=3.5, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      ylab=' ',xlab= '', cex.lab=2 )
+par(new=T)
+boxplot(box3$mehg,lwd=2.6,
+        ylim=c(0,2),col='#DDF26B88', ylab=' ', range=F,
+        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
+        at=c(c1))   #0.23,0.45
 dev.off()
 
 png('BB16.png',height=13, width=18, units = 'cm',res=300)
@@ -442,27 +442,27 @@ png('BB16.png',height=13, width=18, units = 'cm',res=300)
 ## fig(dist. day , , altezza plot)
 plot(rdate[92:122],mehg$sc6[92:122],
      type='l', col='#fed976',ylim=c(0,5), ylab=' ',
-     lwd=2,lty=3,xlim=c(rdate[92],rdate[122]),
+     lwd=3.5,lty=3,xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=4.5 ,  cex.axis=2.6)
 #axis(side=1, at=ax, labels = TRUE)
 #axis(side=1, at=ax,lab=T,  cex.axis=1.2)
 par(new=T)
-boxplot(box6_2005$mehg,box6_2006$mehg,
-        ylim=c(0,5),col='#fed97688', ylab=' ', range=F,
-        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
-        at=c(c1,c5))   #0.23,0.45
-par(new=T)
 plot(rdate[92:122],mehg$dsc6[92:122],ylim=c(0,5), type='l', col='#fed976',     #
-     lty=1,lwd=2,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lty=1,lwd=3.5,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=2 )
 par(new=T)
 plot(rdate[92:122],mehg$osc6[92:122],ylim=c(0,5), type='l', col='#fed976',
-     lty=5,lwd=1,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lty=5,lwd=3.5,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=2 )
 par(new=T)
 plot(rdate[92:122],media6[92:122],ylim=c(0,5), type='l', col='gray10',
-     lwd=1.7, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lwd=3.5, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      ylab=' ',xlab= '', cex.lab=2 )
+par(new=T)
+boxplot(box6_2005$mehg,box6_2006$mehg,lwd=2.6,
+        ylim=c(0,5),col='#fed97688', ylab=' ', range=F,
+        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
+        at=c(c1,c5))   #0.23,0.45
 dev.off()
 
 png('BB17.png',height=13, width=18, units = 'cm',res=300)
@@ -470,27 +470,27 @@ png('BB17.png',height=13, width=18, units = 'cm',res=300)
 ## fig(dist. day , , altezza plot)
 plot(rdate[92:122],mehg$sc7[92:122],
      type='l', col='#f79220',ylim=c(0,2), ylab=' ',
-     lwd=2,lty=3,xlim=c(rdate[92],rdate[122]),
+     lwd=3.5,lty=3,xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=4.5 ,  cex.axis=2.6)
 #axis(side=1, at=ax, labels = TRUE)
 #axis(side=1, at=ax,lab=T,  cex.axis=1.2)
 par(new=T)
-boxplot(box7_2005$mehg,box7_2006$mehg,
-        ylim=c(0,2),col='#f7922088', ylab=' ', range=F,
-        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
-        at=c(c1,c5))   #0.23,0.45
-par(new=T)
 plot(rdate[92:122],mehg$dsc7[92:122],ylim=c(0,2), type='l', col='#f79220',     #
-     lty=1,lwd=2,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lty=1,lwd=3.5,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=2 )
 par(new=T)
 plot(rdate[92:122],mehg$osc7[92:122],ylim=c(0,5), type='l', col='#f79220',
-     lty=5,lwd=1,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lty=5,lwd=3.5,main=' ',ylab= '',xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      xlab= '', cex.lab=2 )
 par(new=T)
 plot(rdate[92:122],media7[92:122],ylim=c(0,2), type='l', col='gray10',
-     lwd=1.7, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
+     lwd=3.5, main=' ', xaxt='n',yaxt='n',xlim=c(rdate[92],rdate[122]),
      ylab=' ',xlab= '', cex.lab=2 )
+par(new=T)
+boxplot(box7_2005$mehg,box7_2006$mehg,lwd=2.6,
+        ylim=c(0,2),col='#f7922088', ylab=' ', range=F,
+        boxwex=600, xaxt='n',yaxt='n', xlim=c(rdate[92],rdate[122]),
+        at=c(c1,c5))   #0.23,0.45
 dev.off()
 
 
