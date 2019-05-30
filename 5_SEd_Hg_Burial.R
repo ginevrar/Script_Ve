@@ -1,6 +1,7 @@
 setwd('C:/Users/Acer/Dropbox/NewVenice21')
 setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')     #sim_cl
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\')     #sim_cl
 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -75,11 +76,15 @@ names(sand_depos)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9
                      'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                      'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
+time.steps <- TOTs[,1]
+time.steps3 <- time.steps*24*3600
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1901-01-01")
+TEMPO[1:10]
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
 buriedhg_mgm2d<-(SEDhg*(burial/100)*TOTs)    ## ng g-1 * m y-1 * g m-3  = ng m-2 y-1
 buried_mehg_mgm2d<-(SEDmhg*(burial/100)*TOTs)    ## ng g-1 * m y-1 * g m-3  = ng m-2 y-1
 
- 
 sed_b1<-(buriedhg_mgm2d$sn1*a1)/10^12
 sed_b2<-(buriedhg_mgm2d$sn2*a2)/10^12
 sed_b3<-(buriedhg_mgm2d$sn3*a3)/10^12
@@ -104,6 +109,52 @@ sed_mehg_b10<-(buried_mehg_mgm2d$ss10*a10)/10^12
 
 TOT_burialHg<-sed_b1+sed_b2+sed_b3+sed_b4+sed_b5+sed_b6+sed_b7+sed_b8+sed_b9+sed_b10
 TOT_burial_mehg<-sed_mehg_b1+sed_mehg_b2+sed_mehg_b3+sed_mehg_b4+sed_mehg_b5+sed_mehg_b6+sed_mehg_b7+sed_mehg_b8+sed_mehg_b9+sed_mehg_b10
+
+
+TOT_burialHg<-sed_b1+sed_b2+sed_b3+sed_b4+sed_b5+sed_b6+sed_b7+sed_b8+sed_b9+sed_b10
+TOT_burial_mehg<-sed_mehg_b1+sed_mehg_b2+sed_mehg_b3+sed_mehg_b4+sed_mehg_b5+sed_mehg_b6+sed_mehg_b7+sed_mehg_b8+sed_mehg_b9+sed_mehg_b10
+
+mean(sed_b1[1431:1442])
+mean(sed_b2[1431:1442])
+mean(sed_b3[1431:1442])
+mean(sed_b4[1431:1442])
+
+par(mfrow=c(2,5))
+plot(rdate,sed_b1, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+plot(rdate,sed_b2, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+plot(rdate,sed_b3, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+plot(sed_b4, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+plot(sed_b5, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+plot(sed_b6, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+plot(sed_b7, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+plot(sed_b8, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+plot(sed_b9, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+plot(sed_b10, type='l', ylab='kg y-1',xlab=' ')
+abline(h=0, lty=2, col='grey')
+
+par(new=T)
+plot(sed_mehg_b1, type='l', col=2, yaxt='n',xaxt='n', ylab=' ',xlab=' ')
+y<-seq((round(min(sed_mehg_b1),digits =2)),(round(max(sed_mehg_b1),digits =2)), length.out = 4)
+axis(4, at=y)
+abline(h=0, lty=2)
+
+plot(sed_mehg_b2, type='l', col=2, yaxt='n',xaxt='n', ylab=' ',xlab=' ')
+y<-seq((round(min(sed_mehg_b2),digits =2)),(round(max(sed_mehg_b2),digits =2)), length.out = 4)
+axis(4, at=y)
+
+ plot(sed_mehg_b3, type='l', col=2, yaxt='n',xaxt='n', ylab=' ',xlab=' ')
+y<-seq((round(min(sed_mehg_b3),digits =2)),(round(max(sed_mehg_b3),digits =2)), length.out = 4)
+axis(4, at=y)
+
 
 write.table(TOT_burialHg, 'Burial_hgII.txt')
 write.table(TOT_burial_mehg, 'Burial_mehg.txt')

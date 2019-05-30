@@ -7,7 +7,7 @@
 #setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
 #setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
 #setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Base_menoRes3')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_ok')     #sim_cl
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv',skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

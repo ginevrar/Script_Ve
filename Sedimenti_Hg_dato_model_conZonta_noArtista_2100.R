@@ -9,7 +9,7 @@
 #setwd('C:\\Users\\gi\\Desktop\\2156')
 #setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
 setwd('C:\\Users\\Acer\\Desktop\\New_sim\\base')
-setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Base_MenoRes4')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\')     #sim_cl
 
 1900-2101
 2426/12
@@ -144,7 +144,7 @@ Donnaz<-cbind(Zonta1,Zonta2,Zonta3,Zonta4,Zonta5,Zonta6,Zonta7,
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb__8hilmnohilcciiDDEF.png',
+png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb__8hilmnohilcciiDDEFGGMedie.png',
     width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,2,1,1), 

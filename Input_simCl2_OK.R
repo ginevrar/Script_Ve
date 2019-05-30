@@ -436,7 +436,7 @@ Input_long<-data.frame(tot_city,tot_depo,tot_ind,tot_riv,river_mhg,b6i_mehg)
 write.table(Input_long, file='Input_long.txt')
 
 
-png('Hg_input_VE2_Cl2bbc.png', units='cm', height = 31,  width = 31, res=300)
+png('Hg_input_VE2_Cl2bbcd.png', units='cm', height = 31,  width = 31, res=300)
 tutt<-data.frame((tott[2]), (tott[3]+tott[4]),
                  (tott[5]),(tott[6]))
 rownames(tutt)<-years
@@ -462,7 +462,7 @@ barplot(tutt, beside=F, width = 10,legend.text=F,
         border = NA, col=c('cyan3','royalblue','orange',
                            'grey40'),
         main='Hg inputs to the Venice Lagoon')
-text(ladata[30],1500,'A', cex=2.5)
+text(40,1500,'A', cex=2.5)
 mtext(text=expression(paste('kg y'^-1)),side=2,  line=2.5, cex=1.3)
 legend(1300,1500,col=c('cyan3','royalblue','orange','grey40'),cex=1.6,
        legend=c('Atmosphere','Rivers','City','Industrial'), 
@@ -525,29 +525,34 @@ ef_2008
  #dev.new()
 boxplot(r, ylim=c(1,56), col='grey80', ylab='', xlab='', 
         boxwex=1.2, main='Atmospheric Hg deposition rate')
-text(1.1,18.5,'range for marine areas' , cex=1.2)
-text(1.075,17,'from global models'  , cex=1.2)
-text(1.,15.5,'ensemble' , cex=1.2)
-text(1.035,14,'(UNEP, 2013)', cex=1.2)
+text(0.92,10.5,'range for marine areas \n from GEOS-Chem model \n (UNEP, 2013)' , cex=1.2)
+#text(.9,17,''  , cex=1.2)
+#text(.7,15.5,'' , cex=1.2)
+#text(1.035,14,'', cex=1.2)
 par(new=T)
 plot(years,de2_g_km2_y, type='l', ylim=c(1,56),lwd=2,lty=1, col='#117733', xlab='year',ylab=' ')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+text(years[185],11,'Zero \n Emissions' , cex=1.3,col='#117733')
 par(new=T)
 plot(years,de3_g_km2_y, type='l', ylim=c(1,56),lwd=2, lty=1,col='#0b70a3', xlab='year',ylab=' ')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+text(years[185],19,'Emissions \n Control' , cex=1.3,col='#0b70a3')
 par(new=T)
 plot(years,de4_g_km2_y, type='l', ylim=c(1,56),lwd=2,lty=1, col='#DDCC77', xlab='year',ylab=' ')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+text(years[185],33,'Constant \n Emissions' , cex=1.3,col='#cebb5a')
 par(new=T)
 plot(years,de5_g_km2_y, type='l', ylim=c(1,56),lwd=2,lty=1, col='#882255', xlab='year',
      ylab='')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
+text(years[162],42,'A1B1' , cex=1.2,col='#882255')
 par(new=T)
 plot(years,dep_g_km2_y, type='l', ylim=c(1,56),lwd=2.5, col='cyan3', xlab='year',ylab=' ')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
 #text(18,5,'input for \n the Venice lagoon', cex=1.2)
+text(years[185],24,'Reference' , cex=1.3,col='cyan3')
 text(years[10],56,'C', cex=2.5)
 mtext(text=expression(paste('g km'^-2*' y'^-1)),side=2,  line=2.5, cex=1.3)
-text(years[184],8,'Scenarios of \n Hg deposition \n (Chen et al., \n 2018)' , cex=1.2)
+text(years[162],55,'Scenarios of \n Hg deposition \n (Chen et al., 2018)' , cex=1.2)
 
 
 plot(ladata,tot_riv/13.2, type='l', col='#4169E1', lwd=3,xlab='year',
-     main='River Hg load \n enrichment factor relative to 2008', ylab=' ',ylim=c(0,15)) 
+     main='River Hg load \n enrichment factor relative to 2008', ylab=' ', ylim=c(0,15)) 
 text(ladata[30],15,'D', cex=2.5)
 par(new=T)
 boxplot(ef_1970,ef_1980,ef_1990,ef_2000, ef_2008, ylim=c(0,15),xaxt='n',col='grey80',

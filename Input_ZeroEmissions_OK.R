@@ -66,17 +66,17 @@ plot(depoo$atm_dep_Cl,ylim=c(0,20),type='l', col=2)
 
 png('Scenarios_rates2.png', height=12, width=22, units='cm', res=300)
 par(mar=c(3,4.5,1,0), bty='n')
-plot(years[100:201],depoo$atm_dep_Cl[100:201], type='b',lwd=2.0, ylim=c(0,20), ylab='',pch=1, xlab='', xaxt='n',yaxt='n')
+plot(years[100:201],depoo$atm_dep_Cl[100:201], type='b',lwd=2.0, ylim=c(0,25), ylab='',pch=1, xlab='', xaxt='n',yaxt='n')
 par(new=T)
-plot(years[100:201],de_s2[100:201], type='b', lwd=2.0, lty=2,col='#117733', ylim=c(0,20),pch=2, ylab='', xlab='', xaxt='n',yaxt='n')
+plot(years[100:201],de_s2[100:201], type='b', lwd=2.0, lty=2,col='#117733', ylim=c(0,25),pch=2, ylab='', xlab='', xaxt='n',yaxt='n')
 par(new=T)
-plot(years[100:201],de_s3[100:201], type='b', lwd=2.0, lty=2,col='#88CCEE', ylim=c(0,20),pch=8, ylab='', xlab='', xaxt='n',yaxt='n')
+plot(years[100:201],de_s3[100:201], type='b', lwd=2.0, lty=2,col='#88CCEE', ylim=c(0,25),pch=8, ylab='', xlab='', xaxt='n',yaxt='n')
 par(new=T)
-plot(years[100:201],de_s4[100:201], type='b', lwd=2.0, lty=2,col='#DDCC77', ylim=c(0,20), pch=5,ylab='', xlab='', xaxt='n',yaxt='n')
+plot(years[100:201],de_s4[100:201], type='b', lwd=2.0, lty=2,col='#DDCC77', ylim=c(0,25), pch=5,ylab='', xlab='', xaxt='n',yaxt='n')
 par(new=T)
-plot(years[100:201],de_s5[100:201], type='b', lwd=2., lty=2,col='#882255', ylim=c(0,20),pch=6, 
+plot(years[100:201],de_s5[100:201], type='b', lwd=2., lty=2,col='#882255', ylim=c(0,25),pch=6, 
      ylab='', xlab='year', main='Scenarios of Hg atmospheric deposition')
-legend(1999,20,legend=c('Reference','Zero emissions','Emissions control','Constant emissions','A1B1'), 
+legend(1999,25,legend=c('Reference','Zero emissions','Emissions control','Constant emissions','A1B1'), 
        col=c(1,'#117733','#88CCEE','#DDCC77','#882255'), pch=c(1,2,8,5,6))
 mtext(side=2,expression(paste('kg y'^-1)), line=2.2)
 dev.off()
@@ -84,38 +84,24 @@ dev.off()
 abline(v=1999)
 abline(h=11.7)
 
-Hg_sediment<-c(10.35, 5.72, 1.96,	-0.32)
-Hg_Water<-c(12.61,6.84,2.22,-0.17)
-MeHg_Sediment<-c(5.06,2.83,	0.99,	-0.22)
-MeHg_Water<-c(5.57,3.04,1.02,-0.13)
+Hg_Sediment<-c(5.19, 1.36, -1.43,	-3.97)#! ok new
+Hg_Water<-c(8.17,2.06,-2.12,-5.29)  #! ok new
+MeHg_Sediment<-c(2.41,0.64,-0.67, -1.95)
+MeHg_Water<-c(3.16,0.8,-0.83,-2.12)  
 
 df<-(cbind(Hg_Water,Hg_sediment,MeHg_Water,MeHg_Sediment))
 
 
-df1<-as.matrix( df)
-  rownames(df1)<-c('Hg sediment','Hg Water','MeHg sediment','MeHg Water')
-  
-png('barplot_scenarioss.png', height=25, width=23, units='cm', res=300)
-par(mar=c(3,3,1,0))
-barplot(df1,beside=T, border="white",ylab='concentrations difference (%)',
-        ylim=c(-2,13), col=c('#882255','#DDCC77','#88CCEE','#117733'))
-legend("topright",legend=c('Hg sediment','Hg Water','MeHg sediment','MeHg Water'),
-       col=c('#882255','#DDCC77','#88CCEE','#117733'), pch=15,bty = "n")
-dev.off()
+df1<-as.matrix((df))
+rownames(df1)<-c('Hg sediment','Hg Water','MeHg sediment','MeHg Water')
+#names(df1)<-c('A1B1','Constant','Emissions Control','Zero emissions')
 
-png('barplot_scenarioss4.png', height=20, width=22, units='cm', res=300)
+png('barplot_scenarioss5a.png', height=12, width=22, units='cm', res=300)
 par(mar=c(3,4.5,1,0))
-barplot(df1,beside=T, border="white",ylab='concentrations differences (%)',cex.axis = 1.6,cex.lab=1.6,cex.names=1.5,
-        ylim=c(-2,13), col=c('#882255','#DDCC77','#88CCEE','#117733'))
-legend("topright",legend=c('A1B1','Constant emissions','Emissions control','Zero emissions'),
-       col=c('#882255','#DDCC77','#88CCEE','#117733'), pch=15,bty = "n", cex=1.5)
-dev.off()
-
-png('barplot_scenarioss5b.png', height=12, width=22, units='cm', res=300)
-par(mar=c(3,4.5,1,0))
-barplot(df1,beside=T, border="white",ylab='concentrations differences (%)',cex.axis = 1.6,cex.lab=1.6,cex.names=1.5,
-        ylim=c(-2,13), col=c('#882255','#DDCC77','#88CCEE','#117733'))
-legend("topright",legend=c('A1B1','Constant emissions','Emissions control','Zero emissions'),
+barplot(df1,beside=T, border="white",ylab='concentrations differences (%)',cex.axis = 1.6,
+        cex.lab=1.6,cex.names=1.5,
+        ylim=c(-6,10), col=c('#882255','#DDCC77','#88CCEE','#117733'))
+legend("topright",legend=c('A1B1','Constant Emissions','Emissions Control','Zero Emissions'),
        col=c('#882255','#DDCC77','#88CCEE','#117733'), pch=15,bty = "n", cex=1.5)
 dev.off()
 

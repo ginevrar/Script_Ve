@@ -1,16 +1,17 @@
+rdate[1430:1441]
 
-water1<-hg_19$wn1;  
-water2<-hg_19$wn2;  
-water3<-hg_19$wn3;  
-water4<-hg_19$wn4;  
-water5<-hg_19$wn5;  
-water6<-hg_19$wc6; 
-water7<-hg_19$wc7; 
-water8<-hg_19$ws8; 
-water9<-hg_19$ws9; 
-water10<-hg_19$ws10; 
+ water1<-hg$wn1[1430:1441];  
+water2<-hg$wn2[1430:1441];  
+water3<-hg$wn3[1430:1441];  
+water4<-hg$wn4[1430:1441];  
+water5<-hg$wn5[1430:1441];  
+water6<-hg$wc6[1430:1441]; 
+water7<-hg$wc7[1430:1441]; 
+water8<-hg$ws8[1430:1441]; 
+water9<-hg$ws9[1430:1441]; 
+water10<-hg$ws10[1430:1441]; 
 
-water3_mhg<-mehg_19$wn3;    #Lido       water7_mhg<-mehg_19$wc7;    #Malamocco     1.5768e+08water10_mhg<-mehg_19$ws10;    #chioggia  9.77616e+08
+#water3_mhg<-mehg_19$wn3;    #Lido       water7_mhg<-mehg_19$wc7;    #Malamocco     1.5768e+08water10_mhg<-mehg_19$ws10;    #chioggia  9.77616e+08
 #--------------------------- DISPERSION AT BOUNDARIES --------------------------- 
 ## Boundaries Volumes 
 Ai21=9180; Ai24=3000; Ai15=1500; Ai13 = 3002; Ai45=3000; Ai25=3000; Ai35=15352; Ai63=6400; 
@@ -20,26 +21,26 @@ Lci=900    # Length exchange (m)
 E= 6*86400 ## Exchange coefficient (Ei), m s-1 to m d-1
 
 # (Cbk-Cbi)   #formula Vb*Sb = ((Ei*Ai)/Lci)*
-grad21 = (water1-water2); grad24 = (water4-water2);
-grad15 = (water5-water1); grad13 = (water3-water1);
+grad21 = (water2-water1); grad24 = (water4-water2);
+grad15 = (water5-water1); grad13 = (water1-water3);
 grad45 = (water5-water4); grad25 = (water5-water2);
-grad35 = (water5-water3); grad63 = (water3-water6);
-grad67 = (water7-water6); grad73 = (water3-water7);
+grad35 = (water3-water5); grad63 = (water3-water6);
+grad67 = (water6-water7); grad73 = (water7-water3);
 grad78 = (water8-water7); grad89 = (water9-water8);
-grad810 = (water10-water8); grad910 = (water10-water9);
-grad710 = (water10-water7); grad56 = (water6-water5);
+grad810 = (water10-water8); grad910 = (water9-water10);
+grad710 = (water7-water10); grad56 = (water6-water5);
 
-exch56=grad56*((E*Ai56)/Lci)/10^9*365;
+exch56=grad56*((E*Ai56)/Lci)/10^9*365;  #  m d-1
 adv56=(27.9*water6)*31536000/10^9  #m3 s-1 *ug m3 
-mean(adv56+exch56)
+mean(adv56+exch56)   # da 6 a5 
 
 exch710=grad710*((E*Ai710)/Lci)/10^9*365;
 adv710=(16*water7)*31536000/10^9  #m3 s-1 *ug m3 
-mean(adv710-exch710)
+mean(adv710+exch710) #da 7 a 10
 
 exch910=grad910*((E*Ai910)/Lci)/10^9*365;
 adv910=(9*water9)*31536000/10^9  #m3 s-1 *ug m3 
-mean(adv910-exch910)
+mean(adv910+exch910)
 
 exch810=grad810*((E*Ai810)/Lci)/10^9*365;
 mean(exch810)
@@ -58,7 +59,7 @@ mean(adv73+exch73)
 
 exch67=grad67*((E*Ai67)/Lci)/10^9*365;
 adv67=(28*water6)*31536000/10^9  #m3 s-1 *ug m3 
-mean(adv67-exch67)
+mean(adv67+exch67)
 
 exch63=grad63*((E*Ai63)/Lci)/10^9*365;
 adv63=(44.03*water3)*31536000/10^9  #m3 s-1 *ug m3 
@@ -66,7 +67,7 @@ mean(adv63+exch63)
 
 exch35=grad35*((E*Ai35)/Lci)/10^9*365;
 adv35=(3*water3)*31536000/10^9  #m3 s-1 *ug m3 
-mean(exch35-adv35)
+mean(exch35+adv35)
 
 exch45=grad45*((E*Ai45)/Lci)/10^9*365;
 adv45=(19*water5)*31536000/10^9  #m3 s-1 *ug m3 
@@ -77,7 +78,7 @@ exch25=grad25*((E*Ai25)/Lci)/10^9*365;
 
 exch21=grad21*((E*Ai21)/Lci)/10^9*365;
 adv21=(35*water2)*31536000/10^9  #m3 s-1 *ug m3 
-mean(adv21-exch21)
+mean(adv21+exch21)
 
 exch24=grad24*((E*Ai24)/Lci)/10^9*365;
 adv42=(19*water4)*31536000/10^9  #m3 s-1 *ug m3 
@@ -89,7 +90,7 @@ mean(adv15+exch15)
 
 exch13=grad13*((E*Ai13)/Lci)/10^9*365;
 adv13=(54*water1)*31536000/10^9  #m3 s-1 *ug m3 
-mean(adv13-exch13)
+mean(adv13+exch13)     # exch. da 3 a 1 ; adv da 1 a 3
 
 
 exchB7=(E*Ai7)/Lci; exchB10=(E*Ai10)/Lci       # m2 s-1*m2 *m-1 = m3 d-1

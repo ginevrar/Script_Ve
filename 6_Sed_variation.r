@@ -1,4 +1,5 @@
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -121,8 +122,6 @@ bur8 <- (Phgs$ss8[2:202]*(burial$ss8[2:202]/100)/10^6)*a8
 bur9 <- (Phgs$ss9[2:202]*(burial$ss9[2:202]/100)/10^6)*a9
 bur10 <- (Phgs$ss10[2:202]*(burial$ss10[2:202]/100)/10^6)*a10
 
-plot(bur5)
-
 bur1_pos<-(bur1>0)*bur1
 bur2_pos<-(bur2>0)*bur2
 bur3_pos<-(bur3>0)*bur3
@@ -133,7 +132,6 @@ bur7_pos<-(bur7>0)*bur7
 bur8_pos<-(bur8>0)*bur8
 bur9_pos<-(bur9>0)*bur9
 bur10_pos<-(bur10>0)*bur10
-
 
 net_dep1_hg_kgy<-(diffHgps1 + bur1_pos)/1000
 net_dep2_hg_kgy<-(diffHgps2 + bur2_pos)/1000
@@ -146,6 +144,17 @@ net_dep8_hg_kgy<-(diffHgps8 + bur8_pos)/1000
 net_dep9_hg_kgy<-(diffHgps9 + bur9_pos)/1000
 net_dep10_hg_kgy<-(diffHgps10 + bur10_pos)/1000
 
+net_dep1_hgT_kgy<-(diffHgTs1 + bur1_pos)/1000
+net_dep2_hgT_kgy<-(diffHgTs2 + bur2_pos)/1000
+net_dep3_hgT_kgy<-(diffHgTs3 + bur3_pos)/1000
+net_dep4_hgT_kgy<-(diffHgTs4 + bur4_pos)/1000
+net_dep5_hgT_kgy<-(diffHgTs5 + bur5_pos)/1000
+net_dep6_hgT_kgy<-(diffHgTs6 + bur6_pos)/1000
+net_dep7_hgT_kgy<-(diffHgTs7 + bur7_pos)/1000
+net_dep8_hgT_kgy<-(diffHgTs8 + bur8_pos)/1000
+net_dep9_hgT_kgy<-(diffHgTs9 + bur9_pos)/1000
+net_dep10_hgT_kgy<-(diffHgTs10 + bur10_pos)/1000
+
 head(net_dep1_hg_kgy)
 head(net_dep3_hg_kgy)
 head(net_dep4_hg_kgy)
@@ -153,19 +162,28 @@ head(net_dep5_hg_kgy)
 head(net_dep6_hg_kgy)
 head(net_dep7_hg_kgy)
 
-net_all<-cbind(net_dep1_hg_kgy,net_dep2_hg_kgy,net_dep3_hg_kgy,net_dep4_hg_kgy,net_dep5_hg_kgy,
+net_all<-cbind(years,net_dep1_hg_kgy,net_dep2_hg_kgy,net_dep3_hg_kgy,net_dep4_hg_kgy,net_dep5_hg_kgy,
 net_dep6_hg_kgy,net_dep7_hg_kgy,net_dep8_hg_kgy,net_dep9_hg_kgy,net_dep10_hg_kgy)
 
+netT_all<-cbind(years,net_dep1_hgT_kgy,net_dep2_hgT_kgy,net_dep3_hgT_kgy,net_dep4_hgT_kgy,net_dep5_hgT_kgy,
+               net_dep6_hgT_kgy,net_dep7_hgT_kgy,net_dep8_hgT_kgy,net_dep9_hgT_kgy,net_dep10_hgT_kgy)
+
+net_all[121,];netT_all[121,]
+net_all[120,];netT_all[120,]
+
 net_sum<-rowSums(net_all)
+netT_sum<-rowSums(netT_all)
 
+rowSums(netT_all[121,])
 
+netT_all[121,]
 net_dep1_hg_kgy[22]
 
 sum(net_sum[242:253])
 sum(net_sum[142:253])
 rdate[242:253]
 
-rdate[22]
+rdate[121]
 
 par(mfrow=c(1,1))
 plot(net_sum)
@@ -246,7 +264,40 @@ RrOS<-Rros1+Rros2+Rros3+Rros4+Rros5+Rros6+Rros7+Rros8+Rros9+Rros10
 
 RESERV<-data.frame(RrW,RrS[2:204],RrDS[2:204], RrOS[2:204])
 write.table(RESERV,file='RESERV_g.txt')
-str(RrW)
-str(RrS)
-str(RrDS)
-str(hg$ws10)
+str(RrW);str(RrS);str(RrDS)
+
+reservoir_hg_w1 <- (a1*d1 * hg$wn1[2:202])/10^9   #ng(hg)/g(w) *g(w)/m3(w+w)*vol(m3) = ng(hg)/10^9 = g(hg)
+reservoir_hg_w2 <- (a2*d2 * hg$wn2[2:202])/10^9
+reservoir_hg_w3 <- (a3*d3 * hg$wn3[2:202])/10^9
+reservoir_hg_w4 <- (a4*d4 * hg$wn4[2:202])/10^9
+reservoir_hg_w5 <- (a5*d5 * hg$wn5[2:202])/10^9
+reservoir_hg_w6 <- (a6*d6 * hg$wc6[2:202])/10^9
+reservoir_hg_w7 <- (a7*d7 * hg$wc7[2:202])/10^9
+reservoir_hg_w8 <- (a8*d8 * hg$ws8[2:202])/10^9
+reservoir_hg_w9 <- (a9*d9 * hg$ws9[2:202])/10^9
+reservoir_hg_w10<- (a10*d10* hg$ws10[2:202])/10^9
+
+
+diffHgTw1<-c(NA,diff(reservoir_hg_w1, differences = 1))
+diffHgTw2<-c(NA,diff(reservoir_hg_w2, differences = 1))
+diffHgTw3<-c(NA,diff(reservoir_hg_w3, differences = 1))
+diffHgTw4<-c(NA,diff(reservoir_hg_w4, differences = 1))
+diffHgTw5<-c(NA,diff(reservoir_hg_w5, differences = 1))
+diffHgTw6<-c(NA,diff(reservoir_hg_w6, differences = 1))
+diffHgTw7<-c(NA,diff(reservoir_hg_w7, differences = 1))
+diffHgTw8<-c(NA,diff(reservoir_hg_w8, differences = 1))
+diffHgTw9<-c(NA,diff(reservoir_hg_w9, differences = 1))
+diffHgTw10<-c(NA,diff(reservoir_hg_w10, differences = 1))
+
+years<-seq(1900,2100)
+#water diff in g
+wdi<-data.frame(years,diffHgTw1,diffHgTw2,diffHgTw3,diffHgTw4,diffHgTw5,diffHgTw6,diffHgTw7,diffHgTw8,diffHgTw9,diffHgTw10)
+wdi[120,]
+plot(wdi$years, rowSums(wdi[2:11]), ylim=c(-0.1,0.1))
+
+plot(diffHgTw1)
+plot(diffHgTw2)
+plot(diffHgTw3)
+plot(diffHgTw4)
+plot(diffHgTw5)
+plot(diffHgTw6)

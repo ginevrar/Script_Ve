@@ -1,6 +1,7 @@
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
 setwd('C:/Users/gi/Dropbox/NNN61/')
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -159,18 +160,41 @@ reservoir_mehg_vos8<-a8*0.1*Pmehgs$voss8/10^9
 reservoir_mehg_vos9<-a9*0.1*Pmehgs$voss9/10^9
 reservoir_mehg_vos10<-a10*0.1*Pmehgs$voss10/10^9
 
+reservoir_hg0_w1<-a1*d1*hg0$wn1/10^9  # .hg (ug m-3) * (m3) /10^9 = kg
+reservoir_hg0_w2<-a2*d2*hg0$wn2/10^9
+reservoir_hg0_w3<-a3*d3*hg0$wn3/10^9
+reservoir_hg0_w4<-a4*d4*hg0$wn4/10^9
+reservoir_hg0_w5<-a5*d5*hg0$wn5/10^9
+reservoir_hg0_w6<-a6*d6*hg0$wc6/10^9
+reservoir_hg0_w7<-a7*d7*hg0$wc7/10^9
+reservoir_hg0_w8<-a8*d8*hg0$ws8/10^9
+reservoir_hg0_w9<-a9*d9*hg0$ws9/10^9
+reservoir_hg0_w10<-a10*d10*hg0$ws10/10^9
 
-total_reservoir_W<-c(reservoir_hg_w1+reservoir_hg_w2+reservoir_hg_w3+reservoir_hg_w4+
+total_reservoir_W<-(reservoir_hg_w1+reservoir_hg_w2+reservoir_hg_w3+reservoir_hg_w4+
                      reservoir_hg_w5+reservoir_hg_w6+reservoir_hg_w7+reservoir_hg_w8+reservoir_hg_w9+reservoir_hg_w10)
  
 
-total_reservoir_W_mehg<-c(reservoir_mehg_w1+reservoir_mehg_w2+reservoir_mehg_w3+reservoir_mehg_w4+
+total_reservoir_W_mehg<-(reservoir_mehg_w1+reservoir_mehg_w2+reservoir_mehg_w3+reservoir_mehg_w4+
                        reservoir_mehg_w5+reservoir_mehg_w6+reservoir_mehg_w7+reservoir_mehg_w8+reservoir_mehg_w9+reservoir_mehg_w10)
 
 
+all_reservoir_W<-cbind(reservoir_hg_w1,reservoir_hg_w2,reservoir_hg_w3,reservoir_hg_w4,
+                       reservoir_hg_w5,reservoir_hg_w6,reservoir_hg_w7,reservoir_hg_w8,reservoir_hg_w9,reservoir_hg_w10)
+
+all_reservoir_W_hg0<-cbind(reservoir_hg0_w1,reservoir_hg0_w2,reservoir_hg0_w3,reservoir_hg0_w4,
+                       reservoir_hg0_w5,reservoir_hg0_w6,reservoir_hg0_w7,reservoir_hg0_w8,reservoir_hg0_w9,reservoir_hg0_w10)
+
+all_reservoir_W_mehg<-cbind(reservoir_mehg_w1,reservoir_mehg_w2,reservoir_mehg_w3,reservoir_mehg_w4,
+                            reservoir_mehg_w5,reservoir_mehg_w6,reservoir_mehg_w7,reservoir_mehg_w8,reservoir_mehg_w9,reservoir_mehg_w10)
+
+write.table(all_reservoir_W,'all_reservoir_W.txt')
+write.table(all_reservoir_W_mehg,'all_reservoir_W_mehg.txt')
+write.table(all_reservoir_W_hg0,'all_reservoir_W_hg0.txt')
+
 rdate[121]
 
-total_reservoir_W[122]-total_reservoir_W[121]    # differenza 2020 - 2019 in kg
+total_reservoir_W[122,]-total_reservoir_W[121,]    # differenza 2020 - 2019 in kg
 total_reservoir_W_mehg[122]-total_reservoir_W_mehg[121]
 
 reservoir_mehg_w1[122]-reservoir_mehg_w1[121]
@@ -184,7 +208,6 @@ reservoir_mehg_w8[122]-reservoir_mehg_w8[121]
 reservoir_mehg_w9[122]-reservoir_mehg_w9[121]
 reservoir_mehg_w10[122]-reservoir_mehg_w10[121]
 
-
 reservoir_hg_w1[122]-reservoir_hg_w1[121]
 reservoir_hg_w2[122]-reservoir_hg_w2[121]
 reservoir_hg_w3[122]-reservoir_hg_w3[121]
@@ -195,7 +218,6 @@ reservoir_hg_w7[122]-reservoir_hg_w7[121]
 reservoir_hg_w8[122]-reservoir_hg_w8[121]
 reservoir_hg_w9[122]-reservoir_hg_w9[121]
 reservoir_hg_w10[122]-reservoir_hg_w10[121]
-
 
 
 total_reservoir_Sed<-c(reservoir_hg_s1+reservoir_hg_s2+reservoir_hg_s3+reservoir_hg_s4+
@@ -209,7 +231,6 @@ total_reservoir_osed<-c(reservoir_hg_os1+reservoir_hg_os2+reservoir_hg_os3+reser
  
 total_reservoir_vosed<-c(reservoir_hg_vos1+reservoir_hg_vos2+reservoir_hg_vos3+reservoir_hg_vos4+reservoir_hg_vos5+
                         reservoir_hg_vos6+reservoir_hg_vos7+reservoir_hg_vos8+reservoir_hg_vos9+reservoir_hg_vos10)
-
 
 TOT_SED<-total_reservoir_Sed+total_reservoir_dsed+total_reservoir_osed+total_reservoir_vosed
 
@@ -244,7 +265,6 @@ RESERV_mehg[120,]
   
 total_reservoir_Sed_media<-tapply(total_reservoir_Sed[1:2412], 
                             rep(1:(length(total_reservoir_Sed[1:2412])/12),each = 12),mean)
-
 
 total_reservoir_W_media<-tapply(total_reservoir_W[1:2412], 
                                   rep(1:(length(total_reservoir_W[1:2412])/12),each = 12),mean)

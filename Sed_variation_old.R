@@ -1,6 +1,8 @@
 setwd('C:\\Users\\gi\\Desktop\\2155')
 #setwd('C:\\Users\\gi\\Desktop\\NNN14')
 #setwd('F:\\2128')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
+
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
@@ -57,6 +59,14 @@ names(burial)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','w
 a1<-4.32E+07;a2<-3.53E+07;a3<-3.13E+07;a4<-8.90E+06;a5<-2.22E+07;a6<-5.43E+07;a7<-1.15E+08;a8<-3.17E+07; a9<-2.95E+07;a10<-4.06E+07
 area<-a1+a2+a3+a4+a5+a6+a7+a8+a9+a10
 d1<-1.26; d2<-0.78; d3<-3.35; d4<-0.64; d5<-1.03; d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71
+
+
+time.steps <- hg[,1]
+time.steps3 <- time.steps*24*3600
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
+TEMPO[1:10]
+rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
+tail(rdate)
 
 reservoir_hgp_s1<-a1*0.05*Phgs$sn1/10^6       # ug/m3(w+s)*vol(m3)/10^6 = g(hg)
 reservoir_hgp_s2<-a2*0.05*Phgs$sn2/10^6
@@ -176,7 +186,6 @@ net_sum[97] ; rdate[97]
 net_sum[240] ; rdate[240]
 
 setwd('C:\\Users\\gi\\Desktop\\2156\\b')
-
 write.table(net_sum,file='Sed_bal.txt')
 
 diffHgTs1[2]

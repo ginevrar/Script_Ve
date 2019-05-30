@@ -2,7 +2,13 @@ setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
 atm_hg0<-read.table('atm_hg.txt')    #g/m3
 
 setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz6')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
+#setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK')     #sim_cl
+# setwd('D:\\Ref_long_long')     #sim_cl
+
+#???setwd('D:\\Ref_long_long')     #sim_cl   # 2019: rdate[433904:437497]
+
+310*12
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -24,8 +30,7 @@ names(evasion)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','
 # aree boxes
 a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07; a4<-8.90E+06; a5<-2.22E+07;a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
 # depths boxes
-d1=1.26;d2=0.78;d3=3.35;d4=0.64;d5=1.03;d6=1.64;d7=1.84; d8=0.89;d9=0.69;d10=1.71
-
+d1<-1.26;d2<-0.78;d3<-3.35;d4<-0.64;d5<-1.03;d6<-1.64;d7<-1.84; d8<-0.89;d9<-0.69;d10<-1.71
 
 time.steps <- evasion[,1]
 time.steps3 <- time.steps*24*3600
@@ -64,12 +69,17 @@ WOL10<-(pr$ws10*Vw10)/10^9*365
 
 
 WWW<-WOL1+WOL2+WOL3+WOL4+WOL5+WOL6+WOL7+WOL8+WOL9+WOL10
+WWW_all<-cbind(WOL1,WOL2,WOL3,WOL4,WOL5,WOL6,WOL7,WOL8,WOL9,WOL10)
+
+
+colMeans(WWW_all[1431:1442,])
+mean(WWW[1431:1442])
 
 plot(WWW)
 
 str(hg0_w)
 plot(hg0_w$wn5)
-mean(hg0_w$wn5[1431:1443])#ng/L   0.12 - 0.9 adriatco 
+mean(hg0_w$wn5[1431:1442])#ng/L   0.12 - 0.9 adriatco 
 mean(hg0_w$wc6[1431:1443])         #kotnik
 mean(hg0_w$wc7[1431:1443])
 (hg0_w$wc7[1431:1443])
@@ -215,6 +225,7 @@ vola_media<-tapply(vola[2:147461], rep(1:(length(vola[2:147461])/365),each = 365
 WWW_media<-tapply(WWW[2:147461], rep(1:(length(WWW[2:147461])/365),each = 365),mean)
 data_media<-tapply(rdate[2:147461], rep(1:(length(rdate[2:147461])/365),each = 365),mean)
 
+rdate[1431:1442]
 
 vol_2019<-(WWW[1431:1442]); plot(vol_2019)
 
@@ -231,11 +242,14 @@ write.table(dfff2,'volatilizzazz2.txt')
 
 tassi_medi<-tapply(dfff2[2:2413,2:3], rep(1:(length(dfff2[2:2413,2:3])/12),each = 12),mean)
 
-colMeans(dfff2[1431:1443,2:3])
-VV[1431:1443,]
+colMeans(dfff2[1431:1442,2:3])
 
-write.table(VV$vola,'volat.txt')
 
+
+plot(WWW,type='l')
+abline(h=0,col=2)
+plot(vola,type='l')
+abline(h=0,col=2)
 
 # circa 20 kg/y = 100 mol/y # MGL circa 14 mol/y
 rdate[1431:1443]
@@ -251,5 +265,8 @@ ngm2h_media<-tapply(ngm2h[2:2413], rep(1:(length(ngm2h[2:2413])/12),each = 12),m
 plot(ngm2h_media)
 
  
-plot(vola, type='l')
-plot(WWW, type='l')
+plot(vola[433904:437497], type='l')
+abline(h=0)
+plot(WWW[433904:437497], type='l')
+mean(WWW[433904:437497])
+mean(vola[433904:437497])

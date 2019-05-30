@@ -7,6 +7,8 @@
 #setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g919')
 #setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK')     #sim_cl
+
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -168,3 +170,5 @@ sed_bal<-data.frame(depo_tutto_Hg)
 write.table(sed_bal,'sed_balHg.txt')
 write.table(depo_tutto_2014,'depo2019.txt')
 write.table(depo_tutto_sed_ty,'sedBal.txt')
+
+plot(sed_bal[,1])

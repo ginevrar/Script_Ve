@@ -9,11 +9,20 @@ atm_hg0<-data.frame(y,atm_hg0)
 
 #setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\long_long')     #sim_cl
 setwd('G:\\Il mio Drive\\CL_10\\out')
+#setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK')     #sim_cl
+
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+hg0<-NA
+hgII<-read.csv("Divalent_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
+names(hgII)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
+hgII<-NA
 
 time.steps <- hg0[,1]; time.steps3 <- time.steps*24*3600
 TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
@@ -25,6 +34,8 @@ hg0_19<-hg0[1102481:1111824,1:11]
 hg0_10<-hg0[91244:100359,1:11]
 hg0_70<-hg0[644318:653661,1:11]
 
+rdate[1111824]
+hgII_19<-hgII[1102481:1111824,1:11]
 
 str(hg0_95)
 
