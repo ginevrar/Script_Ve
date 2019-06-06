@@ -139,6 +139,22 @@ Zonta10<-c(box10_A_hg$Hg, box10_B_hg$Hg)
 #380 siti * 5 prof. 
 Donnaz<-cbind(Zonta1,Zonta2,Zonta3,Zonta4,Zonta5,Zonta6,Zonta7,
           Zonta8,Zonta9,Zonta10_77)
+
+
+summary(hg$sc6[2: 2424]/hg$sn1[2: 2424])
+summary(hg$sc6[2: 2424]/hg$sn2[2: 2424])
+summary(hg$sc6[2: 2424]/hg$sn3[2: 2424])
+summary(hg$sc6[2: 2424]/hg$sn4[2: 2424])
+summary(hg$sc6[2: 2424]/hg$sn5[2: 2424])
+summary(hg$sc6[2: 2424]/hg$sc7[2: 2424])
+summary(hg$sc6[2: 2424]/hg$ss8[2: 2424])
+summary(hg$sc6[2: 2424]/hg$ss9[2: 2424])
+summary(hg$sc6[2: 2424]/hg$ss10[2: 2424])
+
+plot(rdate[2: 2424], hg$sc6[2: 2424]/hg$sn1[2: 2424])
+Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+0.6935  0.8300  0.9788  1.9581  1.3754  7.4987 
+
 #png('Time_hg_sediment_ns11d.png'
 #width = 1000*1.5, height = 530*1.5, 
 #provare mult*1.5 dimensioni plot

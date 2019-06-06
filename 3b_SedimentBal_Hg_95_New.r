@@ -1,4 +1,5 @@
 setwd('G:\\Il mio Drive\\CL_10\\out')
+setwd('D:\\Ref_long')
 
 a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07; a4<-8.90E+06; a5<-2.22E+07
 a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
@@ -322,38 +323,36 @@ bb10<-(depo10_hg_ng_m2_d-res10_hg_ng_m2_d)*a10/10^3
 
 
 b1b<- (depo1b_Phg_ug_d-res1b_Phg_ug_d)/10^6  # g d-1
-bb1c<-(depo1c_hg_ng_d-res1c_hg_ng_d)/10^9
+#bb1c<-(depo1c_hg_ng_d-res1c_hg_ng_d)/10^9
 
 b2b<- (depo2b_Phg_ug_d-res2b_Phg_ug_d)/10^6  # g d-1
-bb2c<-(depo2c_hg_ng_d-res2c_hg_ng_d)/10^9
+#bb2c<-(depo2c_hg_ng_d-res2c_hg_ng_d)/10^9
 
 b3b<- (depo3b_Phg_ug_d-res3b_Phg_ug_d)/10^6  # g d-1
-bb3c<-(depo3c_hg_ng_d-res3c_hg_ng_d)/10^9
+#bb3c<-(depo3c_hg_ng_d-res3c_hg_ng_d)/10^9
 
 b4b<- (depo4b_Phg_ug_d-res4b_Phg_ug_d)/10^6  # g d-1
-bb4c<-(depo4c_hg_ng_d-res4c_hg_ng_d)/10^9
+#bb4c<-(depo4c_hg_ng_d-res4c_hg_ng_d)/10^9
 
 b5b<- (depo5b_Phg_ug_d-res5b_Phg_ug_d)/10^6  #g d-1
-bb5c<-(depo5c_hg_ng_d-res5c_hg_ng_d)/10^9
+##bb5c<-(depo5c_hg_ng_d-res5c_hg_ng_d)/10^9
 
 b6b<- (depo6b_Phg_ug_d-res6b_Phg_ug_d)/10^6  # g d-1
-bb6c<-(depo6c_hg_ng_d-res6c_hg_ng_d)/10^9
+#bb6c<-(depo6c_hg_ng_d-res6c_hg_ng_d)/10^9
 
 b7b<- (depo7b_Phg_ug_d-res7b_Phg_ug_d)/10^6  # g d-1
-bb7c<-(depo7c_hg_ng_d-res7c_hg_ng_d)/10^9
+#bb7c<-(depo7c_hg_ng_d-res7c_hg_ng_d)/10^9
 
 b8b<- (depo8b_Phg_ug_d-res8b_Phg_ug_d)/10^6  # g d-1
-bb8c<-(depo8c_hg_ng_d-res8c_hg_ng_d)/10^9
+#bb8c<-(depo8c_hg_ng_d-res8c_hg_ng_d)/10^9
 
 b9b<- (depo9b_Phg_ug_d-res9b_Phg_ug_d)/10^6  # g d-1
-bb9c<-(depo9c_hg_ng_d-res9c_hg_ng_d)/10^9
+#bb9c<-(depo9c_hg_ng_d-res9c_hg_ng_d)/10^9
 
 b10b<- (depo10b_Phg_ug_d-res10b_Phg_ug_d)/10^6  # g d-1
-bb10c<-(depo10c_hg_ng_d-res10c_hg_ng_d)/10^9
+#bb10c<-(depo10c_hg_ng_d-res10c_hg_ng_d)/10^9
 
 plot(netto1b/10^9*365, type='l')
-
-; plot(b2)
 
 netto1b<-(b1+b2+b3+b4+b5+b6+b7+b8+b9+b10) 
 netto1<-(b1+b2+b3+b4+b5+b6+b7+b8+b9+b10)*365/10^9
@@ -368,8 +367,6 @@ risospensione_ug_m2_d<-data.frame(res1_hg_ug_m2_d,res2_hg_ug_m2_d,res3_hg_ug_m2_
 
 depo_ug_m2_d<-data.frame(depo1_Phg_ug_m2_d,depo2_Phg_ug_m2_d,depo3_Phg_ug_m2_d,depo4_Phg_ug_m2_d,depo5_Phg_ug_m2_d,
                          depo6_Phg_ug_m2_d,depo7_Phg_ug_m2_d,depo8_Phg_ug_m2_d,depo9_Phg_ug_m2_d,depo10_Phg_ug_m2_d)
-
-
 
 write.table(risospensione_ug_m2_d, file='risospensione_ug_m2_d.txt')   # g d-1
 write.table(depo_ug_m2_d, file='depo_ug_m2_d.txt')   # g d-1
@@ -390,6 +387,8 @@ plot(netto4, type='l')
 
 plot(depo1_Phg_kg_y-res1_Phg_kg_y,type='l',col='blue')
 plot(depo1_hg_kg_y-res1_hg_kg_y,type='l',col='blue')
+
+colMeans(alll_bal_19b)/10^3*365
 
 
 plot(depo2_Phg_kg_y-res2_Phg_kg_y,type='l',col='blue')
@@ -429,6 +428,8 @@ Hg_resC<-cbind(res1c_hg_ng_d,res2c_hg_ng_d,res3c_hg_ng_d,res4c_hg_ng_d,res5c_hg_
 
 Hg_res_tot<-rowSums(Hg_res)  #â¢rowMeans
 Hg_depo_tot<-rowSums(Hg_depo)
+
+mean(Hg_res_tot)-mean(Hg_depo_tot)
 
 Hg_res_totB<-rowSums(Hg_resB)*365/10^9
 Hg_depo_totB<-rowSums(Hg_depoB)*365/10^9

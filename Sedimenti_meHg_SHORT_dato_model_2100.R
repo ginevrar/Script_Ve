@@ -13,6 +13,7 @@ setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
 #setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max2\\naoh2')
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
 setwd('C:\\Users\\gi\\Downloads')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_Ok\\year')     #sim_cl
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1, header = T)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

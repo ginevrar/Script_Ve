@@ -57,14 +57,17 @@ phOX<-phRed/1.5*5.7
 fotoridotto1   <-phRed[1:2427,]*hgII[1:2427,]    #ug m-3 * d-1 
 fotoossidato1  <-phOX[1:2427,]*hg0[1:2427,]
 fotodemetilato1<-phDem[1:2427,]*mehg[1:2427,]
-phDem2<-phRed/(1.5*0.03)
+phDem2<-phRed/1.5*0.03
 
+plot(phOX$wn1)
+plot(phRed$wn1)
 plot(phDem$wn1)
 plot(phDem2$wn1)
 
 colMeans(fotoridotto1[1430:1441,2:11])
 colMeans(fotoossidato1[1430:1441,2:11])
 colMeans(fotodemetilato1[1430:1441,2:11])
+
 
 rdate[1430:1441]
 

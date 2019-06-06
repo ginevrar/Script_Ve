@@ -9,6 +9,14 @@ names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10'
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10',
              'vosn1','vosn2','vosn3','vosn4','vosn5','vosc6','vosc7','voss8','voss9','voss10')
+
+hg0<-read.csv('Elemental_Hg.csv', skip=1)
+names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10',
+             'vosn1','vosn2','vosn3','vosn4','vosn5','vosc6','vosc7','voss8','voss9','voss10')
+
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -179,6 +187,20 @@ total_reservoir_W_mehg<-(reservoir_mehg_w1+reservoir_mehg_w2+reservoir_mehg_w3+r
                        reservoir_mehg_w5+reservoir_mehg_w6+reservoir_mehg_w7+reservoir_mehg_w8+reservoir_mehg_w9+reservoir_mehg_w10)
 
 
+
+total_reservoir_W_hg0<-(reservoir_hg0_w1+reservoir_hg0_w2+reservoir_hg0_w3+reservoir_hg0_w4+
+                           reservoir_hg0_w5+reservoir_hg0_w6+reservoir_hg0_w7+reservoir_hg0_w8+reservoir_hg0_w9+reservoir_hg0_w10)
+
+
+
+write.table(total_reservoir_W, file='total_reservoir_W.txt')
+write.table(total_reservoir_W_mehg, file='total_reservoir_W_mehg.txt')
+write.table(total_reservoir_W_hg0, file='total_reservoir_W_hg0.txt')
+write.table(total_reservoir_Sed, file='total_reservoir_Sed.txt')
+
+
+total_reservoir_Sed[121]
+
 all_reservoir_W<-cbind(reservoir_hg_w1,reservoir_hg_w2,reservoir_hg_w3,reservoir_hg_w4,
                        reservoir_hg_w5,reservoir_hg_w6,reservoir_hg_w7,reservoir_hg_w8,reservoir_hg_w9,reservoir_hg_w10)
 
@@ -234,8 +256,113 @@ total_reservoir_vosed<-c(reservoir_hg_vos1+reservoir_hg_vos2+reservoir_hg_vos3+r
 
 TOT_SED<-total_reservoir_Sed+total_reservoir_dsed+total_reservoir_osed+total_reservoir_vosed
 
+tot_ddeeps<-TOT_SED-total_reservoir_Sed
+
+years<-seq(1900,2100)
+plot(years,TOT_SED[1:201]/10^3)
+
+title(bquote(atop("first line", "second line" ~ x ^ 2)))
+
+par(mfrow=c(3,2))
+plot(years,total_reservoir_W[1:201], type='l',lwd=2, col='blue', ylab='kg',
+     main=expression(paste('Hg'[T]~'water reservoir')))
+plot(years,total_reservoir_W_mehg [1:201], type='l',lwd=2, ylab='kg',col='blue',main=expression(paste('MeHg'[T]~'water reservoir')))
+plot(years,total_reservoir_Sed[1:201], type='l',lwd=2, ylab='kg', col='darkgoldenrod')
+title(bquote(atop("Hg"[T]~"surface sediment reservoir", "(0 - 5 cm)")))
+
+plot(years,total_reservoir_Sed_mehg[1:201], type='l',lwd=2,  ylab='kg',col='darkgoldenrod')
+title(bquote(atop("MeHg"[T]~"surface sediment reservoir", "(0 - 5 cm)")))
+
+plot(years,tot_ddeeps[1:201], type='l',lwd=2, ylab='kg',col='brown')
+title(bquote(atop("Hg"[T]~"deep sediment reservoir", "(5 - 30 cm)")))
+
+plot(years,tot_ddeeps_mehg[1:201], type='l',lwd=2,ylab='kg', col='brown') #,main=expression(paste('MeHg'[T]~'water reservoir')))
+title(bquote(atop("MeHg"[T]~"deep sediment reservoir", "(5 - 30 cm)")))
+
+
+
+H_resus<-c(rdate[81], rdate[104],  rdate[104],rdate[81])
+Eutrop<-c(rdate[81], rdate[92],  rdate[92],rdate[81])
+
+yy1<-c(0,0,50,50)
+
+ff<-data.frame(rdate[1:201],total_reservoir_W[1:201])
+ff2<-data.frame(rdate[1:201],total_reservoir_Sed[1:201])
+
+max(ff2[2,])
+str(ff2)
+
+ff2$total_reservoir_Sed.1.201.==21967.76
+
+png('Reservoirs_tutto.png',
+    width = 21, height = 13,res=300,     # width = 32, height = 18,res=400,
+    units = "cm")
+par(mfrow=c(2,3))
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676755',border = NA)
+polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+par(new=T)
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='blue', ylab='kg',ylim=c(0,50),xlab=' ',yaxt='n',
+     main=expression(paste('Hg'[T]~'water reservoir')))
+ax<-seq(0,50,by=10)
+axis(side=2,at=ax, las=2)
+
+abline(v=rdate[73])
+yy1<-c(0,0,22000,22000)
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676755',border = NA)
+polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+par(new=T)
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,22000), yaxt='n',
+     ylab='kg',xlab=' ', col='darkgoldenrod')
+title(bquote(atop("Hg"[T]~"surface sediment reservoir", "(0 - 5 cm)")))
+ax<-seq(0,22000,by=4000)
+axis(side=2,at=ax, las=2)
+abline(v=rdate[83], col=3)
+
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676755',border = NA)
+polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_ddeeps[1:201], type='l',lwd=2, ylab='kg',xlab=' ', ylim=c(0,22000),yaxt='n',col='brown')
+title(bquote(atop("Hg"[T]~"deep sediment reservoir", "(5 - 30 cm)")))
+ax<-seq(0,22000,by=4000)
+axis(side=2,at=ax, las=2)
+
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676755',border = NA)
+polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+par(new=T)
+plot(rdate[1:201],total_reservoir_W_mehg [1:201],ylim=c(0,0.4), type='l',yaxt='n',
+     lwd=2, ylab='kg',xlab=' ',col='blue',main=expression(paste('MeHg'[T]~'water reservoir')))
+ax<-seq(0,.40,by=.2)
+axis(side=2,at=ax, las=2)
+
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676755',border = NA)
+polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+par(new=T)
+plot(years,total_reservoir_Sed_mehg[1:201], type='l',lwd=2, ylim=c(0,30),xlab=' ',yaxt='n',
+     xaxt='n',ylab='kg', col='darkgoldenrod')
+title(bquote(atop("MeHg"[T]~"surface sediment reservoir", "(0 - 5 cm)")))
+ax<-seq(0,30,by=10)
+axis(side=2,at=ax, las=2)
+
+
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676755',border = NA)
+polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+par(new=T)
+plot(years,tot_ddeeps_mehg[1:201], type='l',lwd=2,ylab='kg',ylim=c(0,15),yaxt='n',
+     xlab=' ', col='brown') #,main=expression(paste('MeHg'[T]~'water reservoir')))
+title(bquote(atop("MeHg"[T]~"deep sediment reservoir", "(5 - 30 cm)")))
+ax<-seq(0,15,by=5)
+axis(side=2,at=ax, las=2)
+dev.off()
+
 total_reservoir_W<-c(NA,total_reservoir_W)
 RESERV<-data.frame(rdate,TOT_SED,total_reservoir_Sed,total_reservoir_W)
+
 
 total_reservoir_W_mehg<-c(reservoir_mehg_w1+reservoir_mehg_w2+reservoir_mehg_w3+reservoir_mehg_w4+
                             reservoir_mehg_w5+reservoir_mehg_w6+reservoir_mehg_w7+reservoir_mehg_w8+reservoir_mehg_w9+reservoir_mehg_w10)
@@ -252,26 +379,29 @@ total_reservoir_osed_mehg<-c(reservoir_mehg_os1+reservoir_mehg_os2+reservoir_meh
 total_reservoir_vosed_mehg<-c(reservoir_mehg_vos1+reservoir_mehg_vos2+reservoir_mehg_vos3+reservoir_mehg_vos4+reservoir_mehg_vos5+
                                 reservoir_mehg_vos6+reservoir_mehg_vos7+reservoir_mehg_vos8+reservoir_mehg_vos9+reservoir_mehg_vos10)
 
+tot_ddeeps_mehg<-total_reservoir_dsed_mehg+total_reservoir_osed_mehg+total_reservoir_vosed_mehg
 
 TOT_SED_mehg<-total_reservoir_Sed_mehg+total_reservoir_dsed_mehg+total_reservoir_osed_mehg+total_reservoir_vosed_mehg
 
 total_reservoir_W_mehg<-c(NA,total_reservoir_W_mehg)
 RESERV_mehg<-data.frame(rdate,TOT_SED_mehg,total_reservoir_Sed_mehg,total_reservoir_W_mehg)
 
+total_reservoir_dsed_mehg[121]
+RESERV[121,]/1000
+RESERV_mehg[121,]
 
-RESERV[120,]
-RESERV_mehg[120,]
+colMeans(RESERV[1431:1442,])
+colMeans(RESERV_mehg[1431:1442,])
 
-  
-total_reservoir_Sed_media<-tapply(total_reservoir_Sed[1:2412], 
+  rdate[120]
+
+  total_reservoir_Sed_media<-tapply(total_reservoir_Sed[1:2412], 
                             rep(1:(length(total_reservoir_Sed[1:2412])/12),each = 12),mean)
 
 total_reservoir_W_media<-tapply(total_reservoir_W[1:2412], 
                                   rep(1:(length(total_reservoir_W[1:2412])/12),each = 12),mean)
 
 
-write.table(total_reservoir_W, file='total_reservoir_W.txt')
-write.table(total_reservoir_Sed, file='total_reservoir_Sed.txt')
 
 
 #total_reservoir_Sed_media[2]-total_reservoir_Sed_media[1]+

@@ -78,7 +78,7 @@ names(sand_depos)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9
 
 time.steps <- TOTs[,1]
 time.steps3 <- time.steps*24*3600
-TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1901-01-01")
+TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 
@@ -114,10 +114,18 @@ TOT_burial_mehg<-sed_mehg_b1+sed_mehg_b2+sed_mehg_b3+sed_mehg_b4+sed_mehg_b5+sed
 TOT_burialHg<-sed_b1+sed_b2+sed_b3+sed_b4+sed_b5+sed_b6+sed_b7+sed_b8+sed_b9+sed_b10
 TOT_burial_mehg<-sed_mehg_b1+sed_mehg_b2+sed_mehg_b3+sed_mehg_b4+sed_mehg_b5+sed_mehg_b6+sed_mehg_b7+sed_mehg_b8+sed_mehg_b9+sed_mehg_b10
 
+rdate[1431:1442]
 mean(sed_b1[1431:1442])
 mean(sed_b2[1431:1442])
 mean(sed_b3[1431:1442])
 mean(sed_b4[1431:1442])
+mean(sed_b5[1431:1442])
+mean(sed_b6[1431:1442])
+mean(sed_b7[1431:1442])
+mean(sed_b8[1431:1442])
+mean(sed_b9[1431:1442])
+mean(sed_b10[1431:1442])
+
 
 par(mfrow=c(2,5))
 plot(rdate,sed_b1, type='l', ylab='kg y-1',xlab=' ')
@@ -196,11 +204,16 @@ t2<-B2+B22
 plot(B22)
 
 bal_media1<-tapply(t1[3:2414], rep(1:(length(t1[3:2414])/12),each = 12),mean)
+bal_media2<-tapply(t2[3:2414], rep(1:(length(t2[3:2414])/12),each = 12),mean)
+bal_media3<-tapply(t1[3:2414], rep(1:(length(t1[3:2414])/12),each = 12),mean)
+bal_media4<-tapply(t1[3:2414], rep(1:(length(t1[3:2414])/12),each = 12),mean)
+bal_media5<-tapply(t1[3:2414], rep(1:(length(t1[3:2414])/12),each = 12),mean)
 
 
 plot((VDSw$wn1-VRSs$sn1))
 plot((VDSw$wc6-VRSs$sc6))
 bal_media1*365
+bal_media2*365
 
 
 

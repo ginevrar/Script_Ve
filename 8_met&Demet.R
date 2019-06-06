@@ -1,4 +1,5 @@
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK')     #sim_cl
 
 mehg<-read.csv("Methyl_Hg.csv", skip = 1,header=FALSE, sep = ",", dec=".")
 names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -47,6 +48,12 @@ names(demetilazione)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','
                       'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                       'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                       'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')		
+
+TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip =1, sep = ",", dec=".")
+names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+                        'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+                        'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
+                        'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')		
 
 a1<-4.32E+07; a2<-3.53E+07; a3<-3.13E+07; a4<-8.90E+06; a5<-2.22E+07
 a6<-5.43E+07; a7<-1.15E+08; a8<-3.17E+07; a9<-2.95E+07; a10<-4.06E+07
@@ -132,9 +139,9 @@ waterdemet1_gd_all<-cbind(rdate,demet1_ugd,demet2_ugd,demet3_ugd,demet4_ugd,deme
 waterdemet2_gd_all<-cbind(rdate,demet1b_ugd,demet2b_ugd,demet3b_ugd,demet4b_ugd,demet5b_ugd,demet6b_ugd,demet7b_ugd,demet8b_ugd,demet9b_ugd,demet10b_ugd)/10^6
 
 colMeans(waterMet1_gd_all[1431:1442,]*365)/10^3
-colMeans(waterdemet1_gd_all[1431:1442,]*365)/10^3  # g y-1
+colMeans(waterdemet1_gd_all[1431:1442,]*365)/10^3  # kg y-1
 colMeans(waterMet2_gd_all[1431:1442,]*365)/10^3
-colMeans(waterdemet2_gd_all[1431:1442,]*365)/10^3  # g y-1
+colMeans(waterdemet2_gd_all[1431:1442,]*365)/10^3  # kg y-1
 
 demet1_ugd_sed<-demet1$sn1 *a1*0.05  # 1 d-1 * ug m3 = ug d
 demet2_ugd_sed<-demet1$sn2 *a2*0.05
@@ -195,9 +202,15 @@ demet2_gd_sed_all<-cbind(demet1b_ngd_sed,demet2b_ngd_sed,demet3b_ngd_sed,demet4b
 colMeans(Met1_gd_sed_all[1431:1442,]*365)-colMeans(demet1_gd_sed_all[1431:1442,]*365)  # g y-1
 colMeans(Met2_gd_sed_all[1431:1442,]*365)-colMeans(demet2_gd_sed_all[1431:1442,]*365)  # g y-1
 
+colMeans(waterMet1_gd_all[1431:1442,]*365)-colMeans(waterdemet1_gd_all[1431:1442,]*365)  # g y-1
+colMeans(waterMet2_gd_all[1431:1442,]*365)-colMeans(waterdemet2_gd_all[1431:1442,]*365)  # g y-1
 
-colMeans(Met1_gd_sed_all[1431:1442,]*365)  #g y-1
-colMeans(demet1_gd_sed_all[1431:1442,]*365)  # kg y-1
+
+sum(colMeans(Met2_gd_sed_all[1431:1442,]*365))/1000
+sum(colMeans(demet2_gd_sed_all[1431:1442,]*365))/1000
+
+sum(colMeans(waterMet2_gd_all[1431:1442,]*365))/1000  #g y-1
+sum(colMeans(waterdemet2_gd_all[1431:1442,]*365))/1000  # kg y-1
 
 colMeans(Met2_gd_sed_all[1431:1442,]*365)/10^3  # kg y-1
 colMeans(demet2_gd_sed_all[1431:1442,]*365)/10^3  # kg y-1
@@ -215,6 +228,10 @@ yBALs<-(Met1_gd_sed -demet1_gd_sed)*365/1000
 yBALs2<-(Met2_gd_sed -demet2_gd_sed)*365/1000
 
 years<-seq(1900, 2100)
+
+mean(waterMet2_gd[1431:1442]*365/1000)
+mean(waterdemet2_gd[1431:1442]*365/1000)
+yBALw2[1431:1442]
 
 tutto<-data.frame(rdate,yBALw,yBALw2,yBALs,yBALs2)
 #2.6151248-1.6504104

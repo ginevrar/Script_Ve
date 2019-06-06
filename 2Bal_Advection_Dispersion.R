@@ -5,8 +5,8 @@
  # setwd('C:/Users/Acer/Dropbox/NewVenice20/w')
  # setwd('C:\\Users\\gi\\Desktop\\2156\\b')
  # setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
-  setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
-  setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_ok')     #sim_cl
+ # setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
+  setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_Ok')     #sim_cl
   #setwd('D:\\Ref_long_long')     #sim_cl   # 2019: rdate[433904:437497]
   
   
@@ -46,22 +46,29 @@
   water3_mhg<-mehg$wn3;    #Lido       
   water7_mhg<-mehg$wc7;    #Malamocco     1.5768e+08
   water10_mhg<-mehg$ws10;    #chioggia  9.77616e+08
+  
+  water3_hg0<-hg0$wn3;    #Lido       
+  water7_hg0<-hg0$wc7;    #Malamocco     1.5768e+08
+  water10_hg0<-hg0$ws10;    #chioggia  9.77616e+08
   #--------------------------- DISPERSION AT BOUNDARIES --------------------------- 
   ## Boundaries Volumes 
-  Ai3=8710; Ai7=4290; Ai10=5150
-  d=1
+  Ai3<-8710; Ai7<-4290; Ai10<-5150
+  d<-1
   Vb3<-Ai3*d; Vb7<-Ai7*d; Vb10<-Ai10*d
   
-  Lci=2000    # Length exchange (m)
-  Lci_b3=1500    # Length exchange (m)
+  Lci<-2000    # Length exchange (m)
+  Lci_b3<-1500    # Length exchange (m)
   
-  E= 40*86400 ## Exchange coefficient (Ei), m s-1 to m d-1
+  E= 20*86400 ## Exchange coefficient (Ei), m s-1 to m d-1
        
-  bound_hg=1.75
-  bound_mhg=2.76583E-2
+  bound_hg<-1.75
+  bound_mhg<-2.76583E-2
+  bound_hg0<-8E-2
+  bound_hgt<-bound_hg+bound_mhg+bound_hg0
   
   # (Cbk-Cbi)   #formula Vb*Sb = ((Ei*Ai)/Lci)*
   grad3 = (bound_hg-water3); grad7 = (bound_hg-water7); grad10 = (bound_hg-water10)  # ng L
+  grad3hgt = (bound_hgt-water3); grad7hgt = (bound_hgt-water7); grad10hgt = (bound_hgt-water10)  # ng L
   grad3_mhg = (bound_mhg-water3_mhg); grad7_mhg = (bound_mhg-water7_mhg); grad10_mhg = (bound_mhg-water10_mhg)  # ng L
   
   grad3_solidi = (11.7-solids3); grad7_solidi = (11.7-solids7); grad10_solidi = (11.7-solids10)  # ng L
@@ -69,7 +76,6 @@
   exchB3=(E*Ai3)/Lci_b3; exchB7=(E*Ai7)/Lci; exchB10=(E*Ai10)/Lci       # m2 s-1*m2 *m-1 = m3 d-1
   
   exchB3/1.05E+8
-  
   
   VbSb3=(exchB3*grad3)     # m3 d-1 * ug m-3 = ug d-1
   VbSb7=(exchB7*grad7)     # m3 d-1 * ug m-3 = ug d-1
@@ -83,10 +89,13 @@
   VbSb7_mhg=(exchB7*grad7_mhg)     # m3 d-1 * ug m-3 = ug d-1
   VbSb10_mhg=(exchB10*grad10_mhg)  # m3 d-1 * ug m-3 = ug d-1
   
+  VbSb3_kgy_mhg<-VbSb3_mhg/10^9*365
+  VbSb7_kgy_mhg<-VbSb7_mhg/10^9*365
+  VbSb10_kgy_mhg<-VbSb10_mhg/10^9*365
+  
   Sb3_kgy_mhg=VbSb3_mhg*365/10^9
   Sb7_kgy_mhg=VbSb7_mhg*365/10^9
   Sb10_kgy_mhg=VbSb10_mhg*365/10^9
-  
   
   VbSb3_SED=(exchB3*grad3_solidi)     # m3 d-1 * ug m-3 = ug d-1
   VbSb7_SED=(exchB7*grad7_solidi)     # m3 d-1 * ug m-3 = ug d-1
@@ -96,6 +105,15 @@
   Sb7_kgy_SED=VbSb7_SED*365/10^9
   Sb10_kgy_SED=VbSb10_SED*365/10^9
   
+  
+  VbSb3_hgt=(exchB3*grad3hgt)     # m3 d-1 * ug m-3 = ug d-1
+  VbSb7_hgt=(exchB7*grad7hgt)     # m3 d-1 * ug m-3 = ug d-1
+  VbSb10_hgt=(exchB10*grad10hgt)  # m3 d-1 * ug m-3 = ug d-1
+  
+  Sb3_kgy_hgt=VbSb3_hgt*365/10^9
+  Sb7_kgy_hgt=VbSb7_hgt*365/10^9
+  Sb10_kgy_hgt=VbSb10_hgt*365/10^9
+  
   par(mfrow=c(2,2))
   #plot(Sb3_kgy);plot(Sb7_kgy);plot(Sb10_kgy)
   
@@ -103,7 +121,11 @@
   Disper_tot_kgy_mhg<-(Sb3_kgy_mhg)+(Sb7_kgy_mhg)+(Sb10_kgy_mhg)
   Disper_tot_kgy_SED<-(Sb3_kgy_SED)+(Sb7_kgy_SED)+(Sb10_kgy_SED)
   
+  mean(VbSb3_kgy_mhg[1431:1442]+(Sb3_kgy_mhg[1431:1442]))
+  mean(VbSb7_kgy_mhg[1431:1442]+(Sb7_kgy_mhg[1431:1442]))
+  mean(VbSb10_kgy_mhg[1431:1442]+(Sb10_kgy_mhg[1431:1442]))
   
+  plot(water3_mhg[1431:1442])
   #---------------- ADVECTIVE FLOWS  (Qi) m3 s-1 to m3 d-1  --------------------------------------
   bound3  <-	(-7) *86400; bound10 <-	(-25)*86400; bound7  <-	(-15)*86400
   
@@ -117,7 +139,7 @@
   hg_outflow_kg_y<-outflow_ugd*365/10^9
   
   
-  1430:1441
+  1431:1442
   
   hg_outflow_kg_y
   
@@ -136,17 +158,24 @@
   out10_kgy<-(bound10*water10)*365/10^9
   out7_kgy<-(bound7*water7)*365/10^9
   
-  out3_kgy_mhg<-mean((water3_mhg*bound3)*365/10^9)
-  out7_kgy_mhg<-mean((water7_mhg*bound7)*365/10^9)
-  out10_kgy_mhg<-mean((water10_mhg*bound10)*365/10^9)
+  out3_kgy_mhg<-((water3_mhg*bound3)*365/10^9)
+  out7_kgy_mhg<-((water7_mhg*bound7)*365/10^9)
+  out10_kgy_mhg<-((water10_mhg*bound10)*365/10^9)
   
-  mean(out3_kgy[1430:1441]+Sb3_kgy[1430:1441])
-  mean(out7_kgy[1430:1441]+Sb7_kgy[1430:1441])
-  mean(out10_kgy[1430:1441]+Sb10_kgy[1430:1441])
+  plot(water3_mhg)
   
-  mean(out3_kgy_mhg[1430:1441]+Sb3_kgy_mhg[1430:1441])
-  mean(out7_kgy_mhg[1430:1441,]+Sb7_kgy_mhg[1430:1441,])
-  mean(out10_kgy_mhg[1430:1441,]+Sb10_kgy_mhg[1430:1441,])
+  mean(out3_kgy[1431:1442]+Sb3_kgy_hgt[1431:1442])
+  mean(out7_kgy[1431:1442]+Sb7_kgy_hgt[1431:1442])
+  mean(out10_kgy[1431:1442]+Sb10_kgy_hgt[1431:1442])
+  
+  rdate[1431:1442]
+  mean(out3_kgy[1431:1442]+Sb3_kgy[1431:1442])
+  mean(out7_kgy[1431:1442]+Sb7_kgy[1431:1442])
+  mean(out10_kgy[1431:1442]+Sb10_kgy[1431:1442])
+  
+  mean(out3_kgy_mhg[1431:1442]+Sb3_kgy_mhg[1431:1442])
+  mean(out7_kgy_mhg[1431:1442]+Sb7_kgy_mhg[1431:1442])
+  mean(out10_kgy_mhg[1431:1442]+Sb10_kgy_mhg[1431:1442])
   
   
   if (length(hg$wn1) > 206 & length(hg$wn1)< 2450) {
@@ -218,6 +247,6 @@
   
     outflow_solids_tgy<-hg_outflow_kg_y_SED/10^3
 years
-
-colMeans(df2[1430:1441,2:5])
+rdate[1431:1442]
+colMeans(df2[1431:1442,2:5])
 colMeans(df2[433904:437497,2:5])

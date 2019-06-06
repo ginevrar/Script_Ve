@@ -1,5 +1,5 @@
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\year')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\')     #sim_cl
 #setwd('D:\\Ref_long_long')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
@@ -314,8 +314,6 @@ plot(rdate,(Depo_kgy[,10]-REs_kgy[,10]), type='l')
 ninini<-rowSums(n)
 plot(rdate,ninini, type='l')
 
-
-
 vvvv1<-(depo1_Phg_ug_m2_d-res1_Phg_ug_m2_d)*a1
 vvvv2<-(depo2_Phg_ug_m2_d-res2_Phg_ug_m2_d)*a2
 vvvv3<-(depo3_Phg_ug_m2_d-res3_Phg_ug_m2_d)*a3
@@ -564,11 +562,8 @@ NET_deposited_media<-tapply(NET_deposited[2:692041], rep(1:(length(NET_deposited
 
 plot(NEt_Net_media,col='hotpink',type='b',  ylim=c(0,2000))
 
+plot(netto2)
 
-
-
-
-netto1[1431:1442]
-netto2[1431:1442]*365
-netto1[1431:1442]
+netto1[1431:1442]  #kgy
+netto2[1431:1442]  #kgy
 netto1[1431:1442]

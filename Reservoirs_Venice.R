@@ -1,11 +1,9 @@
-##
-##
 # 
 #Venice water and sediment reservoirs
 # 
 # 50 t in sediments (Critto et al?)
 setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g920')
-setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
+setwd('C:/Users/gi/Desktop/finaleRITAMRE/Reference_OK')
 
 #Leggi model output
 hg<-read.csv("Dissolved_Divalent_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
@@ -367,9 +365,10 @@ buried_TOT_box10<-cumsum(buried_g_m2_y_box10/12*a10)
 TOTAL_buried_g<-buried_TOT_box1[1214]+buried_TOT_box2[1214]+buried_TOT_box3[1214]+buried_TOT_box4[1214]+
   buried_TOT_box5[1214]+buried_TOT_box6[1214]+buried_TOT_box7[1214]+buried_TOT_box8[1214]+buried_TOT_box9[1214]+buried_TOT_box10[1214]
 
-TOTAL_buried_t<-TOTAL_buried_g/10^6
-TOTAL_buried_t
+TOTAL_buried_kg<-TOTAL_buried_g/10^3
+TOTAL_buried_kg
 
+rdate[1214]
 
 plot(buried_g_m2_y_box3)
 

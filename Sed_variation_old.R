@@ -1,7 +1,7 @@
 setwd('C:\\Users\\gi\\Desktop\\2155')
 #setwd('C:\\Users\\gi\\Desktop\\NNN14')
 #setwd('F:\\2128')
-setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
@@ -115,6 +115,10 @@ diffHgTs8<-c(NA,diff(reservoir_hg_s8, differences = 1))
 diffHgTs9<-c(NA,diff(reservoir_hg_s9, differences = 1))
 diffHgTs10<-c(NA,diff(reservoir_hg_s10, differences = 1))
 
+
+differenze_NOBurial<-data.frame(diffHgps1,diffHgps2,diffHgps3,diffHgps4,diffHgps5,diffHgps6,diffHgps7,diffHgps8,diffHgps9,diffHgps10)
+write.table(differenze_NOBurial,'differenze_NOBurial.txt')
+
 bur1 <- (Phgs$sn1*(burial$sn1/100)/10^6)*a1    # ug m3 * m y-1 /10^6 = g y-1
 bur2 <- (Phgs$sn2*(burial$sn2/100)/10^6)*a2
 bur3 <- (Phgs$sn3*(burial$sn3/100)/10^6)*a3
@@ -126,6 +130,8 @@ bur8 <- (Phgs$ss8*(burial$ss8/100)/10^6)*a8
 bur9 <- (Phgs$ss9*(burial$ss9/100)/10^6)*a9
 bur10 <- (Phgs$ss10*(burial$ss10/100)/10^6)*a10
 
+Burial<-data.frame(bur1,bur2,bur3,bur4,bur5,bur6,bur7,bur8,bur9,bur10)
+write.table(Burial,'Burial.txt')
 
 plot(bur5)
 
@@ -185,7 +191,6 @@ net_sum[72] ; rdate[72]
 net_sum[97] ; rdate[97]
 net_sum[240] ; rdate[240]
 
-setwd('C:\\Users\\gi\\Desktop\\2156\\b')
 write.table(net_sum,file='Sed_bal.txt')
 
 diffHgTs1[2]
