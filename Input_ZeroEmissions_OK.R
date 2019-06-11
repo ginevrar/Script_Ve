@@ -1,7 +1,7 @@
 setwd('C:/Users/gi/Dropbox/Cloro_Soda_Ve')
 setwd('C:/Users/Acer/Desktop/Future_emissions')
 
-hgL<-read.csv('Hgind_load.csv', sep=';', header=T)
+hgL<-read.csv('Hgind_load.csv', sep=',', header=T)
 str(hgL)
 hgL<-hgL[,1:3]
 

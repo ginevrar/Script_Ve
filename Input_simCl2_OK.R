@@ -40,15 +40,15 @@ for(i in 2: 46){
 
 years[138]
 #------- Serie DEPOSIZIONE ATMOSFERICA ----------------------------
-de<-depoo$atm_dep_Cl[1:201] 
+de<-rep(3,201)     #depoo$atm_dep_Cl[1:201] 
 str(de)
 dep<-data.frame(years[1:201],de)
 names(dep)<-c('year','de')
 
-de2<-depoo$dep_zeroEm[100:201]
-de3<-depoo$Hg_control[100:201]
-de4<-depoo$Hg_const[100:201]
-de5<-depoo$A1B1[100:201]
+de2<-rep(3,201)#depoo$dep_zeroEm[100:201]
+de3<-rep(3,201)#depoo$Hg_control[100:201]
+de4<-rep(3,201)#depoo$Hg_const[100:201]
+de5<-rep(3,201)#depoo$A1B1[100:201]
 
 de_s2<-c(de[1:99],de2)
 de_s3<-c(de[1:99],de3)
@@ -165,7 +165,7 @@ str(indus)
 str(cit)
 indus_mehg<-data.frame(years[1:201],ind_mehg)
 
-ind3<-ind2+ind_mehg
+ind3<-rep(1000,201)#ind2+ind_mehg
 
 plot(years, ind2, type='l')
 abline(h=36)
@@ -439,6 +439,7 @@ write.table(Input_long, file='Input_long.txt')
 png('Hg_input_VE2_Cl2bbcd.png', units='cm', height = 31,  width = 31, res=300)
 tutt<-data.frame((tott[2]), (tott[3]+tott[4]),
                  (tott[5]),(tott[6]))
+
 rownames(tutt)<-years
 tutt<-as.matrix(tutt); tutt<-t(tutt)
 
@@ -453,12 +454,21 @@ par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(2,2), cex.main=1.4, mar=c(4.2
 tutt<-data.frame((tott[2]), (tott[3]+tott[4]),
                  (tott[5]),(tott[6]))
 rownames(tutt)<-years
-tutt<-as.matrix(tutt); tutt<-t(tutt)
+rdate[,1:30]
+tutt1<-rowMeans(tutt[1:30,])
+tutt2<-rowMeans(tutt[31:70,])
+tutt3<-rowMeans(tutt[71:90,])
+tutt4<-rowMeans(tutt[91:120,])
+tutt5<-rowMeans(tutt[122:201,])
 
+tutt_frame<-data.frame(tutt1,tutt2,tutt3,tutt4,tutt5)
+tutt_mat<-as.matrix(tutt_frame); tutt<-t(tutt_frame)
 
+TOT<-rowSums(tutt_frame)
+names(tutt_mat)<-c('1900-1929','1930-1969','1970-1991','1990-2019','2020-2100')
 par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(2,2), cex.main=1.4)
  
-barplot(tutt, beside=F, width = 10,legend.text=F,
+barplot(tutt_mat, beside=F, width = 10,legend.text=F,
         border = NA, col=c('cyan3','royalblue','orange',
                            'grey40'),
         main='Hg inputs to the Venice Lagoon')
@@ -473,8 +483,8 @@ perA<-tot_depo/TOT*100
 perI<-tot_ind/TOT*100
 perR<-tot_riv/TOT*100
 
-perctutt<-data.frame((tott[2]/tott[7]*100), ((tott[3]+tott[4])/tott[7]*100),
-                     (tott[5]/tott[7]*100),(tott[6]/tott[7]*100))
+perctutt<-data.frame((tutt_mat[1,1:4]/TOT*100), ((tutt_mat[2,1:4])/TOT[7]*100),
+                     (tutt_mat[3,1:4]/TOT[7]*100),(tutt_mat[4,1:4]/TOT[7]*100))
 rownames(perctutt)<-years
 perctutt<-as.matrix(perctutt); perctutt<-t(perctutt)
 
