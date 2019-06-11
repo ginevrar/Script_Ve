@@ -1,7 +1,7 @@
 setwd('C:/Users/Acer/Dropbox/NewVenice21')
 setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH')     #sim_cl
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

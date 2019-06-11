@@ -154,6 +154,8 @@
   ## _______________________________
   
   
+  
+  
   out3_kgy<-(bound3*water3)*365/10^9
   out10_kgy<-(bound10*water10)*365/10^9
   out7_kgy<-(bound7*water7)*365/10^9
@@ -238,6 +240,8 @@
   
                   (hg_outflow_kg_y_SED+Disper_tot_kgy_SED)
   
+  
+  plot(hg_outflow_kg_y+Disper_tot_kgy)
   write.table(dfff, file='Disper_and_OUTfl_tot_kgy.txt')
   write.table(df2, file='Disper_and_OUTfl_tot_kgy_monthy.txt')
   #write.table(hg_outflow_kg_y, file='Outflow_tot_kgy.txt')

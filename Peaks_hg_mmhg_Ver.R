@@ -24,8 +24,7 @@ png('Peaks_sediment_Hg_mehg9bbbb.png',
 #    units = "px")
 par(mfrow=c(2,5),mar=c(3,3.6,1.5,1.5), cex=0.7,
     oma=c(0,1,3,1), bty='n', mgp=c(2.8,.8,0))
-rdate[52]
- 
+
 yy1<-c(0, 0, 1132.712, 1132.712)
 plot(rdate[52:122],hg$sn1[52:122],
      type='l', col=1, ylab='Hg (ng/g)',

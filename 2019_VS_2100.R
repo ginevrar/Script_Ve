@@ -139,7 +139,7 @@ sed_rate_mhg9<-mean(mehg$ss9[1430:1441] - mehg$ss9[2403:2414])/81
 sed_rate_mhg10<-mean(mehg$ss10[1430:1441] - mehg$ss10[2403:2414])/81
 
 sed_rate_mhg<-cbind(sed_rate_mhg1,sed_rate_mhg2,sed_rate_mhg3,sed_rate_mhg4,sed_rate_mhg5,sed_rate_mhg6,sed_rate_mhg7,sed_rate_mhg8,sed_rate_mhg9,sed_rate_mhg10)
-mean(sed_rate);min(sed_rate);max(sed_rate)
+mean(sed_rate_mhg);min(sed_rate_mhg*1000);max(sed_rate_mhg*1000)
 mean(sed_rate_mhg*1000)
   sed_rate_mhg*1000
 rdate[1430:1441]
@@ -177,6 +177,8 @@ wat_rate_mhg10<-mean(mehg$ws10[1430:1441] - mehg$ws10[2403:2414])/81
 
 wat_rate_mhg<-cbind(wat_rate_mhg1,wat_rate_mhg2,wat_rate_mhg3,wat_rate_mhg4,wat_rate_mhg5,wat_rate_mhg6,wat_rate_mhg7,wat_rate_mhg8,wat_rate_mhg9,wat_rate_mhg10)
 mean(wat_rate_mhg*1000)
+min(wat_rate_mhg*1000)
+max(wat_rate_mhg*1000)
 wat_rate_mhg*1000
 rdate[1430:1441]
 rdate[2403:2414]

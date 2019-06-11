@@ -56,15 +56,15 @@ south_bloom_med_mhgt<-0.02795
 south_bloom_min_mhgt<-0.019522	
 south_bloom_max_mhgt<-0.036378
 
-nord_hgt<-data.frame(hgt$wn1[1214:1321],hgt$wn2[1214:1321],hgt$wn4[1214:1321]); names(nord_hgt)<-c('w1','w2','w4')
-centr_hgt<-data.frame(hgt$wc6[1214:1321], hgt$wn3[1214:1321], hgt$wn5[1214:1321],hgt$wc7[1214:1321])
-sud_hgt<-data.frame(hgt$ws8[1214:1321],hgt$ws9[1214:1321], hgt$ws10[1214:1321])
+nord_hgt<-data.frame(hgt$wn1,hgt$wn2,hgt$wn4); names(nord_hgt)<-c('w1','w2','w4')
+centr_hgt<-data.frame(hgt$wc6, hgt$wn3, hgt$wn5,hgt$wc7)
+sud_hgt<-data.frame(hgt$ws8,hgt$ws9, hgt$ws10)
 
 mod_cent_mean<-rowMeans(centr_hgt); mod_cent_min<-apply(centr_hgt,1,FUN=min);mod_cent_max<-apply(centr_hgt,1,FUN=max)
 mod_nord_mean<-rowMeans(nord_hgt);mod_nord_min<-apply(nord_hgt,1,FUN=min);mod_nord_max<-apply(nord_hgt,1,FUN=max)
 mod_sud_mean <-rowMeans(sud_hgt); mod_sud_min<-apply(sud_hgt,1,FUN=min); mod_sud_max<-apply(sud_hgt,1,FUN=max)
 NN<-c(mod_nord_min,rev(mod_nord_max)); CC<-c(mod_cent_min,rev(mod_cent_max));SS<-c(mod_sud_min,rev(mod_sud_max))
-xx<-c(rdate[1214:1321],rev(rdate[1214:1321]))
+xx<-c(rdate,rev(rdate))
 
 nord_hgt_2019<-data.frame(hgt$wn1[1430:1441],hgt$wn2[1430:1441],hgt$wn4[1430:1441]); names(nord_hgt)<-c('w1','w2','w4')
 centr_hgt_2019<-data.frame(hgt$wc6[1430:1441], hgt$wn3[1430:1441], hgt$wn5[1430:1441],hgt$wc7[1430:1441])
@@ -86,15 +86,15 @@ mean(mod_nord_mean[3:37]); nord_bloom_med_hgt
 mean(mod_sud_mean[3:37]); south_bloom_med_hgt
 
 
-nord_mhgt<-data.frame(mhgt$wn1[1214:1321],mhgt$wn2[1214:1321],mhgt$wn4[1214:1321]); names(nord_mhgt)<-c('w1','w2','w4')
-centr_mhgt<-data.frame(mhgt$wc6[1214:1321], mhgt$wn3[1214:1321], mhgt$wn5[1214:1321],mhgt$wc7[1214:1321])
-sud_mhgt<-data.frame(mhgt$ws8[1214:1321],mhgt$ws9[1214:1321], mhgt$ws10[1214:1321])
+nord_mhgt<-data.frame(mhgt$wn1,mhgt$wn2,mhgt$wn4); names(nord_mhgt)<-c('w1','w2','w4')
+centr_mhgt<-data.frame(mhgt$wc6, mhgt$wn3, mhgt$wn5,mhgt$wc7)
+sud_mhgt<-data.frame(mhgt$ws8,mhgt$ws9, mhgt$ws10)
 
 mod_cent_mean_mhgt<-rowMeans(centr_mhgt); mod_cent_min_mhgt<-apply(centr_mhgt,1,FUN=min);mod_cent_max_mhgt<-apply(centr_mhgt,1,FUN=max)
 mod_nord_mean_mhgt<-rowMeans(nord_mhgt);mod_nord_min_mhgt<-apply(nord_mhgt,1,FUN=min);mod_nord_max_mhgt<-apply(nord_mhgt,1,FUN=max)
 mod_sud_mean_mhgt<-rowMeans(sud_mhgt); mod_sud_min_mhgt<-apply(sud_mhgt,1,FUN=min); mod_sud_max_mhgt<-apply(sud_mhgt,1,FUN=max)
 NN_mhg<-c(mod_nord_min_mhgt,rev(mod_nord_max_mhgt)); CC_mhg<-c(mod_cent_min_mhgt,rev(mod_cent_max_mhgt));SS_mhg<-c(mod_sud_min_mhgt,rev(mod_sud_max_mhgt))
-xx<-c(rdate[1214:1321],rev(rdate[1214:1321]))
+xx<-c(rdate,rev(rdate))
 
 plot(rdate[1250:1261], mod_nord_mean_mhgt[37:48], type='l')
 plot(rdate[1250:1261], mod_sud_mean[37:48], type='l')
@@ -109,7 +109,7 @@ mean(uuu[8:10])
 ##png('Acque_Bloom_tootB20b3tris_51.png',width = 21, height = 16, units = "cm", res=400)  #26
 #par(mfrow=c(2,3), bty='n', cex.axis=1.5, cex.lab=1.5,mar=c(3,1.5,1,1), oma=c(0,6,3,1))
 
-p1<-plot(rdate[1214:1321], mod_nord_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='royalblue',
+p1<-plot(rdate, mod_nord_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='royalblue',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,NN, col='#4575b455',border = NA)
 par(new=T)
@@ -127,7 +127,7 @@ plot(rdate[1225],nord_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p',cex=
 segments(rdate[1225],nord_bloom_max_hgt,rdate[1225],nord_bloom_min_hgt)
 
  
-p2<-plot(rdate[1214:1321], mod_cent_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+p2<-plot(rdate, mod_cent_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,CC, col='#fed97666',border = NA)
 par(new=T)
@@ -158,7 +158,7 @@ plot(rdate[1227],centralIND_bloom_max_hgt,ylim=c(0,100),pch='-',xaxt='n',type='p
      ylab='')   
 segments(rdate[1227],centralIND_bloom_max_hgt,rdate[1227],centralIND_bloom_min_hgt,col='darkgrey')
 
-p3<-plot(rdate[1214:1321], mod_sud_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#82012099',yaxt='n',
+p3<-plot(rdate, mod_sud_mean,  ylim=c(0,100),xlab='',ylab='',type='l',col='#82012099',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,SS, col='#82012066',border = NA)
 par(new=T)
@@ -182,7 +182,7 @@ plot(rdate2, mod_nord_mean_mhgt, type='l', col=2 ,ylim=c(0,0.15))
 
 mod_nord_mean_mhgd_D/mod_nord_mean_mhgt
 
-p4<-plot(rdate[1214:1321], mod_nord_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l', col='royalblue',
+p4<-plot(rdate, mod_nord_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l', col='royalblue',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,NN_mhg, col='#4575b455',border = NA)
 par(new=T)
@@ -201,7 +201,7 @@ plot(rdate[1225],nord_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type='p',ce
 segments(rdate[1225],nord_bloom_max_mhgt,rdate[1225],nord_bloom_min_mhgt)
   
 
-p5<-plot(rdate[1214:1321], mod_cent_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
+p5<-plot(rdate, mod_cent_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#d1740c99',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,CC_mhg, col='#fed97666',border = NA)
 par(new=T)
@@ -233,7 +233,7 @@ plot(rdate[1227],centralIND_bloom_max_mhgt, ylim=c(0,0.4),pch='-',xaxt='n',type=
 segments(rdate[1227],centralIND_bloom_max_mhgt,rdate[1227],centralIND_bloom_min_mhgt,col='darkgrey')
 
 
-p6<-plot(rdate[1214:1321], mod_sud_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#820120',yaxt='n',
+p6<-plot(rdate, mod_sud_mean_mhgt,  ylim=c(0,0.4),xlab='',ylab='',type='l',col='#820120',yaxt='n',
      xlim=as.Date(c("2001-01-01", "2006-12-31"), "%Y-%m-%d"))
 polygon(xx,SS_mhg, col='#82012066',border = NA)
 par(new=T)
@@ -253,3 +253,8 @@ segments(rdate[1225],south_bloom_max_mhgt,rdate[1225],south_bloom_min_mhgt)
 
 #___________________________fine HgT MeHgT acque bloom _____________________________________________
 getwd()
+
+dd<-data.frame(mod_sud_mean[1431:1442],mod_cent_mean[1431:1442],mod_nord_mean[1431:1442])
+
+mm<-rowMeans(dd)
+mean(mm)

@@ -238,9 +238,6 @@ Fds10<- hgsilt_w10* (DEPO_silt$ws10/d10)/(86400)
 
 #integrate(f(hh,DEPO_silt$wn1,a1), lower = 1.26,upper = 0)
 
-
-
-
 #plot(rdate, hgsilt_w1, ylim=c(0,3*10^9), type='l')
 #par(new=T)
 #plot(rdate, hgaq_w10, ylim=c(0,3*10^9), col=2, type='l',lty=2)
@@ -678,11 +675,11 @@ summary(Net_kgy2)
 
 plot(Net_kgy)
 
-plot(TotD,ylim=c(0,100000), type='l')
+plot(TotD,ylim=c(0,1000000), type='l')
 par(new=T)
-plot(TotR,ylim=c(0,100000), type='l',col=2)
+plot(TotR,ylim=c(0,1000000), type='l',col=2)
 
 
-plot(TotD[1:20]*365,ylim=c(0,1000), type='b')
+
 
 

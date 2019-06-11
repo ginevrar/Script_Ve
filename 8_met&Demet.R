@@ -213,20 +213,29 @@ sum(colMeans(waterMet2_gd_all[1431:1442,]*365))/1000  #g y-1
 sum(colMeans(waterdemet2_gd_all[1431:1442,]*365))/1000  # kg y-1
 
 colMeans(Met2_gd_sed_all[1431:1442,]*365)/10^3  # kg y-1
-colMeans(demet2_gd_sed_all[1431:1442,]*365)/10^3  # kg y-1
-
-colMeans(waterMet2_gd)*365/1000
+u<-colMeans(demet2_gd_sed_all[1431:1442,]*365)/10^3  # kg y-1
+ 
+mean(waterMet2_gd)*365/1000
 colMeans(waterdemet2_gd)*365/1000
 
 
 yBALw<-(waterMet1_gd -waterdemet1_gd)*365/1000
 yBALw2<-(waterMet2_gd -waterdemet2_gd)*365/1000
 
-plot(yBALw2/10^6)
-plot(yBAL2)
+
 yBALs<-(Met1_gd_sed -demet1_gd_sed)*365/1000
 yBALs2<-(Met2_gd_sed -demet2_gd_sed)*365/1000
 
+yy<-c(-7,-7,1,1)
+par(mfrow=c(1,1))
+plot(rdate,yBALw2, type='l', col='blue', ylim=c(-7,1))
+ polygon(H_resus,yy, col='#68676755',border = NA)
+polygon(Eutrop,yy, col='#3a871f88',border = NA)
+par(new=T)
+plot(rdate,yBALw2, type='l', col='blue', ylim=c(-7,1))
+par(new=T)
+plot(rdate,yBALs2, type='l', col='brown', ylim=c(-7,1))
+abline(h=0)
 years<-seq(1900, 2100)
 
 mean(waterMet2_gd[1431:1442]*365/1000)

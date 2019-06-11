@@ -160,9 +160,10 @@ Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
 #provare mult*1.5 dimensioni plot
  #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb__8hilmnohilcciiDDEFGGMedie.png',
-    width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
-    units = "cm")
+#png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb__8hilmnohilcciiDDEFGGMedie_NEW.png',
+#    width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
+#    units = "cm")
+  c0<-rdate[3]
 par(mfrow=c(2,5),mar=c(3,2,1,1), 
     oma=c(0,3,3,1), bty='n', mgp=c(3.5,1.5,0))
 
@@ -182,10 +183,10 @@ plot(rdate[2: 2424],hg$osn1[2: 2424],ylim=c(-50,5000), type='l', col='#313695',
 #text(1020,1200,'1977', cex=1.3)
 #text(9700,1200,'1997', cex=1.3)
 par(new=T)
-boxplot(box1_77,box1,Zonta1,ylim=c(-50,5000),
+boxplot(background,box1_77,box1,Zonta1,ylim=c(-50,5000),
         col='#31369588', ylab=' ', range=F,
         boxwex=2700, xaxt='n',yaxt='n', xlim=c(rdate[2],rdate[2424]),
-        at=c(c1,c2,c5))   #0.23,0.45
+        at=c(c0,c1,c2,c5))   #0.23,0.45
 v_text<-c('10cm','15cm','10cm')
 x=c(c1-2500,c2-541,c5+2500)
 y=c(1500,-40,1500)
