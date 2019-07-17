@@ -275,134 +275,138 @@ bb8<-data.frame(box8_A_hg,box8_B_hg,box8_C_hg,box8_D_hg, box8_D_hg)
 bb9<-data.frame(box9_A_hg,box9_B_hg,box9_C_hg,box9_D_hg, box9_D_hg)
 bb10<-data.frame(box10_A_hg,box10_B_hg,box10_C_hg,box10_D_hg, box10_D_hg)
 
-png('profile_ZONTA_datoModeo_BUONA___q23_g_53whilmnbbccEFggMedie.png',width = 1000*1.5, height = 530*1.5,  
-    units = "px")
-par(mfrow=c(2,5),mar=c(3,0,1,1), oma=c(0,4,3,1),  bty='n',cex=1.5) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
+png('profile_ZONTA_datoModeo_BUONA___q23_g_53whilmnbbccEFggMedie8999.png',
+    width = 28, height = 15,res=300, units ='cm')
+    
+    #width = 1000*1.5, height = 530*1.5,  
+   # units = "px")
 
-boxplot(bb1,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+par(mfrow=c(2,5),mar=c(3,1,1,0), oma=c(0,3,1,1),  bty='n',cex=.9) # bg='black',fg = 'white',col.axis = "white", col.clab = "white"
+
+boxplot(bb1,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',xaxt='n',
      col='#31369522',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b1_profile_mean*1000,y,
-     ylim=c(-40,0),xlim=c(0,3000), col='#313695',xaxt='n',
+     ylim=c(-40,0),xlim=c(0,3000), col='#313695',
      ylab=' ',xlab=' ',cex=1.1, pch=19)
 par(new=T)
-plot(b1_profile_mod,y,xlim=c(0,3000), cex=1.6, ylim=c(-40,0), yaxt='n',
+plot(b1_profile_mod,y,xlim=c(0,3000), cex=1.2, ylim=c(-40,0), yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#313695',   type='b', pch=25)
-mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 1', font=2, cex=1.4, line=.5)
+mtext(side=2, text='depth (cm)',  cex=1.2, line=3)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.2, line=2.2)
+mtext(side=3, text='box 1', font=2, cex=1.1, line=.5)
 
-boxplot(bb2,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+boxplot(bb2,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',xaxt='n',
         col='#4575b422',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b2_profile_mean*1000,y,xlim=c(0,3000), ylim=c(-40,0),  yaxt='n',
      col='#4575b4',ylab=' ',xlab=' ',cex=1.1, pch=19)
 par(new=T)
 plot(b2_profile_mod,y,xlim=c(0,3000), ylim=c(-40,0),ylab=' ',xlab=' ',yaxt='n',
-     cex=1.6,col='black',bg='#4575b4', type='b', pch=25)
+     cex=1.2,col='black',bg='#4575b4', type='b', pch=25)
 #mtext(side=2, text='depth (cm)', line=3)
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 2', font=2, cex=1.4, line=.5)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.2, line=2.2)
+mtext(side=3, text='box 2', font=2, cex=1.1, line=.5)
 
-boxplot(bb4,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+boxplot(bb4,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',xaxt='n',
         col='#abd9e922',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b4_profile_mean*1000,y,xlim=c(0,3000),  ylim=c(-40,0), 
      cex=1.1,yaxt='n',ylab=' ',xlab=' ',
      col='#abd9e9',pch=19)
 par(new=T)
-plot(b4_profile_mod,y,xlim=c(0,3000),  cex=1.6,ylim=c(-40,0),ylab=' ',xlab=' ',
+plot(b4_profile_mod,y,xlim=c(0,3000),  cex=1.2,ylim=c(-40,0),ylab=' ',xlab=' ',
      yaxt='n', col='black',bg='#abd9e9', type='b', pch=25)
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 4', font=2, cex=1.4, line=.5)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.2, line=2.2)
+mtext(side=3, text='box 4', font=2, cex=1.1, line=.5)
 
-boxplot(bb3,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+boxplot(bb3,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',xaxt='n',
         col='#DDF26B22',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b3_profile_mean*1000,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.1,yaxt='n',ylab=' ',xlab=' ',
      col='#DDF26B', pch=19)
 par(new=T)
-plot(b3_profile_mod,y,xlim=c(0,3000), yaxt='n', cex=1.6,ylim=c(-40,0), ylab=' ',xlab=' ',
+plot(b3_profile_mod,y,xlim=c(0,3000), yaxt='n', cex=1.2,ylim=c(-40,0), ylab=' ',xlab=' ',
      col='black', bg='#DDF26B', type='b', pch=25)
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 3', font=2, cex=1.4, line=.5)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.2, line=2.2)
+mtext(side=3, text='box 3', font=2, cex=1.1, line=.5)
 
-boxplot(bb5,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+boxplot(bb5,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',xaxt='n',
         col='#e5e57222',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b5_profile_mean*1000,y,xlim=c(0,3000), ylim=c(-40,0),yaxt='n',ylab=' ',xlab=' ',
      yaxt='n', col='#e5e572', cex=1.1,   pch=19)
 par(new=T)
 plot(b5_profile_mod,y,xlim=c(0,3000), ylim=c(-40,0),yaxt='n',ylab=' ',xlab=' ',
-     cex=1.6, col='black', bg='#e5e572',type='b', pch=25)
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 5', font=2, cex=1.4, line=.5)
+     cex=1.2, col='black', bg='#e5e572',type='b', pch=25)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.2, line=2.2)
+mtext(side=3, text='box 5', font=2, cex=1.1, line=.5)
 text(2700,-2, 'layer A', cex=1, col='grey30')
 text(2700,-7, 'layer B', cex=1, col='grey30')
 text(2700,-15, 'layer C', cex=1, col='grey30')
 text(2700,-25, 'layer D', cex=1, col='grey30')
 text(2700,-40, 'layer E', cex=1, col='grey30')
 
-boxplot(bb6,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+boxplot(bb6,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
         col='#fed97622',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b6_profile_mean*1000,y,xlim=c(0,3000),  cex=1.1, ylab=' ',xlab=' ',xaxt='n',
      ylim=c(-40,0),col='#fed976', pch=19)
 par(new=T)
 plot(b6_profile_mod,y,xlim=c(0,3000),yaxt='n',ylab=' ',xlab=' ',
-     cex=1.6,ylim=c(-40,0), col='black', bg='#fed97677',  type='b', pch=25)
-mtext(side=2, text='depth (cm)',  cex=1.6, line=3)
-mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 6', font=2, cex=1.4, line=.5)
+     cex=1.2,ylim=c(-40,0), col='black', bg='#fed97677',  type='b', pch=25)
+mtext(side=2, text='depth (cm)',  cex=1.2, line=3)
+mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1., line=2.3)
+mtext(side=3, text='box 6', font=2, cex=1.1, line=.5)
 
-boxplot(bb7,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+boxplot(bb7,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
         col='#f7922022',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b7_profile_mean*1000,y,xlim=c(0,3000),yaxt='n',xaxt='n', ylim=c(-40,0), cex=1.1,
      ylab=' ',xlab=' ', col='#f79220',   pch=19)
 par(new=T)
-plot(b7_profile_mod,y,xlim=c(0,3000), yaxt='n',xaxt='n', cex=1.6,ylim=c(-40,0), 
+plot(b7_profile_mod,y,xlim=c(0,3000), yaxt='n',xaxt='n', cex=1.2,ylim=c(-40,0), 
      ylab=' ',xlab=' ',col='black',bg='#f79220',  type='b', pch=25)
-mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 7', font=2, cex=1.4, line=.5)
+mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1., line=2.3)
+mtext(side=3, text='box 7', font=2, cex=1.1, line=.5)
 
-boxplot(bb8,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+boxplot(bb8,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
         ylab=' ',xlab=' ', col='#f46d4322',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b8_profile_mean*1000,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.1,yaxt='n',
      ylab=' ',xlab=' ',col='#f46d43',  pch=19)
 par(new=T)
-plot(b8_profile_mod,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.6,yaxt='n',
+plot(b8_profile_mod,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.2,yaxt='n',
      ylab=' ',xlab=' ',col='black',bg='#f46d43',  type='b', pch=25)
-mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 8', font=2, cex=1.4, line=.5)
+mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1., line=2.3)
+mtext(side=3, text='box 8', font=2, cex=1.1, line=.5)
 
-boxplot(bb9,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+boxplot(bb9,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
         ylab=' ',xlab=' ', col='#d7302722',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b9_profile_mean*1000,y,xlim=c(0,3000), ylim=c(-40,0),  cex=1.1,yaxt='n',
      ylab=' ',xlab=' ',col='#d73027', pch=19)
 par(new=T)
-plot(b9_profile_mod,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.6,yaxt='n',
+plot(b9_profile_mod,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.2,yaxt='n',
      ylab=' ',xlab=' ', col='black',bg='#d73027', type='b', pch=25)
-mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 9', font=2, cex=1.4, line=.5)
+mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1, line=2.3)
+mtext(side=3, text='box 9', font=2, cex=1.1, line=.5)
 
-boxplot(bb10,  cex=1.6,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
+boxplot(bb10,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',
         ylab=' ',xlab=' ', col='#a5002822',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
 plot(b10_profile_mean*1000,y,xlim=c(0,3000), ylim=c(-40,0),  cex=1.1,yaxt='n',
      ylab=' ',xlab=' ',col='#a50028', pch=19)
 par(new=T)
-plot(b10_profile_mod,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.6,yaxt='n',
+plot(b10_profile_mod,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.2,yaxt='n',
      col='black',  bg='#a50028', type='b', pch=25)
 text(2700,-2, 'layer A', cex=1, col='grey30')
 text(2700,-7, 'layer B', cex=1, col='grey30')
 text(2700,-15, 'layer C', cex=1, col='grey30')
 text(2700,-25, 'layer D', cex=1, col='grey30')
 text(2700,-40, 'layer E', cex=1, col='grey30')
-mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.6, line=2.2)
-mtext(side=3, text='box 10', font=2, cex=1.4, line=.5)
+mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1., line=2.3)
+mtext(side=3, text='box 10', font=2, cex=1.1, line=.5)
 
 dev.off()
 getwd()

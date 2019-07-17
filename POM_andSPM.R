@@ -1,4 +1,5 @@
 setwd('C:/Users/gi/Dropbox/2017_Venice')
+setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\2017_Venice')
 
 box2<-read.table('Box2_tss_poc.txt')   #ricordare di convertire poc a pom
 SPM<-read.table('SPM.txt', header=T); str(SPM)
@@ -10,8 +11,8 @@ POC_box1_sd<-c(0.5,0.4,0.5,0.8,0.6,0.7,0.8,0.9,0.7,0.4,0.6,0.4)
 POM_box1<-POC_box1*1.88
 POM_box1_sd<-POC_box1_sd*1.88
 
+setwd('C:/Users/Acer/Desktop/New_SIM/Reference_OK')
 
-setwd('C:/Users/gi/Desktop/finaleRITAMRE/nuoviin2')
 solid<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(solid)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -36,7 +37,7 @@ str(rdate)
 png('All_boxes_SPM_2.png',res=300,
     width=30, height = 20, units = "cm")
 par(mfrow=c(2,5), mar=c(3,4.5,2,0))
-plot(rdate[1227:1239], solid$wn1[1227:1239] ,    type='l', col='#313695',lwd=2, main='Box1', 
+plot(rdate, solid$wn1 ,    type='l', col='#313695',lwd=2, main='Box1', 
      ylab='SPM (mg/L)',xlab= '', cex.lab=2 , 
      cex.main=1.6 , cex.axis=1.3, ylim=c(0,60))
 par(new=T)

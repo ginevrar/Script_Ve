@@ -3,7 +3,7 @@ atm_hg0<-read.table('atm_hg.txt')    #g/m3
 
 setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz6')     #sim_cl
 #setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\year')     #sim_cl
 # setwd('D:\\Ref_long_long')     #sim_cl
 
 #???setwd('D:\\Ref_long_long')     #sim_cl   # 2019: rdate[433904:437497]
@@ -264,7 +264,10 @@ ngm2h_media<-tapply(ngm2h[2:2413], rep(1:(length(ngm2h[2:2413])/12),each = 12),m
 
 plot(ngm2h_media)
 
+13.5/3.3880732
  
+WWW2<-WWW*3.984566
+
 plot(vola[433904:437497], type='l')
 abline(h=0)
 plot(WWW[433904:437497], type='l')

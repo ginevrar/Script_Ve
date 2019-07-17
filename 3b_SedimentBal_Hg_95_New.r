@@ -275,8 +275,6 @@ mean(res7_hg_kg_y);mean(res7_Phg_kg_y)
 mean(res8_hg_kg_y);mean(res8_Phg_kg_y)
 mean(res9_hg_kg_y);mean(res9_Phg_kg_y)
 
-
-
 RRRR<-cbind(res1_Phg_kg_y,res2_Phg_kg_y,res3_Phg_kg_y,res4_Phg_kg_y,res5_Phg_kg_y,
       res6_Phg_kg_y,res7_Phg_kg_y,res8_Phg_kg_y,res9_Phg_kg_y,res10_Phg_kg_y)
 

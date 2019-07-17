@@ -152,8 +152,6 @@ summary(hg$sc6[2: 2424]/hg$ss9[2: 2424])
 summary(hg$sc6[2: 2424]/hg$ss10[2: 2424])
 
 plot(rdate[2: 2424], hg$sc6[2: 2424]/hg$sn1[2: 2424])
-Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-0.6935  0.8300  0.9788  1.9581  1.3754  7.4987 
 
 #png('Time_hg_sediment_ns11d.png'
 #width = 1000*1.5, height = 530*1.5, 
@@ -183,10 +181,10 @@ plot(rdate[2: 2424],hg$osn1[2: 2424],ylim=c(-50,5000), type='l', col='#313695',
 #text(1020,1200,'1977', cex=1.3)
 #text(9700,1200,'1997', cex=1.3)
 par(new=T)
-boxplot(background,box1_77,box1,Zonta1,ylim=c(-50,5000),
+boxplot(box1_77,box1,Zonta1,ylim=c(-50,5000),
         col='#31369588', ylab=' ', range=F,
         boxwex=2700, xaxt='n',yaxt='n', xlim=c(rdate[2],rdate[2424]),
-        at=c(c0,c1,c2,c5))   #0.23,0.45
+        at=c(c1,c2,c5))   #0.23,0.45
 v_text<-c('10cm','15cm','10cm')
 x=c(c1-2500,c2-541,c5+2500)
 y=c(1500,-40,1500)
@@ -251,8 +249,6 @@ plot(rdate[2: 2424],media4[2: 2424],ylim=c(-50,5000), type='l', col='gray10',
 plot(rdate[2: 2424],hg$sn3[2: 2424], ylim=c(-50,5000), type='l',col='#DDF26B',
      lwd=2,main='Box3', xlab= '', ylab= '', cex.lab=2 , 
      cex.main=1.7,lty=3,yaxt='n', cex.axis=1.6)
-
-
 x=c(c1-1000,c2-541,c5+500+950)
 y=c(3000,-40,3000)
 text(x, y, v_text,cex=1.)  # 10 c
@@ -435,5 +431,85 @@ tail(rdate[2: 2424])
 tail(rdate)
 str(rdate)
 
+png('central_boxes.png')
+par(mfrow=c(1,3),bty='n')
 
+plot(rdate[2: 2424],hg$sn3[2:2424], ylim=c(-50,5000), type='l',col='#DDF26B',
+     lwd=2,main='Box3', xlab= '', ylab= '', cex.lab=2 , 
+     cex.main=1.7,lty=3,  cex.axis=1.6)
+x=c(c1-1000,c2-541,c5+500+950)
+y=c(3000,-40,3000)
+#text(x, y, v_text,cex=1.)  # 10 
+
+par(new=T)
+plot(rdate[2: 2424],hg$dsn3[2: 2424], ylim=c(-50,5000), type='l',col='#DDF26B',
+     lty=1,lwd=2,main=' ',
+     xlab= '',ylab= '', cex.lab=2 , cex.main=1.7 ,yaxt='n', cex.axis=1.6)
+par(new=T)
+plot(rdate[2: 2424],hg$osn3[2: 2424], ylim=c(-50,5000),lty=5, 
+     type='l',col='#DDF26B',lwd=1,main=' ',
+     xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7 , cex.axis=1.6)
+par(new=T)
+boxplot(box3_77,box3,Zonta3,ylim=c(-50,5000),col='#DDF26B88',
+        xlim=c(rdate[2],rdate[2424]),at=c(c1,c2,c5),
+        ylab= '',boxwex=2700,xaxt='n',yaxt='n' , range=F)#
+par(new=T)  
+plot(rdate[2: 2424],media3[2: 2424],ylim=c(-50,5000), type='l', col='gray10',
+     lwd=1.7, main=' ', ylab='Hg (ng/g)',xlab= '', cex.lab=2 ,
+     yaxt='n', cex.main=1.7 , lty=1,cex.axis=1.6)
+
+plot(rdate[2: 2424],hg$sn5[2: 2424], ylim=c(-50,5000), type='l',col='#e5e572',lwd=2, main='Box5',
+     xlab= '',ylab= '', cex.lab=2 , cex.main=1.7 , lty=3,yaxt='n', cex.axis=1.6)
+x=c(c1-1000,c2-541,c5+500+950)
+y=c(3000,-40,3000)
+#text(x, y, v_text,cex=1.)  # 10 
+
+par(new=T)
+plot(rdate[2: 2424],hg$dsn5[2: 2424], ylim=c(-50,5000), type='l',col='#e5e572',
+     lty=1,lwd=2, main='Box5',
+     xlab= '',ylab= '', cex.lab=2 , cex.main=1.7 ,yaxt='n', 
+     cex.axis=1.6)
+par(new=T)
+plot(rdate[2: 2424],hg$osn5[2: 2424], ylim=c(-50,5000),lty=5, type='l',
+     col='#e5e572',lwd=1,main=' ',
+     xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7 , cex.axis=1.6)
+
+par(new=T)
+boxplot(box5_77,box5,Zonta5, ylim=c(-50,5000),col='#e5e57288',ylab= '',varwidth = F,
+        xlim=c(rdate[2],rdate[2424]),at=c(c1,c2,c5), range=F,
+        boxwex=2700,xaxt='n',yaxt='n')
+par(new=T)
+plot(rdate[2: 2424],media5[2: 2424],ylim=c(-50,5000), type='l',
+     col='gray10',lwd=1.7, main=' ', 
+     ylab='Hg (ng/g)',xlab= '', cex.lab=2 ,
+     yaxt='n', cex.main=1.7 , lty=1,cex.axis=1.6)
+
+
+#par(mar=c(3,5,2,0))   
+plot(rdate[2: 2424],hg$sc6[2: 2424], ylim=c(-50,5000),
+     type='l',col='#fed976',lwd=2,yaxt='n', main=' ',
+     ylab=' ',xlab= '',xaxt='n',
+     cex.lab=1.03 , lty=3, cex.main=1.7 , cex.axis=1.6)#
+mtext('Hg (ng/g)', side = 2, line=3.4, cex=1.3)
+x=c(c1-1000,c2-541,c5+500+950)
+y=c(4300,-40,4300)
+#text(x, y, v_text,cex=1.)  # 10 c
+
+par(new=T)
+plot(rdate[2: 2424],hg$dsc6[2: 2424], ylim=c(-50,5000), type='l',
+     col='#fed976',lty=1,yaxt='n',lwd=2, main='Box6',
+     ylab='Hg (ng/g)',xlab= '', cex.lab=2 , cex.main=1.7 , cex.axis=1.6)#
+par(new=T)
+plot(rdate[2: 2424], hg$osc6[2: 2424], ylim=c(-50,5000),lty=5, type='l',
+     col='#fed976',lwd=1,main=' ',
+     xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7 , cex.axis=1.6)
+par(new=T)
+boxplot(box6_77,box6,Zonta6, ylim=c(-50,5000),col='#fed97688', ylab=' ', 
+        xlim=c(rdate[2],rdate[2424]),at=c(c1,c2,c5),range=F,
+        boxwex=2700,xaxt='n',yaxt='n', outline=F)
+par(new=T)
+plot(rdate[2: 2424],media6[2: 2424],ylim=c(-50,5000), type='l', col='gray10',lwd=1.7, 
+     main=' ', ylab='Hg (ng/g)',xlab= '', cex.lab=2, cex.main=1.7, 
+     lty=1,cex.axis=1.6)
+dev.off()
 #________________________________ Fine plot Sediment hg vs time ________________________________

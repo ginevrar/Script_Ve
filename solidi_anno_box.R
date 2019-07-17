@@ -15,6 +15,7 @@ box10_SPM<-read.table('Box10_tss_poc.txt', header=T)   #ricordare di convertire 
 
 setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\CL_10')
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Base_MenoRes')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_Ok\\')     #sim_cl
 
 
 tots<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
@@ -23,8 +24,8 @@ names(tots)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws1
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
-POM<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
-names(POM)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+POMs<-read.csv("Organic_Matter.csv", header=FALSE, skip = 1,sep = ",", dec=".")
+names(POMs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
@@ -94,8 +95,15 @@ b10_y2<-filter(box10_SPM, box10_SPM$ANNO ==2003)
 b10_y3<-filter(box10_SPM, box10_SPM$ANNO ==2004)
 b10_y4<-filter(box10_SPM, box10_SPM$ANNO ==2005)
 
+plot(rdate,tots$wn1, type='l', 
+     main='2002', col='red', ylab='', ylim=c(0,90))
+par(new=T)
+boxplot(box1_SPM$TSS, ylim=c(0,90))
 
+plot(jitter(box1_SPM$TSS), pch=19, 
+     xlim=c(rdate[1],rdate[2428]),col='#e6c3d177',xlab='', ylab='',xaxt='n', ylim=c(0,90), yaxt='n')
 
+length(rdate)
 
 png('TSS_allboxes_year_07__6bis__.png',width = 21, height = 26,
     units = "cm", res=400)
@@ -289,10 +297,6 @@ par(new=T)
 plot(jitter(b10_y4$MESE), b10_y4$TSS, pch=19, col='#e6c3d177',xlab='', ylab='',xaxt='n', ylim=c(0,90), yaxt='n')
 
 dev.off()
-
-
-
-
 
 
 png('POM_allboxes_year_07__6__.png',width = 21, height = 26,

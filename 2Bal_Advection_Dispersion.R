@@ -6,10 +6,9 @@
  # setwd('C:\\Users\\gi\\Desktop\\2156\\b')
  # setwd('C:\\Users\\Acer\\Desktop\\in_high_50_88b')
  # setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
-  setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_Ok')     #sim_cl
+  setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_Ok\\year')     #sim_cl
   #setwd('D:\\Ref_long_long')     #sim_cl   # 2019: rdate[433904:437497]
-  
-  
+
   hg<-read.csv('Total_Hg.csv', skip=1)
   names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
@@ -204,7 +203,7 @@
     hg_outflow_kg_y_media_SED<-tapply(hg_outflow_kg_y_SED[2:147461,], rep(1:(length(hg_outflow_kg_y_SED[2:147461,])/365),each = 365),mean)
     Disper_tot_kgy_media_SED<-tapply(Disper_tot_kgy_SED[2:147461], rep(1:(length(Disper_tot_kgy_SED[2:147461])/365),each = 365),mean)
     
-    dfff<-data.frame(rdate2,hg_outflow_kg_y_media, Disper_tot_kgy_media, hg_outflow_kg_y_media_mhg,
+    dfff2<-data.frame(rdate2,hg_outflow_kg_y_media, Disper_tot_kgy_media, hg_outflow_kg_y_media_mhg,
                      Disper_tot_kgy_media_mhg,hg_outflow_kg_y_media_SED, Disper_tot_kgy_media_SED)
     
   } else if (length(hg$wn1) < 206) {
@@ -217,7 +216,7 @@
     hg_outflow_kg_y_media_SED<-hg_outflow_kg_y_SED[2:203]
     Disper_tot_kgy_media_SED<-Disper_tot_kgy_SED[2:203]
     
-    dfff<-data.frame(rdate[2:203],hg_outflow_kg_y_media, Disper_tot_kgy_media,hg_outflow_kg_y_media_mhg,Disper_tot_kgy_media_mhg)
+    dfff2<-data.frame(rdate[2:203],hg_outflow_kg_y_media, Disper_tot_kgy_media,hg_outflow_kg_y_media_mhg,Disper_tot_kgy_media_mhg)
   } else if (length(hg$wn1) > 760000) { 
     hg_outflow_kg_y_media<-tapply(hg_outflow_kg_y[2:762121], rep(1:(length(hg_outflow_kg_y[2:762121])/8760),each = 8760),mean)
     Disper_tot_kgy_media<-tapply(Disper_tot_kgy[2:762121], rep(1:(length(Disper_tot_kgy[2:762121])/8760),each = 8760),mean)
@@ -228,7 +227,7 @@
     hg_outflow_kg_y_media_SED<-tapply(hg_outflow_kg_y_SED[2:762121,], rep(1:(length(hg_outflow_kg_y_SED[2:762121,])/8760),each = 8760),mean)
     Disper_tot_kgy_media_SED<-tapply(Disper_tot_kgy_SED[2:762121], rep(1:(length(Disper_tot_kgy_SED[2:762121])/8760),each = 8760),mean)
     
-    dfff<-data.frame(rdate2,hg_outflow_kg_y_media, Disper_tot_kgy_media, hg_outflow_kg_y_media_mhg,
+    dfff2<-data.frame(rdate2,hg_outflow_kg_y_media, Disper_tot_kgy_media, hg_outflow_kg_y_media_mhg,
                      Disper_tot_kgy_media_mhg,hg_outflow_kg_y_media_SED, Disper_tot_kgy_media_SED)
   }
   mean(hg_outflow_kg_y[433904:437497])
@@ -242,7 +241,8 @@
   
   
   plot(hg_outflow_kg_y+Disper_tot_kgy)
-  write.table(dfff, file='Disper_and_OUTfl_tot_kgy.txt')
+  head(hg_outflow_kg_y+Disper_tot_kgy)
+  write.table(dfff2, file='Disper_and_OUTfl_tot_kgy.txt')
   write.table(df2, file='Disper_and_OUTfl_tot_kgy_monthy.txt')
   #write.table(hg_outflow_kg_y, file='Outflow_tot_kgy.txt')
   

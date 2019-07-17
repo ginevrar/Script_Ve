@@ -1,6 +1,6 @@
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
-setwd('C:/Users/gi/Dropbox/NNN61/')
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\')     #sim_cl
+IN<-read.table('tot_input_short.txt')
+tot_in<-IN$tt
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
@@ -296,14 +296,50 @@ max(ff2[2,])
 str(ff2)
 
 ff2$total_reservoir_Sed.1.201.==21967.76
+export<-(dfff2$hg_outflow_kg_y_media+dfff2$Disper_tot_kgy_media)
+export_mhg<-(dfff2$hg_outflow_kg_y_media_mhg+dfff2$Disper_tot_kgy_media_mhg)
 
-png('Reservoirs_tutto.png',
-    width = 21, height = 13,res=300,     # width = 32, height = 18,res=400,
-    units = "cm")
-par(mfrow=c(2,3))
+dfff2
 plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
-polygon(H_resus,yy1, col='#68676755',border = NA)
-polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='blue', ylab='kg',ylim=c(0,50),xlab=' ',yaxt='n',
+     main=expression(paste('Hg'[T]~'water reservoir')))
+ax<-seq(0,50,by=10)
+axis(side=2,at=ax, las=2)
+par(new=T)
+plot(-export+WWW2,type='l',lwd=2, col='blue', ylab='',ylim=c(0,450),xlab=' ',yaxt='n')
+par(new=T)
+
+yy1<-c(0,0,1600,1600)
+
+
+png('Reservoirs_tutto2.png',
+    width = 21, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+ 
+par(mfrow=c(2,3),mar=c(3,4,2.5,1.5), cex=0.7,
+    oma=c(0,1,3,1), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in[1:201], type='l',lwd=3, col='dimgrey', 
+     ylab=expression(paste('kg y'^-1)),ylim=c(0,1600),xlab=' ',yaxt='n',
+     main=expression(paste(' ')))
+par(new=T)
+plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=3, col='slateblue1', 
+     ylab=' ',ylim=c(0,1600),xlab=' ',yaxt='n',
+     main=expression(paste('Hg'[T]~'inputs and outputs')))
+legend(rdate[120], 1600, col=c('dimgrey','slateblue1' ),legend=c('Inputs','Outputs'), bty='n',pch=19)
+ax<-seq(0,1500,by=500)
+axis(side=2,at=ax, las=2)
+
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
 par(new=T)
 plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='blue', ylab='kg',ylim=c(0,50),xlab=' ',yaxt='n',
      main=expression(paste('Hg'[T]~'water reservoir')))
@@ -312,71 +348,73 @@ axis(side=2,at=ax, las=2)
 #abline(v=rdate[72])
 #abline(v=rdate[81])
 
-abline(v=rdate[73])
+#abline(v=rdate[73])
 yy1<-c(0,0,22000,22000)
 plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
-polygon(H_resus,yy1, col='#68676755',border = NA)
-polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
 par(new=T)
 plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,22000), yaxt='n',
-     ylab='kg',xlab=' ', col='darkgoldenrod')
-title(bquote(atop("Hg"[T]~"surface sediment reservoir", "(0 - 5 cm)")))
+     ylab=' ',xlab=' ', col='darkgoldenrod')
+title(bquote(atop("Hg"[T]~"sediment reservoir")))
+#title(bquote(atop("Hg"[T]~"sediment", "reservoir (0 - 5 cm)")))
 ax<-seq(0,22000,by=4000)
 axis(side=2,at=ax, las=2)
-abline(v=rdate[83], col=3)
+par(new=T)
+plot(rdate[1:201],tot_ddeeps[1:201], type='l',lwd=2, ylab=' ',xlab=' ', ylim=c(0,22000),yaxt='n',col='brown')
+text(rdate[40],19000,'surface \n sediment \n (0 - 5 cm)', col='darkgoldenrod', cex=0.8) 
+text(rdate[150],17000,'subsurface \n sediment \n (6 - 30 cm)', col='brown', cex=0.8) 
 
-  plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
-polygon(H_resus,yy1, col='#68676755',border = NA)
-polygon(Eutrop,yy1, col='#3a871f88',border = NA)
-par(new=T)
-plot(rdate[1:201],tot_ddeeps[1:201], type='l',lwd=2, ylab='kg',xlab=' ', ylim=c(0,22000),yaxt='n',col='brown')
-title(bquote(atop("Hg"[T]~"deep sediment reservoir", "(5 - 30 cm)")))
 ax<-seq(0,22000,by=4000)
 axis(side=2,at=ax, las=2)
+
+tot_in_mhg<-IN$riv_mehg.riv_mehg+(IN$ind3*1/100)
+
+(export[72]-export[121])/export[121]*100
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
 par(new=T)
-plot(rdate[1:201],total_reservoir_dsed[1:201],ylim=c(0,22000), col='black', type='l')
+plot(rdate[1:201],tot_in_mhg[1:201], type='l',lwd=3, col='dimgrey',
+     ylab=expression(paste('kg y'^-1)),ylim=c(0,20),xlab=' ',yaxt='n',
+     main=expression(paste('MeHg'[T]~'inputs and outputs')))
 par(new=T)
-plot(rdate[1:201],total_reservoir_osed[1:201],ylim=c(0,22000), col='brown', type='l')
-par(new=T)
-plot(rdate[1:201],total_reservoir_vosed[1:201],ylim=c(0,22000), col='blue', type='l')
+plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=3, col='slateblue1', 
+     ylab=' ',ylim=c(0,20),xlab=' ',yaxt='n',
+     main=expression(paste(' ')))
+#legend(rdate[130], 14, col=c('dimgrey','slateblue1' ),legend=c('Inputs','Outputs'))
+legend(rdate[120], 20, col=c('dimgrey','slateblue1' ),legend=c('Inputs','Outputs'), bty='n',pch=19)
+ax<-seq(0,20,by=5)
+axis(side=2,at=ax, las=2)
+
 
 plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
-polygon(H_resus,yy1, col='#68676755',border = NA)
-polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
 par(new=T)
 plot(rdate[1:201],total_reservoir_W_mehg [1:201],ylim=c(0,0.4), type='l',yaxt='n',
      lwd=2, ylab='kg',xlab=' ',col='blue',main=expression(paste('MeHg'[T]~'water reservoir')))
-abline(v=rdate[93])
 ax<-seq(0,.40,by=.2)
 axis(side=2,at=ax, las=2)
 
+yy2<-c(0,0,22000,22000)
+#plot(rdate[1:201],export_mhg[1:201]/export_mhg[121])
+#abline(v=rdate[70])
 plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
-polygon(H_resus,yy1, col='#68676755',border = NA)
-polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+polygon(H_resus,yy2, col='#68676733',border = NA)
+polygon(Eutrop,yy2, col='#3a871f66',border = NA)
 par(new=T)
 plot(rdate[1:201],total_reservoir_Sed_mehg[1:201], type='l',lwd=2, ylim=c(0,30),xlab=' ',yaxt='n',
-     xaxt='n',ylab='kg', col='darkgoldenrod')
-title(bquote(atop("MeHg"[T]~"surface sediment reservoir", "(0 - 5 cm)")))
+     ylab='kg', col='darkgoldenrod')
+text(rdate[40],24,'surface \n sediment \n (0 - 5 cm)', col='darkgoldenrod', cex=0.8) 
+text(rdate[145],18,'subsurface \n sediment \n (6 - 30 cm)', col='brown', cex=0.8) 
+title(bquote(atop("MeHg"[T]~"sediment reservoir")))
 ax<-seq(0,30,by=10)
 axis(side=2,at=ax, las=2)
-
-plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
-polygon(H_resus,yy1, col='#68676755',border = NA)
-polygon(Eutrop,yy1, col='#3a871f88',border = NA)
 par(new=T)
-plot(years,tot_ddeeps_mehg[1:201], type='l',lwd=2,ylab='kg',ylim=c(0,15),yaxt='n',
+plot(years,tot_ddeeps_mehg[1:201], type='l',lwd=2,ylab='kg',ylim=c(0,30),yaxt='n',xaxt='n',
      xlab=' ', col='brown') #,main=expression(paste('MeHg'[T]~'water reservoir')))
-par(new=T)
-plot(rdate[1:201],total_reservoir_dsed_mehg[1:201],ylim=c(0,15), col='black', type='l')
-par(new=T)
-plot(rdate[1:201],total_reservoir_osed_mehg[1:201],ylim=c(0,15), col='brown', type='l')
-par(new=T)
-plot(rdate[1:201],total_reservoir_vosed_mehg[1:201],ylim=c(0,15), col='blue', type='l')
-
-
-title(bquote(atop("MeHg"[T]~"deep sediment reservoir", "(5 - 30 cm)")))
-ax<-seq(0,15,by=5)
-axis(side=2,at=ax, las=2)
 dev.off()
 
 
@@ -391,8 +429,8 @@ rdate[104]
 
 yy1<-c(0,0,10,10)
 plot(rdate[1:201],total_reservoir_dsed_mehg[1:201], type='l')
-polygon(H_resus,yy1, col='#68676755',border = NA)
-polygon(Eutrop,yy1, col='#3a871f88',border = NA)
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
 par(new=T)
 plot(rdate[1:201],total_reservoir_osed_mehg[1:201], col='brown', type='l')
 par(new=T)
@@ -400,8 +438,8 @@ plot(rdate[1:201],total_reservoir_vosed_mehg[1:201], col='blue', type='l')
 
 
 plot(rdate,(hg_outflow_kg_y_mhg+ Disper_tot_kgy_mhg))
-polygon(H_resus,yy, col='#68676755',border = NA)
-polygon(Eutrop,yy, col='#3a871f88',border = NA)
+polygon(H_resus,yy, col='#68676733',border = NA)
+polygon(Eutrop,yy, col='#3a871f66',border = NA)
 
 total_reservoir_W<-c(NA,total_reservoir_W)
 RESERV<-data.frame(rdate,TOT_SED,total_reservoir_Sed,total_reservoir_W)
@@ -466,3 +504,5 @@ abline(v=rdate[1020])
 
 head(total_reservoir_Sed)
 str(total_reservoir_Sed)
+
+getwd()
