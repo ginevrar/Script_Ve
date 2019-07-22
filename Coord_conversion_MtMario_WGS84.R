@@ -5,6 +5,9 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 
 dati2<-read.table('C:\\Users\\Acer\\Dropbox\\fortran\\Coord_ve_sed.csv', header = T, sep=';')
 
+dati2<-read.table('C:\\Users\\Acer\\Desktop\\ConcSolidi\\Coordinate_mare_lag.csv', header = T, sep=';')
+#names(dati2)<-c('lat','lon','stn','st')
+
 library(rgdal)
 d <- data.frame(lon=dati2$lat, lat=dati2$lon)
 coordinates(d) <- c("lon", "lat")
@@ -31,6 +34,7 @@ dati2$lat<-d.ch1903$lat
 
 surf_sed<-filter(dati,sed_layer=="A")
 write.table(surf_sed,file='surf_sed.txt')
+write.table(d.ch1903,file='ve_coord_converted.txt')
 
 getwd()
 

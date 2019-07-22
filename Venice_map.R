@@ -66,7 +66,7 @@ dev.off()
 
 map3 <- get_stamenmap( bbox = c(left = 12.15- 0.1 * width,bottom = 45.2- 0.1 * height, 
                                 right = 12.6+ 0.1 * width, top =45.55+ 0.1 * height),
-                       zoom = 11, maptype = "toner-lite")
+                       zoom = 11, maptype = "terrain-background")
 
 ggmap(map3) + 
   labs(x = 'Longitude', y = 'Latitude') +
@@ -75,4 +75,6 @@ ggmap(map3) +
     plot.title = element_text(colour = "#045a8d", size=20), 
     panel.border = element_rect(colour = "grey", fill=NA, size=2)
   )+ 
-  geom_text(aes(x=lon, y=lat), data=dati2, label=dati2$st,col="black", alpha=1) 
+  geom_text(aes(x=(lon-.01), y=(lat+0.025)),hjust=0.1, vjust=2, data=dati2,size=3.4, label=dati2$st,col="black", alpha=1)+
+ geom_point(aes(x=lon, y=lat), data=dati2, col="black", alpha=1, size=2.5) #+  
+#  geom_point(aes(x=lon, y=lat), data=dati2, col="green", alpha=1, size=2) 
