@@ -1,19 +1,6 @@
-setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\ref2')     #sim_cl
- setwd('D:\\Lunga')     #sim_cl
-
-hg<-read.csv('Total_Hg.csv', skip=1)
-names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-             'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')	
-
-TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
-names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
-               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')				 
-
+#setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
+#setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\ref2')     #sim_cl
+ setwd('D:\\1931_1960')     #sim_cl
 
 Phgs<-read.csv("Total_Sorbed_Divalent_Hg.csv", header=FALSE, skip = 1,sep = ",", dec=".")
 names(Phgs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -70,30 +57,19 @@ Model_aree<-c(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
 Model_area<-sum(Model_aree)
 d1<-1.26; d2<-0.78; d3<-3.35; d4<-0.64; d5<-1.03; d6<-1.64; d7<-1.84; d8<-0.89; d9<-0.69; d10<-1.71		
 
-solids_sed1  <-TOTs$sn1;     solids_dsed1  <-TOTs$dsn1  
-solids_sed2  <-TOTs$sn2;    solids_dsed2  <-TOTs$dsn2 
-solids_sed3  <-TOTs$sn3;    solids_dsed3  <-TOTs$dsn3 
-solids_sed4  <-TOTs$sn4;    solids_dsed4  <-TOTs$dsn4    
-solids_sed5  <-TOTs$sn5;    solids_dsed5  <-TOTs$dsn5   
-solids_sed6  <-TOTs$sc6;    solids_dsed6  <-TOTs$dsc6       
-solids_sed7  <-TOTs$sc7;    solids_dsed7  <-TOTs$dsc7     
-solids_sed8  <-TOTs$ss8;    solids_dsed8  <-TOTs$dss8   
-solids_sed9  <-TOTs$ss9;    solids_dsed9  <-TOTs$dss9    
-solids_sed10  <-TOTs$ss10;  solids_dsed10  <-TOTs$dss10  
-
+ 
 #fraction of POM
-fPOM  <-POMs/(TOTs)
-fsilt <-silts/(TOTs)
+fPOM  <-POMs/(POMs+silts)
+fsilt <-silts/(POMs+silts)
 
 fPOM2  <-POMs/(POMs+silts)
 fsilt2 <-silts/(POMs+silts)
 
-
 plot(fPOM$wn1,type='l')
 plot(fsilt$sn1,type='l')
 
-POM_depo_m_h<-5.0112/24   #depo m h-1
-silt_depo_m_h<-8.919936/24  
+POM_depo_m_h<-0.5/24   #depo m h-1
+silt_depo_m_h<-1.78/24  
 
 depo_media1<- (POM_depo_m_h *fPOM$wn1) + (silt_depo_m_h*fsilt$wn1) #m/h
 depo_media2<- (POM_depo_m_h *fPOM$wn2) + (silt_depo_m_h*fsilt$wn2)  
@@ -128,6 +104,8 @@ depo8_Phg_kg_y<-depo8_Phg_ug_m2_h*a8/10^9*365*24
 depo9_Phg_kg_y<-depo9_Phg_ug_m2_h*a9/10^9*365*24
 depo10_Phg_kg_y<-depo10_Phg_ug_m2_h*a10/10^9*365*24
 
+res10_Phg_kg_y
+
 depo1b_Phg_ug_h<-depo1_Phg_ug_m2_h*a1
 depo2b_Phg_ug_h<-depo2_Phg_ug_m2_h*a2
 depo3b_Phg_ug_h<-depo3_Phg_ug_m2_h*a3
@@ -138,19 +116,6 @@ depo7b_Phg_ug_h<-depo7_Phg_ug_m2_h*a7
 depo8b_Phg_ug_h<-depo8_Phg_ug_m2_h*a8
 depo9b_Phg_ug_h<-depo9_Phg_ug_m2_h*a9
 depo10b_Phg_ug_h<-depo10_Phg_ug_m2_h*a10
-
-DEP_ugh<-cbind(depo1b_Phg_ug_h,depo2b_Phg_ug_h,depo3b_Phg_ug_h,depo4b_Phg_ug_h,depo5b_Phg_ug_h,
-               depo6b_Phg_ug_h,depo7b_Phg_ug_h,depo8b_Phg_ug_h, depo9b_Phg_ug_h,depo10b_Phg_ug_h)
- 
-DEP_ugh_all<-rowSums(DEP_ugh)
-
-DEP_kgh<-sum(DEP_ugh_all[175530:184340])/10^9   #kg h-1
-DEP_kgd<-DEP_kgh*24; DEP_kgd
-
-
-Depo_kgy<-cbind(depo1_Phg_kg_y,depo2_Phg_kg_y,depo3_Phg_kg_y,depo4_Phg_kg_y,depo5_Phg_kg_y,
-               depo6_Phg_kg_y,depo7_Phg_kg_y,depo8_Phg_kg_y, depo9_Phg_kg_y,depo10_Phg_kg_y)
-
 
 POM_res1_m_h<-POM_res$sn1/24      #
 silt_res1_m_h<-silt_res$sn1/24 
@@ -173,6 +138,8 @@ silt_res9_m_h<-silt_res$ss9/24
 POM_res10_m_h<-POM_res$ss10/24
 silt_res10_m_h<-silt_res$ss10/24
 
+# -------------------- RISOSPENSIONE -------------------- 
+
 res_media1<- (POM_res1_m_h *fPOM$sn1) + (silt_res1_m_h*fsilt$sn1) #m/h
 res_media1B<- (POM_res1_m_h *fPOM2$sn1) + (silt_res1_m_h*fsilt2$sn1) #m/h
 res_media2<- (POM_res2_m_h *fPOM$sn2) + (silt_res2_m_h*fsilt$sn2) #
@@ -185,22 +152,35 @@ res_media8<- (POM_res8_m_h *fPOM$ss8) + (silt_res8_m_h*fsilt$ss8)
 res_media9<- (POM_res9_m_h *fPOM$ss9) + (silt_res9_m_h*fsilt$ss9) 
 res_media10<-(POM_res10_m_h*fPOM$ss10)+ (silt_res10_m_h*fsilt$ss10) 
 
-res1_Phg_ug_m2_h<-res_media1*Phgs$sn1 #/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
-res2_Phg_ug_m2_h<-res_media2*Phgs$sn2 #/0.6 #$sn2      
-res3_Phg_ug_m2_h<-res_media3*Phgs$sn3 ##/0.6 #$sn3   
-res4_Phg_ug_m2_h<-res_media4*Phgs$sn4#/0.6 #$sn4   
-res5_Phg_ug_m2_h<-res_media5*Phgs$sn5#/0.6 #$sn5     
-res6_Phg_ug_m2_h<-res_media6*Phgs$sc6#/0.6 #$sc6    
-res7_Phg_ug_m2_h<-res_media7*Phgs$sc7#/0.6 #$sc7     
-res8_Phg_ug_m2_h<-res_media8*Phgs$ss8#/0.6 #$ss8     
-res9_Phg_ug_m2_h<-res_media9*Phgs$ss9#/0.6 #$ss9#m d-1 * 
-res10_Phg_ug_m2_h<-res_media10*Phgs$ss10#/0.6 #$ss10    
+res1_Phg_ug_m2_h<-res_media1*Phgs$sn1/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res2_Phg_ug_m2_h<-res_media2*Phgs$sn2/0.6 #$sn2      
+res3_Phg_ug_m2_h<-res_media3*Phgs$sn3/0.6 #$sn3   
+res4_Phg_ug_m2_h<-res_media4*Phgs$sn4/0.6 #$sn4   
+res5_Phg_ug_m2_h<-res_media5*Phgs$sn5/0.6 #$sn5     
+res6_Phg_ug_m2_h<-res_media6*Phgs$sc6/0.6 #$sc6    
+res7_Phg_ug_m2_h<-res_media7*Phgs$sc7/0.6 #$sc7     
+res8_Phg_ug_m2_h<-res_media8*Phgs$ss8/0.6 #$ss8     
+res9_Phg_ug_m2_h<-res_media9*Phgs$ss9/0.6 #$ss9#m d-1 * 
+res10_Phg_ug_m2_h<-res_media10*Phgs$ss10/0.6 #$ss10    
 
-res1B_Phg_ug_m2_h<-(silt_res1_m_h*SEDhg$sn1*silts$sn1)+(POM_res1_m_h*SEDhg$sn1*POMs$sn1)
+res1B_Phg_ug_m2_h<-(silt_res1_m_h*SEDhg$sn1*silts$sn1)+(POM_res1_m_h*SEDhg$sn1*POMs$sn1)  
+#ng g * g m-3 * m h-1 = ng m-2 h-1
+res1B_Phg_ug_m2_h/1000
+
 res1C_Phg_ug_m2_h<- res_media1B*SEDhg$sn1*TOTs$sn1/10^3  # m h-1*ng g-1*g m-3  = ng m-2 h-1
 res1D_Phg_ug_m2_h<- res_media1B*SEDhg$sn1*TOTs$sn1
 res1E_Phg_ug_m2_h<- res_media1*SEDhg$sn1*(silts$sn1+POMs$sn1)
-res1_Phg_ug_m2_hxx<-res_media1B*Phgs$sn1 #/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+
+res1_Phg_ug_m2_hxx<-res_media1*Phgs$sn1/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res2_Phg_ug_m2_hxx<-res_media2*Phgs$sn2/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res3_Phg_ug_m2_hxx<-res_media3*Phgs$sn3/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res4_Phg_ug_m2_hxx<-res_media4*Phgs$sn4/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res5_Phg_ug_m2_hxx<-res_media5*Phgs$sn5/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res6_Phg_ug_m2_hxx<-res_media6*Phgs$sc6/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res7_Phg_ug_m2_hxx<-res_media7*Phgs$sc7/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res8_Phg_ug_m2_hxx<-res_media8*Phgs$ss8/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res9_Phg_ug_m2_hxx<-res_media9*Phgs$ss9/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
+res10_Phg_ug_m2_hxx<-res_media10*Phgs$ss10/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
 
 head(res1B_Phg_ug_m2_h)
 head(res1C_Phg_ug_m2_h)
@@ -210,7 +190,64 @@ head(res1_Phg_ug_m2_hxx)
 
 #/0.6 #$sn1   #m h-1 * ug m-3   = ug m-2 d
 
-res1_Phg_ug_m2_h
+DEP_ugh<-cbind(depo1b_Phg_ug_h,depo2b_Phg_ug_h,depo3b_Phg_ug_h,depo4b_Phg_ug_h,depo5b_Phg_ug_h,
+               depo6b_Phg_ug_h,depo7b_Phg_ug_h,depo8b_Phg_ug_h, depo9b_Phg_ug_h,depo10b_Phg_ug_h)
+
+DEP_ugh_all<-rowSums(DEP_ugh)
+
+DEP_kgh<-sum(DEP_ugh_all[175530:184340])/10^9   #kg h-1
+DEP_kgd<-DEP_kgh*24; DEP_kgd
+
+
+Depo_kgy<-cbind(depo1_Phg_kg_y,depo2_Phg_kg_y,depo3_Phg_kg_y,depo4_Phg_kg_y,depo5_Phg_kg_y,
+                depo6_Phg_kg_y,depo7_Phg_kg_y,depo8_Phg_kg_y, depo9_Phg_kg_y,depo10_Phg_kg_y)
+
+ne1<-(depo1_Phg_ug_m2_h-res1_Phg_ug_m2_hxx)*a1*24*365/10^9
+ne2<-(depo2_Phg_ug_m2_h-res2_Phg_ug_m2_hxx)*a2*24*365/10^9
+ne3<-(depo3_Phg_ug_m2_h-res3_Phg_ug_m2_hxx)*a3*24*365/10^9
+ne4<-(depo4_Phg_ug_m2_h-res4_Phg_ug_m2_hxx)*a4*24*365/10^9
+ne5<-(depo5_Phg_ug_m2_h-res5_Phg_ug_m2_hxx)*a5*24*365/10^9
+ne6<-(depo6_Phg_ug_m2_h-res6_Phg_ug_m2_hxx)*a6*24*365/10^9
+ne7<-(depo7_Phg_ug_m2_h-res7_Phg_ug_m2_hxx)*a7*24*365/10^9
+ne8<-(depo8_Phg_ug_m2_h-res8_Phg_ug_m2_hxx)*a8*24*365/10^9
+ne9<-(depo9_Phg_ug_m2_h-res9_Phg_ug_m2_hxx)*a9*24*365/10^9
+ne10<-(depo10_Phg_ug_m2_h-res10_Phg_ug_m2_hxx)*a10*24*365/10^9
+
+
+nee<-ne1+ne2+ne3+ne4+ne5+ne6+ne7+ne8+ne9+ne10
+write.table(nee,file='netto_lungo.txt')
+
+D_tot<-(depo1_Phg_ug_m2_h*a1)+(depo2_Phg_ug_m2_h*a2)+(depo3_Phg_ug_m2_h*a3)+(depo4_Phg_ug_m2_h*a4)+
+  (depo5_Phg_ug_m2_h*a5)+(depo6_Phg_ug_m2_h*a6)+(depo7_Phg_ug_m2_h*a7)+(depo8_Phg_ug_m2_h*a8)+(depo9_Phg_ug_m2_h*a9)+(depo2_Phg_ug_m2_h*a10)
+
+
+R_tot<-(res1_Phg_ug_m2_hxx*a1)+(res2_Phg_ug_m2_hxx*a2)+(res3_Phg_ug_m2_hxx*a3)+(res4_Phg_ug_m2_hxx*a4)+
+  (res5_Phg_ug_m2_hxx*a5)+(res6_Phg_ug_m2_hxx*a6)+(res7_Phg_ug_m2_hxx*a7)+(res8_Phg_ug_m2_hxx*a8)+
+  (res9_Phg_ug_m2_hxx*a9)+(res10_Phg_ug_m2_hxx*a10)
+
+
+plot(D_tot/10^9*24*365, type='l', ylim=c(0,220))
+par(new=T)
+plot(R_tot/10^9*24*365, type='l', ylim=c(0,220),col=2)
+
+plot(N1_ugh/10^9*24*365, type='l', ylim=c(0,200))
+plot(N2_kgh*24*365, type='l', ylim=c(0,200))
+plot()
+
+
+plot(N1_ugh, type='l', ylim=c(0,1.2*10^9),col=3)
+plot(N2_kgh, type='l', ylim=c(0,1.2*10^9),col=3)
+plot(N3_kgy, type='l',col=3)
+
+N1_ugh<-D_tot-R_tot
+N2_kgh<-(D_tot/10^9)-(R_tot/10^9)
+N3_kgy<-(D_tot*24*365/10^9)-(R_tot*24*365/10^9)
+
+head(N3_kgy, 8000)
+
+write.table(N1_ugh,file='N1_ugh.txt')
+write.table(N2_kgh,file='N2_kgh.txt')
+write.table(N3_kgy,file='N3_kgy.txt')
 
 REs_ugd<-cbind(res1_Phg_ug_m2_h,res2_Phg_ug_m2_h,res3_Phg_ug_m2_h,res4b_Phg_ug_d,res5b_Phg_ug_d,
                res6b_Phg_ug_d,res7b_Phg_ug_d,res8b_Phg_ug_d, res9b_Phg_ug_d,res10b_Phg_ug_d)
@@ -241,6 +278,7 @@ DEP_kgd-REs_kgd
 a<-(rowSums(DEP_ugh-REs_ugh)/10^9)   # kg h-1)
 plot(rdate,a*365*24,type='l')
 
-a*365*24
+head(a*365*24)
+
 
 0.05*24*365

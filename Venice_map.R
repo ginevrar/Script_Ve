@@ -58,6 +58,16 @@ ggmap(map2) +
   geom_point(aes(x=lon, y=lat), data=dati, col="orange", alpha=0.4, size=dati$Hg*2) +  
   scale_size_continuous(range=range(dati$Hg))
 
+
+g3<-ggplot(Mela1,aes(Year, Station))
+g3+geom_jitter(alpha=0.4, aes(color=Zona, size=Hg_ng),
+               position = position_jitter(width = 0.1))+ theme_bw() + 
+  coord_flip() +
+  scale_colour_manual(values=bb)+
+  scale_size_continuous(range = c(1,20),breaks = uu)
+
+
+
 dev.off()
 
 #
@@ -78,3 +88,4 @@ ggmap(map3) +
   geom_text(aes(x=(lon-.01), y=(lat+0.025)),hjust=0.1, vjust=2, data=dati2,size=3.4, label=dati2$st,col="black", alpha=1)+
  geom_point(aes(x=lon, y=lat), data=dati2, col="black", alpha=1, size=2.5) #+  
 #  geom_point(aes(x=lon, y=lat), data=dati2, col="green", alpha=1, size=2) 
+

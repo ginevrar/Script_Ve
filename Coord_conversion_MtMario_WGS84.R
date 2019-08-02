@@ -3,13 +3,14 @@ setwd('G:/Il mio Drive/MERCURIO/Venezia/')
 dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 
 
-dati2<-read.table('C:\\Users\\Acer\\Dropbox\\fortran\\Coord_ve_sed.csv', header = T, sep=';')
+#dati2<-read.table('C:\\Users\\Acer\\Dropbox\\fortran\\Coord_ve_sed.csv', header = T, sep=';')
 
-dati2<-read.table('C:\\Users\\Acer\\Desktop\\ConcSolidi\\Coordinate_mare_lag.csv', header = T, sep=';')
+#dati2<-read.table('C:\\Users\\Acer\\Desktop\\ConcSolidi\\Coordinate_mare_lag.csv', header = T, sep=';')
 #names(dati2)<-c('lat','lon','stn','st')
 
 library(rgdal)
 d <- data.frame(lon=dati2$lat, lat=dati2$lon)
+d <- data.frame(lon=dati$X, lat=dati$Y)
 coordinates(d) <- c("lon", "lat")
 proj4string(d) <- CRS("+init=epsg:3004") # WGS 84
 #CRS("+proj=longlat +datum=WGS84")       # WGS84  EPSG:4326

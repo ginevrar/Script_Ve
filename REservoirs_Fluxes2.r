@@ -323,7 +323,6 @@ fdp4_mg_m2y<-Fdp4b*365*1000
 fd4<-fdp4_mg_m2y+fds4_mg_m2y
 summary(fd4)
 
-
 fd1[1300]
 rdate[1300]
 
@@ -458,9 +457,6 @@ net_tot_pom=Fdpom_tot-Frpom_tot       # g d-1
 net_tot_silt_mean<-tapply(net_tot_silt, rep(1:(length(net_tot_silt)/12),each = 12),mean)
 net_tot_sand_mean<-tapply(net_tot_sand, rep(1:(length(net_tot_sand)/12),each = 12),mean)
 net_tot_pom_mean <-tapply(net_tot_pom, rep(1:(length(net_tot_pom)/12),each = 12),mean)
-
-
-
 
 plot(net_tot_silt, type='l')
 plot(net_tot_silt_mean, type='l',col=2)

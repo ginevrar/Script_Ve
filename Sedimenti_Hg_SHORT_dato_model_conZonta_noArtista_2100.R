@@ -1,6 +1,6 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/NOsand')
 #setwd('C:/Users/Gi/Desktop/NNN59')
-setwd('C:/Users/Acer/Dropbox/NNN61/annuale')
+setwd('D:\\Corta')     #sim_cl
 str(mehg)
 1900-2101
 2426/12
@@ -146,10 +146,11 @@ plot(rdate[1:204],hg$osn1[1:204],ylim=c(-50,5000), type='l', col='#313695',
 #text(1020,1200,'1977', cex=1.3)
 #text(9700,1200,'1997', cex=1.3)
 par(new=T)
-boxplot(box1_77,box1,Zonta1,ylim=c(-50,5000),
-        col='#31369588', ylab=' ', range=F,
-        boxwex=2700, xaxt='n',yaxt='n', xlim=c(rdate[1],rdate[204]),
-        at=c(c1,c2,c5))   #0.23,0.45
+boxplot(box1_77,box1, Zonta1,ylim=c(-50,5000),
+        col='#31369588',xlim=c(rdate[1],rdate[204]),
+        at=c(c1,c2,c5),range=TRUE,
+        boxwex=2700,xaxt='n',ylab= '',yaxt='n')
+
 v_text<-c('10cm','15cm','10cm')
 x=c(c1-2500,c2-541,c5+2500)
 y=c(1500,-40,1500)
@@ -179,7 +180,7 @@ plot(rdate[1:204],hg$osn2[1:204],ylim=c(-50,5000), type='l', col='#4575b4',
 par(new=T)
 boxplot(box2_77,box2, Zonta2,ylim=c(-50,5000),
         col='#4575b488',xlim=c(rdate[1],rdate[204]),
-        at=c(c1,c2,c5),
+        at=c(c1,c2,c5),range=TRUE,
         boxwex=2700,xaxt='n',ylab= '',yaxt='n')
 par(new=T)
 plot(rdate[1:204],media2[1:204],ylim=c(-50,5000), type='l', col='gray10',
@@ -201,9 +202,9 @@ plot(rdate[1:204],hg$osn4[1:204], ylim=c(-50,5000),lty=5, type='l',
      col='#abd9e9',lwd=1,main=' ',
      xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7, cex.axis=1.6)
 par(new=T)
-boxplot(box4_77, box4, Zonta4, ylim=c(-50,5000),
-        col='#abd9e988',xlim=c(rdate[1],rdate[204]),at=c(c1,c2,c5),
-        range=F,
+boxplot(box4_77,box4, Zonta4,ylim=c(-50,5000),
+        col='#abd9e988',xlim=c(rdate[1],rdate[204]),
+        at=c(c1,c2,c5),range=TRUE,
         boxwex=2700,xaxt='n',ylab= '',yaxt='n')
 par(new=T)
 plot(rdate[1:204],media4[1:204],ylim=c(-50,5000), type='l', col='gray10',
@@ -231,7 +232,7 @@ plot(rdate[1:204],hg$osn3[1:204], ylim=c(-50,5000),lty=5,
 par(new=T)
 boxplot(box3_77,box3,Zonta3,ylim=c(-50,5000),col='#DDF26B88',
         xlim=c(rdate[1],rdate[204]),at=c(c1,c2,c5),
-        ylab= '',boxwex=2700,xaxt='n',yaxt='n' , range=F)#
+        ylab= '',boxwex=2700,xaxt='n',yaxt='n' , range=TRUE)#
 par(new=T)  
 plot(rdate[1:204],media3[1:204],ylim=c(-50,5000), type='l', col='gray10',
      lwd=1.7, main=' ', ylab='Hg (ng/g)',xlab= '', cex.lab=2 ,
@@ -254,8 +255,8 @@ plot(rdate[1:204],hg$osn5[1:204], ylim=c(-50,5000),lty=5, type='l',
      xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7 , cex.axis=1.6)
 
 par(new=T)
-boxplot(box5_77,box5,Zonta5, ylim=c(-50,5000),col='#e5e57288',ylab= '',varwidth = F,
-        xlim=c(rdate[1],rdate[204]),at=c(c1,c2,c5), range=F,
+boxplot(box5_77,box5,Zonta5, ylim=c(-50,5000),col='#e5e57288',ylab= '', 
+        xlim=c(rdate[1],rdate[204]),at=c(c1,c2,c5), range=TRUE,
         boxwex=2700,xaxt='n',yaxt='n')
 par(new=T)
 plot(rdate[1:204],media5[1:204],ylim=c(-50,5000), type='l',
@@ -284,8 +285,8 @@ plot(rdate[1:204], hg$osc6[1:204], ylim=c(-50,5000),lty=5, type='l',
      xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7 , cex.axis=1.6)
 par(new=T)
 boxplot(box6_77,box6,Zonta6, ylim=c(-50,5000),col='#fed97688', ylab=' ', 
-        xlim=c(rdate[1],rdate[204]),at=c(c1,c2,c5),range=F,
-        boxwex=2700,xaxt='n',yaxt='n', outline=F)
+        xlim=c(rdate[1],rdate[204]),at=c(c1,c2,c5),range=TRUE,
+        boxwex=2700,xaxt='n',yaxt='n')
 par(new=T)
 plot(rdate[1:204],media6[1:204],ylim=c(-50,5000), type='l', col='gray10',lwd=1.7, 
      main=' ', ylab='Hg (ng/g)',xlab= '', cex.lab=2, cex.main=1.7, 
@@ -309,7 +310,7 @@ plot(rdate[1:204],hg$osc7[1:204], ylim=c(-50,5000),lty=5,
 par(new=T)
 boxplot(box7_77,box7,Zonta7,ylim=c(-50,5000),col='#f7922088',
         xlim=c(rdate[1],rdate[204]),at=c(c1,c2,c5),
-        ylab= '',boxwex=2700,xaxt='n',yaxt='n' , range=F)#
+        ylab= '',boxwex=2700,xaxt='n',yaxt='n' , range=TRUE)#
 par(new=T)
 plot(rdate[1:204],media7[1:204],ylim=c(-50,5000), type='l', col='gray10',
      lwd=1.7, main=' ', ylab='Hg (ng/g)',xlab= '',yaxt='n', 
@@ -332,7 +333,7 @@ plot(rdate[1:204],hg$oss8[1:204], ylim=c(-50,5000),lty=5,
 par(new=T)
 boxplot(box8_77, box8,Zonta8,ylim=c(-50,5000),col='#f46d4388',
         xlim=c(rdate[1],rdate[204]),at=c(c1, c2,c5),
-        boxwex=2700,xaxt='n',ylab= '', yaxt='n', range=F)
+        boxwex=2700,xaxt='n',ylab= '', yaxt='n', range=TRUE)
 par(new=T)
 plot(rdate[1:204],media8[1:204],ylim=c(-50,5000), type='l', col='gray10',
      lwd=1.7, main=' ', ylab='Hg (ng/g)',xlab= '', 
@@ -357,7 +358,7 @@ plot(rdate[1:204],hg$oss9[1:204], ylim=c(-50,5000),lty=5,
 par(new=T)
 boxplot(box9_77, box9,Zonta9, ylim=c(-50,5000),col='#d7302788',
         xlim=c(rdate[1],rdate[204]),at=c(c1, c2,c5),
-        boxwex=2700,ylab= '',xaxt='n',yaxt='n', range=F)
+        boxwex=2700,ylab= '',xaxt='n',yaxt='n', range=TRUE)
 par(new=T)
 plot(rdate[1:204],media9[1:204],ylim=c(-50,5000), type='l', col='gray10',lwd=1.7,
      main=' ', ylab='Hg (ng/g)',xlab= '', cex.lab=2 ,yaxt='n', 
@@ -384,8 +385,7 @@ plot(rdate[1:204],hg$oss10[1:204], ylim=c(-50,5000),lty=5,
      cex.main=1.7 , cex.axis=1.6)
 par(new=T)
 boxplot(box10_77,box10,Zonta10, ylim=c(-50,5000),xlim=c(rdate[1],rdate[204]),
-        at=c(c1,c2,c5), range=F,xaxt='n',
-        col='#a5002888',boxwex=2700,xaxt='n',yaxt='n')
+        at=c(c1,c2,c5), range=TRUE,xaxt='n',col='#a5002888',boxwex=2700,xaxt='n',yaxt='n')
 par(new=T)
 plot(rdate[1:204],media10[1:204],ylim=c(-50,5000),
      type='l', col='gray10',

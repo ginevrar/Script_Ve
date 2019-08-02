@@ -12,6 +12,8 @@ box8_SPM<-read.table('Box8_tss_poc.txt', header=T)   #ricordare di convertire po
 box9_SPM<-read.table('Box9_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 box10_SPM<-read.table('Box10_tss_poc.txt', header=T)   #ricordare di convertire poc a pom
 
+library(reshape2)
+library(reshape)
 #c2<-cast(box1_SPM, ANNO ~ MESE, value='TSS', mean)
 #c3<-cast(box1_SPM, ANNO ~ MESE, value='TSS', min)
 #c4<-cast(box1_SPM, ANNO ~ MESE, value='TSS', max)
@@ -70,27 +72,31 @@ TEMPO <- as.POSIXct(time.steps3, tz= "GMT", origin = "1900-01-01")
 TEMPO[1:10]
 rdate<-as.Date(TEMPO, tz= "GMT", format="%Y")
 yy1<-c(0,0,60,60)
+
+
 png('Solidi_box5b.png', height = 14,width = 18, units='cm', res=300)
 par(mfrow=c(1,2), bty='n', mar=c(2,4,2,1))
-plot(rdate,tots$wn5, type='l', xlim=c(rdate[1],rdate[2428]), xlab='',
+plot(rdate,tots$wn5, type='l', xlim=c(rdate[1],rdate[2428]), xlab='',yaxt="n",
      main='Suspended Particulate Matter', col='#e6c3d100', ylab='', ylim=c(0,60))
-polygon(H_resus,yy1, col='#68676733',border = NA)
-polygon(Eutrop,yy1, col='#3a871f66',border = NA)
 par(new=T)
-plot(rdate,tots$wn5, type='l', xlim=c(rdate[1],rdate[2428]), xlab='',
+plot(rdate,tots$wn5, type='l', xlim=c(rdate[1],rdate[2428]), xlab='',yaxt="n",
      main='Suspended Particulate Matter', col='snow4', ylab='', ylim=c(0,60))
+xz<-seq(0,60,by=10)
+axis(side=2, at=xz,las=2)
 par(new=T)
-plot(rdate[1215:1274],jitter(m5), pch=19,cex=1.2, col='#e6c3d199',xlab='',
+plot(rdate[1215:1274],jitter(m5), pch=19,cex=1.2, col='#96623899',xlab='',
      xlim=c(rdate[1],rdate[2428]),
      ylab='mg/L',xaxt='n', ylim=c(0,60), yaxt='n')
-legend(rdate[1550],60, legend =c('Model','Data'),pch=c(19,19), col=c('snow4','#e6c3d177')) 
+legend(rdate[1550],60, legend =c('Model','Data'),pch=c(19,19), col=c('snow4','#96623899')) 
 
-plot(rdate,POMs$wn5, type='l', xlim=c(rdate[1],rdate[2428]),xlab='',
+plot(rdate,POMs$wn5, type='l', xlim=c(rdate[1],rdate[2428]),xlab='',yaxt="n",
      main='Particulate Organic Matter', col='snow4', ylab='mg/L', ylim=c(0,10))
+xz2<-seq(0,10,by=2)
+axis(side=2, at=xz2,las=2)
 par(new=T)
-plot(rdate[1215:1274],jitter(mp5), pch=19, col='#b8d8bd99',xlab='',xlim=c(rdate[1],rdate[2428]),
+plot(rdate[1215:1274],jitter(mp5), pch=19, col='#0a911f99',xlab='',xlim=c(rdate[1],rdate[2428]),
      ylab='',xaxt='n', ylim=c(0,10), yaxt='n')
-legend(rdate[1550],10, legend =c('Model','Data'),pch=c(19,19), col=c('snow4','#b8d8bd99')) 
+legend(rdate[1550],10, legend =c('Model','Data'),pch=c(19,19), col=c('snow4','#0a911f99')) 
 dev.off()
 
 getwd()

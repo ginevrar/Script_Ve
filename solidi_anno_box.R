@@ -98,7 +98,7 @@ b10_y4<-filter(box10_SPM, box10_SPM$ANNO ==2005)
 plot(rdate,tots$wn1, type='l', 
      main='2002', col='red', ylab='', ylim=c(0,90))
 par(new=T)
-boxplot(box1_SPM$TSS, ylim=c(0,90))
+#boxplot(box1_SPM$TSS, ylim=c(0,90))
 
 plot(jitter(box1_SPM$TSS), pch=19, 
      xlim=c(rdate[1],rdate[2428]),col='#e6c3d177',xlab='', ylab='',xaxt='n', ylim=c(0,90), yaxt='n')

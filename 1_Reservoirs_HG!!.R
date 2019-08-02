@@ -314,6 +314,7 @@ par(new=T)
 
 yy1<-c(0,0,1600,1600)
 
+out<--export[1:201]+WWW2[1:201]
 
 png('Reservoirs_tutto2.png',
     width = 21, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
@@ -505,4 +506,268 @@ abline(v=rdate[1020])
 head(total_reservoir_Sed)
 str(total_reservoir_Sed)
 
+
+yy1<-c(0,0,1600,1600)
+tot_out<-(-export[1:201]+WWW2[1:201])
+png('TOt_inANDOUT_piuSED.png',
+    width = 13, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+par(mfrow=c(1,1),mar=c(3,4,0.5,1.5), cex=0.7,
+    oma=c(0,2.5,0.1,2.5), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in[1:201], type='l',lwd=2, col='#663756', xaxt='n',
+     ylab=expression(paste('kg y'^-1)),ylim=c(0,1600),xlab=' ',yaxt='n',
+     main=expression(paste(' ')), cex.lab=1.52)
+text(rdate[35],1200,'Inputs', col='#663756', cex=2)
+
+ax<-seq(0,1500,by=500)
+axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
+par(new=T)
+plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2, col='#DD65B0', 
+     ylab=' ',ylim=c(0,500),xlab=' ',yaxt='n',cex.axis=2)
+legend(rdate[120], 1600, col=c('dimgrey','slateblue1' ),legend=c('Inputs','Outputs'), bty='n',pch=19)
+text(rdate[130],375,'Outputs', col='#DD65B0', cex=2)
+ax<-seq(0,500,by=100)
+axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
+par(new=T)
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2,lty=2, 
+     col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+text(rdate[160],14000,'Sediment \n Reservoir', col='#696969', cex=1.62)
+dev.off()
+
+
 getwd()
+
+
+tot_out<-(-export[1:201]+WWW2[1:201])
+png('TOt_inANDOUT_piuWater.png',
+    width = 21, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+par(mfrow=c(1,1),mar=c(3,4,2.5,1.5), cex=0.7,
+    oma=c(0,2.5,3,2.5), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in[1:201], type='l',lwd=2, col='#663756', cex.axis=2,
+     ylab=expression(paste('kg y'^-1)),ylim=c(0,1600),xlab=' ',yaxt='n',
+     main=expression(paste(' ')), cex.lab=1.52)
+text(rdate[35],1200,'Inputs', col='#663756', cex=2)
+
+ax<-seq(0,1500,by=500)
+axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
+par(new=T)
+plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2, col='#DD65B0', 
+     ylab=' ',ylim=c(0,500),xlab=' ',yaxt='n',xaxt='n')
+ 
+text(rdate[120],375,'Outputs', col='#DD65B0', cex=2)
+ax<-seq(0,500,by=100)
+axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
+par(new=T)
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2,lty=2, 
+     col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+text(rdate[140],20,'Water Reservoir', col='#696969', cex=1.62)
+
+dev.off()
+
+png('TOt_inANDOUT_piuWater2.png',
+    width = 13, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+par(mfrow=c(1,1),mar=c(3,4,0.5,1.5), cex=0.7,
+    oma=c(0,2.5,0.1,2.5), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in[1:201], type='l',lwd=2, col='#663756', cex.axis=2,
+     ylab='',ylim=c(0,1600),xlab=' ',yaxt='n',
+     main=expression(paste(' ')), cex.lab=1.52)
+text(rdate[35],1200,'Inputs', col='#663756', cex=2)
+
+ax<-seq(0,1600,by=400)
+axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
+par(new=T)
+plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2, col='#DD65B0', 
+     ylab=' ',ylim=c(0,500),xlab=' ',yaxt='n',xaxt='n')
+
+text(rdate[130],375,'Outputs', col='#DD65B0', cex=2)
+ax<-seq(0,500,by=100)
+axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
+par(new=T)
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2,lty=2, 
+     col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+text(rdate[150],20,'Water Reservoir', col='#696969', cex=1.62)
+
+dev.off()
+
+
+
+
+
+
+
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2, col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],total_reservoir_W_mehg [1:201],ylim=c(0,0.4), type='l',yaxt='n',
+     lwd=2, ylab='kg',xlab=' ',col='blue',main=expression(paste('MeHg'[T]~'water reservoir')))
+ax<-seq(0,.40,by=.2)
+axis(side=2,at=ax, las=2)
+
+
+png('SedRes_IN_OUT__mahg.png',
+    width = 13, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+par(mfrow=c(1,1),mar=c(3,4,0.5,1.5), cex=0.7,
+    oma=c(0,2.5,0.1,2.5), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in_mhg[1:201], type='l',lwd=2, col='#663756', cex.axis=2,
+     ylab='',ylim=c(0,20),xlab=' ',yaxt='n',
+     main=expression(paste(' ')), cex.lab=1.52)
+text(rdate[35],16,'Inputs', col='#663756', cex=2)
+
+ax<-seq(0,20,by=5)
+axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
+par(new=T)
+plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=2, col='#DD65B0', 
+     ylab=' ',ylim=c(0,3),xlab=' ',yaxt='n',xaxt='n')
+
+text(rdate[130],2.4,'Outputs', col='#DD65B0', cex=2)
+ax<-seq(0,3,by=.5)
+axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
+par(new=T)
+plot(rdate[1:201],total_reservoir_Sed_mehg[1:201], type='l',lwd=2,lty=2, 
+     col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+text(rdate[150],14,'Sediment \n Reservoir', col='#696969', cex=1.62)
+
+dev.off()
+
+
+png('WaterRes_IN_OUT__mahg.png',
+    width = 13, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+par(mfrow=c(1,1),mar=c(3,4,0.5,1.5), cex=0.7,
+    oma=c(0,2.5,0.1,2.5), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in_mhg[1:201], type='l',lwd=2, col='#663756', cex.axis=2,
+     ylab='',ylim=c(0,20),xlab=' ',yaxt='n',
+     main=expression(paste(' ')), cex.lab=1.52)
+text(rdate[35],16,'Inputs', col='#663756', cex=2)
+
+ax<-seq(0,20,by=5)
+axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
+par(new=T)
+plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=2, col='#DD65B0', 
+     ylab=' ',ylim=c(0,3),xlab=' ',yaxt='n',xaxt='n')
+
+text(rdate[130],2.4,'Outputs', col='#DD65B0', cex=2)
+ax<-seq(0,3,by=.5)
+axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
+par(new=T)
+plot(rdate[1:201],total_reservoir_W_mehg[1:201], type='l',lwd=2,lty=2, 
+     col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+text(rdate[150],.20,'Water Reservoir', col='#696969', cex=1.62)
+
+dev.off()
+
+
+png('SoloIN_mahg.png',
+    width = 13, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+par(mfrow=c(1,1),mar=c(3,4,0.5,1.5), cex=0.7,
+    oma=c(0,2.5,0.1,2.5), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in_mhg[1:201], type='l',lwd=2, col='#663756', cex.axis=2,
+     ylab='',ylim=c(0,20),xlab=' ',yaxt='n',
+     main=expression(paste(' ')), cex.lab=1.52)
+text(rdate[35],16,'Inputs', col='#663756', cex=2)
+
+ax<-seq(0,20,by=5)
+axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
+dev.off()
+
+png('SoloIN_OUT_mahg.png',
+    width = 13, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+par(mfrow=c(1,1),mar=c(3,4,0.5,1.5), cex=0.7,
+    oma=c(0,2.5,0.1,2.5), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in_mhg[1:201], type='l',lwd=2, col='#663756', cex.axis=2,
+     ylab='',ylim=c(0,20),xlab=' ',yaxt='n',
+     main=expression(paste(' ')), cex.lab=1.52)
+text(rdate[35],16,'Inputs', col='#663756', cex=2)
+
+ax<-seq(0,20,by=5)
+axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
+par(new=T)
+plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=2, col='#DD65B0', 
+     ylab=' ',ylim=c(0,3),xlab=' ',yaxt='n',xaxt='n')
+
+text(rdate[130],2.4,'Outputs', col='#DD65B0', cex=2)
+ax<-seq(0,3,by=.5)
+axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
+dev.off()
+
+
+png('SoloIN.png',
+    width = 13, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+par(mfrow=c(1,1),mar=c(3,4,0.5,1.5), cex=0.7,
+    oma=c(0,2.5,0.1,2.5), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in[1:201], type='l',lwd=2, col='#663756', cex.axis=2,
+     ylab='',ylim=c(0,1600),xlab=' ',yaxt='n',
+     main=expression(paste(' ')), cex.lab=1.52)
+text(rdate[35],1200,'Inputs', col='#663756', cex=2)
+
+ax<-seq(0,1600,by=400)
+axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
+dev.off()
+
+
+
+png('SoloIN.png',
+    width = 13, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
+par(mfrow=c(1,1),mar=c(3,4,0.5,1.5), cex=0.7,
+    oma=c(0,2.5,0.1,2.5), bty='n', mgp=c(2.3,.8,0))
+
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
+     col='#68676700', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
+polygon(H_resus,yy1, col='#68676733',border = NA)
+polygon(Eutrop,yy1, col='#3a871f66',border = NA)
+par(new=T)
+plot(rdate[1:201],tot_in[1:201], type='l',lwd=2, col='#663756', cex.axis=2,
+     ylab='',ylim=c(0,1600),xlab=' ',yaxt='n',
+     main=expression(paste(' ')), cex.lab=1.52)
+text(rdate[35],1200,'Inputs', col='#663756', cex=2)
+
+ax<-seq(0,1600,by=400)
+axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
+dev.off()

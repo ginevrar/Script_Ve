@@ -1,7 +1,7 @@
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
 atm_hg0<-read.table('atm_hg.txt')    #g/m3
 
-setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz6')     #sim_cl
+#setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz6')     #sim_cl
 #setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\year')     #sim_cl
 # setwd('D:\\Ref_long_long')     #sim_cl

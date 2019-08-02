@@ -8,7 +8,8 @@
  # setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
   setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_Ok\\year')     #sim_cl
   #setwd('D:\\Ref_long_long')     #sim_cl   # 2019: rdate[433904:437497]
-
+  #setwd('D:\\1931_1960')     #sim_cl
+  
   hg<-read.csv('Total_Hg.csv', skip=1)
   names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
                'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 

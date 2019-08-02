@@ -6,8 +6,9 @@
 # 2001 - 2003 [1215:1250]
 
 #setwd('C:/Users/Ginevra/Dropbox/2017_Venice/114/g920')
-setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
-setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\MenoDep4\\c')
+#setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
+#setwd('C:\\Users\\Acer\\Dropbox\\NNN61\\MenoDep4\\c')
+setwd('D:\\Corta')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -80,7 +81,9 @@ kd_silt<-1E+5
 hg_POM<-hgD	*kd_POM
 hg_silt<-hgD*kd_silt
 
-	
+#fraction of POM
+fPOM  <-POMs/(POMs+silts)
+fsilt <-silts/(POMs+silts)	
 #  solids in sediments
   solids_sed1  <-TOTs$sn1;   solids_dsed1  <-TOTs$dsn1;    
   solids_sed2  <-TOTs$sn2;   solids_dsed2  <-TOTs$dsn2;    
@@ -158,6 +161,9 @@ depo1_SPM_kgy<-depo1_silt_kg_y+depo1_POM_kg_y
 depo1_SPM_kgy<-depo1_POM_kg_y*hg_POM
 depo1_SPM_kgy<-depo1_silt_kg_y*hg_silt
 
+depo1_g_m3_d<-depo_media1 * TOTs$wn1       #1/day * g/m3
+depo1_g_y <-(depo1_g_m3_d*a1*d1)*365
+depo1_kg_y <-depo1_kg_y/1000
 depo1_Phg_kg_y<-depo1_kg_y*SEDhg$wn1/10^9   #kg/y * ug/kg -> ug/y
 
 depo2_g_m3_d<-depo_media2 * TOTs$wn2       #1/day * g/m3

@@ -1,4 +1,5 @@
-setwd('C:/Users/Ginevra/Dropbox/2017_Venice')
+setwd('C:/Users/Acer/Dropbox/2017_Venice')
+setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\2017_Venice')
 Mel<-read.csv('Hg_acque_MEla.csv', header=T, sep=';')
 str(Mel)
 
@@ -81,9 +82,12 @@ g3+geom_jitter(alpha=0.4, aes(color=Zona, size=Hg_ng),
                position = position_jitter(width = 0.1))+ theme_bw() + 
   coord_flip() +
   scale_colour_manual(values=bb)+
-  scale_size_continuous(range = c(1,20),breaks = uu)+
+  scale_size_continuous(range = c(1,20),breaks = uu)
   #continuous_scale()+
   
+
+
+
   theme(legend.text=element_text(size=15))+ 
   annotation_custom(my_grob)+
   annotation_custom(my_grob2)+
