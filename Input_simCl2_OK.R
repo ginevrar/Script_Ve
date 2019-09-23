@@ -450,26 +450,27 @@
   tutt<-data.frame((tott[2]), (tott[3]+tott[4]),
                    (tott[5]),(tott[6]))
   
+  rownames(tutt)<-years
   
   rdate[,1:30]
-  tutt1<-colMeans(tutt[1:40,])
-  tutt2<-colMeans(tutt[41:80,])
-  tutt3<-colMeans(tutt[81:120,])
-  tutt4<-colMeans(tutt[121:160,])
-  tutt5<-colMeans(tutt[161:201,])
-  
+  tutt1<-colMeans(tutt[1:36,])
+  tutt1b<-colMeans(tutt[37:71,])
+  tutt2<-colMeans(tutt[72:106,])
+  tutt3<-colMeans(tutt[107:141,])
+  tutt4<-colMeans(tutt[142:176,])
+  tutt5<-colMeans(tutt[177:201,])
+   
   years[161:201]
   
-  rownames(tutt)<-years
   tutt<-as.matrix(tutt); tutt<-t(tutt)
-  tutt_frame<-data.frame(tutt1,tutt2,tutt3,tutt4,tutt5)
+  tutt_frame<-data.frame(tutt1,tutt1b,tutt2,tutt3,tutt4,tutt5)
   tutt_mat<-as.matrix(tutt_frame); #tutt_mat<-t(tutt_mat)
   
 
  
   
   TOT<-colSums(tutt_frame)
-  colnames(tutt_mat)<-c('1900-1939','1940-1979','1980-2019','2020-2059','2060-2100')
+  colnames(tutt_mat)<-c('1900-1935','1936-1970','1971-2005','2006-2040','2041-2075','2076-2100')
   par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(2,2), cex.main=1.4,
       mar=c(4.2, 4.5, 4.1, 2.1))
    
@@ -490,17 +491,21 @@
   perR<-tot_riv/TOT*100
   
   perctutt<-data.frame((tutt_mat[ ,1]/TOT[1]*100), ((tutt_mat[,2])/TOT[2]*100),
-                       (tutt_mat[,3]/TOT[3]*100),(tutt_mat[,4]/TOT[4]*100),(tutt_mat[,5]/TOT[5]*100))
+                       (tutt_mat[,3]/TOT[3]*100),(tutt_mat[,4]/TOT[4]*100),
+                       (tutt_mat[,5]/TOT[5]*100),(tutt_mat[,6]/TOT[6]*100))
    perctutt<-as.matrix(perctutt)
-   colnames(perctutt)<-c('1900-1939','1940-1979','1980-2019','2020-2059','2060-2100')
+   colnames(perctutt)<-c('1900-1935','1936-1970','1971-2005','2006-2040','2041-2075','2076-2100')
+png('RelativeHg1_input_VE2_BBBB.png', units='cm', height = 15,  width = 15, res=300)
    
   # perctutt<-t(perctutt)
   barplot(perctutt, beside=F, width = 10, legend.text=F,ylim=c(0,110),cex.axis=1.4,cex.names = .89,
           border = NA, col=c('cyan3','royalblue','#e2ca4f',
-                             'grey40'))
+                             'grey40'), las=2)
   mtext(text='Relative contribution of \n Hg inputs to the Venice Lagoon',side=3,  line=1, cex=1.3)
    
   mtext(text=expression(paste('%')),side=2,  line=2.5, cex=1.3)
+  dev.off()
+  
   text(2.5,105,'B', cex=2.5)
   
   str(perA)

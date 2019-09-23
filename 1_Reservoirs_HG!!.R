@@ -330,6 +330,7 @@ par(new=T)
 plot(rdate[1:201],tot_in[1:201], type='l',lwd=3, col='dimgrey', 
      ylab=expression(paste('kg y'^-1)),ylim=c(0,1600),xlab=' ',yaxt='n',
      main=expression(paste(' ')))
+abline(v=rdate[72])
 par(new=T)
 plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=3, col='slateblue1', 
      ylab=' ',ylim=c(0,1600),xlab=' ',yaxt='n',
@@ -358,6 +359,8 @@ par(new=T)
 plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,22000), yaxt='n',
      ylab=' ',xlab=' ', col='darkgoldenrod')
 title(bquote(atop("Hg"[T]~"sediment reservoir")))
+#abline(v=rdate[83],col=2)
+
 #title(bquote(atop("Hg"[T]~"sediment", "reservoir (0 - 5 cm)")))
 ax<-seq(0,22000,by=4000)
 axis(side=2,at=ax, las=2)
