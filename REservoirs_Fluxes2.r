@@ -275,6 +275,18 @@ tot_s_reser<-rowSums(s_reser/10^6)  #tons
 write.table(df, file='reservoirs.txt')
 str(tot_s_reser_kg)
 
+
+df[121,]
+df[1,]
+df[15,]
+
+
+6.811835/0.5
+12987.16/2093.13
+
+6.811835/0.7
+12987.16/2124
+
 head(tot_s_reser,45)
 
 png('Reservoir_oktris50.png')

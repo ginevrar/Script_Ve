@@ -1,6 +1,7 @@
 setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61')
  setwd('C:\\Users\\gi\\Desktop\\2156\\b')
-
+ setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM') 
+ 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10','sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10','osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
