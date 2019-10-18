@@ -1,7 +1,7 @@
 setwd('C:/Users/gi/Dropbox/Cloro_Soda_Ve')
 setwd('C:/Users/Acer/Desktop/Future_emissions')
 
-hgL<-read.csv('Hgind_load.csv', sep=',', header=T)
+hgL<-read.csv('Hgind_load.csv', sep=';', header=T)
 str(hgL)
 hgL<-hgL[,1:3]
 
@@ -84,7 +84,7 @@ dev.off()
 abline(v=1999)
 abline(h=11.7)
 
-Hg_Sediment<-c(5.19, 1.36, -1.43,	-3.97)#! ok new
+Hg_sediment<-c(5.19, 1.36, -1.43,	-3.97)#! ok new
 Hg_Water<-c(8.17,2.06,-2.12,-5.29)  #! ok new
 MeHg_Sediment<-c(2.41,0.64,-0.67, -1.95)
 MeHg_Water<-c(3.16,0.8,-0.83,-2.12)  
@@ -101,8 +101,11 @@ par(mar=c(3,4.5,1,0))
 barplot(df1,beside=T, border="white",ylab='concentrations differences (%)',cex.axis = 1.6,
         cex.lab=1.6,cex.names=1.5,
         ylim=c(-6,10), col=c('#882255','#DDCC77','#88CCEE','#117733'))
-legend("topright",legend=c('A1B1','Constant Emissions','Emissions Control','Zero Emissions'),
-       col=c('#882255','#DDCC77','#88CCEE','#117733'), pch=15,bty = "n", cex=1.5)
+legend(8,10.8,legend=c('A1B1, Business as Usual (+145%)',
+                       'B1, Constant Emissions   (+34%)',
+                       'EC, Emissions Control     (-34%)',
+                       'ZE, Zero Emissions          (-70%)'),
+       col=c('#882255','#DDCC77','#88CCEE','#117733'), pch=15,bty = "n", cex=1.4)
 dev.off()
 
 dep_g_km2_y<-de/area_km2*1000

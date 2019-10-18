@@ -6,6 +6,8 @@ atm_hg0<-read.table('C:\\Users\\gi\\Dropbox\\atm_hg.txt')    #g/m3
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\year')     #sim_cl
 # setwd('D:\\Ref_long_long')     #sim_cl
 setwd('C:\\Users\\gi\\Dropbox\\REference_OK\\year')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM') #\\year
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\')     #sim_cl
 
 #???setwd('D:\\Ref_long_long')     #sim_cl   # 2019: rdate[433904:437497]
 
@@ -254,7 +256,11 @@ abline(h=0,col=2)
 
 # circa 20 kg/y = 100 mol/y # MGL circa 14 mol/y
 rdate[1431:1443]
-mean(dfff2[1430:1442,])
+(dfff2[1430:1442,])
+mean(dfff2$WWW[1430:1442])
+mean(dfff2$vola[1430:1442])
+
+
 8.2/200.59*1000
 
 kgm2y<-vola/area       #0 -20 ng m2 h
@@ -266,11 +272,4 @@ ngm2h_media<-tapply(ngm2h[2:2413], rep(1:(length(ngm2h[2:2413])/12),each = 12),m
 plot(ngm2h_media)
 
 13.5/3.3880732
- 
-WWW2<-WWW*3.984566
 
-plot(vola[433904:437497], type='l')
-abline(h=0)
-plot(WWW[433904:437497], type='l')
-(WWW[1431:1442,])
-mean(vola[433904:437497])

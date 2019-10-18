@@ -275,6 +275,18 @@ tot_s_reser<-rowSums(s_reser/10^6)  #tons
 write.table(df, file='reservoirs.txt')
 str(tot_s_reser_kg)
 
+
+df[121,]
+df[1,]
+df[15,]
+
+
+6.811835/0.5
+12987.16/2093.13
+
+6.811835/0.7
+12987.16/2124
+
 head(tot_s_reser,45)
 
 png('Reservoir_oktris50.png')
@@ -525,6 +537,9 @@ Ntot<-(N1+N2+N3+N4+N5+N6+N7+N8+N9+N10)*365/1000
 
 hg_sed_reservoir<-hg_silt_sed_tot+hg_pom_sed_tot+hg_sand_sed_tot+hg_doc_sed_tot+hg_aq_sed_tot
 hg_wat_reservoir<-hg_silt_wat_tot+hg_pom_wat_tot+hg_sand_wat_tot+hg_doc_wat_tot+hg_aq_wat_tot   #grams
+
+
+plot(hg_sed_reservoir)
 
 head(TotD*365)
 head(TotR*365)
