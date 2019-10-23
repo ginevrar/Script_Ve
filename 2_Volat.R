@@ -1,32 +1,36 @@
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\year')     #sim_cl
-atm_hg0<-read.table('atm_hg.txt')    #g/m3
+atm_hg0<-read.table('C:\\Users\\gi\\Dropbox\\atm_hg.txt')    #g/m3
 
 #setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz6')     #sim_cl
 #setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\year')     #sim_cl
 # setwd('D:\\Ref_long_long')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM') #\\
-setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM\\year') 
 
+setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM') #\\
+setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM\\year')
+ setwd('C:\\Users\\gi\\Dropbox\\REference_OK\\year')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM') #\\year
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\')     #sim_cl
+ 
 #???setwd('D:\\Ref_long_long')     #sim_cl   # 2019: rdate[433904:437497]
 
 310*12
 
 hg0<-read.csv("Elemental_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
-names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+              'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
               'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
               'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 hg<-read.csv('Total_Hg.csv', skip=1)
-names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
-             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')				 
+             'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 
 evasion<-read.csv("Volatilization_Loss_Rate.csv", header=FALSE, skip = 1, sep = ",", dec=".")
-names(evasion)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
-                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
+names(evasion)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
+                  'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
                   'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                   'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10')
 # aree boxes
@@ -47,7 +51,7 @@ tail(rdate)
 tail(rdate2)
 
 #VOLATILIZZAZIONE
-H<-7.1*10^-3     # Henry's Law constant  
+H<-7.1*10^-3     # Henry's Law constant
 R<-8.206*10^-5   # Universal Gas constant  8.206??0-5 atm/molar-K
 Tk<-288.15       # 15^C
 divisore<-H/(R*Tk)
@@ -81,7 +85,7 @@ plot(WWW)
 
 str(hg0_w)
 plot(hg0_w$wn5)
-mean(hg0_w$wn5[1431:1442])#ng/L   0.12 - 0.9 adriatco 
+mean(hg0_w$wn5[1431:1442])#ng/L   0.12 - 0.9 adriatco
 mean(hg0_w$wc6[1431:1443])         #kotnik
 mean(hg0_w$wc7[1431:1443])
 (hg0_w$wc7[1431:1443])
@@ -95,7 +99,7 @@ str(hg$wn5)
 plot(hg0_w$wn1/200.59*1000)
 tail(hg0_w$wn1)
 hg0_g_m3<-hg0_w/10^6
- 
+
 mul_atm<-rep(1,12)
 library(tidyverse)
 
@@ -104,12 +108,12 @@ atm_hg0<-atm_hg0 %>%
   mutate(x = list(V1 * mul_atm)) %>%    # multiply value in BOX1 with mul and save results as a list
   unnest()                            # unnest data
 atm_hg0<-as.numeric(as.character(unlist(atm_hg0[1])))
- 
+
 tot_vol_m3<-6.33E+08
 area<-4.12E+08
 area_MGL<-1.6*10^8
 
- 
+
 plot(skvol$wn1)
 #g/y
 volat_gm3_y<-skvol*365;
@@ -143,7 +147,7 @@ vvol2_gm3_day<-kvol_1_day
 vvol2_g_day<-vvol2_gm3_day
 vvol2_kg_y<-rowSums(vvol2_g_day*365)*tot_vol_m3/1000
 
- mean(vvol_kg_y[1000:2414]);  #kg y 
+ mean(vvol_kg_y[1000:2414]);  #kg y
 
 kvol1_1_day<-evasion$wn1  # kvol ogni sim
 kvol2_1_day<-evasion$wn2  # kvol ogni sim
@@ -187,7 +191,7 @@ skvol10<-kvol10_1_day*(hg0_g_m3$ws10 - (atm_hg0/divisore))   #gm3d
 
 volat1_g_y<-skvol1*365*a1*d1;
 volat1_kg_y<-volat1_g_y/1000
- 
+
 volat2_g_y<-skvol2*365*a2*d2;
 volat2_kg_y<-volat2_g_y/1000
 
@@ -271,4 +275,3 @@ ngm2h_media<-tapply(ngm2h[2:2413], rep(1:(length(ngm2h[2:2413])/12),each = 12),m
 plot(ngm2h_media)
 
 13.5/3.3880732
-

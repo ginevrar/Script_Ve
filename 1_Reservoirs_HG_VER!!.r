@@ -3,35 +3,32 @@ setwd('C:\\Users\\gi\\Dropbox\\Cloro_Soda_VE')
 IN<-read.table('tot_input_short.txt')
 tot_in<-IN$tt
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
-
-setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM\\year')
 setwd('C:\\Users\\gi\\Dropbox\\REference_OK\\year')     #sim_cl
 
-
 hg<-read.csv('Total_Hg.csv', skip=1)
-names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10',
              'vosn1','vosn2','vosn3','vosn4','vosn5','vosc6','vosc7','voss8','voss9','voss10')
 
 hg0<-read.csv('Elemental_Hg.csv', skip=1)
-names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+names(hg0)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10',
              'vosn1','vosn2','vosn3','vosn4','vosn5','vosc6','vosc7','voss8','voss9','voss10')
 
 mehg<-read.csv('Methyl_Hg.csv', skip=1)
-names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
-             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+names(mehg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+             'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
              'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
              'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10',
              'vosn1','vosn2','vosn3','vosn4','vosn5','vosc6','vosc7','voss8','voss9','voss10')
 
 TOTs<-read.csv("Total_Solids.csv", header=FALSE, skip = 1,sep = ",", dec=".")
-names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
-               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10',
+names(TOTs)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
+               'sn1','sn2','sn3','sn4','sn5','sc6','sc7','ss8','ss9','ss10', 
                'dsn1','dsn2','dsn3','dsn4','dsn5','dsc6','dsc7','dss8','dss9','dss10',
                'osn1','osn2','osn3','osn4','osn5','osc6','osc7','oss8','oss9','oss10',
                'vosn1','vosn2','vosn3','vosn4','vosn5','vosc6','vosc7','voss8','voss9','voss10')
@@ -186,7 +183,7 @@ reservoir_hg0_w10<-a10*d10*hg0$ws10/10^9
 
 total_reservoir_W<-(reservoir_hg_w1+reservoir_hg_w2+reservoir_hg_w3+reservoir_hg_w4+
                      reservoir_hg_w5+reservoir_hg_w6+reservoir_hg_w7+reservoir_hg_w8+reservoir_hg_w9+reservoir_hg_w10)
-
+ 
 
 total_reservoir_W_mehg<-(reservoir_mehg_w1+reservoir_mehg_w2+reservoir_mehg_w3+reservoir_mehg_w4+
                        reservoir_mehg_w5+reservoir_mehg_w6+reservoir_mehg_w7+reservoir_mehg_w8+reservoir_mehg_w9+reservoir_mehg_w10)
@@ -258,7 +255,7 @@ total_reservoir_dsed<-c(reservoir_hg_ds1+reservoir_hg_ds2+reservoir_hg_ds3+reser
 
 total_reservoir_osed<-c(reservoir_hg_os1+reservoir_hg_os2+reservoir_hg_os3+reservoir_hg_os4+reservoir_hg_os5+
                         reservoir_hg_os6+reservoir_hg_os7+reservoir_hg_os8+reservoir_hg_os9+reservoir_hg_os10)
-
+ 
 total_reservoir_vosed<-c(reservoir_hg_vos1+reservoir_hg_vos2+reservoir_hg_vos3+reservoir_hg_vos4+reservoir_hg_vos5+
                         reservoir_hg_vos6+reservoir_hg_vos7+reservoir_hg_vos8+reservoir_hg_vos9+reservoir_hg_vos10)
 
@@ -323,7 +320,7 @@ out<--export[1:201]+WWW2[1:201]
 
 png('Reservoirs_tutto2.png',
     width = 21, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
-
+ 
 par(mfrow=c(2,3),mar=c(3,4,2.5,1.5), cex=0.7,
     oma=c(0,1,3,1), bty='n', mgp=c(2.3,.8,0))
 #par(mfrow=c(1,1))
@@ -332,12 +329,11 @@ plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,1600),
 polygon(H_resus,yy1, col='#68676733',border = NA)
 polygon(Eutrop,yy1, col='#3a871f66',border = NA)
 par(new=T)
-plot(rdate[1:201],tot_in[1:201], type='l',lwd=3, col='dimgrey',
+plot(rdate[1:201],tot_in[1:201], type='l',lwd=3, col='dimgrey', 
      ylab=expression(paste('kg y'^-1)),ylim=c(0,1600),xlab=' ',yaxt='n',
      main=expression(paste(' ')))
-#abline(v=rdate[72])
 par(new=T)
-plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=3, col='slateblue1',
+plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=3, col='slateblue1', 
      ylab=' ',ylim=c(0,1600),xlab=' ',yaxt='n',
      main=expression(paste('Hg'[T]~'inputs and outputs')))
 legend(rdate[120], 1600, col=c('dimgrey','slateblue1' ),legend=c('Inputs','Outputs'), bty='n',pch=19)
@@ -364,15 +360,13 @@ par(new=T)
 plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2, ylim=c(0,22000), yaxt='n',
      ylab=' ',xlab=' ', col='darkgoldenrod')
 title(bquote(atop("Hg"[T]~"sediment reservoir")))
-#abline(v=rdate[83],col=2)
-
 #title(bquote(atop("Hg"[T]~"sediment", "reservoir (0 - 5 cm)")))
 ax<-seq(0,22000,by=4000)
 axis(side=2,at=ax, las=2)
 par(new=T)
 plot(rdate[1:201],tot_ddeeps[1:201], type='l',lwd=2, ylab=' ',xlab=' ', ylim=c(0,22000),yaxt='n',col='brown')
-text(rdate[40],19000,'surface \n sediment \n (0 - 5 cm)', col='darkgoldenrod', cex=0.8)
-text(rdate[150],17000,'subsurface \n sediment \n (6 - 30 cm)', col='brown', cex=0.8)
+text(rdate[40],19000,'surface \n sediment \n (0 - 5 cm)', col='darkgoldenrod', cex=0.8) 
+text(rdate[150],17000,'subsurface \n sediment \n (6 - 30 cm)', col='brown', cex=0.8) 
 
 ax<-seq(0,22000,by=4000)
 axis(side=2,at=ax, las=2)
@@ -389,7 +383,7 @@ plot(rdate[1:201],tot_in_mhg[1:201], type='l',lwd=3, col='dimgrey',
      ylab=expression(paste('kg y'^-1)),ylim=c(0,20),xlab=' ',yaxt='n',
      main=expression(paste('MeHg'[T]~'inputs and outputs')))
 par(new=T)
-plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=3, col='slateblue1',
+plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=3, col='slateblue1', 
      ylab=' ',ylim=c(0,20),xlab=' ',yaxt='n',
      main=expression(paste(' ')))
 #legend(rdate[130], 14, col=c('dimgrey','slateblue1' ),legend=c('Inputs','Outputs'))
@@ -416,8 +410,8 @@ polygon(Eutrop,yy2, col='#3a871f66',border = NA)
 par(new=T)
 plot(rdate[1:201],total_reservoir_Sed_mehg[1:201], type='l',lwd=2, ylim=c(0,30),xlab=' ',yaxt='n',
      ylab='kg', col='darkgoldenrod')
-text(rdate[40],24,'surface \n sediment \n (0 - 5 cm)', col='darkgoldenrod', cex=0.8)
-text(rdate[145],18,'subsurface \n sediment \n (6 - 30 cm)', col='brown', cex=0.8)
+text(rdate[40],24,'surface \n sediment \n (0 - 5 cm)', col='darkgoldenrod', cex=0.8) 
+text(rdate[145],18,'subsurface \n sediment \n (6 - 30 cm)', col='brown', cex=0.8) 
 title(bquote(atop("MeHg"[T]~"sediment reservoir")))
 ax<-seq(0,30,by=10)
 axis(side=2,at=ax, las=2)
@@ -489,10 +483,10 @@ colMeans(RESERV_mehg[1431:1442,])
 
   rdate[120]
 
-total_reservoir_Sed_media<-tapply(total_reservoir_Sed[1:2412],
+total_reservoir_Sed_media<-tapply(total_reservoir_Sed[1:2412], 
                             rep(1:(length(total_reservoir_Sed[1:2412])/12),each = 12),mean)
 
-total_reservoir_W_media<-tapply(total_reservoir_W[1:2412],
+total_reservoir_W_media<-tapply(total_reservoir_W[1:2412], 
                                   rep(1:(length(total_reservoir_W[1:2412])/12),each = 12),mean)
 
 
@@ -535,14 +529,14 @@ text(rdate[35],1200,'Inputs', col='#663756', cex=2)
 ax<-seq(0,1500,by=500)
 axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
 par(new=T)
-plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2, col='#DD65B0',
+plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2, col='#DD65B0', 
      ylab=' ',ylim=c(0,500),xlab=' ',yaxt='n',cex.axis=2)
 legend(rdate[120], 1600, col=c('dimgrey','slateblue1' ),legend=c('Inputs','Outputs'), bty='n',pch=19)
 text(rdate[130],375,'Outputs', col='#DD65B0', cex=2)
 ax<-seq(0,500,by=100)
 axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
 par(new=T)
-plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2,lty=2,
+plot(rdate[1:201],total_reservoir_Sed[1:201], type='l',lwd=2,lty=2, 
      col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
 text(rdate[160],14000,'Sediment \n Reservoir', col='#696969', cex=1.62)
 dev.off()
@@ -570,14 +564,14 @@ text(rdate[35],1200,'Inputs', col='#663756', cex=2)
 ax<-seq(0,1500,by=500)
 axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
 par(new=T)
-plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2, col='#DD65B0',
+plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2, col='#DD65B0', 
      ylab=' ',ylim=c(0,500),xlab=' ',yaxt='n',xaxt='n')
-
+ 
 text(rdate[120],375,'Outputs', col='#DD65B0', cex=2)
 ax<-seq(0,500,by=100)
 axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
 par(new=T)
-plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2,lty=2,
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2,lty=2, 
      col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
 text(rdate[140],20,'Water Reservoir', col='#696969', cex=1.62)
 
@@ -601,14 +595,14 @@ text(rdate[35],1200,'Inputs', col='#663756', cex=2)
 ax<-seq(0,1600,by=400)
 axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
 par(new=T)
-plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2, col='#DD65B0',
+plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2, col='#DD65B0', 
      ylab=' ',ylim=c(0,500),xlab=' ',yaxt='n',xaxt='n')
 
 text(rdate[130],375,'Outputs', col='#DD65B0', cex=2)
 ax<-seq(0,500,by=100)
 axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
 par(new=T)
-plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2,lty=2,
+plot(rdate[1:201],total_reservoir_W[1:201], type='l',lwd=2,lty=2, 
      col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
 text(rdate[150],20,'Water Reservoir', col='#696969', cex=1.62)
 
@@ -648,14 +642,14 @@ text(rdate[35],16,'Inputs', col='#663756', cex=2)
 ax<-seq(0,20,by=5)
 axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
 par(new=T)
-plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=2, col='#DD65B0',
+plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=2, col='#DD65B0', 
      ylab=' ',ylim=c(0,3),xlab=' ',yaxt='n',xaxt='n')
 
 text(rdate[130],2.4,'Outputs', col='#DD65B0', cex=2)
 ax<-seq(0,3,by=.5)
 axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
 par(new=T)
-plot(rdate[1:201],total_reservoir_Sed_mehg[1:201], type='l',lwd=2,lty=2,
+plot(rdate[1:201],total_reservoir_Sed_mehg[1:201], type='l',lwd=2,lty=2, 
      col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
 text(rdate[150],14,'Sediment \n Reservoir', col='#696969', cex=1.62)
 
@@ -680,14 +674,14 @@ text(rdate[35],16,'Inputs', col='#663756', cex=2)
 ax<-seq(0,20,by=5)
 axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
 par(new=T)
-plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=2, col='#DD65B0',
+plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=2, col='#DD65B0', 
      ylab=' ',ylim=c(0,3),xlab=' ',yaxt='n',xaxt='n')
 
 text(rdate[130],2.4,'Outputs', col='#DD65B0', cex=2)
 ax<-seq(0,3,by=.5)
 axis(side=4,at=ax, las=2,  col='#DD65B0', cex.axis=2)
 par(new=T)
-plot(rdate[1:201],total_reservoir_W_mehg[1:201], type='l',lwd=2,lty=2,
+plot(rdate[1:201],total_reservoir_W_mehg[1:201], type='l',lwd=2,lty=2, 
      col='#696969', ylab=' ',yaxt='n',xaxt='n',xlab=' ')
 text(rdate[150],.20,'Water Reservoir', col='#696969', cex=1.62)
 
@@ -731,7 +725,7 @@ text(rdate[35],16,'Inputs', col='#663756', cex=2)
 ax<-seq(0,20,by=5)
 axis(side=2,at=ax, las=2, col='#663756',cex.axis=2)
 par(new=T)
-plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=2, col='#DD65B0',
+plot(rdate[1:201],-export_mhg[1:201], type='l',lwd=2, col='#DD65B0', 
      ylab=' ',ylim=c(0,3),xlab=' ',yaxt='n',xaxt='n')
 
 text(rdate[130],2.4,'Outputs', col='#DD65B0', cex=2)
