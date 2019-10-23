@@ -1,6 +1,8 @@
 #setwd('C:/Users/Acer/Desktop/baba/buona/double_in/NNN61/NOsand')
 #setwd('C:/Users/Gi/Desktop/NNN59')
 setwd('D:\\Corta')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Referece_NewPOM\\year')     #sim_cl
+
 str(mehg)
 1900-2101
 2426/12

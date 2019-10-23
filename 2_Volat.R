@@ -5,8 +5,8 @@ atm_hg0<-read.table('atm_hg.txt')    #g/m3
 #setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\year')     #sim_cl
 # setwd('D:\\Ref_long_long')     #sim_cl
-setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM') #\\year
-setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM') #\\
+setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM\\year') 
 
 #???setwd('D:\\Ref_long_long')     #sim_cl   # 2019: rdate[433904:437497]
 

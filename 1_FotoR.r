@@ -4,6 +4,7 @@ area<-411900000  #m2
 #setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK')     #sim_cl
 #setwd('D:\\Ref_long_long')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM\\') 
 
 phRed<-read.csv("Photo_Reduction_Divalent_Hg.csv", header=FALSE, skip = 1, sep = ",", dec=".")
 names(phRed)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',

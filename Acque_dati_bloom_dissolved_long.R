@@ -8,6 +8,7 @@ tmp2<-format(tmp, "%d-%m-%Y")
 setwd('C:\\Users\\Acer\\Desktop\\last\\kd_max\\NB_clok')
 setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10\\')     #sim_cl
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Referece_NewPOM\\')     #sim_cl
 
 hgdiss<-read.csv('Dissolved_Divalent_Hg.csv', skip=1)
 names(hgdiss)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 

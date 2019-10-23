@@ -2,6 +2,7 @@ setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\')     #sim_cl
 IN<-read.table('tot_input_short.txt')
 tot_in<-IN$tt
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM\\year') 
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10', 
@@ -318,7 +319,7 @@ out<--export[1:201]+WWW2[1:201]
 
 png('Reservoirs_tutto2.png',
     width = 21, height = 13,res=300,units = "cm")     # width = 32, height = 18,res=400,
- 
+   
 par(mfrow=c(2,3),mar=c(3,4,2.5,1.5), cex=0.7,
     oma=c(0,1,3,1), bty='n', mgp=c(2.3,.8,0))
 
@@ -330,7 +331,7 @@ par(new=T)
 plot(rdate[1:201],tot_in[1:201], type='l',lwd=3, col='dimgrey', 
      ylab=expression(paste('kg y'^-1)),ylim=c(0,1600),xlab=' ',yaxt='n',
      main=expression(paste(' ')))
-abline(v=rdate[72])
+#abline(v=rdate[72])
 par(new=T)
 plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=3, col='slateblue1', 
      ylab=' ',ylim=c(0,1600),xlab=' ',yaxt='n',

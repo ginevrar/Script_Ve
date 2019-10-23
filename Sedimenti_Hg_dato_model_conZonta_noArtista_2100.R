@@ -1,21 +1,9 @@
- #setwd('G:/Il mio Drive/MERCURIO/Venezia/2017_Venice/eccola15_newInp_max3800') #5_newInp
-#setwd('C:/Users/Acer/Desktop/PiuSILT6_pazzo2')
-#setwd('C:/Users/Acer/Dropbox/NewVenice20/z1')
-#setwd('C:/Users/Acer/Desktop/g')
-# setwd('C:/Users/gi/Dropbox/NewVenice20/z9')
- #setwd('C:/Users/Acer/Desktop/NewVenice20/z19')
-#setwd('C:\\Users\\Acer\\Desktop\\NWBad\\NewVenice21\\2126')
 #setwd('C:/Users/Acer/Desktop/NewVenice20/z20')
 #setwd('C:\\Users\\gi\\Desktop\\2156')
 #setwd('C:\\Users\\gi\\Dropbox\\sim_NaOH')
 setwd('C:\\Users\\Acer\\Desktop\\New_sim\\base')
-setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK\\')     #sim_cl
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Referece_NewPOM\\')     #sim_cl
 
-1900-2101
-2426/12
-# plot da 2424 a 2020
-12*80
- #setwd('C:\\Users\\Acer\\Desktop\\last\\NAOH_iniz10\\')     #sim_cl
 
 1900-2101;2426/12;# plot da 2424 a 2020  12*80
 
@@ -156,16 +144,16 @@ plot(rdate[2: 2424], hg$sc6[2: 2424]/hg$sn1[2: 2424])
 #png('Time_hg_sediment_ns11d.png'
 #width = 1000*1.5, height = 530*1.5, 
 #provare mult*1.5 dimensioni plot
- #   units = "px")
-#par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-#png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb__8hilmnohilcciiDDEFGGMedie_NEW.png',
-#    width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
-#    units = "cm")
+#    units = "px")
+par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
+png('Time_hg_sediment_fin92b_oks_buona48_2100_53bb__8hilmnohilcciiDDEFGGMedie_NEW.png',
+    width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
+    units = "cm")
   c0<-rdate[3]
 par(mfrow=c(2,5),mar=c(3,2,1,1), 
     oma=c(0,3,3,1), bty='n', mgp=c(3.5,1.5,0))
 
-plot(rdate[2: 2424],hg$sn1[2: 2424],ylim=c(-50,5000),
+plot(rdate[2:2424],hg$sn1[2:2424],ylim=c(-50,5000),
      type='l', col='#313695', ylab=' ',
      lwd=2,main='Box1',lty=3,
      xlab= '', cex.lab=2 , cex.main=1.7 , cex.axis=1.6)
@@ -185,6 +173,7 @@ boxplot(box1_77,box1,Zonta1,ylim=c(-50,5000),
         col='#31369588', ylab=' ', range=F,
         boxwex=2700, xaxt='n',yaxt='n', xlim=c(rdate[2],rdate[2424]),
         at=c(c1,c2,c5))   #0.23,0.45
+
 v_text<-c('10cm','15cm','10cm')
 x=c(c1-2500,c2-541,c5+2500)
 y=c(1500,-40,1500)
