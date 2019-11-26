@@ -1,6 +1,6 @@
   setwd('C:/Users/gi/Dropbox/Cloro_Soda_Ve')
   setwd('C:/Users/Acer/Desktop/Future_emissions')
-  
+  setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\Future_Emissions')
    hgL<-read.csv('Hgind_load.csv')
   str(hgL)
   depoo<-read.csv('scenari_DEP_ok.csv', sep=';', header=T)
@@ -17,7 +17,8 @@
   
   #setwd('C:\\Users\\gi\\Dropbox\\sim_cl')
   setwd('C:\\Users\\Acer\\Desktop\\New_sim')     #sim_cl
-   
+  setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\New_SIM')
+  
   years    <-seq(1900,2100)  # sequence of 200 elements (years)
   area     <-4.12E+08   # surface area of the site (m2)  - to compute rates 
   area_km2 <-4.12E+02   # surface area of the site (km2) - to compute rates 
@@ -432,26 +433,15 @@
   write.table(Input_long, file='Input_long.txt')
   
   
-  png('Hg_input_VE2_Cl2bbcdeef.png', units='cm', height = 24,  width = 24, res=400)
   tutt<-data.frame((tott[2]), (tott[3]+tott[4]),
                    (tott[5]),(tott[6]))
   
   rownames(tutt)<-years
   tutt<-as.matrix(tutt); tutt<-t(tutt)
-  
-  
-  #par(cex.axis=1, cex.lab=1, bty='none', mfrow=c(2,2), cex.main=1, mar=c(4.2, 4.5, 4.1, 2.1))
-  #plot(ladata,TOT, type='l', ylim=c(0,1500), xlab='',ylab='kg y-1', 
-  #    main='Hg inputs to the Venice Lagoon')
-  #par(new=T)
-  #png('Hg_input_VE2_BBBB.png', units='cm', height = 31,  width = 31, res=300)
-  
-  
   tutt<-data.frame((tott[2]), (tott[3]+tott[4]),
                    (tott[5]),(tott[6]))
-  
   rownames(tutt)<-years
-  
+ 
   rdate[,1:30]
   tutt1<-colMeans(tutt[1:36,])
   tutt1b<-colMeans(tutt[37:71,])
@@ -461,24 +451,24 @@
   tutt5<-colMeans(tutt[177:201,])
    
   years[161:201]
-  
   tutt<-as.matrix(tutt); tutt<-t(tutt)
   tutt_frame<-data.frame(tutt1,tutt1b,tutt2,tutt3,tutt4,tutt5)
   tutt_mat<-as.matrix(tutt_frame); #tutt_mat<-t(tutt_mat)
   
-
- 
-  
   TOT<-colSums(tutt_frame)
   colnames(tutt_mat)<-c('1900-1935','1936-1970','1971-2005','2006-2040','2041-2075','2076-2100')
-  par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(2,2), cex.main=1.4,
+  
+  
+  png('Figure4a.png', units='cm', height = 24,  width = 24, res=300)
+  
+  par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(1,1), cex.main=1.4,
       mar=c(4.2, 4.5, 4.1, 2.1))
    
   barplot(tutt, beside=F, width = 10,legend.text=F, space=0, names.arg=years,
           border = NA, col=c('cyan3','royalblue','#e2ca4f', 
                              'grey40'))
   #axis(side=1,at=axx)
-  text(40,1500,'A', cex=2.5)
+#  text(40,1500,'A', cex=2.5)
   mtext(text=expression(paste('kg y'^-1)),side=2,  line=2.5, cex=1.3)
   mtext(text='Hg inputs to the Venice Lagoon',side=3,  line=1.5, cex=1.3)
   legend(1300,1500,col=c('cyan3','royalblue','#e2ca4f','grey40'),cex=1.3,
@@ -495,7 +485,12 @@
                        (tutt_mat[,5]/TOT[5]*100),(tutt_mat[,6]/TOT[6]*100))
    perctutt<-as.matrix(perctutt)
    colnames(perctutt)<-c('1900-1935','1936-1970','1971-2005','2006-2040','2041-2075','2076-2100')
-png('RelativeHg1_input_VE2_BBBB.png', units='cm', height = 15,  width = 15, res=300)
+dev.off()
+
+   png('Figure4b_.png', units='cm', height = 24,  width = 24, res=400)
+   
+   par(cex.axis=1.4, cex.lab=1.4, bty='none', mfrow=c(1,1), cex.main=1.4,
+       mar=c(4.2, 4.5, 4.1, 2.1))
    
   # perctutt<-t(perctutt)
   barplot(perctutt, beside=F, width = 10, legend.text=F,ylim=c(0,110),cex.axis=1.4,cex.names = .89,
@@ -512,83 +507,10 @@ png('RelativeHg1_input_VE2_BBBB.png', units='cm', height = 15,  width = 15, res=
   
   r<-c(1,2,10,15,25,30,50) #observational range for atmospheric deposition rate
   
-   #dev.new()
-  boxplot(r, ylim=c(0,60), col='grey80', ylab='', xlab='', 
-          boxwex=1.2)
-    mtext(text='Atmospheric Hg deposition rate',side=3,  line=1.5, cex=1.3)
-  
-  text(0.92,10.5,'range for marine areas \n from GEOS-Chem model \n (UNEP, 2013)' , cex=0.9)
-  #text(.9,17,''  , cex=1.2)
-  #text(.7,15.5,'' , cex=1.2)
-  #text(1.035,14,'', cex=1.2)
-  par(new=T)
-  plot(years,de2_g_km2_y, type='l', ylim=c(0,60),lwd=2,lty=1, col='#117733', xlab='year',ylab=' ')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-  text(years[185],11.8,'Zero \n Emissions' , cex=1.1,col='#117733')
-  par(new=T)
-  plot(years,de3_g_km2_y, type='l', ylim=c(0,60),lwd=2, lty=1,col='#013d5b', xlab='year',ylab=' ')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-  text(years[185],19.5,'Emissions \n Control' , cex=1.1,col='#013d5b')
-  par(new=T)
-  plot(years,de4_g_km2_y, type='l', ylim=c(0,60),lwd=2,lty=1, col='#ce975a', xlab='year',ylab=' ')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-  text(years[185],33.5,'Constant \n Emissions' , cex=1.1,col='#ce975a')
-  par(new=T)
-  plot(years,de5_g_km2_y, type='l', ylim=c(0,60),lwd=2,lty=1, col='#882255', xlab='year',
-       ylab='')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-  text(years[162],42.5,'A1B1' , cex=1.1,col='#882255')
-  par(new=T)
-  plot(years,dep_g_km2_y, type='l', ylim=c(0,60),lwd=2.5, col='cyan3', xlab='year',ylab=' ')  ## range 2 - 25 g km-2 y-1 over marine areas (UNEP, 2013)
-  #text(18,5,'input for \n the Venice lagoon', cex=1.2)
-  text(years[185],24.5,'Reference' , cex=1.1,col='cyan3')
-  text(years[9],60,'C', cex=2.5, outer=T)
-  mtext(text=expression(paste('g km'^-2*' y'^-1)),side=2,  line=2.5, cex=1.3)
-  text(years[162],58,'Scenarios of \n Hg deposition \n (Chen et al., 2018)' , cex=1)
-  
-  
-  plot(ladata,tot_riv/13.2, type='l', col='#4169E1', lwd=3,xlab='year',
-       ylab=' ', ylim=c(0,15)) 
-  mtext(text='River Hg load \n enrichment factor relative to 2008',side=3,  line=1.5, cex=1.3)
-  
-  text(ladata[30],15,'D', cex=2.5)
-  par(new=T)
-  boxplot(ef_1970,ef_1980,ef_1990,ef_2000, ef_2008, ylim=c(0,15),xaxt='n',col='grey80',
-          at=c(71,85,93,100,108), xlim=c(1,201), boxwex=3.5,
-          range = T, outline=T)
-  mtext(text=expression(paste('Enrichment Factor')), side=2,  line=2.5, cex=1.3)
-  dev.off()
-  
-  write.table(all_input,file='all_input_hgII_noSeason.txt')
-  write.table(monthly_riv_mehg,file='monthly_riv_mehg_noSeason.txt')
-  
-  getwd()
+ 
   
   all_input_mean<-tapply(all_input[1:2412,], rep(1:(length(all_input[1:2412,1])/12), each=12), mean)
-  
-  
-  b1inM<-tapply(all_input[1:2412,2], rep(1:(2412/12),each = 12),mean)
-  b2inM<-tapply(all_input[1:2412,3], rep(1:(2412/12),each = 12),mean)
-  b3inM<-tapply(all_input[1:2412,4], rep(1:(2412/12),each = 12),mean)
-  b4inM<-tapply(all_input[1:2412,5], rep(1:(2412/12),each = 12),mean)
-  b5inM<-tapply(all_input[1:2412,6], rep(1:(2412/12),each = 12),mean)
-  b6inM<-tapply(all_input[1:2412,7], rep(1:(2412/12),each = 12),mean)
-  b7inM<-tapply(all_input[1:2412,8], rep(1:(2412/12),each = 12),mean)
-  b8inM<-tapply(all_input[1:2412,9], rep(1:(2412/12),each = 12),mean)
-  b9inM<-tapply(all_input[1:2412,10], rep(1:(2412/12),each = 12),mean)
-  b10inM<-tapply(all_input[1:2412,11], rep(1:(2412/12),each = 12),mean)
-  
-  in_short_hgII<-cbind(b1inM,b2inM,b3inM,b4inM,b5inM,b6inM,b7inM,b8inM,b9inM,b10inM)
-  write.table(in_short_hgII, file='in_short_hgII.txt')
-  
-  tot_in<-data.frame(ladataOK,cumsum(TOT/12))
-  names(tot_in)<-c('data','tot')
-  xx<-tot_in[1261,]
-  xx$tot/1000
-  
-  plot(ind)
-  write.table(ladataOK,file='ladataOK.txt')
-  
-  monthly_riv_mehg
-  
-  tail(ladata)
-  str(monthly_riv)
+
   
   
   
@@ -604,3 +526,5 @@ png('RelativeHg1_input_VE2_BBBB.png', units='cm', height = 15,  width = 15, res=
   #  unnest()
   
   getwd()
+
+  

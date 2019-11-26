@@ -11,7 +11,8 @@
   #setwd('D:\\1931_1960')     #sim_cl
   setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM\\year') 
   setwd('C:\\Users\\gi\\Dropbox\\REference_OK\\year')     #sim_cl
-
+  setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_Ok\\year')     #sim_cl
+  
 
   hg<-read.csv('Total_Hg.csv', skip=1)
   names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -241,10 +242,7 @@
   df2<-data.frame(rdate,hg_outflow_kg_y,Disper_tot_kgy,
                   hg_outflow_kg_y_mhg,Disper_tot_kgy_mhg)
 
-                  (hg_outflow_kg_y_SED+Disper_tot_kgy_SED)
-
-
-  plot(hg_outflow_kg_y+Disper_tot_kgy)
+    plot(hg_outflow_kg_y+Disper_tot_kgy)
   head(hg_outflow_kg_y+Disper_tot_kgy)
   write.table(dfff2, file='Disper_and_OUTfl_tot_kgy.txt')
   write.table(df2, file='Disper_and_OUTfl_tot_kgy_monthy.txt')

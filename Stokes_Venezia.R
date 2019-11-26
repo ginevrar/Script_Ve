@@ -1,6 +1,6 @@
 #************TERMS FOR DEPOSITION ***************block 02**************
 
-   dsilt   = 1.9/10.**5. # silt diameter [m] 
+   dsilt   = 1.2/10.**5. # silt diameter [m] 
 #  	5*10^-5 = coarse silt, 6*10^-6 very fine silt, 1*10^-6 fine clay
    2E-2
    dPOM    = 5./10.**5. # POM diameter [m] 

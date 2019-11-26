@@ -6,7 +6,8 @@ setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
 
 setwd('C:\\Users\\Acer\\Desktop\\New_SIM\\Referece_NewPOM\\year')
 setwd('C:\\Users\\gi\\Dropbox\\REference_OK\\year')     #sim_cl
-
+ 
+setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\REference_OK\\year')     #sim_cl
 
 hg<-read.csv('Total_Hg.csv', skip=1)
 names(hg)<-c('time','wn1','wn2','wn3','wn4','wn5','wc6','wc7','ws8','ws9','ws10',
@@ -264,10 +265,17 @@ total_reservoir_vosed<-c(reservoir_hg_vos1+reservoir_hg_vos2+reservoir_hg_vos3+r
 
 TOT_SED<-total_reservoir_Sed+total_reservoir_dsed+total_reservoir_osed+total_reservoir_vosed
 
+
+max(TOT_SED/10^3)
 tot_ddeeps<-TOT_SED-total_reservoir_Sed
 
 years<-seq(1900,2100)
 plot(years,TOT_SED[1:201]/10^3)
+dff<-data.frame(years,TOT_SED[1:201]/10^3)
+
+
+dff[93,]
+
 
 title(bquote(atop("first line", "second line" ~ x ^ 2)))
 

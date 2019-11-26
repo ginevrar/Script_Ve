@@ -274,4 +274,3 @@ ngm2h_media<-tapply(ngm2h[2:2413], rep(1:(length(ngm2h[2:2413])/12),each = 12),m
 
 plot(ngm2h_media)
 
-13.5/3.3880732

@@ -2,6 +2,7 @@
 #setwd('C:/Users/Gi/Desktop/NNN59')
 setwd('D:\\Corta')     #sim_cl
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Referece_NewPOM\\year')     #sim_cl
+setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\New_SIM\\Reference_OK\\year')
 
 str(mehg)
 1900-2101
@@ -126,7 +127,7 @@ Zonta10<-c(box10_A_hg$Hg, box10_B_hg$Hg)
 #provare mult*1.5 dimensioni plot
 #   units = "px")
 #par(mfrow=c(2,5),mar=c(3,1,1,1), oma=c(0,4,3,1), bty='n')
-png('Time_hg_sediment_fin92b_oks_buona48_2100.png',
+png('Time_hg_sediment_fin92b_oks_buona48_2100_nov.png',
     width = 28, height = 15,res=400,     # width = 32, height = 18,res=400,
     units = "cm")
 par(mfrow=c(2,5),mar=c(3,2,1,1), 
@@ -191,6 +192,33 @@ plot(rdate[1:204],media2[1:204],ylim=c(-50,5000), type='l', col='gray10',
      cex.lab=2 , cex.main=1.7 , lty=1,cex.axis=1.6)
 
 
+plot(rdate[1:204],hg$sn3[1:204], ylim=c(-50,5000), type='l',col='#DDF26B',
+     lwd=2,main='Box3', xlab= '', ylab= '', cex.lab=2 , 
+     cex.main=1.7,lty=3,yaxt='n', cex.axis=1.6)
+
+x=c(c1-1000,c2-541,c5+500+950)
+y=c(3000,-40,3000)
+text(x, y, v_text,cex=1.)  # 10 c
+par(new=T)
+plot(rdate[1:204],hg$dsn3[1:204], ylim=c(-50,5000), type='l',col='#DDF26B',
+     lty=1,lwd=2,main=' ',
+     xlab= '',ylab= '', cex.lab=2 , cex.main=1.7 ,yaxt='n', cex.axis=1.6)
+par(new=T)
+plot(rdate[1:204],hg$osn3[1:204], ylim=c(-50,5000),lty=5, 
+     type='l',col='#DDF26B',lwd=1,main=' ',
+     xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7 , cex.axis=1.6)
+
+par(new=T)
+boxplot(box3_77,box3,Zonta3,ylim=c(-50,5000),col='#DDF26B88',
+        xlim=c(rdate[1],rdate[204]),at=c(c1,c2,c5),
+        ylab= '',boxwex=2700,xaxt='n',yaxt='n' , range=TRUE)#
+par(new=T)  
+plot(rdate[1:204],media3[1:204],ylim=c(-50,5000), type='l', col='gray10',
+     lwd=1.7, main=' ', ylab='Hg (ng/g)',xlab= '', cex.lab=2 ,
+     yaxt='n', cex.main=1.7 , lty=1,cex.axis=1.6)
+
+
+
 plot(rdate[1:204],hg$sn4[1:204], ylim=c(-50,5000), type='l',col='#abd9e9',lwd=2,main='Box4',
      xlab= '',ylab= '',yaxt='n', cex.lab=2 , cex.main=1.7 ,lty=3, cex.axis=1.6)
 x=c(c1-1000,c2-541,c5+500+950)
@@ -214,38 +242,13 @@ plot(rdate[1:204],media4[1:204],ylim=c(-50,5000), type='l', col='gray10',
      ylab='Hg (ng/g)',xlab= '', cex.lab=2 ,
      yaxt='n', cex.main=1.7 , lty=1,cex.axis=1.6)
 
-plot(rdate[1:204],hg$sn3[1:204], ylim=c(-50,5000), type='l',col='#DDF26B',
-     lwd=2,main='Box3', xlab= '', ylab= '', cex.lab=2 , 
-     cex.main=1.7,lty=3,yaxt='n', cex.axis=1.6)
 
-
-x=c(c1-1000,c2-541,c5+500+950)
-y=c(3000,-40,3000)
-text(x, y, v_text,cex=1.)  # 10 c
-par(new=T)
-plot(rdate[1:204],hg$dsn3[1:204], ylim=c(-50,5000), type='l',col='#DDF26B',
-     lty=1,lwd=2,main=' ',
-     xlab= '',ylab= '', cex.lab=2 , cex.main=1.7 ,yaxt='n', cex.axis=1.6)
-par(new=T)
-plot(rdate[1:204],hg$osn3[1:204], ylim=c(-50,5000),lty=5, 
-     type='l',col='#DDF26B',lwd=1,main=' ',
-     xlab= '',ylab= '', cex.lab=2 ,yaxt='n', cex.main=1.7 , cex.axis=1.6)
-
-par(new=T)
-boxplot(box3_77,box3,Zonta3,ylim=c(-50,5000),col='#DDF26B88',
-        xlim=c(rdate[1],rdate[204]),at=c(c1,c2,c5),
-        ylab= '',boxwex=2700,xaxt='n',yaxt='n' , range=TRUE)#
-par(new=T)  
-plot(rdate[1:204],media3[1:204],ylim=c(-50,5000), type='l', col='gray10',
-     lwd=1.7, main=' ', ylab='Hg (ng/g)',xlab= '', cex.lab=2 ,
-     yaxt='n', cex.main=1.7 , lty=1,cex.axis=1.6)
 
 plot(rdate[1:204],hg$sn5[1:204], ylim=c(-50,5000), type='l',col='#e5e572',lwd=2, main='Box5',
      xlab= '',ylab= '', cex.lab=2 , cex.main=1.7 , lty=3,yaxt='n', cex.axis=1.6)
 x=c(c1-1000,c2-541,c5+500+950)
 y=c(3000,-40,3000)
 text(x, y, v_text,cex=1.)  # 10 
-
 par(new=T)
 plot(rdate[1:204],hg$dsn5[1:204], ylim=c(-50,5000), type='l',col='#e5e572',
      lty=1,lwd=2, main='Box5',

@@ -14,7 +14,7 @@ plot(rdate[1:201],tot_in[1:201], type='l',lwd=2, col='gray10',
      ylab=expression(paste('kg y'^-1)),ylim=c(0,1600),xlab=' ',
      yaxt='n',lty=3)
 par(new=T)
-plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',lwd=2,
+plot(rdate[1:201],-export[1:201]+WWW[1:201], type='l',lwd=2,
      col='gray50', lty=2,
      ylab=' ',ylim=c(0,1600),xlab=' ',yaxt='n',
      main=expression(paste('Hg'[T]~'inputs and outputs')))
@@ -32,7 +32,7 @@ plot(rdate[1:201],tot_in[1:201], type='l',lwd=1.5, col='gray10', lty=3,
      ylab='',ylim=c(0,1600),xlab=' ',
      yaxt='n')
 par(new=T)
-plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',
+plot(rdate[1:201],-export[1:201]+WWW[1:201], type='l',
      lwd=1.5,col='gray50', lty=2,
      ylab=' ',ylim=c(0,1600),xlab=' ',yaxt='n')
 par(new=T)
@@ -55,7 +55,7 @@ plot(rdate[1:201],tot_in[1:201], type='l',lwd=1.5, col='gray10', lty=3,
      ylab='',ylim=c(0,1600),xlab=' ',
      yaxt='n')
 par(new=T)
-plot(rdate[1:201],-export[1:201]+WWW2[1:201], type='l',
+plot(rdate[1:201],-export[1:201]+WWW[1:201], type='l',
      lwd=1.5,col='gray50', lty=2,
      ylab=' ',ylim=c(0,1600),xlab=' ',yaxt='n')
 par(new=T)

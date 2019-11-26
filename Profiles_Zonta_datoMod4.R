@@ -13,6 +13,7 @@ dati<-read.table('QSEV_data_box.txt', header=T); str(dati)
 #setwd('C:\\Users\\Acer\\Desktop\\last\\CL_10')     #sim_cl
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Reference_OK') 
 setwd('C:\\Users\\Acer\\Desktop\\New_Sim\\Referece_NewPOM\\')     #sim_cl
+setwd('G:\\Il mio Drive\\MERCURIO\\Venezia\\New_SIM\\Reference_OK\\')
 
 #sim_cl
 hgp<-read.csv('Total_Sorbed_Divalent_Hg_Solids.csv', skip=1)
@@ -310,6 +311,18 @@ plot(b2_profile_mod,y,xlim=c(0,3000), ylim=c(-40,0),ylab=' ',xlab=' ',yaxt='n',
 #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.2, line=2.2)
 mtext(side=3, text='box 2', font=2, cex=1.1, line=.5)
 
+boxplot(bb3,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',xaxt='n',
+        col='#DDF26B22',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
+par(new=T)
+plot(b3_profile_mean*1000,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.1,yaxt='n',ylab=' ',xlab=' ',
+     col='#DDF26B', pch=19)
+par(new=T)
+plot(b3_profile_mod,y,xlim=c(0,3000), yaxt='n', cex=1.2,ylim=c(-40,0), ylab=' ',xlab=' ',
+     col='black', bg='#DDF26B', type='b', pch=25)
+#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.2, line=2.2)
+mtext(side=3, text='box 3', font=2, cex=1.1, line=.5)
+
+
 boxplot(bb4,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',xaxt='n',
         col='#abd9e922',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
 par(new=T)
@@ -321,17 +334,6 @@ plot(b4_profile_mod,y,xlim=c(0,3000),  cex=1.2,ylim=c(-40,0),ylab=' ',xlab=' ',
      yaxt='n', col='black',bg='#abd9e9', type='b', pch=25)
 #mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.2, line=2.2)
 mtext(side=3, text='box 4', font=2, cex=1.1, line=.5)
-
-boxplot(bb3,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',xaxt='n',
-        col='#DDF26B22',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
-par(new=T)
-plot(b3_profile_mean*1000,y,xlim=c(0,3000), ylim=c(-40,0), cex=1.1,yaxt='n',ylab=' ',xlab=' ',
-     col='#DDF26B', pch=19)
-par(new=T)
-plot(b3_profile_mod,y,xlim=c(0,3000), yaxt='n', cex=1.2,ylim=c(-40,0), ylab=' ',xlab=' ',
-     col='black', bg='#DDF26B', type='b', pch=25)
-#mtext(side=1, text=expression(paste ('ng g'^-1)), cex=1.2, line=2.2)
-mtext(side=3, text='box 3', font=2, cex=1.1, line=.5)
 
 boxplot(bb5,  cex=1.2,horizontal = T,xlim=c(5.5,0.5),ylim=c(0,3000), yaxt='n',xaxt='n',
         col='#e5e57222',  type='b', pch=21, boxwex=.3, at=c(0.75,1.35,2.4,3.6,5.5))
