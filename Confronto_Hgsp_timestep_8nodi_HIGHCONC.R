@@ -17,7 +17,7 @@ max(nodo3057_old$Hg2 )
 max(nodo3057$Hg2 )
 
 setwd('C:/Users/gi/Desktop/shyfem68_merc/4Apr_react/')
-setwd('C:\\Users\\Acer\\Desktop\\nuovi_test\\ireib5_sim115')
+setwd('C:\\Users\\Acer\\Desktop\\nuovi_test\\ireib5_sim117')
 
 nodo3985<-read.csv('fort.350')
 nodo2009<-read.csv('fort.359')
